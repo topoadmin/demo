@@ -23,12 +23,36 @@
 	</head>
 
 	<body>
+		<!--<div class="mvTxt">Loading<span class="mvSq">.</span><span class="mvSq">.</span><span class="mvSq">.</span></div>
+			<div class="mvBox">
+		 	<img class="mvBtn" src="images/test1.jpg" />
+		</div>
+		<script language="javascript">
+			 var delVal=50;
+			 function autoMove(){
+				 delVal++;
+				 if(delVal>400){
+					delVal=50; 
+				 }
+				 $(".mvBtn").css("left",delVal);
+			 }
+			 setInterval(autoMove,8);
+			 var deNum=0;
+			 function autoTsq(){
+				$(".mvSq").css("color","#F5FAFD");
+				setTimeout(function(){$(".mvSq").eq(0).css("color","#29B6FF")},0);
+				setTimeout(function(){$(".mvSq").eq(1).css("color","#29B6FF")},500);
+				setTimeout(function(){$(".mvSq").eq(2).css("color","#29B6FF")},1000);
+			 }
+			 setInterval(autoTsq,1500);
+		</script>-->
+
 		<!--宽窄屏-->
-		<!--<article id="warp" class="container kontext">-->
 		<article id="warp" class="container-fluid">
 			<div class="row home show">
 				<div class="col-xs-12 height-100 no-padding one">
 					<h2>第一页</h2>
+					<input type="text" id="inp" value="梦龙小站" style="color: #000;" />
 				</div>
 			</div>
 			<div class="row info hide">
@@ -51,6 +75,9 @@
 
 		<script type="text/javascript" src="js/commonFn.js" charset="UTF-8"></script>
 		<script type="text/javascript" src="js/index.js" charset="UTF-8"></script>
+		<script>
+			
+		</script>
 	</body>
 
 </html>
