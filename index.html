@@ -14,12 +14,13 @@
 		<link rel="stylesheet" href="css/animate.min.css" />
 		<link rel="stylesheet" href="css/commonStyle.css" />
 		<link rel="stylesheet" href="css/home.css" />
-		
-		<script type="text/javascript" src="js/jquery/jquery-1.10.1.min.js" ></script>
+		<link rel="stylesheet" href="css/dengg.css" />
+
+		<script type="text/javascript" src="js/jquery/jquery-1.10.1.min.js"></script>
 		<script type="text/javascript" src="js/bootstarp/bootstrap.min.js" charset="UTF-8"></script>
 		<script type="text/javascript" src="js/jquery/jquery.touchSwipe.js" charset="UTF-8"></script>
 		<script type="text/javascript" src="js/jquery/jquery.mousewheel.js" charset="UTF-8"></script>
-		
+
 	</head>
 
 	<body>
@@ -33,7 +34,66 @@
 			</div>
 			<div class="row info hide">
 				<div class="col-xs-12 height-100 no-padding">
-					<h2>正在加速创造中.....</h2>
+					<!--<h2>正在加速创造中.....</h2>-->
+					<div id="text-shadow-box">
+						<div style="box-shadow: black 0px 28.8px 61px; -webkit-box-shadow: black 0px -163.20000000000002px 94px;" id="tsb-box"></div>
+						<p style="text-shadow: black 274px -163.20000000000002px 74px;" id="tsb-text">正在加速创造中.....</p>
+						<p id="tsb-link"><a href="http://user.qzone.qq.com/908640298">正在加速创造中.....</a>
+						</p>
+						<div id="tsb-wall">
+							<div id="tsb-ie"></div>
+
+						</div>
+
+						<div style="background-position: -685px 304px;" id="tsb-spot"></div>
+					</div>
+					<script type="text/javascript" language="javascript" charset="utf-8">
+						var text = null;
+						var spot = null;
+						var box = null;
+						var boxProperty = '';
+						init();
+			
+						function init() {
+							text = document.getElementById('tsb-text');
+							spot = document.getElementById('tsb-spot');
+							box = document.getElementById('tsb-box');
+							if (typeof box.style.webkitBoxShadow == 'string') {
+								boxProperty = 'webkitBoxShadow';
+							} else if (typeof box.style.MozBoxShadow == 'string') {
+								boxProperty = 'MozBoxShadow';
+							} else if (typeof box.style.boxShadow == 'string') {
+								boxProperty = 'boxShadow';
+							}
+							if (text && spot && box) {
+								document.getElementById('text-shadow-box').onmousemove = onMouseMove;
+								document.getElementById('text-shadow-box').ontouchmove = function(e) {
+									e.preventDefault();
+									e.stopPropagation();
+									onMouseMove({
+										clientX: e.touches[0].clientX,
+										clientY: e.touches[0].clientY
+									});
+								};
+							}
+						}
+			
+						function onMouseMove(e) {
+							if (typeof e === 'undefined' || typeof e.clientX === 'undefined') {
+								return;
+							}
+							var xm = (e.clientX - Math.floor(window.innerWidth / 2)) * 0.4;
+							var ym = (e.clientY - Math.floor(window.innerHeight / 3)) * 0.4;
+							var d = Math.round(Math.sqrt(xm * xm + ym * ym) / 5);
+							text.style.textShadow = -xm + 'px ' + -ym + 'px ' + (d + 10) + 'px black';
+							if (boxProperty) {
+								box.style[boxProperty] = '0 ' + -ym + 'px ' + (d + 30) + 'px black';
+							}
+							xm = e.clientX - Math.floor(window.innerWidth / 2);
+							ym = e.clientY - Math.floor(window.innerHeight / 2);
+							spot.style.backgroundPosition = xm + 'px ' + ym + 'px';
+						}
+					</script>
 				</div>
 			</div>
 			<!--<div class="row resume hide">
@@ -48,7 +108,7 @@
 			</div>-->
 		</article>
 		<ul class="bullets"></ul>
-		
+
 		<script type="text/javascript" src="js/commonFn.js" charset="UTF-8"></script>
 		<script type="text/javascript" src="js/index.js" charset="UTF-8"></script>
 	</body>
