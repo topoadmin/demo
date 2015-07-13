@@ -27,7 +27,7 @@
 	text-align: center;
 }
 #text-shadow-box #tsb-text {
-	font-size: 100px;
+	font-size: 6em;
 	color: transparent;
 	text-shadow: black 0px -45.2px 19px;
 }
@@ -76,5 +76,5 @@
 	height: 200%;
 	pointer-events: none;
 	background: -webkit-gradient(radial, center center, 0, center center, 450, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 1)));
-	background: -moz-radial-gradient(center 45deg, circle closest-side, transparent 0, black 450px);
+	background: -moz-radial-gradient(center 45deg, circle closest-side, transparent 0, black 250px);
 }
