@@ -22,7 +22,6 @@ $(document).ready(function() {
 	warp.swipe({
 		swipe: function(event, direction, distance, duration, fingerCount) {
 			var inout = animateCs.getAnimate();
-			$("ul.straight-bullets").find("li").removeClass("active").eq(0).addClass("active");
 			if (direction == "left") {
 				animateCs.next(inout[0], inout[1], inout[2]);
 			} else if (direction == "right") {
