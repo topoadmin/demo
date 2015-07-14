@@ -2,3 +2,16 @@
 .no-padding{padding: 0;}
 h1,h2,h3{margin: 0;}
 h2{margin-top: 500PX;color: #fff;size: 20PX;}
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) { 
+    h2{
+        background-image: -webkit-linear-gradient(left, #66FF00, #99FFFF 25%, #CCCCFF 50%, #FFCCCC 75%, #FFFFFF);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-background-size: 200% 100%;
+        -webkit-animation: h2-animation 4s infinite linear;
+    }
+}
+@-webkit-keyframes h2-animation {
+    0%  { background-position: 0 0;}
+    100% { background-position: -100% 0;}
+}
