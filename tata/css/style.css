@@ -148,6 +148,7 @@ ul {
 	position: relative;
 	float: left;
 	width: 100%;
+	margin-bottom: 5px;
 }
 .callbacks {
 	position: relative;

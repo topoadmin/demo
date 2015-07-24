@@ -50,7 +50,7 @@ $(function() {
 	$("#owl-demo").owlCarousel({
 		items: 1,
 		lazyLoad: true,
-//		autoPlay: true,
+		autoPlay: true,
 		navigation: false,
 		navigationText: false,
 		pagination: true,
@@ -135,33 +135,56 @@ $(function(){
 		}
 	})
 	
-	// 滑动特效
-	$('#portfoliolist').find(".a-hover").mouseenter(function(){
-		var info = $(this).next();
-		info.fadeIn(555);
-		info.mouseleave(function(){
-			info.fadeOut(222);
-		})
-	});
 	// 点击个人肖像打开个人资料
 	$(".tata-man").find("img").on("click",function(){
 		dialogChange(dialog,"#person-dialog");
 	});
 	
 	addEventInput();	//绑定input输入事件
-	
-	
+	addFiltersChange();
 })
+
+// 选择旅游地区
+function addFiltersChange(){
+	var tsiTitle =0;
+	var filtersSpan = $("#filters").find("span.filter");
+	var tsi = $("#tata-show-img");
+	var tiHover = $(".tata-info");
+	filtersSpan.click(function(){
+		tsi.children("span").removeClass("active");
+		tiHover.fadeOut(555);
+		tsiTitle = 0;
+	})
+	tsi.click(function(){
+		filtersSpan.removeClass("active");
+		tsi.children("span").addClass("active");
+		if(tsiTitle == 0){
+			tiHover.fadeIn(555);
+			tsiTitle = 1;
+		}else{
+			tiHover.fadeOut(555);
+			tsiTitle = 0;
+		}
+	})
+	
+	// 滑动特效
+	var aHover = tiHover.siblings(".a-hover");
+	aHover.mouseenter(function(){
+		var info = $(this).next();
+		info.fadeIn(555);
+	});
+	tiHover.mouseleave(function(){
+		$(this).fadeOut(555);
+	})
+}
 
 // 关闭其他弹窗，展示当前弹窗
 function dialogChange(dialog,node){
 //	$("body").css("overflow-y","hidden");
 	clearTimeout(loginInterval);
 	$(':input').not(':button, :submit, :reset, :hidden').css("border", "1px solid #d5d5d5").val("");
-	$("input[type=text]").val("");
 	$(dialog).removeClass("show").addClass("hide");
-	$(node).addClass("show").removeClass("hide");
-	$(node).find("input").eq(0).focus();
+	$(node).addClass("show").removeClass("hide").find("input").eq(0).focus();
 }
 
 function keyupFn(node){
