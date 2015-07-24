@@ -1,0 +1,218 @@
+/*顶部向下按钮动画*/
+.downAnimate{
+	position: absolute;
+	bottom: 0;
+	z-index: 9;
+	left: 45%;
+	width: 200px;
+	height: 100px;
+}
+
+/*旅游详细信息样式*/
+.tata-info {
+	z-index: 2;
+	border: 2px solid #9EA4A9;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-box-shadow: 0 0 5px 0 #bbb;
+	box-shadow: 0 0 5px 0 #bbb;
+	-webkit-transition: box-shadow 300ms linear;
+	-moz-transition: box-shadow 300ms linear;
+	-o-transition: box-shadow 300ms linear;
+	-ms-transition: box-shadow 300ms linear;
+	transition: box-shadow 300ms linear;
+	display: none;
+}
+/*透明背景*/
+
+.tata-back {
+	filter: alpha(opacity=70);
+	-moz-opacity: 0.7;
+	-khtml-opacity: 0.7;
+	opacity: 0.7;
+	background: #CCCCCC;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.info-top-left {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	padding-top: 6px;
+}
+.info-top-left p {
+	font-weight: 600;
+	width: 100px;
+	text-align: center;
+	font-size: 18px;
+	color: #fff;
+}
+/*.info-top-left p:first-child {
+	color: #000;
+}*/
+.ibf-site{
+	margin-left: 20px;
+	font-weight: 600;
+	font-size: 22px;
+	color: #000
+}
+.info-bottom-right {
+	position: absolute;
+	bottom: 40px;
+	right: 30px;
+	z-index: 99;
+}
+.info-bottom-right .ibf-micon {
+	float: left;
+	margin-top: 8px;
+	color: #fff;
+}
+.info-bottom-right .ibf-info {
+	float: left;
+	font-weight: 600;
+}
+.info-bottom-right .ibf-info .ibf-money {
+	text-align: center;
+	font-size: 24px;
+	color: #fff;
+}
+.info-head-img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 3;
+}
+/*底部图片*/
+
+.info-head-img .tata-man {
+	position: absolute;
+	bottom: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	z-index: 3;
+}
+.info-head-img .tata-man img {
+	position: absolute;
+	width: 80px;
+	height: 110px;
+}
+.info-head-img .tata-man .man-1 {
+	bottom: 120px;
+	left: 10px;
+}
+.info-head-img .tata-man .man-2 {
+	bottom: 120px;
+	left: 95px;
+}
+.info-head-img .tata-man .man-3 {
+	bottom: 120px;
+	left: 180px;
+}
+.info-head-img .tata-man .man-4 {
+	bottom: 5px;
+	left: 10px;
+}
+.info-head-img .tata-man .man-5 {
+	bottom: 5px;
+	left: 95px;
+}
+.info-head-img .tata-man .man-6 {
+	bottom: 5px;
+	left: 180px;
+}
+/*上部图片*/
+
+.info-head-img .tata-woman img {
+	position: absolute;
+	width: 80px;
+	height: 110px;
+}
+.info-head-img .tata-woman .woman-1 {
+	top: 120px;
+	right: 10px;
+}
+.info-head-img .tata-woman .woman-2 {
+	top: 120px;
+	right: 95px;
+}
+.info-head-img .tata-woman .woman-3 {
+	top: 120px;
+	right: 180px;
+}
+.info-head-img .tata-woman .woman-4 {
+	top: 5px;
+	right: 10px;
+}
+.info-head-img .tata-woman .woman-5 {
+	top: 5px;
+	right: 95px;
+}
+.info-head-img .tata-woman .woman-6 {
+	top: 5px;
+	right: 180px;
+}
+/*个人信息弹窗*/
+
+.person-info-img {
+	margin: 30px 0;
+}
+/*播放器样式*/
+
+.play-btn {
+	width: 210px;
+	height: 50px;
+	background-image: url(../video/play-2.png);
+	background-size: 100% 100%;
+	position: absolute;
+	bottom: 20px;
+	right: 100px;
+	cursor: pointer;
+}
+.play-btn:hover {
+	background-image: url(../video/play-1.png);
+	transform: scale(1.2);
+    transition: all 0.5s ease 0s;
+    -webkit-transform: scale(1.2);
+    -webkit-transform: all  0.5s ease 0s;
+}
+/*底部信息*/
+.client-tata {
+	background: url("../img/client-bg.jpg") no-repeat 0px 0px;
+	background-size: cover;
+	height: 160px;
+	width: 100%;
+	min-width: 1200px;
+	position: relative;
+}
+.client-tata-layer {
+	background: rgba(8, 31, 47, 0.89);
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	bottom: 0;
+	position: absolute;
+}
+.client-tata-content{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 5;
+	text-align: center;
+}
+.client-txt {
+	margin-top: 100px;
+	color: #fff;
+}
+
+
+
