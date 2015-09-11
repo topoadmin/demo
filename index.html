@@ -5,6 +5,7 @@
 	<head>
 		<title>Gaos - 主页</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="renderer" content="webkit">
 		<meta name="Keywords" content="前端开发,网页设计,交互设计">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<meta content="yes" name="apple-mobile-web-app-capable">
@@ -19,7 +20,9 @@
 		<script type="text/javascript" src="js/bootstarp/bootstrap.min.js" charset="UTF-8"></script>
 		<script type="text/javascript" src="js/jquery/jquery.touchSwipe.js" charset="UTF-8"></script>
 		<script type="text/javascript" src="js/jquery/jquery.mousewheel.js" charset="UTF-8"></script>
-
+		<style>
+			#info span{font-size: 50px;}
+		</style>
 	</head>
 
 	<body>
@@ -27,7 +30,24 @@
 		<article id="warp" class="container-fluid">
 			<div class="row home show">
 				<div class="col-xs-12 height-100 no-padding one">
-					<h2>第一页</h2>
+					<!--<h2>第一页</h2>-->
+					<h2 id="wenti" style="top: 5%; font-size: 22px;">
+						王小姐是卖鞋的，一双鞋进货价45元,
+						<br> 甩卖30元，顾客来买双鞋给了张100元，
+						<br> 王小姐没零钱，于是找邻铺换了100元。
+						<br> 事后邻铺发现钱是假的，王小姐又赔了邻铺100元。
+						<br> 请问王小姐一共亏了多少元?
+						<br>
+					</h2>
+					
+					<div id="info" style="margin-top: 10%;font-size: 30px;">
+						设 王小姐 身上为&emsp;<span> 45 </span>&emsp;元</br>
+						进鞋45元, 余额&emsp;<span> 0 </span>&emsp;元</br>
+						卖鞋收到假钱100(暂未发现),余额&emsp;<span> 100 </span>&emsp;元</br>
+						跟邻居换100,余额	&emsp;<span> 100 </span>&emsp;元</br>
+						找顾客70元,剩余30元,余额&emsp;<span> 30 </span>&emsp;元</br>
+						又赔了邻铺100元,余额&emsp;<span> 70 </span>&emsp;元</br>
+					</div>
 				</div>
 			</div>
 			<div class="row info hide">
@@ -51,6 +71,12 @@
 		<script type="text/javascript" src="js/commonFn.js" charset="UTF-8"></script>
 		<script type="text/javascript" src="js/index.js" charset="UTF-8"></script>
 		<script>
+			$(function(){
+				setInterval(function(){
+					$("#info span").css("color",getRandomColor());
+				},333);
+				
+			});
 			
 		</script>
 	</body>

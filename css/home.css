@@ -5,13 +5,29 @@ h2{margin-top: 500PX;color: #fff;size: 20PX;}
 @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) { 
     h2{
         background-image: -webkit-linear-gradient(left, #66FF00, #99FFFF 25%, #CCCCFF 50%, #FFCCCC 75%, #FFFFFF);
+        background-image: -moz-linear-gradient(left, #66FF00, #99FFFF 25%, #CCCCFF 50%, #FFCCCC 75%, #FFFFFF);
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
         -webkit-background-size: 200% 100%;
         -webkit-animation: h2-animation 4s infinite linear;
+        
     }
 }
 @-webkit-keyframes h2-animation {
     0%  { background-position: 0 0;}
     100% { background-position: -100% 0;}
+}
+.highlight {
+    background-color: #fff34d;
+    -moz-border-radius: 5px; /* FF1+ */
+    -webkit-border-radius: 5px; /* Saf3-4 */
+    border-radius: 5px; /* Opera 10.5, IE 9, Saf5, Chrome */
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7); /* FF3.5+ */
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7); /* Saf3.0+, Chrome */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7); /* Opera 10.5+, IE 9.0 */
+}
+
+.highlight {
+    padding:1px 4px;
+    margin:0 -4px;
 }
