@@ -499,6 +499,7 @@
 		if (window.location.protocol == 'file:') {
 			alert('To test this demo properly please use a local server such as XAMPP or WAMP. See README.md for more details.');
 		}
+		// 头像上传
 		var resizeableImage = function(image_target) {
 			// Some variable and settings
 			var $container,
@@ -668,7 +669,10 @@
 				crop_canvas.width = width;
 				crop_canvas.height = height;
 				crop_canvas.getContext('2d').drawImage(image_target, left, top, width, height, 0, 0, width, height);
-				window.open(crop_canvas.toDataURL("image/png"));
+				var imgData = crop_canvas.toDataURL("image/png");
+				var img = new Image();
+				img.src = imgData;
+				$('body').append(img);
 			}
 			init();
 		};
