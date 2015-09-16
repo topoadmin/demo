@@ -467,8 +467,7 @@
 				margin-left: 8px;
 			}
 		</style>
-		<!--<script type="text/javascript" src="js/jquery.min.js" ></script>-->
-		<script type="text/javascript" src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
 	</head>
 
 	<body>
@@ -482,6 +481,8 @@
 						<div class="overlay-inner">
 						</div>
 					</div>
+					<!-- This image must be on the same domain as the demo or it will not work on a local file system -->
+					<!-- http://en.wikipedia.org/wiki/Cross-origin_resource_sharing -->
 					<img class="resize-image" src="img/1.jpg" alt="image for resizing">
 					<button class="btn-crop js-crop">Crop<img class="icon-crop" src="http://tympanus.net/Tutorials/ImageResizeCropCanvas/img/crop.svg">
 					</button>
@@ -498,9 +499,9 @@
 		if (window.location.protocol == 'file:') {
 			alert('To test this demo properly please use a local server such as XAMPP or WAMP. See README.md for more details.');
 		}
-		 // 头像上传
+		// 头像上传
 		var resizeableImage = function(image_target) {
-			// 一些变量和设置
+			// Some variable and settings
 			var $container,
 				orig_src = new Image(),
 				image_target = $(image_target).get(0),
@@ -545,8 +546,8 @@
 				event_state.container_height = $container.height();
 				event_state.container_left = $container.offset().left;
 				event_state.container_top = $container.offset().top;
-				event_state.mouse_x = (e.clientX || e.pageX || e.originalEvent.touches[0].clientX) + 0;
-				event_state.mouse_y = (e.clientY || e.pageY || e.originalEvent.touches[0].clientY) + 0;
+				event_state.mouse_x = (e.clientX || e.pageX || e.originalEvent.touches[0].clientX) + $(window).scrollLeft();
+				event_state.mouse_y = (e.clientY || e.pageY || e.originalEvent.touches[0].clientY) + $(window).scrollTop();
 				// This is a fix for mobile safari
 				// For some reason it does not allow a direct copy of the touches property
 				if (typeof e.originalEvent.touches !== 'undefined') {
@@ -562,8 +563,8 @@
 			resizing = function(e) {
 				var mouse = {},
 					width, height, left, top, offset = $container.offset();
-				mouse.x = (e.clientX || e.pageX || e.originalEvent.touches[0].clientX) + 0;
-				mouse.y = (e.clientY || e.pageY || e.originalEvent.touches[0].clientY) + 0;
+				mouse.x = (e.clientX || e.pageX || e.originalEvent.touches[0].clientX) + $(window).scrollLeft();
+				mouse.y = (e.clientY || e.pageY || e.originalEvent.touches[0].clientY) + $(window).scrollTop();
 				// Position image differently depending on the corner dragged and constraints
 				if ($(event_state.evnt.target).hasClass('resize-handle-se')) {
 					width = mouse.x - event_state.container_left;
@@ -629,24 +630,25 @@
 					touches;
 				e.preventDefault();
 				e.stopPropagation();
-				mouse.x = (e.clientX || e.pageX || e.touches[0].pageX);
-				mouse.y = (e.clientY || e.pageY || e.touches[0].pageY);
+				touches = e.originalEvent.touches;
+				mouse.x = (e.clientX || e.pageX || touches[0].clientX) + $(window).scrollLeft();
+				mouse.y = (e.clientY || e.pageY || touches[0].clientY) + $(window).scrollTop();
 				$container.offset({
 					'left': mouse.x - (event_state.mouse_x - event_state.container_left),
 					'top': mouse.y - (event_state.mouse_y - event_state.container_top)
 				});
-				// 注意触控放大的手势而移动
+				// Watch for pinch zoom gesture while moving
 				if (event_state.touches && event_state.touches.length > 1 && touches.length > 1) {
 					var width = event_state.container_width,
 						height = event_state.container_height;
-					var a = event_state.touches[0].pageX - event_state.touches[1].pageX;
+					var a = event_state.touches[0].clientX - event_state.touches[1].clientX;
 					a = a * a;
-					var b = event_state.touches[0].pageY - event_state.touches[1].pageY;
+					var b = event_state.touches[0].clientY - event_state.touches[1].clientY;
 					b = b * b;
 					var dist1 = Math.sqrt(a + b);
-					a = e.originalEvent.touches[0].clientX - touches[1].pageX;
+					a = e.originalEvent.touches[0].clientX - touches[1].clientX;
 					a = a * a;
-					b = e.originalEvent.touches[0].pageY - touches[1].pageY;
+					b = e.originalEvent.touches[0].clientY - touches[1].clientY;
 					b = b * b;
 					var dist2 = Math.sqrt(a + b);
 					var ratio = dist2 / dist1;
@@ -667,6 +669,7 @@
 				crop_canvas.width = width;
 				crop_canvas.height = height;
 				crop_canvas.getContext('2d').drawImage(image_target, left, top, width, height, 0, 0, width, height);
+				// 预览图片
 				var imgData = crop_canvas.toDataURL("image/png");
 				var img = new Image();
 				img.src = imgData;
