@@ -25,14 +25,6 @@ function calLength2(x1, y1, x2, y2) {
 }
 
 /*
- * @method	背景渐变
- * @param 	渐变元素 [c1,c2....]
- */
-function gradientColor(obj){
-	
-}
-
-/*
  * @method	获取随机颜色
  * @param 	透明度 [0,1]
  */
@@ -69,9 +61,7 @@ function rateRandom(m, n) {
 	for (var i = 1; i < (n - m); i++) {
 		sum += i;
 	}
-
 	var ran = Math.random() * sum;
-
 	for (var i = 1; i < (n - m); i++) {
 		ran -= i;
 		if (ran < 0) {

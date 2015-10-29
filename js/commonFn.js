@@ -112,19 +112,19 @@ $(function() {
 		//		showMsgNotification(evt.data);
 	}
 })
+
 window.addEventListener('load', function() {
-	window.addEventListener('load', function() {
-		// At first, let's check if we have permission for notification
-		if (Notification && Notification.permission !== "granted") {
-			Notification.requestPermission(function(status) {
-				if (Notification.permission !== status) {
-					Notification.permission = status;
-				}
-			});
-		}
-	});
+	// At first, let's check if we have permission for notification
+	if (Notification && Notification.permission !== "granted") {
+		Notification.requestPermission(function(status) {
+			if (Notification.permission !== status) {
+				Notification.permission = status;
+			}
+		});
+	}
 });
 
+// 显示窗口信息
 function showMsgNotification(data) {
 	var Notification = window.Notification || window.mozNotification || window.webkitNotification;
 	if (Notification && Notification.permission === "granted") {
@@ -186,6 +186,7 @@ function showMsgNotification(data) {
 	}
 }
 
+// 打印机
 function printEffect(options) {
 	var options = $.extend({
 		intelTime:0,
@@ -230,7 +231,6 @@ function printEffect(options) {
 	};
 	setTimeout(timer, options.start);
 }
-
 
 // 生成随机颜色
 var getRandomColor = function() {
