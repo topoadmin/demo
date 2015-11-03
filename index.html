@@ -9,25 +9,47 @@
 		<meta name="format-detection" content="address=no" />
 		<title>移动端 - sui 框架demo</title>
 		<link rel="stylesheet" href="//g.alicdn.com/sui-mobile/sm/0.5.0/css/sm.min.css">
-		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
 		<link rel="stylesheet" type="text/css" href="css/mobile.css" />
 	</head>
 
 	<body>
+		<div id="load">
+			<div class="preloader-indicator-overlay"></div>
+			<div class="preloader-indicator-modal"><span class="preloader preloader-white"></span></div>
+		</div>
+		
 		<div class="page">
 			<header class="bar bar-nav">
 				<h1 class="title">活动中心</h1>
-				<a class="icon icon-me pull-left open-panel"></a>
+				<a class="icon icon-me pull-left open-panel" href="javascript:;"></a>
 			</header>
 			<div class="content">
 			
 			</div>
 		</div>
+		
+		<!-- 侧栏 -->
 		<div class="panel-overlay"></div>
 		<div class="panel panel-left panel-reveal">
-			<div class="content-block">
-				<p>姓名：Gaoshi</p>
-				<p>年龄：21岁</p>
+			<div class="panel-head">
+				<img src="img/head_bg.jpg" width="100%" />
+				<div class="panel-username">
+					<span>高识</span>
+					<span class="icon icon-settings"></span>
+				</div>
+				<div class="panel-userhead">
+					<img src="img/userhead.jpg" width="100px"/>
+				</div>
+			</div>
+			<div class="panel-tab">
+				<nav class="bar bar-tab panel-bar-tab">
+				    <a class="tab-item active" href="#">文案</a>
+				    <a class="tab-item" href="#">文案</a>
+				    <a class="tab-item" href="#">文案</a>
+			    </nav>
+			</div>
+			<div class="panel-box">
 				
 			</div>
 		</div>
@@ -35,6 +57,12 @@
 		<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 		<script type='text/javascript' src='//g.alicdn.com/sui-mobile/sm/0.5.0/js/sm.min.js' charset='utf-8'></script>
 		<script src="js/mobile.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function(){
+				$("#load").remove();
+				$(".open-panel").click();
+			})
+		</script>
 	</body>
 
 </html>
