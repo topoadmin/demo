@@ -1,14 +1,13 @@
 @charset "utf-8";
-.panel-head{position: relative;}
-.panel-username{text-align: center;padding-top: 3rem;padding-bottom: 1rem;}
-.panel-userhead{position: absolute;text-align: center;width: 100%;top: 5rem;}
-.panel-userhead img{width: 50%;border-radius: 50%;}
-.panel-bar-tab{bottom: auto;}
+/* class前缀为 user 的是自定义，不影响框架*/
+.user-panel{position: relative;}
+.user-head{position: absolute;text-align: center;width: 100%;top: 3rem;}
+.user-head img{width: 100px;border-radius: 50%;}
+.user-name{text-align: center;}
 
-
-.panel-box{line-height: 2;background: #5D6975;}
-
-
+.user-tab .user-bar-tab{height: auto;bottom: auto;background-color: #414A51;}
+.user-tab .user-bar-tab::before{background-color: #414A51;}
+.user-tab .user-bar-tab .user-tab-item {height: auto;}
 
 
 

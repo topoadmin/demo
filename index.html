@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh" class="no-js">
+
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-		<meta name="format-detection" content="telephone=no" />
-		<meta name="format-detection" content="address=no" />
 		<title>移动端 - sui 框架demo</title>
 		<link rel="stylesheet" href="//g.alicdn.com/sui-mobile/sm/0.5.0/css/sm.min.css">
-		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/css3.css" />
 		<link rel="stylesheet" type="text/css" href="css/mobile.css" />
+		<!--[if IE]>
+			<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+		<![endif]-->
+		<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+		<script>
+			$.config = {
+				swipePanelOnlyClose : true	// 关闭滑动打开侧栏
+			}
+		</script>
 	</head>
 
 	<body>
@@ -18,49 +25,99 @@
 			<div class="preloader-indicator-overlay"></div>
 			<div class="preloader-indicator-modal"><span class="preloader preloader-white"></span></div>
 		</div>
-		
-		<div class="page">
+
+		<div class="page touch-page">
 			<header class="bar bar-nav">
-				<h1 class="title">活动中心</h1>
-				<a class="icon icon-me pull-left open-panel" href="javascript:;"></a>
+				<h1 class="title">我的资料</h1>
+				<a class="icon icon-me pull-left open-panel"></a>
 			</header>
 			<div class="content">
-			
 			</div>
+
+			<nav class="bar bar-tab" id="toolbar-bottom">
+				<a class="tab-item " href="home.html">
+					<span class="icon icon-home"></span>
+					<span class="tab-label">首页</span>
+				</a>
+				<a class="tab-item active" href="#">
+					<span class="icon icon-me"></span>
+					<span class="tab-label">资料</span>
+				</a>
+				<a class="tab-item" href="photo.html">
+					<span class="icon icon-picture"></span>
+					<span class="tab-label">相册</span>
+					<span class="badge">2</span>
+				</a>
+			</nav>
 		</div>
-		
-		<!-- 侧栏 -->
+
 		<div class="panel-overlay"></div>
 		<div class="panel panel-left panel-reveal">
-			<div class="panel-head">
+			<div class="user-panel">
 				<img src="img/head_bg.jpg" width="100%" />
-				<div class="panel-username">
-					<span>高识</span>
-					<span class="icon icon-settings"></span>
+				<div class="user-name">
+					<div class="svg-content">
+						<svg viewBox="0 0 600 300">
+							<symbol id="s-text">
+								<text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text--line">
+									Gaoshi
+								</text>
+							</symbol>
+							<clippath id="cp-text">
+								<text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text--line">
+									Gaoshi
+								</text>
+							</clippath>
+							<g clip-path="url(#cp-text)" class="shadow">
+								<rect width="100%" height="100%" class="anim-shape anim-shape--shadow"></rect>
+							</g>
+							<g clip-path="url(#cp-text)" class="colortext">
+								<rect width="100%" height="100%" class="anim-shape"></rect>
+								<rect width="80%" height="100%" class="anim-shape"></rect>
+								<rect width="60%" height="100%" class="anim-shape"></rect>
+								<rect width="40%" height="100%" class="anim-shape"></rect>
+								<rect width="20%" height="100%" class="anim-shape"></rect>
+							</g>
+							<use xlink:href="#s-text" class="text--transparent"></use>
+						</svg>
+					</div>
 				</div>
-				<div class="panel-userhead">
-					<img src="img/userhead.jpg" width="100px"/>
+				<div class="user-head">
+					<img src="img/userhead.jpg" />
 				</div>
 			</div>
-			<div class="panel-tab">
-				<nav class="bar bar-tab panel-bar-tab">
-				    <a class="tab-item active" href="#">文案</a>
-				    <a class="tab-item" href="#">文案</a>
-				    <a class="tab-item" href="#">文案</a>
-			    </nav>
+
+			<div class="user-tab">
+				<nav class="bar bar-tab user-bar-tab">
+					<a class="tab-item user-tab-item" href="#">
+						<p>xx</p>
+						<p>目前月薪</p>
+					</a>
+					<a class="tab-item user-tab-item" href="#"><span>
+				    	<p>1年3月</p>
+						<p>工作年限</p>
+				    </span></a>
+				</nav>
 			</div>
+
 			<div class="panel-box">
-				
+
 			</div>
 		</div>
 
-		<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-		<script type='text/javascript' src='//g.alicdn.com/sui-mobile/sm/0.5.0/js/sm.min.js' charset='utf-8'></script>
+		<!--<script type='text/javascript' src='//g.alicdn.com/sui-mobile/sm/0.5.0/js/sm.min.js' charset='utf-8'></script>-->
+		<script src="js/sm.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/gsPlugsJs.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/mobile.js" type="text/javascript" charset="utf-8"></script>
 		<script>
 			$(function(){
-				$("#load").remove();
-				$(".open-panel").click();
+				$(".touch-page").touchPage({
+					"leftTouch":function(){
+						
+					},"rightTouch":function(){
+						
+					}
+				});
 			})
 		</script>
 	</body>
