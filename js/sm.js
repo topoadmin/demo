@@ -7267,7 +7267,6 @@ $.device = (function ($) {
   Router.prototype.loadPage = function(url) {
 	getBackUrl(url);		//测试
 	
-	
     this.getPage(url, function(page) {
       var pageid = this.getCurrentPage()[0].id;
       this.pushBack({

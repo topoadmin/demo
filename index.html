@@ -111,11 +111,15 @@
 		<script src="js/mobile.js" type="text/javascript" charset="utf-8"></script>
 		<script>
 			$(function(){
+				var toolbar_a = $("#toolbar-bottom").children("a.active");
 				$(".touch-page").touchPage({
 					"leftTouch":function(){
-						
+						toolbar_a.next().click();
 					},"rightTouch":function(){
-						
+//						var rightEvent = document.getElementsByClassName("open-panel");
+//						if(rightEvent){
+//							rightEvent[0].click();
+//						}
 					}
 				});
 			})
