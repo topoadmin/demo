@@ -7,15 +7,11 @@
 		<title>移动端 - sui 框架demo</title>
 		<link rel="stylesheet" href="//g.alicdn.com/sui-mobile/sm/0.5.0/css/sm.min.css">
 		<link rel="stylesheet" type="text/css" href="css/base.css" />
-		<link rel="stylesheet" type="text/css" href="css/css3.css" />
 		<link rel="stylesheet" type="text/css" href="css/mobile.css" />
-		<!--[if IE]>
-			<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
-		<![endif]-->
 		<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
 		<script>
 			$.config = {
-				swipePanelOnlyClose : true	// 关闭滑动打开侧栏
+				swipePanelOnlyClose : false
 			}
 		</script>
 	</head>
@@ -32,21 +28,19 @@
 				<a class="icon icon-me pull-left open-panel"></a>
 			</header>
 			<div class="content">
+				
+				
 			</div>
 
 			<nav class="bar bar-tab" id="toolbar-bottom">
-				<a class="tab-item " href="home.html">
-					<span class="icon icon-home"></span>
-					<span class="tab-label">首页</span>
-				</a>
 				<a class="tab-item active" href="#">
 					<span class="icon icon-me"></span>
 					<span class="tab-label">资料</span>
 				</a>
-				<a class="tab-item" href="photo.html">
-					<span class="icon icon-picture"></span>
-					<span class="tab-label">相册</span>
-					<span class="badge">2</span>
+				<a class="tab-item" href="experience.html">
+					<span class="icon icon-me"></span>
+					<span class="tab-label">项目经验</span>
+					<span class="badge">5</span>
 				</a>
 			</nav>
 		</div>
@@ -107,23 +101,7 @@
 
 		<!--<script type='text/javascript' src='//g.alicdn.com/sui-mobile/sm/0.5.0/js/sm.min.js' charset='utf-8'></script>-->
 		<script src="js/sm.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/gsPlugsJs.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/mobile.js" type="text/javascript" charset="utf-8"></script>
-		<script>
-			$(function(){
-				var toolbar_a = $("#toolbar-bottom").children("a.active");
-				$(".touch-page").touchPage({
-					"leftTouch":function(){
-						toolbar_a.next().click();
-					},"rightTouch":function(){
-//						var rightEvent = document.getElementsByClassName("open-panel");
-//						if(rightEvent){
-//							rightEvent[0].click();
-//						}
-					}
-				});
-			})
-		</script>
 	</body>
 
 </html>
