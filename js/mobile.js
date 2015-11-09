@@ -17,3 +17,22 @@ function getBackUrl(url) {
 		return true;
 	}
 }
+
+function pageTouchFn(){
+	var activePages = $("#toolbar-bottom").children("a.active");
+	$(".page").touchEvents({
+		"leftTouch":function(){
+			console.log("left")
+			var prev = activePages.prev();
+			if(perv.length){
+				prev.click();
+			}
+		},"rightTouch":function(){
+			console.log("right")
+			var next = activePages.next();
+			if(next.length){
+				next.click();
+			}
+		}
+	})
+}
