@@ -1,0 +1,43 @@
+/* Write your styles */
+.go-top {
+	position: fixed;
+	right: 30px;
+	bottom: 70px;
+	z-index: 999999;
+}
+
+#amz-go-top {
+	background-color: #D4D0D0;
+}
+
+#amz-go-top:focus,
+#amz-go-top:hover {
+	background-color: #CAC8C8;
+}
+
+#fixed-top-topbar {
+	z-index: 999999;
+}
+
+#fixed-top-topbar.am-topbar,
+.am-topbar a {
+	color: #fff;
+}
+
+#fixed-top-topbar .am-nav>li>a:focus,
+#fixed-top-topbar .am-nav>li>a:hover {
+	background-color: #1580B7;
+}
+
+#fixed-top-topbar .am-topbar-nav>li>a:hover:after {
+	border-bottom-color: #fff;
+}
+
+.gs-main{
+	
+	
+}
+
+
+
+

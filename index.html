@@ -1,105 +1,102 @@
-<!DOCTYPE html>
-<html lang="zh" class="no-js">
+<!DOCTYPE HTML>
+<html class="js cssanimations">
 
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
-		<title>移动端 - sui 框架demo</title>
-		<link rel="stylesheet" href="//g.alicdn.com/sui-mobile/sm/0.5.0/css/sm.min.css">
-		<link rel="stylesheet" type="text/css" href="css/base.css" />
-		<link rel="stylesheet" type="text/css" href="css/mobile.css" />
-		<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-		<script>
-			$.config = {
-				swipePanelOnlyClose : true
-			}
-		</script>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>admin - 控制台</title>
+		<link rel="stylesheet" href="assets/css/amazeui.min.css">
+		<!--<link rel="stylesheet" type="text/css" href="assets/css/admin.css" />-->
+		<link rel="stylesheet" type="text/css" href="assets/css/app.css" />
 	</head>
 
 	<body>
-		<div id="load">
-			<div class="preloader-indicator-overlay"></div>
-			<div class="preloader-indicator-modal"><span class="preloader preloader-white"></span></div>
-		</div>
-
-		<div class="page touch-page">
-			<header class="bar bar-nav">
-				<h1 class="title">我的资料</h1>
-				<a class="icon icon-me pull-left open-panel"></a>
-			</header>
-			<div class="content">
+		<header class="am-topbar am-topbar-fixed-top am-badge-primary" id="fixed-top-topbar">
+			<div class="am-topbar-brand">
+				<strong>admin</strong> <small>控制台</small>
 			</div>
 
-			<nav class="bar bar-tab" id="toolbar-bottom">
-				<a class="tab-item active" href="#">
-					<span class="icon icon-me"></span>
-					<span class="tab-label">资料</span>
-				</a>
-				<a class="tab-item" href="experience.html">
-					<span class="icon icon-me"></span>
-					<span class="tab-label">项目经验</span>
-					<span class="badge">5</span>
-				</a>
-			</nav>
-		</div>
+			<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
+				<span class="am-sr-only">导航切换</span>
+				<span class="am-icon-bars"></span>
+			</button>
 
-		<div class="panel-overlay"></div>
-		<div class="panel panel-left panel-reveal">
-			<div class="user-panel">
-				<img src="img/head_bg.jpg" width="100%" />
-				<div class="user-name">
-					<div class="svg-content">
-						<svg viewBox="0 0 600 300">
-							<symbol id="s-text">
-								<text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text--line">
-									Gaoshi
-								</text>
-							</symbol>
-							<clippath id="cp-text">
-								<text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text--line">
-									Gaoshi
-								</text>
-							</clippath>
-							<g clip-path="url(#cp-text)" class="shadow">
-								<rect width="100%" height="100%" class="anim-shape anim-shape--shadow"></rect>
-							</g>
-							<g clip-path="url(#cp-text)" class="colortext">
-								<rect width="100%" height="100%" class="anim-shape"></rect>
-								<rect width="80%" height="100%" class="anim-shape"></rect>
-								<rect width="60%" height="100%" class="anim-shape"></rect>
-								<rect width="40%" height="100%" class="anim-shape"></rect>
-								<rect width="20%" height="100%" class="anim-shape"></rect>
-							</g>
-							<use xlink:href="#s-text" class="text--transparent"></use>
-						</svg>
+			<div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+				<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+					<li>
+						<a href="javascript:;">
+							<span class="am-icon-bell am-icon-sm "></span>
+							<span class="am-badge am-badge-success countUp" data-endVal="60">0</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="am-icon-cog am-icon-sm am-icon-spin"></span>
+						</a>
+					</li>
+					<li class="am-dropdown" data-am-dropdown="">
+						<a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
+							<span class="am-icon-user"></span>
+							<small>13701378834@163.com</small>
+							<span class="am-icon-caret-down"></span>
+						</a>
+						<ul class="am-dropdown-content">
+							<li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
+							<li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+						</ul>
+					</li>
+					<li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+				</ul>
+			</div>
+		</header>
+
+		<!--<div class="am-cf">
+			<div class="admin-sidebar am-offcanvas" id="admin-offcanvas" style="top: 52.5px;">
+				<div class="am-offcanvas-bar admin-offcanvas-bar">
+					<ul class="am-list admin-sidebar-list">
+						<li>
+							<a href="#">
+								<span class="am-icon-home"></span> 控制台
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<span class="am-icon-user"></span> 个人资料
+								<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<span class="am-icon-th"></span> 相册页面
+								<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span>
+							</a>
+						</li>
+					</ul>
+
+					<div class="am-panel am-panel-default admin-sidebar-panel">
+						<div class="am-panel-bd">
+							<p><span class="am-icon-bookmark"></span> 公告</p>
+							<p>时光静好，与君语；细水流年，与君同。</p>
+						</div>
 					</div>
 				</div>
-				<div class="user-head">
-					<img src="img/userhead.jpg" />
-				</div>
 			</div>
 
-			<div class="user-tab">
-				<nav class="bar bar-tab user-bar-tab">
-					<a class="tab-item user-tab-item" href="#">
-						<p>xx</p>
-						<p>目前月薪</p>
-					</a>
-					<a class="tab-item user-tab-item" href="#"><span>
-				    	<p>1年3月</p>
-						<p>工作年限</p>
-				    </span></a>
-				</nav>
+			<div style="height: 2000px;">
 			</div>
+		</div>-->
 
-			<div class="panel-box">
-
-			</div>
+		<div class="gs-main">
+			
 		</div>
 
-		<!--<script type='text/javascript' src='//g.alicdn.com/sui-mobile/sm/0.5.0/js/sm.min.js' charset='utf-8'></script>-->
-		<script src="js/sm.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/mobile.js" type="text/javascript" charset="utf-8"></script>
+		<div class="amz-toolbar go-top">
+			<a href="javascript:;" title="回到顶部" class="am-icon-btn am-icon-arrow-up am-hide" id="return-top"></a>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="js/require.js" data-main="js/main"></script>
+
 	</body>
 
 </html>
