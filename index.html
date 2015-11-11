@@ -6,7 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>admin - 控制台</title>
 		<link rel="stylesheet" href="assets/css/amazeui.min.css">
-		<!--<link rel="stylesheet" type="text/css" href="assets/css/admin.css" />-->
+		<link rel="stylesheet" type="text/css" href="assets/css/admin.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/app.css" />
 	</head>
 
@@ -50,8 +50,8 @@
 			</div>
 		</header>
 
-		<!--<div class="am-cf">
-			<div class="admin-sidebar am-offcanvas" id="admin-offcanvas" style="top: 52.5px;">
+		<div class="am-cf admin-main" id="main">
+			<div class="admin-sidebar am-offcanvas" id="admin-offcanvas" >
 				<div class="am-offcanvas-bar admin-offcanvas-bar">
 					<ul class="am-list admin-sidebar-list">
 						<li>
@@ -84,15 +84,13 @@
 
 			<div style="height: 2000px;">
 			</div>
-		</div>-->
-
-		<div class="gs-main">
-			
 		</div>
 
 		<div class="amz-toolbar go-top">
 			<a href="javascript:;" title="回到顶部" class="am-icon-btn am-icon-arrow-up am-hide" id="return-top"></a>
+			<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
 		</div>
+		
 
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="js/require.js" data-main="js/main"></script>
