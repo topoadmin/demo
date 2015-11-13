@@ -13,7 +13,7 @@
 		root.CountUp = factory();
 	}
 }(this, function(require, exports, module) {
-	define(["countUp"], function(countUp) {　　　
+	require(["countUp", ""], function(countUp, layer) {　　
 		$.fn.countUps = function(options) {
 			var defaults = {
 					target: "",
@@ -32,6 +32,20 @@
 				new countUp($this[i], opts.startVal, opts.endVal, opts.decimals, opts.duration).start();
 			}
 		}
-		$(".countUp").countUps({"duration":2.5})　　
+		$(".countUp").countUps({
+			"duration": 2.5
+		});
+
+		laydate({
+			elem: '#birthday',
+			format: 'YYYY/MM/DD ',
+			min: laydate.now(), 
+			max: '2099-06-16', 
+			istime: true,
+			istoday: false,
+			choose: function(datas) {
+				
+			}
+		});
 	});
 }));

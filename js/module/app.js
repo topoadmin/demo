@@ -22,13 +22,12 @@ $(function() {
 	}).on("resize",function(){
 		
 	});
-	
 	// 添加背景动画
 	var divv ='';
 	for(var i=0;i<100;i++){
 		divv += '<div class="c"></div>';
 	}
-//	$(".bg-wrap").append(divv);
+	$(".bg-wrap").append(divv);
 	
 
 	function checkScroll(windows, elems) {

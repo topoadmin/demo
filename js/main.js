@@ -5,8 +5,6 @@ require.config({
     	"amazeui":"../assets/js/amazeui.min",
     	"app":"module/app",
     	"countUp":"module/countUp",
-    	"layer":"module/layer",
-    	"layData":"module/layData",
     	"autoexec":"module/autoexec"
     }
 });

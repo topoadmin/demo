@@ -4,7 +4,7 @@
   } else if (typeof exports === 'object') {
     module.exports = factory(require, exports, module);
   } else {
-    root.CountUp = factory();
+    root.countUp = factory();
   }
 }(this, function(require, exports, module) {
 var CountUp = function(target, startVal, endVal, decimals, duration, options) {
