@@ -13,7 +13,7 @@
 		root.CountUp = factory();
 	}
 }(this, function(require, exports, module) {
-	require(['countUp'], function(countUp) {
+	define(["countUp"], function(countUp) {　　　
 		$.fn.countUps = function(options) {
 			var defaults = {
 					target: "",

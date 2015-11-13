@@ -1,8 +1,9 @@
 /** * admin.css*/
 ul{margin-top: 0;}
 #admin-offcanvas{top: 52.5px;}
-.admin-main{background: #f3f3f3;}
-.admin-menu{position: fixed;z-index: 10;bottom: 30px;right: 20px;}
+/*.admin-main{background: #f3f3f3;}*/
+.admin-menu{position: fixed;z-index: 10;bottom: 30px;right: 30px;background-color: #D4D0D0;}
+.admin-menu:hover{background-color: #A8A5A5;}
 .admin-sidebar{width: 260px;min-height: 100%;float: left;border-right: 1px solid #cecece;}
 .admin-sidebar-list{margin-bottom: 0;}
 .admin-sidebar-list li a{color: #5c5c5c;padding-left: 24px;}
@@ -33,9 +34,11 @@ ul{margin-top: 0;}
 .admin-content-comment .am-comment-bd{font-size: 1.4rem;}
 .admin-content-pagination{margin-bottom: 0;}
 .admin-content-pagination li a{padding: 4px 8px;}
-@media only screen and (min-width: 641px){.admin-sidebar{display: block;position: fixed;background: none;}
-.admin-offcanvas-bar{position: static;width: auto;background: none;-webkit-transform: translate3d(0, 0, 0);-ms-transform: translate3d(0, 0, 0);transform: translate3d(0, 0, 0);}
-.admin-offcanvas-bar:after{content: none;}}
+@media only screen and (min-width: 641px){
+	.admin-sidebar{display: block;position: fixed;background: none;}
+	.admin-offcanvas-bar{position: static;width: auto;background: none;-webkit-transform: translate3d(0, 0, 0);-ms-transform: translate3d(0, 0, 0);transform: translate3d(0, 0, 0);}
+	.admin-offcanvas-bar:after{content: none;}
+}
 @media only screen and (max-width: 640px){
 .admin-sidebar{width: inherit;}
 #admin-offcanvas,#admin-offcanvas .am-offcanvas-bar{top: 51px;}

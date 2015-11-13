@@ -14,7 +14,7 @@
 		<header class="am-topbar am-topbar-fixed-top am-badge-primary" id="fixed-top-topbar">
 			<div class="am-topbar-brand">
 				<strong>admin</strong> <small>控制台</small>
-			</div>
+ 			</div>
 
 			<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
 				<span class="am-sr-only">导航切换</span>
@@ -25,13 +25,15 @@
 				<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
 					<li>
 						<a href="javascript:;">
-							<span class="am-icon-bell am-icon-sm "></span>
+							<span class="am-icon-bell"></span>
+							通知
 							<span class="am-badge am-badge-success countUp" data-endVal="60">0</span>
 						</a>
 					</li>
 					<li>
 						<a href="#">
 							<span class="am-icon-cog am-icon-sm am-icon-spin"></span>
+							设置
 						</a>
 					</li>
 					<li class="am-dropdown" data-am-dropdown="">
@@ -41,11 +43,15 @@
 							<span class="am-icon-caret-down"></span>
 						</a>
 						<ul class="am-dropdown-content">
-							<li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
+							<li><a href="user.html"><span class="am-icon-user"></span> 资料</a></li>
 							<li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
 						</ul>
 					</li>
-					<li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+					<li class="am-hide-sm-only">
+						<a href="javascript:;" id="admin-fullscreen">
+							<span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span>
+						</a>
+					</li>
 				</ul>
 			</div>
 		</header>
@@ -53,14 +59,14 @@
 		<div class="am-cf admin-main" id="main">
 			<div class="admin-sidebar am-offcanvas" id="admin-offcanvas" >
 				<div class="am-offcanvas-bar admin-offcanvas-bar">
-					<ul class="am-list admin-sidebar-list">
-						<li>
-							<a href="#">
+					<ul class="am-list admin-sidebar-list" id="admin-left-nav">
+						<li class="active">
+							<a href="#" style="font-size: 1.7rem;">
 								<span class="am-icon-home"></span> 控制台
 							</a>
 						</li>
 						<li>
-							<a href="#">
+							<a href="user.html">
 								<span class="am-icon-user"></span> 个人资料
 								<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span>
 							</a>
@@ -81,9 +87,8 @@
 					</div>
 				</div>
 			</div>
-
-			<div style="height: 2000px;">
-			</div>
+			
+			<div style="height: 2000px;"></div>
 		</div>
 
 		<div class="amz-toolbar go-top">

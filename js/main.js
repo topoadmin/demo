@@ -3,12 +3,14 @@ require.config({
     paths: {	// -- 配置别名
     	"jquery":"../assets/js/jquery.min",
     	"amazeui":"../assets/js/amazeui.min",
-    	"app":"../assets/module/app",
-    	"countUp":"../assets/module/countUp",
-    	"autoexec":"../assets/module/autoexec"
+    	"app":"module/app",
+    	"countUp":"module/countUp",
+    	"layer":"module/layer",
+    	"layData":"module/layData",
+    	"autoexec":"module/autoexec"
     }
 });
-define(["amazeui"], function($) {　　　
+define(["amazeui"],function(){
 	require(["autoexec","app"]);
 });
 
