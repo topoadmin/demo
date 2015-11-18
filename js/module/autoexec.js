@@ -35,17 +35,5 @@
 		$(".countUp").countUps({
 			"duration": 2.5
 		});
-
-		laydate({
-			elem: '#birthday',
-			format: 'YYYY/MM/DD ',
-			min: laydate.now(), 
-			max: '2099-06-16', 
-			istime: true,
-			istoday: false,
-			choose: function(datas) {
-				
-			}
-		});
 	});
 }));
