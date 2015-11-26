@@ -55,7 +55,7 @@ a::-moz-focus-inner{border-color:transparent!important;}
 #admin-left-nav>li:focus {
 	background-color: #EAEAEA;
 }
-.left-main{
+.pd-left270{
 	padding-left: 270px;
 }
 @media only screen and (max-width: 640px){

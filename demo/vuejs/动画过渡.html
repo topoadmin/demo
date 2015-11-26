@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>vue.js - demo</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			/* 必需 */
+			.expand-transition {
+				transition: all .3s ease;
+				height: 30px;
+				line-height: 30;
+				background-color: #D9EDF7;
+				overflow: hidden;
+			}
+			/* .expand-enter 定义进入的开始状态 */
+			.expand-enter{
+				background-color: #D9EDF7;
+			}
+			/* .expand-leave 定义离开的结束状态 */
+			.expand-leave {
+			}
+			
+			ul {
+				padding-left: 0;
+				font-family: Helvetica, Arial, sans-serif;
+			}
+			
+			.staggered-transition {
+				transition: all .5s ease;
+				overflow: hidden;
+				margin: 0;
+				height: 20px;
+			}
+			
+			.staggered-enter,
+			.staggered-leave {
+				opacity: 0;
+				height: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container text-center" id="app">
+			<div class="row">
+				<h1>{{message}}</h1>
+				<hr />
+				<div class="col-md-12">
+					<div v-if="show" transition="expand">默认值</div>
+					<button @click="show = !show">过渡</button>
+					<hr />
+				</div>
+				<div class="col-md-12">
+					<input class="form-control" v-model="query">
+					<ul class="list-unstyled">
+						<li v-for="item in items | filterBy query" transition="staggered" stagger="100">
+							{{item.li }}
+						</li>
+					</ul>
+				</div>
+				<hr />
+
+			</div>
+		</div>
+		<script type="text/javascript">
+			new Vue({
+				el: '#app',
+				data: {
+					message: '动画过渡演示',
+					show: true,
+					transitionState: 'Idle',
+					query: '',
+					items: [{
+						li: '111'
+					}, {
+						li: '222'
+					}, {
+						li: '333'
+					}, {
+						li: '444'
+					}, {
+						li: '555'
+					}]
+				},
+				transitions: {
+					expand: {
+						beforeEnter: function(el) {
+							el.textContent = '在进入之前'
+						},
+						enter: function(el) {
+							el.textContent = '进入'
+						},
+						afterEnter: function(el) {
+							el.textContent = '进入后'
+						},
+						beforeLeave: function(el) {
+							el.textContent = '在离开之前'
+						},
+						leave: function(el) {
+							el.textContent = '离开'
+						},
+						afterLeave: function(el) {
+							el.textContent = '离开后'
+						}
+					}
+				}
+			});
+		</script>
+	</body>
+
+</html>

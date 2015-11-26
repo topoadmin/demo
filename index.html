@@ -1,105 +1,39 @@
-<!DOCTYPE HTML>
-<html class="js cssanimations">
+<!DOCTYPE html>
+<html lang="zh-CN">
 
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>admin - 控制台</title>
-		<link rel="stylesheet" href="assets/css/amazeui.min.css">
-		<link rel="stylesheet" type="text/css" href="css/admin.css" />
-		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+		<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
 	</head>
 
 	<body>
-		<header class="am-topbar am-topbar-fixed-top am-badge-primary" id="fixed-top-topbar">
-			<div class="am-topbar-brand">
-				<strong>admin</strong> <small>控制台</small>
- 			</div>
-
-			<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
-				<span class="am-sr-only">导航切换</span>
-				<span class="am-icon-bars"></span>
-			</button>
-
-			<div class="am-collapse am-topbar-collapse" id="topbar-collapse">
-				<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+		<div class="container">
+			<div class="row">
+				<hr />
+				<h1 class="text-center">案例演示</h1>
+				<hr />
+				<ul class="list-unstyled text-center">
 					<li>
-						<a href="javascript:;">
-							<span class="am-icon-bell"></span>
-							通知
-							<span class="am-badge am-badge-success countUp" data-endVal="60">0</span>
+						<a href="demo/amazeui/user.html">
+							<h2>amazeui</h2>
 						</a>
+						<hr />
 					</li>
 					<li>
-						<a href="#">
-							<span class="am-icon-cog am-icon-sm am-icon-spin"></span>
-							设置
+						<a href="demo/vuejs/入门.html">
+							<h2>vue.js</h2>
 						</a>
-					</li>
-					<li class="am-dropdown" data-am-dropdown="">
-						<a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
-							<span class="am-icon-user"></span>
-							<small>13701378834@163.com</small>
-							<span class="am-icon-caret-down"></span>
-						</a>
-						<ul class="am-dropdown-content">
-							<li><a href="user.html"><span class="am-icon-user"></span> 资料</a></li>
-							<li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
-						</ul>
-					</li>
-					<li class="am-hide-sm-only">
-						<a href="javascript:;" id="admin-fullscreen">
-							<span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span>
-						</a>
+						<hr />
 					</li>
 				</ul>
 			</div>
-		</header>
-
-		<div class="am-cf admin-main" id="main">
-			<div class="admin-sidebar am-offcanvas" id="admin-offcanvas" >
-				<div class="am-offcanvas-bar admin-offcanvas-bar">
-					<ul class="am-list admin-sidebar-list" id="admin-left-nav">
-						<li class="active">
-							<a href="#" style="font-size: 1.7rem;">
-								<span class="am-icon-home"></span> 控制台
-							</a>
-						</li>
-						<li>
-							<a href="user.html">
-								<span class="am-icon-user"></span> 个人资料
-								<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="am-icon-th"></span> 相册页面
-								<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span>
-							</a>
-						</li>
-					</ul>
-
-					<div class="am-panel am-panel-default admin-sidebar-panel">
-						<div class="am-panel-bd">
-							<p><span class="am-icon-bookmark"></span> 公告</p>
-							<p>时光静好，与君语；细水流年，与君同。</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div style="height: 2000px;"></div>
 		</div>
-
-		<div class="amz-toolbar go-top">
-			<a href="javascript:;" title="回到顶部" class="am-icon-btn am-icon-arrow-up am-hide" id="return-top"></a>
-			<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
-		</div>
-		
-
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="js/require.js" data-main="js/main"></script>
-
 	</body>
 
 </html>

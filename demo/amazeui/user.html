@@ -4,16 +4,17 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">	
 		<title>admin - 控制台</title>
-		<link rel="stylesheet" type="text/css" href="css/load.css" />
 		<link rel="stylesheet" href="assets/css/amazeui.min.css">
 		<link rel="stylesheet" type="text/css" href="css/admin.css" />
 		<link rel="stylesheet" type="text/css" href="css/app.css" />
 	</head>
 
 	<body class="am-with-topbar-fixed-top">
-		<div class="bg-wrap">
-		</div>
+		<!--<div class="bg-wrap">
+		</div>-->
 
 		<header class="am-topbar am-topbar-fixed-top am-badge-primary" id="fixed-top-topbar">
 			<div class="am-topbar-brand">
@@ -59,6 +60,7 @@
 		</header>
 
 		<div class="admin-main" id="main">
+			<!-- start 导航开始 -->
 			<div class="am-cf admin-sidebar am-offcanvas" id="admin-offcanvas">
 				<div class="am-offcanvas-bar admin-offcanvas-bar">
 					<ul class="am-list admin-sidebar-list" id="admin-left-nav">
@@ -89,13 +91,16 @@
 					</div>
 				</div>
 			</div>
-
-			<div class="am-g left-main">
+			<!-- end 导航结束 -->
+			
+			<!-- start 内容开始 -->
+			<div class="am-g pd-left270">
 				<div class="am-cf am-padding">
 					<div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">个人资料</strong></div>
 				</div>
 				<hr>
-
+				
+				<!-- start 头像 -->
 				<div class="am-u-sm-12 am-u-md-12 am-u-lg-4">
 					<div class="am-panel am-panel-default">
 						<div class="am-panel-bd">
@@ -133,7 +138,9 @@
 						</div>
 					</div>
 				</div>
-
+				<!-- end 头像 -->
+				
+				<!-- start 用户信息栏 -->
 				<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-tabs" data-am-tabs>
 					<ul class="am-tabs-nav am-nav am-nav-tabs">
 						<li class="am-active"><a href="#tab1">基本信息</a></li>
@@ -260,9 +267,10 @@
 						</div>
 					</div>
 				</div>
+				<!-- end 用户信息栏 -->
 			</div>
-
-			<!--<p style="height: 2000px;"></p>-->
+			<!-- end 内容结束 -->			
+			
 		</div>
 
 		<div class="amz-toolbar go-top">
@@ -270,9 +278,6 @@
 			<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
 		</div>
 
-		<!--<div style="position: fixed;bottom: 0;left: 0;height: 200px;">
-			<canvas></canvas>
-		</div>-->
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="js/require.js" data-main="js/main"></script>
 

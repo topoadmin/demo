@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>vue.js - demo</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="container text-center" id="app">
+			<h1>{{message}}</h1>
+			<hr />
+			<h4>a=={{a}}</h4>
+			<h4>b=={{b}}</h4>
+			<input type="text" class="form-control" v-model="a">
+			<hr />
+			<h4>c=={{c}}</h4>
+		</div>
+		<script type="text/javascript">
+			var app = new Vue({
+				el: '#app',
+				data: {
+					message: "计算属性",
+					a: 1
+				},
+				computed: {
+					b: function() {
+						return this.a+1
+					},
+					c: {
+						get: function() {
+							return parseInt(this.a)+parseInt(this.b)
+						},
+						set: function(newValue) {
+							var names = newValue.split('')
+							this.firstName = names[0]
+							this.lastName = names[names.length - 1]
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

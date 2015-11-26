@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>vue.js - demo</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<style type="text/css">
+			[v-cloak] {
+				display: none
+			}
+		</style>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="container text-center" id="app">
+			<h1>{{title}}</h1>
+			<hr />
+			<div class="text-center">
+				<strong>超链接</strong>
+				<a v-bind:href="url">{{url}}</a>
+				<hr />
+				<strong>点击事件</strong>
+				<a v-on:click="clicks('事件', $event)">{{clicksv}}</a>
+				<hr />
+				<strong>键盘事件</strong>
+				<input v-on:keyup.enter="enter">
+				<hr />
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			new Vue({
+				el: '#app',
+				data: {
+					title: "指令和参数",
+					url: "https://www.baidu.com/",
+					clicksv: "点我试试"
+				},
+				methods: {
+					clicks: function(txt, event) {
+						this.clicksv = "试试就试试";
+						setTimeout(function() {
+							event.target.innerHTML = "我试过了";
+						}, 1000)
+					},
+					enter: function(event) {
+						alert("回车事件");
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>
