@@ -6,34 +6,66 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="renderer" content="webkit">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<title></title>
+		<title>案例展示中心</title>
 		<link rel="stylesheet" type="text/css" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
-		<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+		<!--<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />-->
+		<style type="text/css">
+			[v-cloak] {
+				display: none
+			}
+			#demowall>li>a>img{
+				height: 300px;
+			}
+		</style>
 	</head>
 
 	<body>
 		<div class="container">
-			<div class="row">
+			<div class="row" id="app">
 				<hr />
-				<h1 class="text-center">案例演示</h1>
+				<div class="text-center">
+					<h1>{{title}}</h1>
+				</div>
 				<hr />
-				<ul class="list-unstyled text-center">
-					<li>
-						<a href="demo/amazeui/user.html">
-							<h2>amazeui</h2>
-						</a>
-						<hr />
-					</li>
-					<li>
-						<a href="demo/vuejs/入门.html">
-							<h2>vue.js</h2>
+				<ul class="list-unstyled text-center" id="demowall">
+					<li v-for="item in items">
+						<a href="{{item.url}}">
+							<img v-my-attr="item.imgSrc" />
+							<h2>{{item.name}}</h2>
 						</a>
 						<hr />
 					</li>
 				</ul>
+				<div class="text-right">
+					<samp>{{samp}}</samp>
+				</div>
 			</div>
 		</div>
+
+		<script src="js/vue.min.js" charset="utf-8"></script>
+		<script type="text/javascript">
+			Vue.directive('my-attr', {
+				update: function(src) {
+					this.el.src = src;
+				}
+			});
+			new Vue({
+				el: '#app',
+				data: {
+					title: "案例演示",
+					samp: "本页面采用bootstrap+vue生成",
+					items: [{
+						name: "amazeui",
+						imgSrc: "image/amazeui.jpg",
+						url: "demo/amazeui/user.html"
+					}, {
+						name: "vue.js",
+						imgSrc: "image/vue.jpg",
+						url: "demo/vuejs/入门.html"
+					}]
+				}
+			})
+		</script>
 	</body>
 
 </html>

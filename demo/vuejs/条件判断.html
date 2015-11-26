@@ -4,28 +4,48 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>vue.js - demo</title>
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/app.css" />
 	</head>
 
 	<body>
-		<div class="container text-center" id="app">
-			<h1>{{title}}</h1>
-			<hr />
-			<p v-if="greeting" class="text-center">{{greeting}}</p>
-			<p v-else class="text-center">{{noGreeting}}</p>
+		<div class="container-fluid" id="app">
+			<div class="row">
+				<div class="col-xs-12 col-sm-4 col-md-3" id="admin_nav" v-cloak>
+					<my-nav></my-nav>
+				</div>
 
-			<a v-bind:href="url"></a>
+				<div class="col-xs-12 col-sm-8 col-md-9 text-center" id="admin_main" v-cloak>
+					<h1>{{message}}</h1>
+					<hr />
+					<div class="text-center">
+						<p class="text-warning" v-if="condition">{{greeting}}</p>
+						<p class="text-success" v-else>{{greeting}}</p>
+					</div>
+					<button type="button" class="btn btn-primary" v-on:click="clicks($event)">切换条件</button>
+				</div>
+			</div>
 		</div>
+
+		<script src="js/require.js" data-main="js/main"></script>
 		<script type="text/javascript">
-			new Vue({
-				el: '#app',
-				data: {
-					title: "条件判断演示",
-					greeting: "我是存在的",
-					noGreeting: "我不存在"
-				}
-			})
+			function init(Vue) {
+				new Vue({
+					el: '#app',
+					data: {
+						message: "条件判断演示",
+						condition:true,
+						greeting: "你看的见我"
+					},
+					methods:{
+						clicks:function(){
+							this.$data.greeting = "另一个我";
+							this.$data.condition = false;
+							
+						}
+					}
+				})
+			}
 		</script>
 	</body>
 

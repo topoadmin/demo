@@ -4,64 +4,75 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>vue.js - demo</title>
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/app.css" />
 	</head>
 
 	<body>
-		<div class="container text-center" id="app">
-			<h1>{{title}}</h1>
-			<hr />
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<td>{{personTitle.name}}</td>
-						<td>{{personTitle.birthday }}</td>
-					</tr>
-				</thead>
-				<tr v-for="person in persons">
-					<td>{{person.name}}</td>
-					<td>{{person.birthday }}</td>
-				</tr>
-			</table>
-			<div id="add">
-				<legend>添加人员</legend>
-				<div class="form-group">
-					<label for="">姓名</label>
-					<input type="text" class="form-control" v-model="person.name">
+		<div class="container-fluid" id="app">
+			<div class="row">
+				<div class="col-xs-12 col-sm-4 col-md-3" id="admin_nav" v-cloak>
+					<my-nav></my-nav>
 				</div>
-				<div class="form-group">
-					<label for="">生日</label>
-					<input type="text" class="form-control" v-model="person.birthday">
+
+				<div class="col-xs-12 col-sm-8 col-md-9 text-center" id="admin_main" v-cloak>
+					<h1>{{message}}</h1>
+					<hr />
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<td>{{personTitle.name}}</td>
+								<td>{{personTitle.birthday }}</td>
+							</tr>
+						</thead>
+						<tr v-for="person in persons">
+							<td>{{person.name}}</td>
+							<td>{{person.birthday }}</td>
+						</tr>
+					</table>
+					<div id="add">
+						<legend>添加人员</legend>
+						<div class="form-group">
+							<label for="">姓名</label>
+							<input type="text" class="form-control" v-model="person.name">
+						</div>
+						<div class="form-group">
+							<label for="">生日</label>
+							<input type="text" class="form-control" v-model="person.birthday">
+						</div>
+						<button class="btn btn-primary btn-block" v-on:click="addperson()">添加</button>
+					</div>
 				</div>
-				<button class="btn btn-primary btn-block" v-on:click="addperson()">添加</button>
 			</div>
 		</div>
+		<script src="js/require.js" data-main="js/main"></script>
 		<script type="text/javascript">
-			new Vue({
-				el: '#app',
-				data: {
-					title: "表格演示",
-					personTitle: {
-						name: '姓名',
-						birthday: "生日"
+			function init(Vue) {
+				new Vue({
+					el: '#app',
+					data: {
+						message: "表格演示",
+						personTitle: {
+							name: '姓名',
+							birthday: "生日"
+						},
+						persons: [{
+							name: '张三',
+							birthday: "1-2"
+						}, {
+							name: "李四",
+							birthday: "2-3"
+						}]
 					},
-					persons: [{
-						name: '张三',
-						birthday: "1-2"
-					}, {
-						name: "李四",
-						birthday: "2-3"
-					}]
-				},
-				methods: {
-					addperson: function() {
-						this.person.id = this.persons.length + 1;
-						this.persons.push(this.person);
-						this.person = '';
+					methods: {
+						addperson: function() {
+							this.person.id = this.persons.length + 1;
+							this.persons.push(this.person);
+							this.person = '';
+						}
 					}
-				}
-			})
+				})
+			}
 		</script>
 	</body>
 

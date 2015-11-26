@@ -4,116 +4,125 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>vue.js - demo</title>
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/app.css" />
 	</head>
 
 	<body>
-		<div class="container text-center" id="app">
+		<div class="container-fluid" id="app">
 			<div class="row">
-				<h1>{{message}}</h1>
-				<hr />
-				<form class="form-horizontal">
-					<div class="form-group">
-						<label class="col-md-2 control-label">姓名：</label>
-						<div class="col-md-10">
-							<input type="text" class="form-control" v-model="name" placeholder="姓名">
-						</div>
-					</div>
+				<div class="col-xs-12 col-sm-4 col-md-3" id="admin_nav" v-cloak>
+					<my-nav></my-nav>
+				</div>
+
+				<div class="col-xs-12 col-sm-8 col-md-9 text-center" id="admin_main" v-cloak>
+					<h1>{{message}}</h1>
 					<hr />
-					<div class="form-group">
-						<label class="col-md-2 control-label">手机号码：</label>
-						<div class="col-md-10">
-							<input type="text" class="form-control" v-model="mobile" placeholder="手机号码" number>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label class="col-md-2 control-label">姓名：</label>
+							<div class="col-md-10">
+								<input type="text" class="form-control" v-model="name" placeholder="姓名">
+							</div>
 						</div>
-					</div>
-					<hr />
-					<div class="form-group">
-						<h3>单选</h3>
-						<label class="col-md-2 control-label">性别：</label>
-						<div class="col-md-10">
-							<label class="radio-inline">
-								<input type="radio" value="1" v-model="sex">男
-							</label>
-							<label class="radio-inline">
-								<input type="radio" value="0" v-model="sex">女
-							</label>
+						<hr />
+						<div class="form-group">
+							<label class="col-md-2 control-label">手机号码：</label>
+							<div class="col-md-10">
+								<input type="text" class="form-control" v-model="mobile" placeholder="手机号码" number>
+							</div>
 						</div>
-					</div>
-					<hr />
-					<div class="form-group">
-						<h3>多选</h3>
-						<label class="col-md-2 control-label">兴趣爱好：</label>
-						<div class="col-md-10">
-							<template v-for="item in hobbyItems">
-								<div class="col-md-{{hobbyItems.length}}">
-									<input type="checkbox" id="{{item.value}}" value="{{item.value}}" v-model="checkHobby">
-									<label for="{{item.value}}">{{item.value}}</label>
-								</div>
-							</template>
+						<hr />
+						<div class="form-group">
+							<h3>单选</h3>
+							<label class="col-md-2 control-label">性别：</label>
+							<div class="col-md-10">
+								<label class="radio-inline">
+									<input type="radio" value="1" v-model="sex">男
+								</label>
+								<label class="radio-inline">
+									<input type="radio" value="0" v-model="sex">女
+								</label>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<h3>下拉单选</h3>
-						<label class="col-md-2 control-label">民族：</label>
-						<div class="col-md-10">
-							<select class="form-control" v-model="nation">
-								<option>汉族</option>
-								<option>其他</option>
-							</select>
+						<hr />
+						<div class="form-group">
+							<h3>多选</h3>
+							<label class="col-md-2 control-label">兴趣爱好：</label>
+							<div class="col-md-10">
+								<template v-for="item in hobbyItems">
+									<div class="col-md-{{hobbyItems.length}}">
+										<input type="checkbox" id="{{item.value}}" value="{{item.value}}" v-model="checkHobby">
+										<label for="{{item.value}}">{{item.value}}</label>
+									</div>
+								</template>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<h3>下拉多选</h3>
-						<label class="col-md-2 control-label">婚姻：</label>
-						<div class="col-md-10">
-							<select class="form-control" v-model="brother" multiple>
-								<option v-for="option in brotherItems">
-									{{option.text}}
-								</option>
-							</select>
+						<div class="form-group">
+							<h3>下拉单选</h3>
+							<label class="col-md-2 control-label">民族：</label>
+							<div class="col-md-10">
+								<select class="form-control" v-model="nation">
+									<option>汉族</option>
+									<option>其他</option>
+								</select>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-sm-12">
-							<button type="button" class="btn btn-primary" v-on:click="submitForm">获取数据</button>
+						<div class="form-group">
+							<h3>下拉多选</h3>
+							<label class="col-md-2 control-label">婚姻：</label>
+							<div class="col-md-10">
+								<select class="form-control" v-model="brother" multiple>
+									<option v-for="option in brotherItems">
+										{{option.text}}
+									</option>
+								</select>
+							</div>
 						</div>
-					</div>
-				</form>
+						<div class="form-group">
+							<div class="col-sm-12">
+								<button type="button" class="btn btn-primary" v-on:click="submitForm">获取数据</button>
+							</div>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
+		<script src="js/require.js" data-main="js/main"></script>
 		<script type="text/javascript">
-			new Vue({
-				el: '#app',
-				data: {
-					message: '表单控件演示',
-					name: "",
-					mobile: "",
-					sex: "1",
-					checkHobby: ["javaScript"],
-					hobbyItems: [{
-						value: 'javaScript'
-					}, {
-						value: 'HTML5'
-					}, {
-						value: 'CSS3'
-					}],
-					nation: '汉族',
-					brother: ['未婚'],
-					brotherItems: [{
-						text: ['未婚']
-					}, {
-						text: '已婚'
-					}, {
-						text: ['已婚', '有孩子']
-					}]
-				},
-				methods: {
-					submitForm: function() {
-						console.log(this.$data);
+			function init(Vue) {
+				new Vue({
+					el: '#app',
+					data: {
+						message: '表单控件演示',
+						name: "",
+						mobile: "",
+						sex: "1",
+						checkHobby: ["javaScript"],
+						hobbyItems: [{
+							value: 'javaScript'
+						}, {
+							value: 'HTML5'
+						}, {
+							value: 'CSS3'
+						}],
+						nation: '汉族',
+						brother: ['未婚'],
+						brotherItems: [{
+							text: ['未婚']
+						}, {
+							text: '已婚'
+						}, {
+							text: ['已婚', '有孩子']
+						}]
+					},
+					methods: {
+						submitForm: function() {
+							console.log(this.$data);
+						}
 					}
-				}
-			});
+				});　　
+			}
 		</script>
 	</body>
 

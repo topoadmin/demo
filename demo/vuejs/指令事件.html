@@ -4,53 +4,60 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>vue.js - demo</title>
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-		<style type="text/css">
-			[v-cloak] {
-				display: none
-			}
-		</style>
-		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/app.css"/>
 	</head>
 
 	<body>
-		<div class="container text-center" id="app">
-			<h1>{{title}}</h1>
-			<hr />
-			<div class="text-center">
-				<strong>超链接</strong>
-				<a v-bind:href="url">{{url}}</a>
-				<hr />
-				<strong>点击事件</strong>
-				<a v-on:click="clicks('事件', $event)">{{clicksv}}</a>
-				<hr />
-				<strong>键盘事件</strong>
-				<input v-on:keyup.enter="enter">
-				<hr />
+		<div class="container-fluid" id="app">
+			<div class="row">
+				<div class="col-xs-12 col-sm-4 col-md-3" id="admin_nav" v-cloak>
+					<my-nav></my-nav>
+				</div>
+
+				<div class="col-xs-12 col-sm-8 col-md-9 text-center" id="admin_main" v-cloak>
+					<h1>{{message}}</h1>
+					<hr />
+					<div class="text-center">
+						<strong>超链接</strong>
+						<a v-bind:href="url">{{url}}</a>
+						<hr />
+						<strong>点击事件</strong>
+						<a v-on:click="clicks('事件', $event)">{{clicksv}}</a>
+						<hr />
+						<strong>键盘事件</strong>
+						<input v-on:keyup.enter="enter">
+						<hr />
+					</div>
+				</div>
 			</div>
 		</div>
 
+		<script src="js/require.js" data-main="js/main"></script>
 		<script type="text/javascript">
-			new Vue({
-				el: '#app',
-				data: {
-					title: "指令和参数",
-					url: "https://www.baidu.com/",
-					clicksv: "点我试试"
-				},
-				methods: {
-					clicks: function(txt, event) {
-						this.clicksv = "试试就试试";
-						setTimeout(function() {
-							event.target.innerHTML = "我试过了";
-						}, 1000)
+			function init(Vue) {
+				new Vue({
+					el: '#app',
+					data: {
+						message: "指令和参数",
+						url: "https://www.baidu.com/",
+						clicksv: "点我试试"
 					},
-					enter: function(event) {
-						alert("回车事件");
+					methods: {
+						clicks: function(txt, event) {
+							this.clicksv = "试试就试试";
+							setTimeout(function() {
+								event.target.innerHTML = "我试过了";
+							}, 1000)
+						},
+						enter: function(event) {
+							alert("回车事件");
+						}
 					}
-				}
-			})
+				})
+			}
 		</script>
+
 	</body>
 
 </html>
