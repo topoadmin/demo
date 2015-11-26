@@ -7,11 +7,5 @@ require.config({
 	}
 });
 define(["vue","myNav"], function(Vue) {　　　　
-//	require(["myNav"], function(navdata) {
-//		var myNav = new Vue({
-//			el: '#admin_nav'
-//		});
-//	});
-	
 	init(Vue);
 });

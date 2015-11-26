@@ -39,9 +39,10 @@
 					},
 					methods:{
 						clicks:function(){
-							this.$data.greeting = "另一个我";
-							this.$data.condition = false;
-							
+							var val = (this.$data.greeting == "另一个我") ? "第一个我" : "另一个我",
+							 ct = this.$data.condition ? false :true;
+							this.$data.greeting = val;
+							this.$data.condition = ct;
 						}
 					}
 				})
