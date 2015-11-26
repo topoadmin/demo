@@ -4,48 +4,57 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>vue.js - demo</title>
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/app.css" />
 	</head>
 
 	<body>
-		<div class="container text-center" id="app" v-cloak>
+		<div class="container-fluid" id="app" v-cloak>
 			<div class="row">
-				<h1>{{message}}</h1>
-				<hr />
-				<button class="btn btn-primary" v-on:click="checkClass">切换class</button>
-				<div class="col-md-12" v-bind:class="[success, warning ? warning : '']">
-					<hr />
-					<hr />
+				<div class="col-xs-12 col-sm-4 col-md-3" id="admin_nav">
+					<my-nav></my-nav>
 				</div>
-				<div class="clearfix"></div>
-				<hr />
-				<h4>设置Style</h4>
-				<div class="col-md-12" v-bind:style="styleSuccess">
+
+				<div class="col-xs-12 col-sm-8 col-md-9 text-center" id="admin_main">
+					<h1>{{message}}</h1>
 					<hr />
+					<button class="btn btn-primary" v-on:click="checkClass">切换class</button>
+					<div class="col-md-12" v-bind:class="[success, warning ? warning : '']">
+						<hr />
+						<hr />
+					</div>
+					<div class="clearfix"></div>
 					<hr />
+					<h4>设置Style</h4>
+					<div class="col-md-12" v-bind:style="styleSuccess">
+						<hr />
+						<hr />
+					</div>
 				</div>
 			</div>
 		</div>
+		<script src="js/require.js" data-main="js/main"></script>
 		<script type="text/javascript">
-			new Vue({
-				el: '#app',
-				data: {
-					message: 'class与style绑定演示',
-					success: "bg-success",
-					warning: false,
-					styleSuccess: {
-						"background-color": '#a5ef92'
+			function init(Vue) {
+				new Vue({
+					el: '#app',
+					data: {
+						message: 'class与style绑定演示',
+						success: "bg-success",
+						warning: false,
+						styleSuccess: {
+							"background-color": '#a5ef92'
+						}
+					},
+					methods: {
+						checkClass: function() {
+							var w = this.warning;
+							(w == "bg-warning") ? w = false: w = "bg-warning";
+							this.warning = w;
+						}
 					}
-				},
-				methods: {
-					checkClass: function() {
-						var w = this.warning;
-						(w == "bg-warning") ? w = false: w = "bg-warning";
-						this.warning = w;
-					}
-				}
-			});
+				});　　
+			}
 		</script>
 	</body>
 

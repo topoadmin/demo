@@ -35,6 +35,9 @@
 	},{
 		url: "自定义指令.html",
 		txt: "自定义指令"
+	},{
+		url: "class与style绑定.html",
+		txt: "class与style绑定.html"
 	}];
 	return nav;
 });
