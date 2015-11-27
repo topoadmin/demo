@@ -4,13 +4,19 @@ require.config({
     	"jquery":"../assets/js/jquery.min",
     	"amazeui":"../assets/js/amazeui.min",
     	"app":"module/app",
+    	"user":"user",
     	"countUp":"module/countUp",
     	"autoexec":"module/autoexec"
     }
 });
-define(["amazeui"],function(){
+require(["amazeui"],function(){
 	require(["autoexec","app"]);
 });
+
+
+
+
+
 
 
 

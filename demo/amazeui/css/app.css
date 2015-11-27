@@ -1,13 +1,8 @@
-/* Write your styles*/
-html{
-	/*background: #F3F3F3;*/
-}
 a {
 	outline: none;
 }
 a::-moz-focus-inner{border-color:transparent!important;}  
 .am-selected{width: 165px;}
-
 
 .go-top {
 	position: fixed;
@@ -32,7 +27,7 @@ a::-moz-focus-inner{border-color:transparent!important;}
 }
 /* 头部导航 */
 #fixed-top-topbar {
-	z-index: 999999;
+	z-index: 1099;
 	border: none;
 }
 #fixed-top-topbar.am-topbar,

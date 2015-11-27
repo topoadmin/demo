@@ -12,10 +12,15 @@
 		<link rel="stylesheet" type="text/css" href="css/app.css" />
 	</head>
 
-	<body>
-		<header class="am-topbar am-topbar-fixed-top am-badge-primary" id="fixed-top-topbar">
+	<body class="am-with-topbar-fixed-top">
+
+		<!-- start 头部导航 -->
+		<header class="am-topbar am-topbar-fixed-top am-badge-primary" id="fixed-top-topbar" data-am-sticky>
 			<div class="am-topbar-brand">
 				<strong>admin</strong> <small>控制台</small>
+				<button class="am-btn am-btn-sm am-btn-primary" id="is-left-nav">
+					<span class="am-icon-bars"></span>
+				</button>
 			</div>
 
 			<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
@@ -55,13 +60,16 @@
 				</ul>
 			</div>
 		</header>
+		<!-- end 头部导航 -->
 
-		<div class="am-cf admin-main" id="main">
-			<div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+		<!-- start 内容区域 -->
+		<div class="admin-main" id="main">
+			<!-- start 导航开始 -->
+			<div class="am-cf admin-sidebar am-offcanvas" id="admin-offcanvas">
 				<div class="am-offcanvas-bar admin-offcanvas-bar">
 					<ul class="am-list admin-sidebar-list" id="admin-left-nav">
 						<li class="active">
-							<a href="#" style="font-size: 1.7rem;">
+							<a href="index.html">
 								<span class="am-icon-home"></span> 控制台
 							</a>
 						</li>
@@ -82,23 +90,43 @@
 					<div class="am-panel am-panel-default admin-sidebar-panel">
 						<div class="am-panel-bd">
 							<p><span class="am-icon-bookmark"></span> 公告</p>
-							<p>时光静好，与君语；细水流年，与君同。</p>
+							<p>时光静好，与君语。</br>细水流年，与君同。</p>
 						</div>
 					</div>
 				</div>
 			</div>
+			<!-- end 导航结束 -->
 
-			<div style="height: 2000px;"></div>
+			<!-- start 内容开始 -->
+			<div class="am-g pd-left270" id="admin-right-main">
+			</div>
+			<!-- end 内容结束 -->
 		</div>
+		<!-- end 内容区域 -->
 
+		<!-- start 加载框 -->
+		<div class="loading am-hide">
+			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" tabindex="-1" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
+				<div class="am-modal-dialog">
+					<div class="am-modal-hd">正在载入...</div>
+					<div class="am-modal-bd">
+						<span class="am-icon-spinner am-icon-spin"></span>
+					</div>
+				</div>
+			</div>
+			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
+		</div>
+		<!-- end 加载框 -->
+
+		<!-- start 返回顶部 -->
 		<div class="amz-toolbar go-top">
-			<a href="javascript:;" title="回到顶部" class="am-icon-btn am-icon-arrow-up am-hide" id="return-top"></a>
+			<a href="javascript:;" data-am-smooth-scroll title="回到顶部" class="am-icon-btn am-icon-arrow-up am-hide" id="return-top"></a>
 			<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
 		</div>
+		<!-- end 返回顶部 -->
 
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="js/require.js" data-main="js/main"></script>
-
+		<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="http://apps.bdimg.com/libs/require.js/2.1.9/require.min.js" data-main="js/main"></script>
 	</body>
 
 </html>

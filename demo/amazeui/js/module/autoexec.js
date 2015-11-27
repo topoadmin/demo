@@ -1,26 +1,25 @@
 /**
- * 各类插件初始执行模块
+ * 各类公共插件初始执行模块
  * @author gaoshi-github 
  * @version 1.0
  */
-
 (function(root, factory) {
 	if (typeof define === 'function' && define.amd) {
 		define(factory);
 	} else if (typeof exports === 'object') {
 		module.exports = factory(require, exports, module);
 	} else {
-		root.CountUp = factory();
+		factory();
 	}
 }(this, function(require, exports, module) {
 	require(["countUp"], function(countUp) {　　
 		$.fn.countUps = function(options) {
 			var defaults = {
-					target: "",
+					target: "",	
 					startVal: "",
 					endVal: "",
-					decimals: 0,
-					duration: 1
+					decimals: 0, //--小数位数
+					duration: 1	 //--持续时间
 				},
 				$this = $(this),
 				opts = $.extend(defaults, options);
