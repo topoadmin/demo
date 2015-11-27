@@ -15,6 +15,7 @@
 			}
 			#demowall>li>a>img{
 				height: 260px;
+				max-width: 100%;
 			}
 		</style>
 	</head>
@@ -30,7 +31,7 @@
 				<ul class="list-unstyled text-center" id="demowall">
 					<li v-for="item in items">
 						<a href="{{item.url}}">
-							<img v-my-attr="item.imgSrc" />
+							<img :src="item.imgSrc" />
 							<h2>{{item.name}}</h2>
 						</a>
 						<hr />
@@ -44,11 +45,6 @@
 
 		<script src="js/vue.min.js" charset="utf-8"></script>
 		<script type="text/javascript">
-			Vue.directive('my-attr', {
-				update: function(src) {
-					this.el.src = src;
-				}
-			});
 			new Vue({
 				el: '#app',
 				data: {
