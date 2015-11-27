@@ -37,7 +37,13 @@
 		txt: "自定义指令"
 	},{
 		url: "class与style绑定.html",
-		txt: "class与style绑定.html"
+		txt: "class与style绑定"
+	},{
+		url: "组件.html",
+		txt: "组件"
+	},{
+		url: "自定义过滤器.html",
+		txt: "自定义过滤器"
 	}];
 	return nav;
 });
