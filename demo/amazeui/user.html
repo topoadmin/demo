@@ -8,6 +8,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<title>admin - 控制台</title>
 		<link rel="stylesheet" href="assets/css/amazeui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/amazeui.datetimepicker.css" />
+		<link rel="stylesheet" type="text/css" href="css/amazeui.chosen.css" />
 		<link rel="stylesheet" type="text/css" href="css/admin.css" />
 		<link rel="stylesheet" type="text/css" href="css/app.css" />
 	</head>
@@ -70,19 +72,13 @@
 					<ul class="am-list admin-sidebar-list" id="admin-left-nav">
 						<li>
 							<a href="index.html">
-								<span class="am-icon-home"></span> 控制台
+								<span class="am-icon-home"></span> 会员等级
 							</a>
 						</li>
 						<li class="active">
 							<a href="user.html">
-								<span class="am-icon-user"></span> 个人资料
+								<span class="am-icon-user"></span> 账户信息
 								<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span class="am-icon-th"></span> 相册页面
-								<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span>
 							</a>
 						</li>
 					</ul>
@@ -105,11 +101,11 @@
 				<hr>
 
 				<!-- start 头像 -->
-				<div class="am-u-sm-12 am-u-md-12 am-u-lg-4">
+				<div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
 					<div class="am-panel am-panel-default">
 						<div class="am-panel-bd">
 							<div class="am-g am-text-center">
-								<div class="am-u-sm-6 am-u-md-6 admin-push-3">
+								<div class="am-u-sm-8 am-u-md-8 am-u-sm-push-2">
 									<img class="am-img-circle am-img-thumbnail" src="img/q2.jpg">
 									<form class="am-form">
 										<div class="am-form-group">
@@ -120,7 +116,7 @@
 										</div>
 									</form>
 								</div>
-								<div class="am-u-md-6">
+								<div class="am-u-md-12">
 									<div class="am-panel am-panel-default">
 										<div class="am-panel-bd">
 											<div class="user-info">
@@ -130,10 +126,10 @@
 											</div>
 											<div class="user-info">
 												<p>真实度</p>
-												<div class="am-progress am-progress-sm">
+												<div class="am-progress am-progress-striped am-progress-sm am-active">
 													<div class="am-progress-bar am-progress-bar-warning" style="width: 30%"></div>
 												</div>
-												<p class="user-info-order">未验证身份 </p>
+												<p class="user-info-order">身份未经专人验证 </p>
 											</div>
 										</div>
 									</div>
@@ -145,15 +141,22 @@
 				<!-- end 头像 -->
 
 				<!-- start 用户信息栏 -->
-				<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-tabs" data-am-tabs>
+				<div class="am-u-sm-12 am-u-md-12 am-u-lg-9 am-tabs" data-am-tabs>
 					<ul class="am-tabs-nav am-nav am-nav-tabs">
-						<li class="am-active"><a href="#tab1">基本信息</a></li>
-						<li><a href="#tab2">真实信息</a></li>
-						<li><a href="#tab3">兴趣分类</a></li>
+						<li class="am-active"><a href="#basic-tab">基本信息</a></li>
+						<li><a href="#reality-tab">真实信息</a></li>
+						<li><a href="#hobby-tab">兴趣分类</a></li>
 					</ul>
-					<div class="am-tabs-bd">
-						<div class="am-tab-panel am-fade am-in am-active" id="tab1">
+
+					<div class="am-tabs-bd" id="form-box">
+						<div class="am-tab-panel am-fade  am-in am-active" id="basic-tab">
 							<form class="am-form am-form-horizontal">
+								<div class="am-form-group">
+									<label class="am-u-sm-4 am-u-md-4 am-u-lg-3 am-form-label">会员编号：</label>
+									<div class="am-u-sm-8 am-u-md-8 am-u-lg-9">
+										<input type="text" readonly class="am-form-field" placeholder="自动生成">
+									</div>
+								</div>
 								<div class="am-form-group">
 									<label class="am-u-sm-4 am-u-md-4 am-u-lg-3 am-form-label">昵　　称：</label>
 									<div class="am-u-sm-8 am-u-md-8 am-u-lg-9">
@@ -162,23 +165,32 @@
 								</div>
 
 								<div class="am-form-group">
-									<label class="am-u-sm-4 am-u-md-4 am-u-lg-3 am-form-label">电　　话：</label>
+									<label class="am-u-sm-4 am-u-md-4 am-u-lg-3 am-form-label">婚姻状况：</label>
 									<div class="am-u-sm-8 am-u-md-8 am-u-lg-9">
-										<input type="email" placeholder="输入你的电话号码">
+										<select data-am-selected="{btnSize: 'sm'}">
+											<option>未婚</option>
+											<option>离异无子</option>
+										</select>
 									</div>
 								</div>
-
+								
 								<div class="am-form-group">
-									<label class="am-u-sm-4 am-u-md-4 am-u-lg-3 am-form-label">Q 　　Q：</label>
+									<label class="am-u-sm-4 am-u-md-4 am-u-lg-3 am-form-label">星　　座：</label>
 									<div class="am-u-sm-8 am-u-md-8 am-u-lg-9">
-										<input type="email" placeholder="输入你的QQ号码">
-									</div>
-								</div>
-
-								<div class="am-form-group">
-									<label class="am-u-sm-4 am-u-md-4 am-u-lg-3 am-form-label">电子邮箱：</label>
-									<div class="am-u-sm-8 am-u-md-8 am-u-lg-9">
-										<input type="email" placeholder="输入你的电子邮箱">
+										<select class="form-select">
+											<option value="白羊座">白羊座</option>
+											<option value="金牛座">金牛座</option>
+											<option value="双子座">双子座</option>
+											<option value="巨蟹座">巨蟹座</option>
+											<option value="狮子座">狮子座</option>
+											<option value="处女座">处女座</option>
+											<option value="天枰座">天枰座</option>
+											<option value="天蝎座">天蝎座</option>
+											<option value="射手座">射手座</option>
+											<option value="魔蝎座">魔蝎座</option>
+											<option value="水瓶座">水瓶座</option>
+											<option value="双鱼座">双鱼座</option>
+										</select>
 									</div>
 								</div>
 
@@ -190,7 +202,7 @@
 							</form>
 						</div>
 
-						<div class="am-tab-panel am-fade" id="tab2">
+						<div class="am-tab-panel am-fade" id="reality-tab">
 							<form class="am-form am-form-horizontal">
 								<div class="am-form-group">
 									<label class="am-u-sm-4 am-u-md-4 am-u-lg-3 am-form-label">姓　　名：</label>
@@ -202,7 +214,7 @@
 								<div class="am-form-group">
 									<label class="am-u-sm-4 am-u-md-4 am-u-lg-3 am-form-label">星　　座：</label>
 									<div class="am-u-sm-8 am-u-md-8 am-u-lg-9">
-										<select data-am-selected="{btnSize: 'sm',maxHeight: 140}">
+										<select class="form-select">
 											<option value="白羊座">白羊座</option>
 											<option value="金牛座">金牛座</option>
 											<option value="双子座">双子座</option>
@@ -222,7 +234,11 @@
 								<div class="am-form-group">
 									<label class="am-u-sm-4 am-u-md-4 am-u-lg-3 am-form-label">生　　日：</label>
 									<div class="am-u-sm-8 am-u-md-8 am-u-lg-9">
-										<input type="text" class="am-form-field" placeholder="生日选择" data-am-datepicker readonly/>
+										<div class="am-input-group date form-datetime" data-date="2015-12-1 14:45" data-date-format="yyyy-mm-dd hh:ii" data-date-enddate="2015-12-2 15:30">
+											<span class="am-input-group-label add-on"><i class="icon-th am-icon-calendar"></i></span>
+											<input size="16" type="text" value="2015-12-1 14:45" class="am-form-field" readonly>
+											<span class="am-input-group-label add-on"><i class="icon-remove am-icon-close"></i></span>
+										</div>
 									</div>
 								</div>
 
@@ -238,7 +254,7 @@
 									</div>
 								</div>
 
-								<div class="am-form-group">
+								<!--<div class="am-form-group">
 									<label class="am-u-sm-4 am-u-md-4 am-u-lg-3 am-form-label">身 份 证 ：</label>
 									<div class="am-u-sm-8 am-u-md-8 am-u-lg-9">
 										<input type="text" placeholder="身份证">
@@ -249,7 +265,7 @@
 									<div class="am-u-sm-12 am-text-center">
 										<button type="button" class="am-btn am-btn-primary btn-loading-example">验证身份证</button>
 									</div>
-								</div>
+								</div>-->
 
 								<div class="am-form-group">
 									<div class="am-u-sm-9 am-u-sm-push-3">
@@ -259,7 +275,7 @@
 							</form>
 						</div>
 
-						<div class="am-tab-panel am-fade" id="tab3">
+						<div class="am-tab-panel am-fade" id="hobby-tab">
 							<form class="am-form am-form-horizontal">
 								<div class="am-form-group">
 									<label class="am-u-sm-4 am-u-md-4 am-u-lg-3 am-form-label">姓　　名：</label>
@@ -269,6 +285,7 @@
 								</div>
 							</form>
 						</div>
+
 					</div>
 				</div>
 				<!-- end 用户信息栏 -->
@@ -277,20 +294,6 @@
 			<!-- end 内容结束 -->
 		</div>
 		<!-- end 内容区域 -->
-
-		<!-- start 加载框 -->
-		<div class="loading am-hide">
-			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" tabindex="-1" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
-				<div class="am-modal-dialog">
-					<div class="am-modal-hd">正在载入...</div>
-					<div class="am-modal-bd">
-						<span class="am-icon-spinner am-icon-spin"></span>
-					</div>
-				</div>
-			</div>
-			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
-		</div>
-		<!-- end 加载框 -->
 
 		<!-- start 返回顶部 -->
 		<div class="amz-toolbar go-top">

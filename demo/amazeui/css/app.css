@@ -1,8 +1,14 @@
 a {
 	outline: none;
 }
-a::-moz-focus-inner{border-color:transparent!important;}  
-.am-selected{width: 165px;}
+
+a::-moz-focus-inner {
+	border-color: transparent!important;
+}
+
+.am-selected {
+	width: 165px;
+}
 
 .go-top {
 	position: fixed;
@@ -10,77 +16,98 @@ a::-moz-focus-inner{border-color:transparent!important;}
 	bottom: 100px;
 	z-index: 1001;
 }
-#main{
-	position: absolute;
-	top: 51px;
+
+#main {
+	/*position: absolute;*/
+	/*top: 51px;*/
 	z-index: 2;
 }
+
 #return-top {
 	background-color: #D4D0D0;
 }
+
 #return-top:hover {
 	background-color: #A8A5A5;
 }
 
-#topbar-collapse .am-topbar-nav>li.am-active>a{
-    color: #fff;
+#topbar-collapse .am-topbar-nav>li.am-active>a {
+	color: #fff;
 }
+
+
 /* 头部导航 */
+
 #fixed-top-topbar {
 	z-index: 1099;
 	border: none;
 }
+
 #fixed-top-topbar.am-topbar,
 .am-topbar a {
 	color: #fff;
 }
+
 #fixed-top-topbar .am-nav>li>a:focus,
 #fixed-top-topbar .am-nav>li>a:hover {
 	background-color: #1580B7;
 }
+
 #fixed-top-topbar .am-topbar-nav>li>a:hover:after {
 	border-bottom-color: #fff;
 }
 
+
 /* 左侧导航 */
-#admin-left-nav>li.active{
+
+#admin-left-nav>li.active {
 	background-color: #D4D0D0;
 }
+
 #admin-left-nav>li:hover,
 #admin-left-nav>li:focus {
 	background-color: #EAEAEA;
 }
-.pd-left270{
+
+.pd-left270 {
 	padding-left: 270px;
 }
-@media only screen and (max-width: 640px){
-	.pd-left270{
+
+@media only screen and (max-width: 640px) {
+	.pd-left270 {
 		padding-left: 0px;
 	}
-	#main{
+	#main {
 		position: static;
 	}
-	.bg-wrap{
+	.bg-wrap {
 		display: none;
 	}
 }
+
 @media only screen and (max-width: 980px) {
-	#main{
+	#main {
 		position: static;
 	}
-	.bg-wrap{
+	.bg-wrap {
 		display: none;
 	}
 }
+
 
 /* 下拉框颜色 */
-.am-active .am-btn-default.am-dropdown-toggle, .am-btn-default.am-active, .am-btn-default:active {
-    background-color: #fff;
+.am-active .am-btn-default.am-dropdown-toggle,
+.am-btn-default.am-active,
+.am-btn-default:active {
+	background-color: #fff;
 }
-.check-radio .am-radio-inline{
+.check-radio .am-radio-inline {
 	padding-top: 0;
 }
-
+/* 账户信息表单最小高度 */
+#form-box {
+	min-height: 500px;
+}
 
 
 

@@ -84,14 +84,14 @@ gallery.html css*/.gallery-list li{padding: 10px;}
 .fixed-layout .admin-sidebar.am-active{z-index: 1600;}
 
 /* 自定义响应式布局类  */
-.admin-push-3{
+/*.admin-push-3{
 	left: 0;
-}
-@media only screen and (max-width:641px) {
+}*/
+/*@media only screen and (max-width:641px) {
 	.admin-push-3{
 		left: 25%;
 	}	
-}
+}*/
 #is-left-nav{display: none;}
 @media only screen and (min-width:800px) {
 	#is-left-nav{display: inline-block;}
