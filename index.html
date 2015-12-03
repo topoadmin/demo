@@ -14,7 +14,7 @@
 				display: none
 			}
 			#demowall>li>a>img{
-				height: 260px;
+				height: 150px;
 				max-width: 100%;
 			}
 		</style>
@@ -28,11 +28,12 @@
 					<h1>{{title}}</h1>
 				</div>
 				<hr />
-				<ul class="list-unstyled text-center" id="demowall">
-					<li v-for="item in items">
+				<ul class="list-unstyled text-center clearfix" id="demowall">
+					<li v-for="item in items" class="col-sm-6">
 						<a href="{{item.url}}">
 							<img :src="item.imgSrc" />
 							<h2>{{item.name}}</h2>
+							<samp>{{item.samp}}</samp>
 						</a>
 						<hr />
 					</li>
@@ -51,13 +52,20 @@
 					title: "案例演示",
 					samp: "本页面采用bootstrap+vue生成",
 					items: [{
-						name: "amazeui",
+						name: "用户管理面板",
 						imgSrc: "image/amazeui.jpg",
-						url: "demo/amazeui/user.html"
+						url: "demo/amazeui/user.html",
+						samp:"amazeui + jq"
+					},{
+						name: "商城或旅游移动站",
+						imgSrc: "image/amazeuim.png",
+						url: "demo/amazeui-m/index.html",
+						samp:"amazeui + jq"
 					}, {
-						name: "vue.js",
+						name: "vue.js-学习",
 						imgSrc: "image/vue.jpg",
-						url: "demo/vuejs/入门.html"
+						url: "demo/vuejs/入门.html",
+						samp:"bootstrap + vue"
 					}]
 				}
 			})

@@ -2,12 +2,13 @@
 require.config({
     paths: {	// -- 配置别名
     	"amazeui":"../assets/js/amazeui.min",
-    	"app":"module/app",
-    	"user":"user",
     	"countUp":"module/countUp",
-    	"autoexec":"module/autoexec",
+    	"chosen":"module/amazeui.chosen",
     	"datetime":"module/amazeui.datetimepicker",
-    	"chosen":"module/amazeui.chosen"
+    	"citiesChange":"module/jquery.citiesChange",
+    	"autoexec":"page/autoexec",
+    	"app":"page/app",
+    	"user":"page/user",
     }
 });
 require(["amazeui"],function(){

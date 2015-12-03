@@ -37,7 +37,7 @@
 			});
 		});
 	}
-	
+
 	if ($('.form-datetime').length > 0) {
 		require(["datetime"], function(countUp) {　　
 			$.fn.datetimepicker.dates['zh-CN'] = {
@@ -58,16 +58,24 @@
 			});
 		});
 	}
-	
+
 	if ($('.form-select').length > 0) {
-		require(["chosen"], function(countUp) {　　
+		require(["chosen"], function() {　　
 			$('.form-select').chosen({
+				disable_search_threshold: 10,
 				default_multiple_text: "多选",
 				default_single_text: "单选",
-				no_results_text: '没有找到匹配的项！'
+				no_results_text: '没有找到匹配的项!',
+				width: '100%'
 			});
 		});
 	}
-
-
+	
+	
+	if ($('#province').length > 0) {
+		require(["citiesChange","chosen"], function() {　　
+			var province = $("#province"),city = $("#city");
+			$.initProv(province, city, province.data("province") || pc.attr("data-province"), city.data("city") || city.attr("data-city"));
+		});
+	}
 }));

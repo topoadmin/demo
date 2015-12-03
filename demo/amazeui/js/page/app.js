@@ -4,8 +4,6 @@
  * @version 1.0
  */
 $(function() {
-	$(".loading").hide();
-
 	var $fullText = $('.admin-fullText');
 	$('#admin-fullscreen').on('click', function() {
 		$.AMUI.fullscreen.toggle();
@@ -40,4 +38,14 @@ $(function() {
 			}
 		}
 	}());
+	
+	$(".loading").fadeOut(1000);
+	
+	$(".btn-submit").on("click",function(){
+		var $elm = $(this),
+			$form = $elm.parents("form");
+		
+		console.log($form.serialize());
+	})
+	
 })
