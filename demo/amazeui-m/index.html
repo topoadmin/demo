@@ -79,7 +79,7 @@
 		<div style="height:15px"></div>
 
 		<!--重要菜单-->
-		<div id="index_tab" class="am-slider am-slider-a5">
+		<div id="menu_tab" class="am-slider am-slider-a5">
 			<ul class="am-slides">
 				<li style="display: block;">
 					<div class="am-g">
@@ -213,7 +213,7 @@
 		<div data-am-widget="navbar" class="am-navbar am-cf">
 		  	<ul class="am-navbar-nav am-cf am-avg-sm-4">
 				<li>
-					<a href="#">
+					<a href="index.html" class="a-active">
 						<span class="am-icon-home"></span>
 						<span class="am-navbar-label">首页</span>
 					</a>
@@ -225,7 +225,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="user.html">
 						<span class="am-icon-user"></span>
 						<span class="am-navbar-label">我的</span>
 					</a>
@@ -245,9 +245,9 @@
 		<script src="assets/js/amazeui.min.js"></script>
 		<script type="text/javascript">
 			$(function() {
-				$(".loading").animate({"opacity":"0.1"},1000,function(){
-					$(this).hide();
-				})
+				setTimeout(function() {
+					$(".loading").hide()
+				}, 1000)
 				setInterval(GetRTime, 999); //活动倒计时
 			})
 

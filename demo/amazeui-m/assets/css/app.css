@@ -3,13 +3,13 @@
 
 @font-face {
   font-family: 'iconfont';
-  src: url('//at.alicdn.com/t/font_1449127103_1126015.eot'); /* IE9*/
-  src: url('//at.alicdn.com/t/font_1449127103_1126015.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('//at.alicdn.com/t/font_1449127103_1126015.woff') format('woff'), /* chrome、firefox */
-  url('//at.alicdn.com/t/font_1449127103_1126015.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-  url('//at.alicdn.com/t/font_1449127103_1126015.svg#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('//at.alicdn.com/t/font_1449209936_2966352.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1449209936_2966352.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1449209936_2966352.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1449209936_2966352.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1449209936_2966352.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
-                    
+                                     
 .iconfont {
 	font-family: "iconfont" !important;
 	font-size: 1rem;
@@ -19,7 +19,7 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 .iconfont.lg{
-	font-size: 2.5rem;
+	font-size: 3rem;
 }
 
 .icon-jilu:before{
@@ -61,6 +61,18 @@
 .icon-paishe:before{
 	content: "\e600";
 }
+.icon-dengji:before{
+	content: "\e60d";
+}
+.icon-zhinan:before{
+	content: "\e60e";
+}
+.icon-dingdan:before{
+	content: "\e611";
+}
+.icon-tuituan:before{
+	content: "\e612";
+}
 
 /*************************iconfont  end**********************************/
 
@@ -85,13 +97,13 @@ body {
 	text-align: center;
 }
 
-/* 首页菜单 */
-#index_tab ul li{
+/* 菜单 */
+#menu_tab ul li{
 	text-align: center;
 	margin: 10px;
 }
-#index_tab .am-navbar-label{
-	font-size: 1rem;
+#menu_tab .am-navbar-label{
+	font-size: 1.3rem;
 }
 
 /* 活动展示 */
@@ -115,7 +127,7 @@ a.activity .activity-info{
 .am-navbar{
 	background-color: #333;
 }
-.am-navbar .a-active{
+.am-navbar .a-active span{
 	color: #fff;
 }
 

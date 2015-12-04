@@ -240,11 +240,9 @@
 		<script src="assets/js/jquery.mixitup.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function() {
-				$(".loading").animate({
-					"opacity": "0.1"
-				}, 1000, function() {
-					$(this).hide();
-				})
+				setTimeout(function() {
+					$(".loading").hide()
+				}, 1000)
 				$('#query-list').mixitup({
 					targetSelector: '.portfolio',
 					filterSelector: '.filter',
