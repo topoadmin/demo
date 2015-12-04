@@ -17,7 +17,8 @@
 			#query-list li.portfolio {
 				display: none;
 			}
-			#query-list li.portfolio:last-child{
+			
+			#query-list li.portfolio:last-child {
 				float: left;
 			}
 		</style>
@@ -37,7 +38,7 @@
 			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
 		</div>
 		<!-- end 加载框 -->
-		
+
 		<!-- 头部 -->
 		<header data-am-widget="header" class="am-header am-header-default am-header-fixed">
 			<div class="am-header-left am-header-nav">
@@ -232,22 +233,27 @@
 				</li>
 			</ul>
 		</section>
-		
+
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/amazeui.min.js"></script>
 		<script src="http://www.jq22.com/demo/mixitup-master-150424221719/js/jquery.easing.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="assets/js/jquery.mixitup.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function() {
-				$(".loading").animate({"opacity":"0.1"},1000,function(){
+				$(".loading").animate({
+					"opacity": "0.1"
+				}, 1000, function() {
 					$(this).hide();
 				})
 				$('#query-list').mixitup({
 					targetSelector: '.portfolio',
 					filterSelector: '.filter',
-					effects: ['fade'],
-					easing: 'snap',
-					onMixEnd: function(event) {}
+					onMixEnd: function(event) {},
+					animation: {
+						duration: 500,
+						effects: 'fade translateZ(-360px) translateY(10%) rotateZ(20deg) scale(0.71) translateX(-24%) rotateY(-7deg) stagger(76ms)',
+						easing: 'cubic-bezier(0.6, -0.28, 0.735, 0.045)'
+					}
 				});
 				// 选择完毕既收起下拉框
 				var myDown = $(".am-down-my");
@@ -257,9 +263,9 @@
 					$myDown.on("click", "li", function() {
 						var $this = $(this),
 							clickText = $this.find(".filter").text();
-						$this.append('<i class="am-icon-check"></i>').siblings().find("i").remove();
 						$myDown.children("button").find(".text").text(clickText);
 						$myDown.dropdown('close');
+						$this.append('<i class="am-icon-check"></i>').siblings().find("i").remove();
 					});
 				})
 				$("a[href*='query_list']").addClass("a-active");
