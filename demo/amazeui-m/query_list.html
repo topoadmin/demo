@@ -24,6 +24,20 @@
 	</head>
 
 	<body>
+		<!-- start 加载框 -->
+		<div class="loading">
+			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" tabindex="-1" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
+				<div class="am-modal-dialog">
+					<div class="am-modal-hd">正在载入...</div>
+					<div class="am-modal-bd">
+						<span class="am-icon-spinner am-icon-spin"></span>
+					</div>
+				</div>
+			</div>
+			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
+		</div>
+		<!-- end 加载框 -->
+		
 		<!-- 头部 -->
 		<header data-am-widget="header" class="am-header am-header-default am-header-fixed">
 			<div class="am-header-left am-header-nav">
@@ -218,20 +232,6 @@
 				</li>
 			</ul>
 		</section>
-		
-		<!-- start 加载框 -->
-		<div class="loading">
-			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" tabindex="-1" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
-				<div class="am-modal-dialog">
-					<div class="am-modal-hd">正在载入...</div>
-					<div class="am-modal-bd">
-						<span class="am-icon-spinner am-icon-spin"></span>
-					</div>
-				</div>
-			</div>
-			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
-		</div>
-		<!-- end 加载框 -->
 		
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/amazeui.min.js"></script>
