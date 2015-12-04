@@ -218,13 +218,30 @@
 				</li>
 			</ul>
 		</section>
-
+		
+		<!-- start 加载框 -->
+		<div class="loading">
+			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" tabindex="-1" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
+				<div class="am-modal-dialog">
+					<div class="am-modal-hd">正在载入...</div>
+					<div class="am-modal-bd">
+						<span class="am-icon-spinner am-icon-spin"></span>
+					</div>
+				</div>
+			</div>
+			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
+		</div>
+		<!-- end 加载框 -->
+		
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/amazeui.min.js"></script>
 		<script src="http://www.jq22.com/demo/mixitup-master-150424221719/js/jquery.easing.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="assets/js/jquery.mixitup.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function() {
+				$(".loading").animate({"opacity":"0.1"},1000,function(){
+					$(this).hide();
+				})
 				$('#query-list').mixitup({
 					targetSelector: '.portfolio',
 					filterSelector: '.filter',
