@@ -75,9 +75,7 @@
 			</div>
 
 			<div class="am-header-right am-header-nav" style="display: block;">
-				<div class="am-my-back-jifen">
-					<a href="#" class="am-icon-sm am-icon-sign-out" style="color: #fff;"></a>
-				</div>
+				<a onclick="exitUser()" href="#" class="am-icon-sm am-icon-sign-out" style="color: #fff;"></a>
 			</div>
 		</header>
 
@@ -104,9 +102,10 @@
 				</li>
 			</ul>
 		</div>
-
+		
+		<!-- 头像加菜单 -->
 		<div class="am-g">
-			<!-- 会员信息 -->
+			<!-- 会员头像 -->
 			<div class="am-panel am-panel-default am-my-back am-u-md-6">
 				<div class="am-panel-bd">
 					<div class="am-g am-g-fixed">
@@ -212,15 +211,71 @@
 				</blockquote>
 			</div>
 		</div>
+		
+		<!-- 退出登录弹窗 -->
+		<div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+			<div class="am-modal-dialog">
+				<div class="am-modal-bd">
+					亲，确定要退出登录吗？
+				</div>
+				<div class="am-modal-footer">
+					<span class="am-modal-btn" data-am-modal-cancel>取消</span>
+					<span class="am-modal-btn" data-am-modal-confirm>确定</span>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 功能栏 -->
+		<ul class="am-list am-list-static am-list-border am-list-a">
+			<li onclick="location.href='user.html'">
+				<i class="am-icon-star-o am-icon-fw"></i> 我的收藏
+				<span class="am-badge am-badge-warning am-round">
+			    	<i class="am-icon-angle-right"></i>
+			    </span>
+			</li>
+			<li onclick="location.href=''">
+				<i class="am-icon-user-secret am-icon-fw"></i> 修改昵称
+				<span class="am-badge am-badge-warning am-round">
+			    	<i class="am-icon-angle-right"></i>
+			    </span>
+			</li>
+			<li onclick="location.href=''">
+				<i class="am-icon-lock am-icon-fw"></i> 修改密码
+				<span class="am-badge am-badge-warning am-round">
+			    	<i class="am-icon-angle-right"></i>
+			    </span>
+			</li>
+			<li onclick="location.href=''">
+				<i class="am-icon-photo am-icon-fw"></i> 设置头像
+				<span class="am-badge am-badge-warning am-round">
+			    	<i class="am-icon-angle-right"></i>
+			    </span>
+			</li>
+			<li onclick="location.href=''">
+				<i class="am-icon-user am-icon-fw"></i> 修改我的资料
+				<span class="am-badge am-badge-warning am-round">
+			    	<i class="am-icon-angle-right"></i>
+			    </span>
+			</li>
+		</ul>
+		
+		
+		<div style="height: 30px;"></div>
 
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/amazeui.min.js"></script>
+		<script src="assets/js/app.js"></script>
+
 		<script type="text/javascript">
-			$(function() {
-				setTimeout(function() {
-					$(".loading").hide()
-				}, 1000)
-			})
+			function exitUser() {
+				$('#my-confirm').modal({
+					relatedTarget: this,
+					onConfirm: function(options) {
+						location.href = "index.html";
+					},
+					onCancel: function() {}
+				});
+			}
 		</script>
 	</body>
 

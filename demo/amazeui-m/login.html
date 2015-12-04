@@ -1,0 +1,153 @@
+<!doctype html>
+<html class="no-js">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="icon" type="image/png" href="assets/i/favicon.png">
+		<title>TATA旅游</title>
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link rel="stylesheet" href="assets/css/amazeui.min.css">
+		<link rel="stylesheet" href="assets/css/app.css">
+	</head>
+
+	<body>
+		<!-- start 加载框 -->
+		<div class="loading">
+			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" tabindex="-1" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
+				<div class="am-modal-dialog">
+					<div class="am-modal-hd">正在载入...</div>
+					<div class="am-modal-bd">
+						<span class="am-icon-spinner am-icon-spin"></span>
+					</div>
+				</div>
+			</div>
+			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
+		</div>
+		<!-- end 加载框 -->
+
+		<!-- 头部 -->
+		<header data-am-widget="header" class="am-header am-header-default am-header-fixed">
+			<div class="am-header-left am-header-nav">
+				<a href="index.html" class="am-title-logo">
+					<img src="assets/i/logo.png" />
+				</a>
+			</div>
+
+			<div class="header-title">
+				<h3>我要旅游</h3>
+			</div>
+
+		</header>
+
+		<!-- 底部导航 -->
+		<div data-am-widget="navbar" class="am-navbar am-cf">
+			<ul class="am-navbar-nav am-cf am-avg-sm-4">
+				<li>
+					<a href="index.html">
+						<span class="am-icon-home"></span>
+						<span class="am-navbar-label">首页</span>
+					</a>
+				</li>
+				<li>
+					<a href="query_list.html">
+						<span class="am-icon-bullseye"></span>
+						<span class="am-navbar-label">分类</span>
+					</a>
+				</li>
+				<li>
+					<a href="user.html">
+						<span class="am-icon-user"></span>
+						<span class="am-navbar-label">我的</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="am-g am-text-center am-padding-lg">
+			<img src="assets/i/logo.png" />
+		</div>
+
+		<form class="am-form" id="form" onsubmit="return false;">
+			<fieldset>
+				<div class="am-g">
+					<div class="am-u-sm-12">
+						<div class="am-form-group">
+							<input class="am-radius js-pattern-mobile" name="username" type="text" minlength="11" maxlength="11" data-validation-message="*输入错误，请仔细检查" placeholder="请输入手机号" required/>
+						</div>
+					</div>
+
+					<div class="am-u-sm-12">
+						<div class="am-form-group">
+							<input type="password" id="pwd1" name="password" minlength="6" maxlength="12" data-validation-message="*请检测长度" placeholder="请输入你的密码" required/>
+						</div>
+					</div>
+
+					<div class="am-u-sm-12">
+						<button class="am-btn am-btn-success am-radius am-btn-block btn-submit" type="submit">登录</button>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+		
+		<div class="am-modal am-modal-alert" tabindex="-1" id="my-success">
+			<div class="am-modal-dialog">
+				<div class="am-modal-hd am-text-success">登录成功</div>
+				<div class="am-modal-bd">
+					<span class="am-icon-spinner am-success am-icon-spin"></span>
+				</div>
+				<div class="am-modal-footer">
+					<span class="am-modal-btn">
+						<span class="am-text-success">正在跳转页面..</span>
+					</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="am-modal am-modal-alert" tabindex="-1" id="my-danger">
+			<div class="am-modal-dialog">
+				<div class="am-modal-hd am-text-danger">登录失败</div>
+				<div class="am-modal-bd">
+					<span class="am-icon-btn am-warning am-icon-warning"></span>
+				</div>
+				<div class="am-modal-footer">
+					<span class="am-modal-btn">
+						<span class="am-text-danger">手机号或密码错误</span>
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/amazeui.min.js"></script>
+		<script src="assets/js/app.js"></script>
+		<script src="assets/formCheck.js"></script>
+
+		<script type="text/javascript">
+			$(function() {
+				formValidator("#form");
+			
+				$(".btn-submit").on("click",function(){
+					$.ajax({
+						type:"get",
+						url:"data/login.json",
+						data:$("#form").serialize(),
+						success:function(data){
+							if(data.status){
+								$('#my-success').modal();
+								setTimeout(function(){
+									location.href = data.url;
+								},1000);
+							}else{
+								$('#my-danger').modal();
+							}
+						}
+					});
+				})
+			});
+		</script>
+	</body>
+
+</html>
