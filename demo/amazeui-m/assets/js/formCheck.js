@@ -44,6 +44,8 @@ function formValidator(form) {
 		patterns: {
 			mobile: /^\s*1\d{10}\s*$/
 		},
+		validClass: 'am-field-valid',
+		validateOnSubmit: true,
 		onValid: function(validity) {
 			$(validity.field).closest('.am-form-group').find('.am-alert').hide();
 		},
@@ -65,25 +67,64 @@ function formValidator(form) {
 			var comparer = function(v1, v2) {
 				if (v1 != v2) {
 					validity.valid = false;
-				}else{
+				} else {
 					validity.valid = true;
 				}
 			};
-//			if ($(validity.field).is('.sendsms-input')) {
-//				return $.ajax({
-//					url: 'http://s.amazeui.org/media/i/demos/validate.json',
-//					// cache: false, 实际使用中请禁用缓存
-//					dataType: 'json'
-//				}).then(function(data) {
-//					comparer(data.count, v);
-//					return validity;
-//				}, function() {
-//					return validity;
-//				});
-//			}
+			//			if ($(validity.field).is('.sendsms-input')) {
+			//				return $.ajax({
+			//					url: 'http://s.amazeui.org/media/i/demos/validate.json',
+			//					// cache: false, 实际使用中请禁用缓存
+			//					dataType: 'json'
+			//				}).then(function(data) {
+			//					comparer(data.count, v);
+			//					return validity;
+			//				}, function() {
+			//					return validity;
+			//				});
+			//			}
 			if ($(validity.field).is('.sendsms-input')) {
 				comparer(123456, v);
 			}
+		},
+		submit: function(e, validity) {
+			var formValidity = this.isFormValid();
+			var $thisForm = $(e.target);
+			if (formValidity) {
+				$thisForm.data("isdata", true);
+			} else {
+				$thisForm.data("isdata", false);
+			}
+			return false;
 		}
 	});
 }
+
+/**
+ * 添加下拉框选项
+ * @param {min} 开始数
+ * @param {max} 结束数
+ * @param {elm} select 节点
+ */
+function addOption(min, max, elm) {
+	var _html = "",
+		$elm = $(elm),
+		value = $elm.attr("data-value") || $elm.data("value");
+	for (var i = parseInt(min); i < parseInt(max); i++) {
+		_html += "<option value='" + i + "'" + ((value == i) ? ' selected="selected"' : '') + ">" + i + "</option>"
+	}
+	$elm.html(_html)
+}
+
+;
+(function($) {
+	$.fn.setForm = function(json) {
+		var jsonObj = json,$this = $(this);
+		if (typeof json === "string") {
+			jsonObj = $.parseJSON(json);
+		}
+		for (var key in jsonObj) {
+			$this.find("[name='" + key + "']").val(jsonObj[key]);
+		}
+	}
+})($);

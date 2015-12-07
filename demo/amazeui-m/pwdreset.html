@@ -71,40 +71,54 @@
 		</div>
 
 		<form class="am-form" id="form" onsubmit="return false;">
-			<fieldset>
-				<div class="am-g">
-					<div class="am-u-sm-12">
-						<div class="am-form-group">
-							<input class="am-radius js-pattern-mobile" name="username" type="text" minlength="11" maxlength="11" data-validation-message="*输入错误，请仔细检查" placeholder="请输入手机号" required/>
-						</div>
+			<div class="am-g">
+				<div class="am-u-sm-12">
+					<div class="am-form-group">
+						<input class="am-radius" type="tel" minlength="11" maxlength="11" data-validation-message="*输入错误，请仔细检查" placeholder="请输入手机号码" required/>
 					</div>
-
-					<div class="am-u-sm-12">
-						<div class="am-form-group">
-							<input type="password" id="pwd1" name="password" minlength="6" maxlength="12" data-validation-message="*请检测长度" placeholder="请输入你的密码" required/>
-						</div>
-					</div>
-
-					<div class="am-u-sm-12 am-text-right">
-						<a href="pwdreset.html">
-							忘记密码?
-						</a>
-						<div style="height: 10px;"></div>
-					</div>
-
-					<div class="am-u-sm-12">
-						<button class="am-btn am-btn-success am-radius am-btn-block btn-submit" type="submit">登录</button>
-						<div style="height: 15px;"></div>
-						<button class="am-btn am-btn-primary am-radius am-btn-block" type="button" onclick="location.href = 'reg.html'">注册</button>
-					</div>
-
 				</div>
-			</fieldset>
+			</div>
+			<div class="am-g">
+				<div class="am-u-sm-12">
+					<div class="am-g">
+						<div class="am-u-sm-6">
+							<div class="am-form-group">
+								<input class="am-radius sendsms-input" type="tel" minlength="6" maxlength="6" data-validation-message="*输入错误，请仔细检查" placeholder="请输入验证码" required/>
+							</div>
+						</div>
+						<div class="am-u-sm-6">
+							<input type="button" class="am-btn am-radius am-btn-primary am-btn-block  btn-sendsms" value="获取验证码" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="am-g">
+				<div class="am-u-sm-12">
+					<div class="am-form-group">
+						<input class="am-radius" type="password" minlength="6" maxlength="20" data-validation-message="*输入错误，至少6位" placeholder="请重设登录密码" required/>
+					</div>
+				</div>
+			</div>
+			<div class="am-g">
+				<div class="am-u-sm-12">
+					<div class="am-form-group">
+						<input class="am-radius" type="password" minlength="6" maxlength="20" data-validation-message="*输入错误，至少6位" placeholder="请校验登录密码" required/>
+					</div>
+				</div>
+			</div>
+			<div class="am-g">
+				<div class="am-u-sm-12">
+					<button class="am-btn am-btn-success am-radius am-btn-block" type="submit">
+						重置密码
+					</button>
+				</div>
+			</div>
+
 		</form>
 
 		<div class="am-modal am-modal-alert" tabindex="-1" id="my-success">
 			<div class="am-modal-dialog">
-				<div class="am-modal-hd am-text-success">登录成功</div>
+				<div class="am-modal-hd am-text-success">重置成功</div>
 				<div class="am-modal-bd">
 					<span class="am-icon-spinner am-success am-icon-spin"></span>
 				</div>
@@ -118,7 +132,7 @@
 
 		<div class="am-modal am-modal-alert" tabindex="-1" id="my-danger">
 			<div class="am-modal-dialog">
-				<div class="am-modal-hd am-text-danger">登录失败</div>
+				<div class="am-modal-hd am-text-danger">重置失败</div>
 				<div class="am-modal-bd">
 					<span class="am-icon-btn am-warning am-icon-warning"></span>
 				</div>
@@ -133,28 +147,17 @@
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 		<script src="assets/js/amazeui.min.js"></script>
 		<script src="assets/js/app.js"></script>
+		<script src="http://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 		<script src="assets/js/formCheck.js"></script>
 
 		<script type="text/javascript">
 			$(function() {
+				checkSms(); // 检测是否发送了短信
+				/*点击改变按钮状态*/
+				$('.btn-sendsms').click(function() {
+					sendSms($(this));
+				});
 				formValidator("#form");
-				$(".btn-submit").on("click", function() {
-					$.ajax({
-						type: "get",
-						url: "data/login.json",
-						data: $("#form").serialize(),
-						success: function(data) {
-							if (data.status) {
-								$('#my-success').modal();
-								setTimeout(function() {
-									location.href = data.url;
-								}, 1000);
-							} else {
-								$('#my-danger').modal();
-							}
-						}
-					});
-				})
 			});
 		</script>
 	</body>

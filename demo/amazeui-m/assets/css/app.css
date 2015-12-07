@@ -1,15 +1,19 @@
 /* Write your styles */
+
+
 /*iconfont.cn阿里巴巴矢量图库*/
 
 @font-face {
-  font-family: 'iconfont';
-  src: url('//at.alicdn.com/t/font_1449209936_2966352.eot'); /* IE9*/
-  src: url('//at.alicdn.com/t/font_1449209936_2966352.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('//at.alicdn.com/t/font_1449209936_2966352.woff') format('woff'), /* chrome、firefox */
-  url('//at.alicdn.com/t/font_1449209936_2966352.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-  url('//at.alicdn.com/t/font_1449209936_2966352.svg#iconfont') format('svg'); /* iOS 4.1- */
+	font-family: 'iconfont';
+	src: url('//at.alicdn.com/t/font_1449209936_2966352.eot');
+	/* IE9*/
+	src: url('//at.alicdn.com/t/font_1449209936_2966352.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('//at.alicdn.com/t/font_1449209936_2966352.woff') format('woff'), /* chrome、firefox */
+	url('//at.alicdn.com/t/font_1449209936_2966352.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+	url('//at.alicdn.com/t/font_1449209936_2966352.svg#iconfont') format('svg');
+	/* iOS 4.1- */
 }
-                                     
+
 .iconfont {
 	font-family: "iconfont" !important;
 	font-size: 1rem;
@@ -18,69 +22,94 @@
 	-webkit-text-stroke-width: 0.2px;
 	-moz-osx-font-smoothing: grayscale;
 }
-.iconfont.lg{
+
+.iconfont.lg {
 	font-size: 3rem;
 }
 
-.icon-jilu:before{
+.icon-jilu:before {
 	content: "\e60c";
 }
-.icon-wenti:before{
+
+.icon-wenti:before {
 	content: "\e60b";
 }
-.icon-soso:before{
+
+.icon-soso:before {
 	content: "\e60a";
 }
-.icon-shouchang:before{
+
+.icon-shouchang:before {
 	content: "\e609";
 }
-.icon-mmkj:before{
+
+.icon-mmkj:before {
 	content: "\e608";
 }
-.icon-youhui:before{
+
+.icon-youhui:before {
 	content: "\e605";
 }
-.icon-zhifubao:before{
+
+.icon-zhifubao:before {
 	content: "\e607";
 }
-.icon-chuxiao:before{
+
+.icon-chuxiao:before {
 	content: "\e606";
 }
-.icon-user:before{
+
+.icon-user:before {
 	content: "\e604";
 }
-.icon-kefu:before{
+
+.icon-kefu:before {
 	content: "\e603";
 }
-.icon-play:before{
+
+.icon-play:before {
 	content: "\e602";
 }
-.icon-tupian:before{
+
+.icon-tupian:before {
 	content: "\e601";
 }
-.icon-paishe:before{
+
+.icon-paishe:before {
 	content: "\e600";
 }
-.icon-dengji:before{
+
+.icon-dengji:before {
 	content: "\e60d";
 }
-.icon-zhinan:before{
+
+.icon-zhinan:before {
 	content: "\e60e";
 }
-.icon-dingdan:before{
+
+.icon-dingdan:before {
 	content: "\e611";
 }
-.icon-tuituan:before{
+
+.icon-tuituan:before {
 	content: "\e612";
 }
 
+
 /*************************iconfont  end**********************************/
+
+.am-input-group .am-form-field {
+	height: auto;
+}
 
 body {
 	background: #eeeeee;
 	font-size: 1.6rem !important;
 }
+
+
 /* 头部 */
+
 .am-header-default {
 	background-color: #0e90d2;
 	position: absolute;
@@ -90,44 +119,55 @@ body {
 	width: 100%;
 	z-index: 1010;
 }
-.am-header-default h3{
+
+.am-header-default h3 {
 	color: #fff;
 }
+
 .header-title {
 	text-align: center;
 }
 
+
 /* 菜单 */
-#menu_tab ul li{
+
+#menu_tab ul li {
 	text-align: center;
 	margin: 10px;
 }
-#menu_tab .am-navbar-label{
+
+#menu_tab .am-navbar-label {
 	font-size: 1.3rem;
 }
 
+
 /* 活动展示 */
-a.activity{
+
+a.activity {
 	position: relative;
 }
-a.activity img{
+
+a.activity img {
 	width: 100%;
 }
-a.activity .activity-info{
+
+a.activity .activity-info {
 	background: ;
 	position: absolute;
 	color: #FFFF00;
 	padding: 5px;
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0, 0, 0, 0.5);
 	right: 1rem;
 	top: 1rem;
 }
 
+
 /* 底部导航 */
-.am-navbar{
+
+.am-navbar {
 	background-color: #333;
 }
-.am-navbar .a-active span{
+
+.am-navbar .a-active span {
 	color: #fff;
 }
-

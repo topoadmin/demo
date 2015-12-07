@@ -64,9 +64,8 @@
 		<!-- 头部 -->
 		<header data-am-widget="header" class="am-header am-header-default am-header-fixed">
 			<div class="am-header-left am-header-nav">
-				<a href="index.html" class="am-title-logo">
-					<!--首页左上角logo-->
-					<img src="assets/i/logo.png" />
+				<a href="javascript:history.go(-1)" class="">
+					<i class="am-header-icon am-icon-chevron-left"></i>
 				</a>
 			</div>
 
@@ -102,7 +101,7 @@
 				</li>
 			</ul>
 		</div>
-		
+
 		<!-- 头像加菜单 -->
 		<div class="am-g">
 			<!-- 会员头像 -->
@@ -211,7 +210,7 @@
 				</blockquote>
 			</div>
 		</div>
-		
+
 		<!-- 退出登录弹窗 -->
 		<div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
 			<div class="am-modal-dialog">
@@ -224,10 +223,10 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- 功能栏 -->
 		<ul class="am-list am-list-static am-list-border am-list-a">
-			<li onclick="location.href='user.html'">
+			<li onclick="location.href=''">
 				<i class="am-icon-star-o am-icon-fw"></i> 我的收藏
 				<span class="am-badge am-badge-warning am-round">
 			    	<i class="am-icon-angle-right"></i>
@@ -251,18 +250,18 @@
 			    	<i class="am-icon-angle-right"></i>
 			    </span>
 			</li>
-			<li onclick="location.href=''">
+			<li onclick="location.href='user_reset.html'">
 				<i class="am-icon-user am-icon-fw"></i> 修改我的资料
 				<span class="am-badge am-badge-warning am-round">
 			    	<i class="am-icon-angle-right"></i>
 			    </span>
 			</li>
+			
 		</ul>
-		
-		
+
 		<div style="height: 30px;"></div>
 
-		<script src="assets/js/jquery.min.js"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 		<script src="assets/js/amazeui.min.js"></script>
 		<script src="assets/js/app.js"></script>
 
@@ -273,7 +272,8 @@
 					onConfirm: function(options) {
 						location.href = "index.html";
 					},
-					onCancel: function() {}
+					onCancel: function() {
+					}
 				});
 			}
 		</script>
