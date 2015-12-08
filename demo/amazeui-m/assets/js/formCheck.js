@@ -83,6 +83,8 @@ function formValidator(form) {
 			//					return validity;
 			//				});
 			//			}
+			
+			// 给sendsms-input自定义验证方式
 			if ($(validity.field).is('.sendsms-input')) {
 				comparer(123456, v);
 			}

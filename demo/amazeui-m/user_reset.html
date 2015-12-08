@@ -82,8 +82,8 @@
 		<div class="am-u-sm-12 am-u-md-12 am-u-lg-9 am-tabs" data-am-tabs>
 			<ul class="am-tabs-nav am-nav am-nav-tabs">
 				<li><a href="#basic-tab">基本信息</a></li>
-				<li class="am-active"><a href="#reality-tab">真实信息</a></li>
-				<li><a href="#rest-tab">其他信息</a></li>
+				<li><a href="#reality-tab">真实信息</a></li>
+				<li class="am-active"><a href="#rest-tab">其他信息</a></li>
 			</ul>
 
 			<div class="am-tabs-bd" id="form-box">
@@ -142,7 +142,7 @@
 					</form>
 				</div>
 
-				<div class="am-tab-panel am-fade am-in am-active" id="reality-tab">
+				<div class="am-tab-panel am-fade" id="reality-tab">
 					<form class="am-form am-form-horizontal">
 						<div class="am-g">
 							<div class="am-u-sm-12">
@@ -171,9 +171,9 @@
 								<button class="am-btn am-btn-success am-radius am-btn-block btn-submit" type="submit">确定</button>
 							</div>
 						</div>
-						
+
 						<h3 class="am-text-center">根据真实信息自动输入</h3>
-						
+
 						<fieldset disabled>
 							<div class="am-g">
 								<div class="am-u-sm-12">
@@ -213,7 +213,7 @@
 								<div class="am-u-sm-12">
 									<div class="am-input-group am-form-group am-input-group-default">
 										<span class="am-input-group-label">出生地</span>
-										<input class="am-form-field" name="birthplace" type="text" placeholder="自动输入"/>
+										<input class="am-form-field" name="birthplace" type="text" placeholder="自动输入" />
 									</div>
 								</div>
 							</div>
@@ -221,8 +221,71 @@
 					</form>
 				</div>
 
-				<div class="am-tab-panel am-fade" id="rest-tab">
+				<div class="am-tab-panel am-fade am-in am-active" id="rest-tab">
 					<form class="am-form am-form-horizontal">
+						<div class="am-g">
+							<div class="am-u-sm-12">
+								<div class="am-input-group am-form-group am-input-group-default">
+									<span class="am-input-group-label">邮　箱</span>
+									<input class="am-form-field" name="email" type="text" placeholder="会员编号" readonly/>
+								</div>
+							</div>
+						</div>
+						<div class="am-g">
+							<div class="am-u-sm-12">
+								<div class="am-input-group am-form-group am-input-group-default">
+									<span class="am-input-group-label">毕业于</span>
+									<input class="am-form-field" name="school" type="text" minlength="2" maxlength="12" data-validation-message="*输入错误，请仔细检查" placeholder="xx学校" required/>
+								</div>
+							</div>
+						</div>
+						<div class="am-g">
+							<div class="am-u-sm-12">
+								<div class="am-input-group am-form-group am-input-group-default">
+									<span class="am-input-group-label">职　业</span>
+									<select class="am-form-field" name="marriage">
+										<option value="计算机/互联网/通信">计算机/互联网/通信</option>
+										<option value="生产/工艺/制造">生产/工艺/制造</option>
+										<option value="医疗/护理/制药">医疗/护理/制药</option>
+										<option value="金融/银行/投资/保险">金融/银行/投资/保险</option>
+										<option value="商业/服务业/个体经营">商业/服务业/个体经营</option>
+										<option value="文化/广告/传媒">文化/广告/传媒</option>
+										<option value="娱乐/艺术/表演">娱乐/艺术/表演</option>
+										<option value="律师/法务">律师/法务</option>
+										<option value="教育/培训">教育/培训</option>
+										<option value="公务员/行政/事业单位">公务员/行政/事业单位</option>
+										<option value="模特/空姐">模特/空姐</option>
+										<option value="自由职业/SOHO">自由职业/SOHO</option>
+										<option value="其他">其他</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="am-g">
+							<div class="am-u-sm-12">
+								<div class="am-input-group am-form-group am-input-group-default">
+									<span class="am-input-group-label">学　历</span>
+									<select class="am-form-field" name="marriage">
+										<option value="大专">大专</option>
+										<option value="本科">本科</option>
+										<option value="硕士">硕士</option>
+										<option value="博士">博士</option>
+										<option value="其他">其他</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="am-g">
+							<div class="am-u-sm-12">
+								<div class="am-input-group am-form-group am-input-group-default">
+									<span class="am-input-group-label"></span>
+									<select class="am-form-field" name="marriage">
+										<option value="大专">大专</option>
+										<option value="本科">本科</option>
+									</select>
+								</div>
+							</div>
+						</div>
 					</form>
 				</div>
 			</div>
@@ -241,7 +304,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="am-modal am-modal-alert" id="my-success">
 			<div class="am-modal-dialog">
 				<div class="am-modal-hd am-text-success">验证通过</div>
@@ -286,14 +349,15 @@
 						return false;
 					})
 				})
-				$("#checkinfo").on("click",function(e){
-					var $this = $(this),$form = $this.parents("form");
-					console.log($form.serialize()+"==需要验证的信息");
-					$.getJSON('data/checkinfo.json', function(data){
+				$("#checkinfo").on("click", function(e) {
+					var $this = $(this),
+						$form = $this.parents("form");
+					console.log($form.serialize() + "==需要验证的信息");
+					$.getJSON('data/checkinfo.json', function(data) {
 						$form.setForm(data.user);
 						$("#my-success").modal();
 					});
-					return false;	// 防止冒泡到form 
+					return false; // 防止冒泡到form 
 				})
 			});
 		</script>
