@@ -20,7 +20,7 @@ $(function() {
 		});
 		
 		// 浏览器动作
-		var returnTop = $("#return-top"),
+		/*var returnTop = $("#return-top"),
 			main = $("#main"),
 			$window = $(window);
 		checkScroll($window, returnTop);
@@ -36,6 +36,6 @@ $(function() {
 			} else {
 				elem.addClass("am-hide");
 			}
-		}
+		}*/
 	}());
 })

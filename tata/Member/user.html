@@ -143,13 +143,14 @@
 				<!-- start 用户信息栏 -->
 				<div class="am-u-sm-12 am-u-md-12 am-u-lg-9 am-tabs" data-am-tabs>
 					<ul class="am-tabs-nav am-nav am-nav-tabs">
-						<li class="am-active"><a href="#basic-tab">基本信息</a></li>
+						<li><a href="#basic-tab">基本信息</a></li>
 						<li><a href="#reality-tab">真实信息</a></li>
 						<li><a href="#rest-tab">其他信息</a></li>
+						<li class="am-active"><a href="#options-tab">其他选项</a></li>
 					</ul>
 					<div class="am-tabs-bd" id="form-box">
-						<div class="am-tab-panel am-fade am-in am-active" id="basic-tab">
-							<form class="am-form am-form-horizontal">
+						<div class="am-tab-panel am-fade" id="basic-tab">
+							<form class="am-form am-form-horizontal form-vail">
 								<div class="am-g">
 									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
 										<div class="am-input-group am-form-group am-input-group-default">
@@ -182,6 +183,7 @@
 										<div class="am-input-group am-form-group am-input-group-default">
 											<span class="am-input-group-label">身　　高</span>
 											<select id="sel-height" class="am-form-field" name="height" data-value="165">
+												<option>165</option>
 											</select>
 										</div>
 									</div>
@@ -191,6 +193,7 @@
 										<div class="am-input-group am-form-group am-input-group-default">
 											<span class="am-input-group-label">体　　重</span>
 											<select id="kg-height" name="kg" data-value="50">
+												<option>50</option>
 											</select>
 										</div>
 									</div>
@@ -204,7 +207,7 @@
 						</div>
 
 						<div class="am-tab-panel am-fade" id="reality-tab">
-							<form class="am-form am-form-horizontal">
+							<form class="am-form am-form-horizontal form-vail">
 								<div class="am-g">
 									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
 										<div class="am-input-group am-form-group am-input-group-default">
@@ -286,7 +289,7 @@
 						</div>
 
 						<div class="am-tab-panel am-fade" id="rest-tab">
-							<form class="am-form am-form-horizontal">
+							<form class="am-form am-form-horizontal form-vail">
 								<div class="am-g">
 									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
 										<div class="am-input-group am-form-group am-input-group-default">
@@ -417,7 +420,58 @@
 								</div>
 							</form>
 						</div>
+
+						<div class="am-tab-panel am-fade am-in am-active" id="options-tab" style="min-height: 1000px;">
+							<form class="am-form am-form-horizontal form-vail">
+								<div class="am-g">
+									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
+										<div class="am-input-group am-form-group am-input-group-default">
+											<span class="am-input-group-label">TA的年龄</span>
+											<select class="am-form-field" name="niandai">
+												<option value="60后">60后</option>
+												<option value="70后">70后</option>
+												<option selected value="80后">80后</option>
+												<option value="90后">90后</option>
+												<option value="其他">其他</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="am-g">
+									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
+										<div class="am-input-group am-form-group am-input-group-default">
+											<span class="am-input-group-label">TA的品质</span>
+											<select multiple data-am-selected minchecked="2" maxchecked="3">
+												<option value="a">Apple</option>
+												<option value="b">Banana</option>
+												<option value="o">Orange</option>
+												<option value="m">Mango</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<!--<div class="am-g">
+									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
+										<div class="am-input-group am-form-group am-input-group-default">
+											<span class="am-input-group-label">TA的品质</span>
+											<input class="am-form-field checkboxq" name="character" type="text" placeholder="选择我的品质" readonly/>
+										</div>
+									</div>
+								</div>
+								<div class="am-g">
+									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
+										<div class="am-input-group am-form-group am-input-group-default">
+											<span class="am-input-group-label">我的品质</span>
+											<input class="am-form-field checkboxq" name="characteristic" type="text" placeholder="选择我的品质" readonly/>
+										</div>
+									</div>
+								</div>-->
+							</form>
+						</div>
 					</div>
+
+					<div class="am-show-sm-only" style="height: 25px;"></div>
 				</div>
 				<!-- end 用户信息栏 -->
 
@@ -427,22 +481,47 @@
 
 		<!-- start 漂浮按钮 -->
 		<div class="amz-toolbar go-top">
-			<a href="javascript:;" data-am-smooth-scroll title="回到顶部" class="am-icon-btn am-icon-arrow-up am-hide" id="return-top"></a>
+			<!--<a href="javascript:;" data-am-smooth-scroll title="回到顶部" class="am-icon-btn am-icon-arrow-up am-hide" id="return-top"></a>-->
 			<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
 		</div>
 		<!-- end 漂浮按钮 -->
 
-		<!-- 弹窗 -->
+		<!-- 身份证信息验证通过弹窗 -->
 		<div class="am-modal am-modal-alert" id="my-checkinfo">
 			<div class="am-modal-dialog">
 				<div class="am-modal-hd am-text-success">验证通过<span class="am-icon-check am-icon-sm am-text-success "></span></div>
 				<div class="am-modal-bd">
-					<span class="my-modal-centen"></span>
+					<span class="my-modal-content"></span>
 				</div>
 				<div class="am-modal-footer">
 					<span class="am-modal-btn">
 						<span class="am-text-success">确定提交</span>
 					</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- 选择我的品质弹窗 -->
+		<div class="am-popup" id="my-quality-popup">
+			<div class="am-popup-inner">
+				<div class="am-popup-hd">
+					<h4 class="am-popup-title">请选择</h4>
+					<span data-am-modal-close class="am-close am-text-lg">&times;</span>
+				</div>
+				<div class="am-popup-bd">
+					<form class="am-form">
+						<div class="am-g">
+							<div class="am-u-sm-12 my-modal-content">
+
+							</div>
+						</div>
+						<div class="am-modal-footer">
+							<span class="am-modal-btn">
+								<span class="am-btn am-btn-success">确定提交</span>
+							</span>
+						</div>
+
+					</form>
 				</div>
 			</div>
 		</div>

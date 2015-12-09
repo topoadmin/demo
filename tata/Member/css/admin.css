@@ -13,8 +13,25 @@
 .am-input-group .am-form-field {
 	padding: 0 0.5rem;
 }
+.am-input-group div.am-form-field {
+	padding: .5rem;
+}
+#my-quality-popup .am-checkbox-inline+.am-checkbox-inline, 
+#my-quality-popup .am-radio-inline+.am-radio-inline {
+    margin-left: 0px;
+}
 
-
+@media only screen and (max-width: 641px) {
+	.am-selected {
+		width: 150px;
+	}
+}
+.am-selected .am-btn{
+	padding: 0.6em 1em;
+}
+.chosen-container-multi .chosen-choices{
+	padding: 5px 5px;
+}
 
 
 /** * admin.css*/
