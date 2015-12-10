@@ -426,7 +426,7 @@
 		}
 		function clipImg() {
 			if (!imgLoaded) {
-				alert("亲，当前没有图片可以裁剪!");
+				//alert("亲，当前没有图片可以裁剪!");
 				return;
 			}
 			var local = loaclToLoacl($moveLayer, $clipView);
