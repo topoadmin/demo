@@ -129,11 +129,11 @@
 							<div class="am-g am-text-center">
 								<div class="am-u-sm-8 am-u-sm-push-2 am-u-md-6 am-u-md-push-0 am-u-lg-6 am-u-lg-push-3">
 									<img class="am-img-circle am-img-thumbnail" id="user-head" src="img/q2.jpg">
-									<form class="am-form">
+									<form class="am-form" enctype="multipart/form-data" method="post" target="POSTiframe" id="upload-head-form">
 										<div class="am-form-group">
 											<hr />
 											<button type="button" class="am-btn am-btn-primary am-btn-xs" id="upload-head" data-am-modal="{target: '#my-upload-head'}">上传头像</button>
-											<input type="file" id="file" class="am-hide">
+											<input type="file" name="head" id="file" accept="image/*"  class="am-hide">
 										</div>
 									</form>
 								</div>

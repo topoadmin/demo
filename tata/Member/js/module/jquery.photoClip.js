@@ -91,7 +91,6 @@
 			imgWidth, imgHeight, //图片当前的宽高
 			imgLoaded; //图片是否已经加载完成
 
-		$file.attr("accept", "image/*");
 		$file.change(function() {
 			if (!this.files.length) return;
 			if (!/image\/\w+/.test(this.files[0].type)) {

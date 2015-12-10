@@ -77,13 +77,14 @@
 		});
 		
 		// -- 上传头像
+		var $file = $("#file");
 		$("#upload-head").on("click",function(){
-			$("#file").click();
+			$file.click();
 			require(["photoClip"], function() {
 				$("#clipArea").photoClip({
 					width: 232,
 					height: 299,
-					file: "#file",
+					file: $file,
 					view: "#user-head",
 					ok: "#clipBtn",
 					loadStart: function() {
@@ -94,7 +95,10 @@
 						console.log("照片读取完成");
 					},
 					clipFinish: function(dataURL) {
-						console.log("裁剪完毕="+dataURL);
+						var headdata = {
+							"userhead":dataURL
+						}
+						console.log(headdata);
 					}
 				});	
 			});

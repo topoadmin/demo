@@ -4,21 +4,36 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<link rel="stylesheet" type="text/css" href="assets/css/amazeui.css" />
 	</head>
 
 	<body>
-		<form data-am-validator>
-			<select multiple data-am-selected>
-				<option value="a">Apple</option>
-				<option value="b">Banana</option>
-				<option value="o">Orange</option>
-				<option value="m">Mango</option>
-			</select>
-		</form>
-
-		<script src="assets/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="assets/js/amazeui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var size = 100,
+				tSize = 1,
+				arr = [];
+				
+			function get(min, max) {
+				var a = max - min,
+					b = Math.random(),
+					c = (min + Math.round(b * a));
+				arr.push(c);
+				tSize += c; 	// 记录总和
+				if(tSize == size){
+					return arr;
+				}else{
+					var newMax = size - tSize;	// 获取余数
+					get(min,newMax);
+				}
+			}
+			
+			
+			for(var i=0;i<10;i++){
+				var num = get(tSize, size);
+				console.log(arr);
+				tSize = 1;
+				arr =[];
+			}
+		</script>
 	</body>
 
 </html>
