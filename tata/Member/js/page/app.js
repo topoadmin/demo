@@ -4,6 +4,9 @@
  * @version 1.0
  */
 $(function() {
+	setTimeout(function() {
+		$(".loading").remove();
+	}, 222)
 	var $fullText = $('.admin-fullText');
 	$('#admin-fullscreen').on('click', function() {
 		$.AMUI.fullscreen.toggle();
@@ -18,7 +21,7 @@ $(function() {
 			$("#admin-offcanvas").toggleClass("admin-sidebar")
 			$("#admin-right-main").toggleClass("pd-left270")
 		});
-		
+
 		// 浏览器动作
 		/*var returnTop = $("#return-top"),
 			main = $("#main"),

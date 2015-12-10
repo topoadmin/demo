@@ -12,9 +12,31 @@
 		<link rel="stylesheet" href="css/amazeui.chosen.css" />
 		<link rel="stylesheet" href="css/admin.css" />
 		<link rel="stylesheet" href="css/loaders.css" />
+		<style type="text/css">
+			#my-quality-popup .am-checkbox,
+			#my-quality-popup .am-checkbox-inline,
+			#my-quality-popup .am-radio,
+			#my-quality-popup .am-radio-inline {
+				min-width: 30%;
+			}
+		</style>
 	</head>
 
 	<body class="am-with-topbar-fixed-top">
+
+		<!-- start 加载框 -->
+		<div class="loading">
+			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
+				<div class="loader am-text-center">
+					<div class="loader-inner semi-circle-spin" style="display: inline-block;">
+						<div></div>
+					</div>
+				</div>
+				<p class="am-text-white">加载中...</p>
+			</div>
+			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
+		</div>
+		<!-- end 加载框 -->
 
 		<!-- start 头部导航 -->
 		<header class="am-topbar am-topbar-fixed-top am-badge-primary" id="fixed-top-topbar" data-am-sticky>
@@ -141,12 +163,12 @@
 				<!-- end 头像 -->
 
 				<!-- start 用户信息栏 -->
-				<div class="am-u-sm-12 am-u-md-12 am-u-lg-9 am-tabs" data-am-tabs>
+				<div class="am-u-sm-12 am-u-md-12 am-u-lg-9 am-tabs" data-am-tabs data-am-tabs-noswipe="1">
 					<ul class="am-tabs-nav am-nav am-nav-tabs">
-						<li><a href="#basic-tab">基本信息</a></li>
+						<li class="am-active"><a href="#basic-tab">基本信息</a></li>
 						<li><a href="#reality-tab">真实信息</a></li>
 						<li><a href="#rest-tab">其他信息</a></li>
-						<li class="am-active"><a href="#options-tab">其他选项</a></li>
+						<li><a href="#options-tab">其他选项</a></li>
 					</ul>
 					<div class="am-tabs-bd" id="form-box">
 						<div class="am-tab-panel am-fade" id="basic-tab">
@@ -207,6 +229,7 @@
 						</div>
 
 						<div class="am-tab-panel am-fade" id="reality-tab">
+							<h3 class="am-text-center">每个用户只能绑定一个身份证</h3>
 							<form class="am-form am-form-horizontal form-vail">
 								<div class="am-g">
 									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
@@ -422,7 +445,7 @@
 						</div>
 
 						<div class="am-tab-panel am-fade am-in am-active" id="options-tab">
-							<form class="am-form am-form-horizontal form-vail am-hide" id="woman-form">
+							<form class="am-form am-form-horizontal form-vail">
 								<div class="am-g">
 									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
 										<div class="am-input-group am-form-group am-input-group-default">
@@ -441,7 +464,7 @@
 									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
 										<div class="am-input-group am-form-group am-input-group-default">
 											<span class="am-input-group-label">TA的品质</span>
-											<input class="am-form-field checkboxq" name="character" type="text" placeholder="选择我的品质"/>
+											<input class="am-form-field checkboxq" name="character" type="text" placeholder="选择我的品质" readonly required value="成熟、稳重、顾家、有责任心的男人。|阳光帅气、对生活充满热情的男人。|" />
 										</div>
 									</div>
 								</div>
@@ -449,41 +472,45 @@
 									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
 										<div class="am-input-group am-form-group am-input-group-default">
 											<span class="am-input-group-label">我的品质</span>
-											<input class="am-form-field checkboxq" name="characteristic" type="text" placeholder="选择我的品质"/>
-										</div>
-									</div>
-								</div>
-							</form>
-							
-							<form class="am-form am-form-horizontal form-vail" id="man-form">
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">TA的年龄</span>
-											<select class="am-form-field" name="niandai">
-												<option value="60后">60后</option>
-												<option value="70后">70后</option>
-												<option selected value="80后">80后</option>
-												<option value="90后">90后</option>
-												<option value="其他">其他</option>
-											</select>
+											<input class="am-form-field checkboxq" name="characteristic" type="text" placeholder="选择我的品质" value="温柔|贤惠|" readonly required/>
 										</div>
 									</div>
 								</div>
 								<div class="am-g">
 									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">TA的品质</span>
-											<input class="am-form-field checkboxq" name="character" type="text" placeholder="选择我的品质" readonly/>
+										<h5 style="padding-bottom: 0;margin-bottom: 0;">　　在本网站推出的各地旅游相亲活动中，有一些活动可能会被全程拍成真人秀节目， 未来在视频网站上播出，对于愿意参加真人秀节目的嘉宾，所有费用全免。</h5>
+										<div style="height: 5px;"></div>
+										<div class="am-g">
+											<div class="am-u-sm-6 am-text-right">
+												<label class="am-radio-inline">
+													<input type="radio" value="" name="publicstatus" required> 同意
+												</label>
+											</div>
+											<div class="am-u-sm-6">
+												<label class="am-radio-inline">
+													<input type="radio" name="publicstatus"> 不同意
+												</label>
+											</div>
+										</div>
+										<div style="height: 5px;"></div>
+										<div class=" am-u-sm-12">
+											<p class="am-text-sm am-text-center">[选择此项意味着您对参加真人秀节目拍摄、播出的肖像权无任何争议。] </p>
 										</div>
 									</div>
 								</div>
 								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">我的品质</span>
-											<input class="am-form-field checkboxq" name="characteristic" type="text" placeholder="选择我的品质" readonly/>
-										</div>
+									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2 am-text-center" data-am-popover="{content: '请仔细观看提交须知', trigger: 'hover focus'}">
+										<i class="iconfont icon-xinghao am-text-default am-text-middle am-text-danger"></i>
+										<label class="am-radio-inline">
+											<input type="radio" id="notice" name="notice" required> 我同意
+											<a data-am-modal="{target: '#notice-popup'}" href="javascript:;"> "用户提交须知" </a>
+										</label>
+									</div>
+								</div>
+								<hr />
+								<div class="am-g">
+									<div class="am-u-sm-12 am-u-md-12 am-u-lg-4 am-u-lg-push-4">
+										<button class="am-btn am-btn-success am-radius am-btn-block btn-submit" type="submit">确定</button>
 									</div>
 								</div>
 							</form>
@@ -531,7 +558,6 @@
 					<form class="am-form">
 						<div class="am-g">
 							<div class="am-u-sm-12 my-modal-content">
-
 							</div>
 						</div>
 						<div class="am-modal-footer">
@@ -539,26 +565,39 @@
 								<span class="am-btn am-btn-success">确定提交</span>
 							</span>
 						</div>
-
 					</form>
 				</div>
 			</div>
 		</div>
 
-		<!-- start 加载框 -->
-		<div class="loading">
-			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
-				<div class="loader am-text-center">
-					<div class="loader-inner semi-circle-spin" style="display: inline-block;">
-						<div></div>
-					</div>
+		<!-- 提交须知弹窗 -->
+		<div class="am-popup" id="notice-popup">
+			 <div class="am-popup-inner">
+				<div class="am-popup-hd">
+					<h4 class="am-popup-title">用户提交须知</h4>
+					<span data-am-modal-close class="am-close">&times;</span>
 				</div>
-				<p class="am-text-white">加载中...</p>
+				<div class="am-popup-bd">
+					<img class="am-img-responsive .am-show-sm-up" src="img/notice.jpg"/>
+					<img class="am-img-responsive .am-show-sm-only" src="img/notice-m.jpg"/>
+				</div>
+				<div class="am-modal-footer">
+					<span class="am-modal-btn">
+						<span class="am-text-success">同意</span>
+					</span>
+				</div>
 			</div>
-			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
 		</div>
-		<!-- end 加载框 -->
-
+		
+		<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+		 	<div class="am-modal-dialog">
+				<div class="am-modal-hd">系统提示</div>
+				<div class="am-modal-bd">
+					请检查未勾选选项
+				</div>
+			</div>
+		</div>
+		
 		<!-- 脚本 -->
 		<script src="http://apps.bdimg.com/libs/require.js/2.1.9/require.min.js" data-main="js/main"></script>
 		<script type="text/javascript">

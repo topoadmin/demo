@@ -33,19 +33,25 @@
 				var $field = $(validity.field),
 					_this = this;
 				$field.on('focusin focusout', function(e) {
-					addAlert(validity,$field,_this);
+					var $type = $field.attr("type");
+					if($type == "radio" || $type == "checkbox"){
+						$("#my-alert").modal();
+					}else{
+						addAlert(validity, $field, _this);
+					}
 				});
 			},
 			validate: function(validity) {
-				var $field = $(validity.field),_this = this;
+				var $field = $(validity.field),
+					_this = this;
 				// 自定义验证方式
 				if ($field.is('.js-my-card')) {
-					if(idcard($field.val())){
+					if (idcard($field.val())) {
 						validity.valid = true;
-					}else{
+					} else {
 						validity.valid = false;
-						$field.data('validationMessage',"请输入正确的身份证号")
-						addAlert(validity,$field,_this);
+						$field.data('validationMessage', "请输入正确的身份证号")
+						addAlert(validity, $field, _this);
 					}
 				}
 			},
@@ -61,8 +67,8 @@
 			}
 		});
 	}
-	
-	function addAlert(validity,$field,_this){
+	// 添加form规则不通过规则
+	function addAlert(validity, $field, _this) {
 		// 使用自定义的提示信息 或 插件内置的提示信息
 		var msg = $field.data('validationMessage') || _this.getValidationMessage(validity),
 			$group = $field.closest('.am-form-group'),
@@ -128,49 +134,79 @@
 		}
 	}
 	
+	// 添加多选选项和默认选择	
 	$.fn.addCheckbox = function(settings) {
 		if (this.length < 1) {
 			return;
 		};
 
-		var qdata = {
-			character: [
-				"温柔贤惠、懂生活、会持家长的顺眼就行。",
-				"你要是能力强，愿意养家，我做家庭煮夫也是可以的。",
-				"漂亮大方、懂事、健康、对生活充满热情的人。",
-				"美女、个高、腿长、肤白、上得厅堂、入得厨房。",
-				"懂事能撒娇，又能孝顺父母的姑娘就OK了。",
-				"有爱心，喜欢孩子，能烧一手好菜。",
-				"懂得给男人空间，做事得体大方，有气质，有学识，有一定社交能力的女孩。",
-				"爱旅行爱运动，善于与人沟通，不人云亦云，有自己的主见。",
-				"对婆媳关系处理上有耐心，懂得忍让，知晓吃亏是福的道理。"
-			],
-			characteristic:[
-				"体贴人","勇敢","毅力","细心","果断","浪漫","孝顺","有责任心","急性子","爱运动",
-				"有主见","有点大男子主义","喜欢小孩","不抽烟","偶尔喝点","会做饭","没有女闺蜜","善于沟通"
-			]
+		settings = $.extend({
+			sex: 0
+		}, settings);
+
+		var qdata;
+		if (settings.sex) {
+			qdata = {
+				character: [
+					"温柔贤惠、懂生活、会持家长的顺眼就行。",
+					"你要是能力强，愿意养家，我做家庭煮夫也是可以的。",
+					"漂亮大方、懂事、健康、对生活充满热情的人。",
+					"美女、个高、腿长、肤白、上得厅堂、入得厨房。",
+					"懂事能撒娇，又能孝顺父母的姑娘就OK了。",
+					"有爱心，喜欢孩子，能烧一手好菜。",
+					"懂得给男人空间，做事得体大方，有气质，有学识，有一定社交能力的女孩。",
+					"爱旅行爱运动，善于与人沟通，不人云亦云，有自己的主见。",
+					"对婆媳关系处理上有耐心，懂得忍让，知晓吃亏是福的道理。"
+				],
+				characteristic: [
+					"体贴人", "勇敢", "毅力", "细心", "果断", "浪漫", "孝顺", "有责任心", "急性子", "爱运动",
+					"有主见", "有点大男子主义", "喜欢小孩", "不抽烟", "偶尔喝点", "会做饭", "没有女闺蜜", "善于沟通"
+				]
+			}
+		} else {
+			qdata = {
+				character: [
+					"成熟、稳重、顾家、有责任心的男人。",
+					"阳光帅气、对生活充满热情的男人。",
+					"颜值不重要,重要的是具备男人的气质,踏实勤奋，知道疼老婆，要是还懂一点浪漫就更好了!",
+					"我的男人颜值很重要,颜值虽然不能当饭吃,但可以让我心情愉快,心情愉快是女人永葆青春的秘诀!",
+					"孝顺有爱心,有自己的事业和追求,做事果断不拖泥带水。",
+					"希望他气质儒雅,生活规律,再有点幽默感就足已了。"
+				],
+				characteristic: [
+					"温柔", "贤惠", "大方", "漂亮", "善解人意", "果断", "浪漫", "孝顺", "有责任心", "美图达人",
+					"恐高", "有主见", "购物狂", "急性子", "女汉子", "会做饭", "生活规律", "有点小资",
+					"喜欢小孩", "有点胆小", "想早点结婚", "喜欢旅行", "选择综合症", "没有男闺蜜", "喜欢养宠物"
+				]
+			}
 		}
-		var $this = this;
-		$this.each(function(){
-			var $$this = $(this);
-			$$this.on("click", function() {
-				var $this = $(this),name = $this.attr("name"),
+		this.each(function() {
+			var $this = $(this);
+			$this.on("click", function() {
+				var jsondata = $this.val().split("|");
+				var name = $this.attr("name"),
 					$md = $("#my-quality-popup");
 				
-				init(qdata[name],$md.find(".my-modal-content"),name);
-				$md.data("input",$this).modal();
+				init(qdata[name], $md.find(".my-modal-content"), name,jsondata);
+				$md.data("input", $this).modal();
 			})
 		})
-		
-		function init(data, elm, name) {
+
+		function init(data, elm, name,jsondata) {
 			var _html = "",
 				$elm = $(elm);
-				
+			
 			for (var i = 0; i < data.length; i++) {
-				_html += "<label class='am-checkbox-inline'><input name='"+name+"' type='checkbox' value='" + data[i] + "' data-am-ucheck>" + data[i] + "</label>";
+				var val = data[i],check="";
+				for(var j=0; j < jsondata.length;j++){
+					if(val == jsondata[j]){
+						check = "checked='checked'";
+					}
+				}
+				_html += "<label class='am-checkbox-inline'><input "+check+" name='" + name + "' type='checkbox' value='" + val + "' data-am-ucheck>" + val + "</label>";
 			}
 			$elm.html(_html)
 		}
 	};
-	
+
 }));

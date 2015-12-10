@@ -49,9 +49,13 @@
 			});
 		}
 
-		$("#options-tab").find("input.checkboxq").addCheckbox(); // 添加多选
+		// -- 品质选择
+		var $checkSex = 0; // 性别 1为男  0为女
+		$("#options-tab").find("input.checkboxq").addCheckbox({
+			"sex": $checkSex
+		}); // 添加多选
 
-		// 关闭popup
+		// 关闭品质选择
 		$("#my-quality-popup").on("close.modal.amui", function() {
 			var $this = $(this),
 				$input = $this.data("input");
@@ -59,12 +63,17 @@
 			var str = "";
 			$this.find("input").each(function() {
 				if ($(this).prop("checked")) {
-					str += $(this).val() + ",";
+					str += $(this).val() + "|";
 				}
 			})
 			if (str) {
-				$input.val(str)
+				$input.val(str);
 			}
+		});
+
+		// -- 用户提交须知
+		$("#notice-popup").on("close.modal.amui", function() {
+			$("#notice").attr("checked","checked")
 		});
 	});
 }));

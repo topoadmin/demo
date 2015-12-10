@@ -18,9 +18,6 @@ require.config({
 });
 require(["amazeui"],function(){
 	require(["autoexec","app"]);
-	setTimeout(function(){
-		$(".loading").remove();
-	},55)
 	moduleLoad();
 });
 
