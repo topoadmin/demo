@@ -11,6 +11,8 @@ require.config({
     	"formValid":"module/formValid", // form验证
     	"citySelect":"module/jquery.cityselect",	// 城市选择
     	"quality":"module/qualityCheck",	// 城市选择
+    	"hammer":"module/hammer",	// 锤子
+    	"photoClip":"module/jquery.photoClip",	// 头像截取
     	"autoexec":"page/autoexec",	// 组件初始化
     	"app":"page/app",	// 公共的js
     	"user":"page/user"	

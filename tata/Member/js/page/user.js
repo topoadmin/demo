@@ -75,6 +75,30 @@
 		$("#notice-popup").on("close.modal.amui", function() {
 			$("#notice").attr("checked","checked")
 		});
+		
+		// -- 上传头像
+		$("#upload-head").on("click",function(){
+			$("#file").click();
+			require(["photoClip"], function() {
+				$("#clipArea").photoClip({
+					width: 232,
+					height: 299,
+					file: "#file",
+					view: "#user-head",
+					ok: "#clipBtn",
+					loadStart: function() {
+						console.log("照片读取中");
+					},
+					loadComplete: function() {
+						$(".clip-text").remove();
+						console.log("照片读取完成");
+					},
+					clipFinish: function(dataURL) {
+						console.log("裁剪完毕="+dataURL);
+					}
+				});	
+			});
+		})
 	});
 }));
 

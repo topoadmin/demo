@@ -9,9 +9,24 @@
 		<title>admin - 控制台</title>
 		<link rel="stylesheet" href="../assets/css/amazeui.min.css">
 		<link rel="stylesheet" type="text/css" href="css/admin.css" />
+		<link rel="stylesheet" href="css/loaders.css" />
+		<link rel="stylesheet" type="text/css" href="css/photoClip.css" />
 	</head>
 
 	<body class="am-with-topbar-fixed-top">
+		<!-- start 加载框 -->
+		<div class="loading">
+			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
+				<div class="loader am-text-center">
+					<div class="loader-inner semi-circle-spin" style="display: inline-block;">
+						<div></div>
+					</div>
+				</div>
+				<p class="am-text-white">加载中...</p>
+			</div>
+			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
+		</div>
+		<!-- end 加载框 -->
 
 		<!-- start 头部导航 -->
 		<header class="am-topbar am-topbar-fixed-top am-badge-primary" id="fixed-top-topbar" data-am-sticky>
@@ -92,35 +107,23 @@
 
 			<!-- start 内容开始 -->
 			<div class="am-g pd-left270" id="admin-right-main">
-				
 			</div>
 			<!-- end 内容结束 -->
 		</div>
 		<!-- end 内容区域 -->
 
-		<!-- start 加载框 -->
-		<div class="loading">
-			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" tabindex="-1" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
-				<div class="am-modal-dialog">
-					<div class="am-modal-hd">正在载入...</div>
-					<div class="am-modal-bd">
-						<span class="am-icon-spinner am-icon-spin"></span>
-					</div>
-				</div>
-			</div>
-			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
-		</div>
-		<!-- end 加载框 -->
-
-		<!-- start 返回顶部 -->
+		<!-- start 漂浮按钮 -->
 		<div class="amz-toolbar go-top">
-			<a href="javascript:;" data-am-smooth-scroll title="回到顶部" class="am-icon-btn am-icon-arrow-up am-hide" id="return-top"></a>
 			<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
 		</div>
-		<!-- end 返回顶部 -->
+		<!-- end 漂浮按钮 -->
 
-		<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="http://apps.bdimg.com/libs/require.js/2.1.9/require.min.js" data-main="js/main"></script>
+		<script>
+			function moduleLoad() {
+				
+			}
+		</script>
 	</body>
 
 </html>

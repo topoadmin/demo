@@ -19,6 +19,7 @@
 	}
 
 	$.fn.formValidator = function() {
+		var amAler = $("<div class='am-alert am-alert-warning' data-am-alert id='my-amAlert'></hr>请检查未勾选选项</div>");
 		$(this).validator({
 			patterns: {
 				mobile: /^\s*1\d{10}\s*$/
@@ -27,7 +28,11 @@
 			validateOnSubmit: true,
 			onValid: function(validity) {
 				// 验证通过
-				$(validity.field).closest('.am-form-group').find('.am-alert').fadeOut(333);
+				var $field = $(validity.field),$type = $field.attr("type");
+				$field.closest('.am-form-group').find('.am-alert').fadeOut(333);
+				$("#my-amAlert").fadeOut(555,function(){
+					$(this).detach()
+				});
 			},
 			onInValid: function(validity) {
 				var $field = $(validity.field),
@@ -35,11 +40,14 @@
 				$field.on('focusin focusout', function(e) {
 					var $type = $field.attr("type");
 					if($type == "radio" || $type == "checkbox"){
-						$("#my-alert").modal();
+						if($("#my-amAlert").length == 0){
+							$field.parents("form").prepend(amAler);
+						}
 					}else{
 						addAlert(validity, $field, _this);
 					}
 				});
+				
 			},
 			validate: function(validity) {
 				var $field = $(validity.field),
