@@ -7,7 +7,7 @@
 		factory();
 	}
 }(this, function(require, exports, module) {
-	require(["amazeui", "formValid"], function(amazeui) {　　
+	require(["amazeui", "formValid"], function() {　　
 		addOption(150, 200, "#sel-height");
 		addOption(40, 90, "#kg-height");
 
@@ -49,22 +49,23 @@
 			});
 		}
 
-//		require(["quality"], function() {　
-//			$("#options-tab").find("input.checkboxq").addCheckbox(); // 添加多选
-//
-//			$("#my-quality-popup").on("close.modal.amui", function() {
-//				var $this = $(this),
-//					$input = $this.data("input");
-//
-//				var str = "";
-//				$this.find("input").each(function() {
-//					if($(this).prop("checked")){
-//						str += $(this).val() + ",";
-//					}
-//				})
-//				$input.val(str)
-//			});
-//		});
+		$("#options-tab").find("input.checkboxq").addCheckbox(); // 添加多选
+
+		// 关闭popup
+		$("#my-quality-popup").on("close.modal.amui", function() {
+			var $this = $(this),
+				$input = $this.data("input");
+
+			var str = "";
+			$this.find("input").each(function() {
+				if ($(this).prop("checked")) {
+					str += $(this).val() + ",";
+				}
+			})
+			if (str) {
+				$input.val(str)
+			}
+		});
 	});
 }));
 

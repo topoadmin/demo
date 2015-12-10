@@ -421,8 +421,8 @@
 							</form>
 						</div>
 
-						<div class="am-tab-panel am-fade am-in am-active" id="options-tab" style="min-height: 1000px;">
-							<form class="am-form am-form-horizontal form-vail">
+						<div class="am-tab-panel am-fade am-in am-active" id="options-tab">
+							<form class="am-form am-form-horizontal form-vail am-hide" id="woman-form">
 								<div class="am-g">
 									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
 										<div class="am-input-group am-form-group am-input-group-default">
@@ -441,17 +441,36 @@
 									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
 										<div class="am-input-group am-form-group am-input-group-default">
 											<span class="am-input-group-label">TA的品质</span>
-											<select multiple data-am-selected minchecked="2" maxchecked="3">
-												<option value="a">Apple</option>
-												<option value="b">Banana</option>
-												<option value="o">Orange</option>
-												<option value="m">Mango</option>
+											<input class="am-form-field checkboxq" name="character" type="text" placeholder="选择我的品质"/>
+										</div>
+									</div>
+								</div>
+								<div class="am-g">
+									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
+										<div class="am-input-group am-form-group am-input-group-default">
+											<span class="am-input-group-label">我的品质</span>
+											<input class="am-form-field checkboxq" name="characteristic" type="text" placeholder="选择我的品质"/>
+										</div>
+									</div>
+								</div>
+							</form>
+							
+							<form class="am-form am-form-horizontal form-vail" id="man-form">
+								<div class="am-g">
+									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
+										<div class="am-input-group am-form-group am-input-group-default">
+											<span class="am-input-group-label">TA的年龄</span>
+											<select class="am-form-field" name="niandai">
+												<option value="60后">60后</option>
+												<option value="70后">70后</option>
+												<option selected value="80后">80后</option>
+												<option value="90后">90后</option>
+												<option value="其他">其他</option>
 											</select>
 										</div>
 									</div>
 								</div>
-
-								<!--<div class="am-g">
+								<div class="am-g">
 									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
 										<div class="am-input-group am-form-group am-input-group-default">
 											<span class="am-input-group-label">TA的品质</span>
@@ -466,7 +485,7 @@
 											<input class="am-form-field checkboxq" name="characteristic" type="text" placeholder="选择我的品质" readonly/>
 										</div>
 									</div>
-								</div>-->
+								</div>
 							</form>
 						</div>
 					</div>
