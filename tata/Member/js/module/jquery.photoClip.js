@@ -17,6 +17,7 @@
  * @option_param {string} ok 确认截图按钮的选择器或者DOM对象
  * @option_param {string} outputType 指定输出图片的类型，可选 "jpg" 和 "png" 两种种类型，默认为 "jpg"
  * @option_param {boolean} strictSize 是否严格按照截取区域宽高裁剪。默认为false，表示截取区域宽高仅用于约束宽高比例。如果设置为true，则表示截取出的图像宽高严格按照截取区域宽高输出
+ * @option_param {function} loadjs 异步加载js完毕调用事件
  * @option_param {function} loadStart 开始加载的回调函数。this指向 fileReader 对象，并将正在加载的 file 对象作为参数传入
  * @option_param {function} loadComplete 加载完成的回调函数。this指向图片对象，并将图片地址作为参数传入
  * @option_param {function} loadError 加载失败的回调函数。this指向 fileReader 对象，并将错误事件的 event 对象作为参数传入
@@ -36,7 +37,6 @@
 
 }(this, function($, Hammer) {
 	"use strict";
-
 	$.fn.photoClip = function(option) {
 		if (!window.FileReader) {
 			alert("您的浏览器不支持 HTML5 的 FileReader API， 因此无法初始化图片裁剪插件，请更换最新的浏览器！");
@@ -57,7 +57,7 @@
 			clipFinish: function() {}
 		}
 		$.extend(defaultOption, option);
-
+		
 		this.each(function() {
 			photoClip(this, defaultOption);
 		});
@@ -77,7 +77,7 @@
 			loadComplete = option.loadComplete,
 			loadError = option.loadError,
 			clipFinish = option.clipFinish;
-
+		
 		if (outputType === "jpg") {
 			outputType = "image/jpeg";
 		} else if (outputType === "png") {
@@ -90,7 +90,7 @@
 		var $img,
 			imgWidth, imgHeight, //图片当前的宽高
 			imgLoaded; //图片是否已经加载完成
-
+		
 		$file.change(function() {
 			if (!this.files.length) return;
 			if (!/image\/\w+/.test(this.files[0].type)) {
