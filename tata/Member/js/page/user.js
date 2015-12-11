@@ -73,40 +73,50 @@
 
 		// -- 用户提交须知
 		$("#notice-popup").on("close.modal.amui", function() {
-			$("#notice").attr("checked","checked")
+			$("#notice").attr("checked", "checked")
+		});
+
+		// -- 上传头像
+		var $file = $("#file"),uploadModal = $('#my-upload-head');
+		$("#upload-head").on("click", function() {
+			uploadModal.modal({
+				relatedTarget: this,
+				closeViaDimmer:false
+			});
+			uploadModal.find('.am-modal-btn').off('click.close.modal.amui');
+			$file.click();
+		});
+		$("#new-change-img").on("click",function(){
+			$file.click();
+		});
+		$("#clipBtn").on("click",function(){
+			uploadModal.modal("close");
+		})
+		
+		require(["photoClip"], function() {
+			$("#clipArea").photoClip({
+				width: 232,
+				height: 299,
+				file: $file,
+				view: "#user-head",
+				ok: "#clipBtn",
+				loadStart: function() {
+					//console.log("照片读取中");
+				},
+				loadComplete: function() {
+					$(".clip-text").remove();
+					//console.log("照片读取完成");
+				},
+				clipFinish: function(dataURL) {
+					var headdata = {
+						"userhead": dataURL
+					}
+					console.log(headdata);
+				}
+			});
 		});
 		
-		// -- 上传头像
-		var $file = $("#file");
-		$("#upload-head").on("click",function(){
-			require(["photoClip"], function() {
-				$("#clipArea").photoClip({
-					width: 232,
-					height: 299,
-					file: $file,
-					view: "#user-head",
-					ok: "#clipBtn",
-					loadStart: function() {
-						console.log("照片读取中");
-					},
-					loadComplete: function() {
-						$(".clip-text").remove();
-						console.log("照片读取完成");
-					},
-					clipFinish: function(dataURL) {
-						var headdata = {
-							"userhead":dataURL
-						}
-						console.log(headdata);
-					}
-				});	
-			});
-			
-			// 控制等待头像裁剪组件加载时间
-			setTimeout(function(){
-				$file.click();
-			},888)
-		})
+		
 	});
 }));
 
