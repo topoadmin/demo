@@ -79,7 +79,6 @@
 		// -- 上传头像
 		var $file = $("#file");
 		$("#upload-head").on("click",function(){
-			$file.click();
 			require(["photoClip"], function() {
 				$("#clipArea").photoClip({
 					width: 232,
@@ -102,6 +101,11 @@
 					}
 				});	
 			});
+			
+			// 控制等待头像裁剪组件加载时间
+			setTimeout(function(){
+				$file.click();
+			},888)
 		})
 	});
 }));
