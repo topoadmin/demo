@@ -1,0 +1,160 @@
+/*iconfont.cn阿里巴巴矢量图库*/
+
+@font-face {
+	font-family: 'iconfont';
+	src: url('//at.alicdn.com/t/font_1449728526_446365.eot');
+	/* IE9*/
+	src: url('//at.alicdn.com/t/font_1449728526_446365.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('//at.alicdn.com/t/font_1449728526_446365.woff') format('woff'), /* chrome、firefox */
+	url('//at.alicdn.com/t/font_1449728526_446365.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+	url('//at.alicdn.com/t/font_1449728526_446365.svg#iconfont') format('svg');
+	/* iOS 4.1- */
+}
+
+.iconfont {
+	font-family: "iconfont" !important;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-stroke-width: 0.2px;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-jilu:before {
+	content: "\e60c";
+}
+
+.icon-wenti:before {
+	content: "\e60b";
+}
+
+.icon-soso:before {
+	content: "\e60a";
+}
+
+.icon-shouchang:before {
+	content: "\e609";
+}
+
+.icon-mmkj:before {
+	content: "\e608";
+}
+
+.icon-youhui:before {
+	content: "\e605";
+}
+
+.icon-zhifubao:before {
+	content: "\e607";
+}
+
+.icon-chuxiao:before {
+	content: "\e606";
+}
+
+.icon-user:before {
+	content: "\e604";
+}
+
+.icon-kefu:before {
+	content: "\e603";
+}
+
+.icon-play:before {
+	content: "\e602";
+}
+
+.icon-tupian:before {
+	content: "\e601";
+}
+
+.icon-paishe:before {
+	content: "\e600";
+}
+
+.icon-dengji:before {
+	content: "\e60d";
+}
+
+.icon-zhinan:before {
+	content: "\e60e";
+}
+
+.icon-dingdan:before {
+	content: "\e611";
+}
+
+.icon-tuituan:before {
+	content: "\e612";
+}
+
+.icon-xinghao:before {
+	content: "\e60f";
+}
+
+
+/* 重写 amazeui.css*/
+.am-text-white {
+	color: #ddd;
+}
+
+.am-active .am-btn-default.am-dropdown-toggle,
+.am-btn-default.am-active,
+.am-btn-default:active {
+	background-color: #fff;
+}
+
+.check-radio .am-radio-inline {
+	padding-top: 0;
+}
+
+.am-input-group .am-form-field {
+	padding: 0 0.5rem;
+}
+
+.am-input-group div.am-form-field {
+	padding: .5rem;
+}
+
+#my-quality-popup .am-checkbox-inline+.am-checkbox-inline,
+#my-quality-popup .am-radio-inline+.am-radio-inline {
+	margin-left: 0px;
+}
+
+@media only screen and (max-width: 641px) {
+	.am-selected {
+		width: 150px;
+	}
+}
+
+.am-selected .am-btn {
+	padding: 0.6em 1em;
+}
+
+.chosen-container-multi .chosen-choices {
+	padding: 5px 5px;
+}
+
+
+/* 头部导航*/
+
+#fixed-top-topbar {
+	z-index: 1099;
+	border: none;
+	margin-bottom: 0;
+}
+
+#fixed-top-topbar.am-topbar,
+.am-topbar a {
+	color: #fff;
+}
+
+#fixed-top-topbar .am-nav>li>a:focus,
+#fixed-top-topbar .am-nav>li>a:hover {
+	background-color: #1580B7;
+}
+
+#fixed-top-topbar .am-topbar-nav>li>a:hover:after {
+	border-bottom-color: #fff;
+}
+
+

@@ -8,10 +8,11 @@
 		<meta http-equiv="Cache-Control" content="no-siteapp" />
 		<title>admin - 控制台</title>
 		<link rel="stylesheet" href="../assets/css/amazeui.min.css">
-		<link rel="stylesheet" href="css/amazeui.datetimepicker.css" />
-		<link rel="stylesheet" href="css/amazeui.chosen.css" />
+		<link rel="stylesheet" type="text/css" href="../assets/css/app.css" />
+		<!--<link rel="stylesheet" href="css/amazeui.datetimepicker.css" />-->
+		<!--<link rel="stylesheet" href="css/amazeui.chosen.css" />-->
 		<link rel="stylesheet" href="css/admin.css" />
-		<link rel="stylesheet" href="css/loaders.css" />
+		<link rel="stylesheet" href="../assets/css/loaders.css" />
 		<style type="text/css">
 			#my-quality-popup .am-checkbox,
 			#my-quality-popup .am-checkbox-inline,
@@ -19,6 +20,7 @@
 			#my-quality-popup .am-radio-inline {
 				min-width: 30%;
 			}
+			
 			#clipArea {
 				width: 100%;
 				height: 400px;
@@ -62,11 +64,6 @@
 						<a href="javascript:;">
 							<span class="am-icon-bell"></span> 通知
 							<span class="am-badge am-badge-success countUp" data-endVal="60">0</span>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<span class="am-icon-cog am-icon-sm am-icon-spin"></span> 设置
 						</a>
 					</li>
 					<li class="am-dropdown" data-am-dropdown="">
@@ -131,7 +128,7 @@
 									<img class="am-img-circle am-img-thumbnail" id="user-head" src="img/q2.jpg">
 									<div class="am-form-group">
 										<hr />
-										<button type="button" class="am-btn am-btn-primary am-btn-xs" id="upload-head" >上传头像</button>
+										<button type="button" class="am-btn am-btn-primary am-btn-xs" id="upload-head">上传头像</button>
 									</div>
 								</div>
 								<div class="am-u-sm-12 am-u-md-6 am-u-lg-12">
@@ -568,14 +565,14 @@
 
 		<!-- 提交须知弹窗 -->
 		<div class="am-popup" id="notice-popup">
-			 <div class="am-popup-inner">
+			<div class="am-popup-inner">
 				<div class="am-popup-hd">
 					<h4 class="am-popup-title">用户提交须知</h4>
 					<span data-am-modal-close class="am-close">&times;</span>
 				</div>
 				<div class="am-popup-bd">
-					<img class="am-img-responsive .am-show-sm-up" src="img/notice.jpg"/>
-					<img class="am-img-responsive .am-show-sm-only" src="img/notice-m.jpg"/>
+					<img class="am-img-responsive .am-show-sm-up" src="img/notice.jpg" />
+					<img class="am-img-responsive .am-show-sm-only" src="img/notice-m.jpg" />
 				</div>
 				<div class="am-modal-footer">
 					<span class="am-modal-btn">
@@ -584,7 +581,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- 头像裁剪 -->
 		<div class="am-popup" tabindex="-1" id="my-upload-head">
 			<div class="am-modal-dialog">
@@ -600,15 +597,14 @@
 				</div>
 				<div class="am-modal-footer" style="display: table;">
 					<span class="am-modal-btn am-text-center">
-						<span class="am-btn am-btn-success" data-fn="changeImg"  id="new-change-img">选择图片</span>
-						<input class="am-hide" type="file" name="head" id="file" accept="image/*">
-						<span class="am-btn am-btn-success" id="clipBtn">裁剪完毕</span>
+						<span class="am-btn am-btn-primary" data-fn="changeImg"  id="new-change-img">选择图片</span>
+					<input class="am-hide" type="file" name="head" id="file" accept="image/*">
+					<span class="am-btn am-btn-success" id="clipBtn">裁剪完毕</span>
 					</span>
 				</div>
 			</div>
 		</div>
-		
-		
+
 		<!-- 脚本 -->
 		<script src="js/module/iscroll-zoom.js"></script>
 		<script src="http://apps.bdimg.com/libs/require.js/2.1.9/require.min.js" data-main="js/main"></script>

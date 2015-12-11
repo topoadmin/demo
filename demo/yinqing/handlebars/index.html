@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="../../../css/bootstrap.css" />
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="js/handlebars.min.js"></script>
+		<script src="js/my-handlebars.js"></script>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12" id="demo">
+				</div>
+			</div>
+		</div>
+		<script id="my-nav" type="text/x-handlebars-template">
+			{{#list people}}{{nav}}{{/list}}
+		</script>
+
+		<script type="text/javascript">
+			var source = $("#my-nav").html();
+			var template = Handlebars.compile(source);
+			var context = {
+				people: [{
+					nav: "Yehuda"
+				}, {
+					nav: "Carl"
+				}, {
+					nav: "Alan"
+				}]
+			};
+			var html = template(context);
+			document.getElementById("demo").innerHTML = html;
+		</script>
+	</body>
+
+</html>
