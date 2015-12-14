@@ -1,0 +1,48 @@
+[
+	{
+		"href": "http://www.taquta.com/tatatrip/VmtkNFUxTnNRbEpRVkRBOQ==?spm=1447991994",
+		"img": "http://www.taquta.com/Uploads/image/product/20151120/20151120115855_86330.jpg",
+		"alt": "巴厘岛",
+		"site":"印尼",
+		"site2": "巴厘岛",
+		"time": "2015-12-29",
+		"price": "8800",
+		"privilege": "4400"
+	}, {
+		"href": "http://www.taquta.com/tatatrip/VmtkNFUxUnNRbEpRVkRBOQ==?spm=1447992105",
+		"img": "http://www.taquta.com/Uploads/image/product/20151209/20151209142254_66444.jpg",
+		"alt": "普吉岛",
+		"site":"泰国",
+		"site2": "普吉岛",
+		"time": "人满出发",
+		"price": "8300",
+		"privilege": "4150"
+	}, {
+		"href": "http://www.taquta.com/tatatrip/VmtkNFUxWnNRbEpRVkRBOQ==?spm=1448002726",
+		"img": "http://www.taquta.com/Uploads/image/product/20151015/20151015183041_94992.jpg",
+		"alt": "古生",
+		"site":"云南",
+		"site2": "古生",
+		"time": "2016-1-08",
+		"price": "7300",
+		"privilege": "3150"
+	},{
+		"href": "http://www.taquta.com/tatatrip/VmtkNFUxZHNRbEpRVkRBOQ==?spm=1448003268",
+		"img": "http://www.taquta.com/Uploads/image/product/20151015/20151015180923_38333.jpg",
+		"alt": "古生",
+		"site":"海南",
+		"site2": "白查",
+		"time": "人满出发",
+		"price": "7500",
+		"privilege": "3750"
+	}, {
+		"href": "http://www.taquta.com/tatatrip/VmtkNFUyRnNRbEpRVkRBOQ==?spm=1448012766",
+		"img": "http://www.taquta.com/Uploads/image/product/20151015/20151015181058_69309.jpg",
+		"alt": "南港",
+		"site":"海南",
+		"site2": "南港",
+		"time": "人满出发",
+		"price": "7500",
+		"privilege": "3750"
+	}
+]
