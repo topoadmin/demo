@@ -8,7 +8,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<title>案例展示中心</title>
 		<link rel="stylesheet" type="text/css" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
-		<!--<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />-->
 		<style type="text/css">
 			[v-cloak] {
 				display: none
@@ -40,12 +39,12 @@
 					</li>
 				</ul>
 				<div class="text-right">
-					<samp>{{samp}}</samp>
+					<!--<samp>{{samp}}</samp>-->
 				</div>
 			</div>
 		</div>
 
-		<script src="js/vue.min.js" charset="utf-8"></script>
+		<script src="src/js/vue.min.js" charset="utf-8"></script>
 		<script type="text/javascript">
 			new Vue({
 				el: '#app',
@@ -53,18 +52,18 @@
 					title: "案例演示",
 					samp: "本页面采用bootstrap+vue生成",
 					items: [{
-						name: "他她旅游",
-						imgSrc: "image/tata.jpg",
-						url: "tata/Member/user.html",
+						name: "TATA旅游",
+						imgSrc: "src/image/tata.jpg",
+						url: "tata/home.html",
 						samp: "require + amazeui + jq"
 					}, {
-						name: "商城或旅游移动站",
-						imgSrc: "image/amazeuim.png",
+						name: "模仿Mall",
+						imgSrc: "src/image/amazeuim.png",
 						url: "demo/amazeui-m/index.html",
 						samp: "amazeui + jq"
 					}, {
 						name: "vue.js-学习",
-						imgSrc: "image/vue.jpg",
+						imgSrc: "src/image/vue.jpg",
 						url: "demo/vuejs/入门.html",
 						samp: "bootstrap + vue"
 					}]

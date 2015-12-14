@@ -11,27 +11,62 @@
 		<link rel="stylesheet" href="assets/css/loaders.css" />
 		<link rel="stylesheet" href="assets/css/app.css" />
 		<style type="text/css">
-			#home-carousel .h-c-img{
-				max-height: 900px;
+			/* 顶部导航高度 */
+			.am-sticky-placeholder {
+				height: 0 !important;
 			}
-			.am-topbar-nav>li>a.denglu{
+			#topbar-collapse .am-topbar-nav>li.am-active>a {
+				color: #fff;
+			}
+			/* 某些设置出现换行BUG */
+			
+			.am-topbar-nav>li>a.min80 {
 				min-width: 80px;
 			}
-			#main{
+			
+			body {
 				background-color: #ddd;
 			}
-			#home-carousel a.am-next,
-			#home-carousel a.am-prev{
-				width: 50px;height: 50px;opacity: 1;
+			
+			.am-g-fixed-1200 {
+				margin: 0 auto;
+				max-width: 1200px;
 			}
+			
+			#fixed-top-topbar {
+				width: 100% !important;
+				left: 0 !important;
+			}
+			
+			.home-carousel-box {
+				height: 800px;
+			}
+			
+			#home-carousel .h-c-img {
+				margin: 0 auto;
+				height: 800px;
+			}
+			
+			#home-carousel a.am-next,
+			#home-carousel a.am-prev {
+				width: 50px;
+				height: 50px;
+				opacity: 1;
+			}
+			
 			#home-carousel a.am-next:before,
-			#home-carousel a.am-prev:before{
-				font-size: 35px !important;color: #fff;
+			#home-carousel a.am-prev:before {
+				font-size: 35px !important;
+				color: #fff;
+			}
+			
+			#classify {
+				margin: 1em 0 .5em 0;
 			}
 		</style>
 	</head>
 
-	<body class="am-with-topbar-fixed-top">
+	<body class="am-with-topbar-fixed-top am-g-fixed-1200">
 		<!-- start 加载框 -->
 		<div class="loading">
 			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
@@ -59,17 +94,24 @@
 
 			<div class="am-collapse am-topbar-collapse" id="topbar-collapse">
 				<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-					<!--<li>
-						<a href="javascript:;">
-							<span class="am-icon-bell"></span> 通知
-							<span class="am-badge am-badge-success countUp" data-endVal="60">0</span>
-						</a>
-					</li>-->
 					<li>
-						<a href="#" class="denglu">
+						<a href="javascript:;" class="min80 fixed-widtn am-show-lg-only">
+							<span class="am-icon-tv"></span>
+							<span class="fixed-txt">宽屏</span>
+						</a>
+					</li>
+
+					<li>
+						<a href="#" class="min80">
+							<span class="am-icon-user-plus"></span> 注册
+						</a>
+					</li>
+					<li>
+						<a href="#" class="min80">
 							<span class="am-icon-user"></span> 登录
 						</a>
 					</li>
+
 					<li class="am-dropdown" data-am-dropdown="">
 						<a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
 							<span class="am-icon-user"></span>
@@ -87,22 +129,172 @@
 		<!-- end 头部导航 -->
 
 		<!-- start 内容区域 -->
-		<div class="am-g" id="main">
-			<div class="am-u-sm-12">
-				<div class="am-slider am-slider-default" id="home-carousel">
-					<ul class="am-slides">
-						<li><img class="h-c-img" src="http://www.taquta.com/Uploads/picture/564ecce3e516e.jpg" /></li>
-						<!--<li><img class="h-c-img" src="img/home-1.jpg"  /></li>-->
-						<li><img class="h-c-img" src="http://www.taquta.com/Uploads/picture/5666537aa898b.jpg" /></li>
-					</ul>
+		<div id="main">
+			<div style="height: 20px;"></div>
+			<!-- 轮播 -->
+			<div class="am-g home-carousel-box">
+				<div class="am-u-sm-12">
+					<div class="am-slider am-slider-default" id="home-carousel">
+						<ul class="am-slides">
+							<li><img class="h-c-img" src="http://www.taquta.com/Uploads/picture/564ecce3e516e.jpg" /></li>
+							<li><img class="h-c-img" src="http://www.taquta.com/Uploads/picture/5666537aa898b.jpg" /></li>
+						</ul>
+					</div>
 				</div>
 			</div>
+
+			<div style="height: 20px;"></div>
+			<!-- 微电影 -->
+			<section class="am-panel am-panel-default">
+				<header class="am-panel-hd">
+					<div class="am-text-center">
+						<h3 class="am-panel-title"> 《 情话西游之爱有天意 》 </h3>
+					</div>
+					<div class="am-cf"></div>
+				</header>
+				<div class="am-g">
+					<div class="am-u-sm-12 am-u-md-8 am-u-md-push-2 am-u-lg-10 am-u-lg-push-1">
+						<a href="http://www.taquta.com/index.php?s=/Index/video.jsp">
+							<img src="http://www.taquta.com/Application/Mobile/View/Default/Images/wdyplay.jpg" class="am-img-responsive am-center">
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- 流程图 -->
+			<section class="am-panel am-panel-default">
+				<div class="am-g">
+					<div class="am-u-sm-12 am-u-md-8 am-u-md-push-2 am-u-lg-10 am-u-lg-push-1">
+						<img src="http://www.taquta.com/Application/Home/View/Default/Images/home-title-2.jpg" class="am-img-responsive am-center">
+					</div>
+				</div>
+			</section>
+
+			<!-- 冬季温柔团 -->
+			<section class="am-panel am-panel-default">
+				<header class="am-panel-hd">
+					<div class="am-text-center">
+						<h3 class="am-panel-title">冬季温柔团</h3>
+					</div>
+					<div class="am-cf"></div>
+				</header>
+				<div class="am-g">
+					<div class="am-u-sm-12 am-u-md-8 am-u-md-push-2 am-u-lg-10 am-u-lg-push-1">
+						<img src="img/sale-logo.jpg" class="am-img-responsive am-center">
+					</div>
+				</div>
+				<ul class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-imgbordered">
+					<li>
+						<div class="am-gallery-item">
+							<a href="javascript:;">
+								<img src="http://www.taquta.com/Uploads/image/product/20151120/20151120115855_86330.jpg"/>
+								<h3 class="am-gallery-title">印尼-巴厘岛</h3>
+								<div class="am-gallery-desc am-g">
+									<span class="am-left">2015-12-29</span>
+									<span class="am-right">
+										aaa
+									</span>
+								</div>
+							</a>
+						</div>
+					</li>
+					<li>
+						<div class="am-gallery-item">
+							<a href="javascript:;">
+								<img src="http://www.taquta.com/Uploads/image/product/20151209/20151209142254_66444.jpg" alt="某天 也许会相遇 相遇在这个好地方" />
+								<h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>
+								<div class="am-gallery-desc">2375-09-26</div>
+							</a>
+						</div>
+					</li>
+					<li>
+						<div class="am-gallery-item">
+							<a href="javascript:;">
+								<img src="http://www.taquta.com/Uploads/image/product/20151015/20151015183041_94992.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+								<h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
+								<div class="am-gallery-desc">2375-09-26</div>
+							</a>
+						</div>
+					</li>
+					<li>
+						<div class="am-gallery-item">
+							<a href="javascript:;">
+								<img src="http://www.taquta.com/Uploads/image/product/20151015/20151015180923_38333.jpg" alt="某天 也许会相遇 相遇在这个好地方" />
+								<h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>
+								<div class="am-gallery-desc">2375-09-26</div>
+							</a>
+						</div>
+					</li>
+				</ul>
+			</section>
+
+			<!-- 热门景点 -->
+			<section class="am-panel am-panel-default">
+				<header class="am-panel-hd">
+					<div class="am-text-center">
+						<h3 class="am-panel-title">热门景点</h3>
+					</div>
+					<div class="am-cf"></div>
+				</header>
+				<div class="am-text-center" id="classify">
+					<button type="button" class="am-btn am-btn-primary">默认样式</button>
+					<button type="button" class="am-btn am-btn-primary">默认样式</button>
+				</div>
+				<ul class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-imgbordered">
+					<li>
+						<div class="am-gallery-item">
+							<a href="javascript:;">
+								<img src="https://farm4.staticflickr.com/3835/15329524682_2642280b33_z.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+								<h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
+								<div class="am-gallery-desc">2375-09-26</div>
+							</a>
+						</div>
+					</li>
+					<li>
+						<div class="am-gallery-item">
+							<a href="javascript:;">
+								<img src="https://farm3.staticflickr.com/2941/15346557971_dec5c9ac36_z.jpg" alt="某天 也许会相遇 相遇在这个好地方" />
+								<h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>
+								<div class="am-gallery-desc">2375-09-26</div>
+							</a>
+						</div>
+					</li>
+					<li>
+						<div class="am-gallery-item">
+							<a href="javascript:;">
+								<img src="https://farm4.staticflickr.com/3835/15329524682_2642280b33_z.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+								<h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
+								<div class="am-gallery-desc">2375-09-26</div>
+							</a>
+						</div>
+					</li>
+					<li>
+						<div class="am-gallery-item">
+							<a href="javascript:;">
+								<img src="https://farm3.staticflickr.com/2941/15346557971_dec5c9ac36_z.jpg" alt="某天 也许会相遇 相遇在这个好地方" />
+								<h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>
+								<div class="am-gallery-desc">2375-09-26</div>
+							</a>
+						</div>
+					</li>
+				</ul>
+			</section>
 		</div>
-		
-			
-			
 		<!-- end 内容区域 -->
 
+		<div style="height: 800px;"></div>
+		
+		<script type="text/javascript">
+			// 给所有am-gallery-item添加动画
+			(function() {
+				var animateDom = document.getElementsByClassName("am-gallery-item");
+				for (var i = 0; i < animateDom.length; i++) {
+					var delay = parseInt(Math.random() * (150 - 250 + 1) + 230);	// 生成随机数
+					animateDom[i].setAttribute("data-am-scrollspy","{animation: 'slide-top',delay:"+delay+"}")
+				}
+			}());
+		</script>
+		
 		<script src="js/require.min.js" data-main="js/main"></script>
 		<script>
 			function moduleLoad() {
