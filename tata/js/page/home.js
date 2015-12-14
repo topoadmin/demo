@@ -14,7 +14,7 @@
 		addGallery(document.getElementById("activity-soft"));
 	});
 	
-	$.getJSON("js/data/activity-soft.json",function(data){
+	$.getJSON("js/data/activity-box.json",function(data){
 		addActivity("activity-tpl","activity-box",data);
 		addGallery(document.getElementById("activity-box"));
 	});
