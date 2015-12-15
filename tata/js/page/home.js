@@ -59,7 +59,7 @@
 			txt = fixedTxt.text().trim();
 		fixedTxt.text((txt == "宽屏") ? "窄屏" : "宽屏")
 		$("body").toggleClass("am-g-fixed-1200");
-		$(window).trigger("scroll"); // 触发resize事件,轮播重设宽度
+		$(window).trigger("resize");	 // 触发resize事件,轮播重设宽度
 	});
 
 	require(["mixitup"], function() {
@@ -78,7 +78,7 @@
 			},
 			onMixEnd: function(event) {
 				filter.removeClass("am-disabled");
-				$(window).trigger("resize");	// 触发浏览器滚动事件   防止图片卡在赖加载
+				$(window).trigger("scroll"); // 触发浏览器滚动事件   防止图片卡在赖加载
 			}
 		});
 	});
