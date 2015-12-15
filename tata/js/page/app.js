@@ -10,10 +10,8 @@
 	}
 
 }(this, function($) {
+	setTimeout(function() {
+		$(".loading").hide();
+	}, 222)
 
-	$(function() {
-		setTimeout(function() {
-			$(".loading").hide();
-		}, 222)
-	})
 }));

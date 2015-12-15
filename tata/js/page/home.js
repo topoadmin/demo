@@ -1,31 +1,37 @@
 (function(root, factory) {
 	"use strict";
 	if (typeof define === "function" && define.amd) {
-		define(["jquery","laytpl"], factory);
+		define(["jquery", "laytpl", "lazyload"], factory);
 	} else if (typeof exports === "object") {
-		module.exports = factory(require("jquery"),require("laytpl"));
+		module.exports = factory(require("jquery"), require("laytpl"), require("lazyload"));
 	} else {
 		factory(root.jQuery);
 	}
 
-}(this, function($,laytpl) {
-	$.getJSON("js/data/activity-soft.json",function(data){
-		addActivity("activity-tpl","activity-soft",data);
-		addGallery(document.getElementById("activity-soft"));
-	});
-	
-	$.getJSON("js/data/activity-box.json",function(data){
-		addActivity("activity-tpl","activity-box",data);
-		addGallery(document.getElementById("activity-box"));
-	});
-	
-	function addActivity(tplId,setDomId,data){
+}(this, function($, laytpl) {
+	// 添加模版
+	function addActivity(tplId, setDomId, data) {
 		var gettpl = document.getElementById(tplId).innerHTML;
 		laytpl(gettpl).render(data, function(html) {
 			document.getElementById(setDomId).innerHTML = html;
 		});
 	}
-	
+
+	$.getJSON("js/data/activity-soft.json", function(data) {
+		addActivity("activity-tpl", "activity-soft", data);
+		addGallery(document.getElementById("activity-soft"));
+		$(".lazyload").lazyload({
+			threshold: 200
+		}); // 开启赖加载
+	});
+
+	$.getJSON("js/data/activity-box.json", function(data) {
+		addActivity("activity-tpl", "activity-box", data);
+		//		addGallery(document.getElementById("activity-box"));
+		$(".lazyload").lazyload({
+			threshold: 200
+		}); // 开启赖加载
+	});
 	$('#home-carousel').flexslider({
 		playAfterPaused: 8000,
 		slideshowSpeed: 3000,
@@ -38,5 +44,32 @@
 		fixedTxt.text((txt == "宽屏") ? "窄屏" : "宽屏")
 		$("body").toggleClass("am-g-fixed-1200");
 		$(window).trigger("resize"); // 触发resize事件,轮播重设宽度
-	})
+	});
+
+	require(["mixitup"], function() {
+		// -- mixitup 排序分类
+		var filter = $("#classify .filter")
+		$('#activity-box').mixitup({
+			targetSelector: ".all",
+			filterSelector: ".filter",
+			effects: ["fade"],
+			easing: "snap",
+			onMixStart: function(event) {
+				filter.addClass("am-disabled");
+			},
+			onMixEnd: function(event) {
+				filter.removeClass("am-disabled");
+			},
+			animation: {
+				duration: 210,
+				effects: 'fade translateY(-36%) rotateZ(-68deg) scale(1.00) translateX(86%) rotateX(-11deg) translateZ(100px) rotateY(-61deg) stagger(138ms)',
+				easing: 'cubic-bezier(0.6, -0.28, 0.735, 0.045)'
+			}
+		});
+	});
+
+
+	return {
+		addActivity: addActivity
+	}
 }));
