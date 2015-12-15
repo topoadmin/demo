@@ -48,7 +48,10 @@
 
 	require(["mixitup"], function() {
 		// -- mixitup 排序分类
-		var filter = $("#classify .filter")
+		var filter = $("#classify .filter"); // -- 分类按钮节点
+		filter.on("click",function(){
+			$(this).addClass("am-active").siblings(".filter").removeClass("am-active");
+		});
 		$('#activity-box').mixitup({
 			targetSelector: ".all",
 			filterSelector: ".filter",
