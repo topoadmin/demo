@@ -27,7 +27,7 @@
 
 	$.getJSON("js/data/activity-box.json", function(data) {
 		addActivity("activity-tpl", "activity-box", data);
-		//		addGallery(document.getElementById("activity-box"));
+//		addGallery(document.getElementById("activity-box"));
 		$(".lazyload").lazyload({
 			threshold: 200
 		}); // 开启赖加载
@@ -51,6 +51,7 @@
 		var filter = $("#classify .filter"); // -- 分类按钮节点
 		filter.on("click",function(){
 			$(this).addClass("am-active").siblings(".filter").removeClass("am-active");
+			$(window).trigger("resize"); // 触发resize事件,轮播重设宽度
 		});
 		$('#activity-box').mixitup({
 			targetSelector: ".all",
