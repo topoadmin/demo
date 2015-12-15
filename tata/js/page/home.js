@@ -34,22 +34,22 @@
 	}
 	
 	// 促销活动
-//	$.getJSON("js/data/activity-soft.json", function(data) {
-//		addActivity("activity-tpl", "activity-soft", data);
-//		//addGallery(document.getElementById("activity-soft"));
-//		$(".lazyload").lazyload({
-//			threshold: 280
-//		}); // 开启赖加载
-//	});
+	$.getJSON("js/data/activity-soft.json", function(data) {
+		addActivity("activity-tpl", "activity-soft", data);
+		//addGallery(document.getElementById("activity-soft"));
+		$(".lazyload").lazyload({
+			threshold: 280
+		}); // 开启赖加载
+	});
 	
 	// 所有活动
-//	$.getJSON("js/data/activity-box.json", function(data) {
-//		addActivity("activity-tpl", "activity-box", data);
-//		//addGallery(document.getElementById("activity-box"));
-//		$(".lazyload").lazyload({
-//			threshold: 280
-//		}); // 开启赖加载
-//	});
+	$.getJSON("js/data/activity-box.json", function(data) {
+		addActivity("activity-tpl", "activity-box", data);
+		//addGallery(document.getElementById("activity-box"));
+		$(".lazyload").lazyload({
+			threshold: 280
+		}); // 开启赖加载
+	});
 	$('#home-carousel').flexslider({
 		playAfterPaused: 8000,
 		slideshowSpeed: 3000,

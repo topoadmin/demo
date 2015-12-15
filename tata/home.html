@@ -67,6 +67,12 @@
 				display: none;
 				clear: none;
 			}
+			#float-code {
+			    width: 200px;
+			    position: fixed;
+			    right: 30px;
+			    top: 51px;
+			}
 		</style>
 	</head>
 
@@ -139,8 +145,6 @@
 				</ul>
 			</div>
 		</header>
-		<!-- end 头部导航 -->
-		
 		<!-- start 内容区域 -->
 		<div id="main">
 			<div style="height: 20px;"></div>
@@ -229,6 +233,12 @@
 			</section>
 		</div>
 		<!-- end 内容区域 -->
+		
+		<!-- 浮动二维码 -->
+		<div id="float-code" class="am-show-lg-only">
+			<img src="http://www.taquta.com/Application/Home/View/Default/Images/float-code.jpg">
+			<button class="am-btn am-btn-primary am-btn-block">关闭</button>
+		</div>
 		
 		<!-- 返回顶部 -->
 		<div data-am-widget="gotop" class="am-gotop am-gotop-fixed">
