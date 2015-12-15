@@ -63,7 +63,8 @@
 			#classify {
 				margin: 1em 0 .5em 0;
 			}
-			#activity-box .all{
+			
+			#activity-box .all {
 				display: none;
 				clear: none;
 			}
@@ -140,7 +141,7 @@
 				<div class="am-u-sm-12">
 					<div class="am-slider am-slider-default" id="home-carousel">
 						<ul class="am-slides">
-							<li><img class="h-c-img" src="http://www.taquta.com/Uploads/picture/564ecce3e516e.jpg"  /></li>
+							<li><img class="h-c-img" src="http://www.taquta.com/Uploads/picture/564ecce3e516e.jpg" /></li>
 							<li><img class="h-c-img" src="http://www.taquta.com/Uploads/picture/5666537aa898b.jpg" /></li>
 						</ul>
 					</div>
@@ -223,63 +224,48 @@
 		</div>
 		<!-- end 内容区域 -->
 
-
 		<div style="height: 300px;"></div>
 		<!-- 活动模版 -->
 		<script id="activity-tpl" type="text/html">
 			<ul class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-5 am-gallery-imgbordered">
-				{{# for(var i = 0, len = d.length; i < len; i++){ }} 
-				{{# if(d[i].privilege){  }}
-					<li class="all {{ d[i].site }} 特价">
-				{{# }else{ }}
+				{{# for(var i = 0, len = d.length; i
+				< len; i++){ }} {{# if(d[i].privilege){ }} <li class="all {{ d[i].site }} 特价">
+					{{# }else{ }}
 					<li class="all {{ d[i].site }}">
-				{{# }}}
-					<div class="am-gallery-item">
-						<a href="{{ d[i].href }}">
-							<img class="lazyload" data-original="{{ d[i].img }}" src="img/load.gif"  alt="{{ d[i].alt }}" />
-							<h3 class="am-gallery-title">{{ d[i].site }} - {{ d[i].site2 }}</h3>
-							<div class="am-gallery-desc">
-								<span>出发时间:</span>
-								<span>{{ d[i].time }}</span>
-								<div class="am-text-lg">
-									{{# if(d[i].privilege){  }}
+						{{# }}}
+						<div class="am-gallery-item">
+							<a href="{{ d[i].href }}">
+								<img class="lazyload" data-original="{{ d[i].img }}" src="img/load.gif" alt="{{ d[i].alt }}" />
+								<h3 class="am-gallery-title">{{ d[i].site }} - {{ d[i].site2 }}</h3>
+								<div class="am-gallery-desc">
+									<span>出发时间:</span>
+									<span>{{ d[i].time }}</span>
+									<div class="am-text-lg">
+										{{# if(d[i].privilege){ }}
 										<del>￥:<span>{{ d[i].price }}.00</span></del>
-										<span class="am-text-danger">{{ d[i].privilege }}.00</span>
-									{{# }else{ }}
-										￥:<span class="am-text-danger">{{ d[i].price }}.00</span>
-									{{# }}}
+										<span class="am-text-danger">{{ d[i].privilege }}.00</span> {{# }else{ }} ￥:
+										<span class="am-text-danger">{{ d[i].price }}.00</span> {{# }}}
+									</div>
 								</div>
-							</div>
-						</a>
-					</div>
-				</li>
-				{{# } }}
+							</a>
+						</div>
+					</li>
+					{{# } }}
 			</ul>
 		</script>
+		
+		<!-- 返回顶部 -->
+		<div data-am-widget="gotop" class="am-gotop am-gotop-fixed">
+			<a href="#top" title="回到顶部">
+				<span class="am-gotop-title">回到顶部</span>
+				<i class="am-gotop-icon am-icon-chevron-up"></i>
+			</a>
+		</div>
 
 		<script src="js/require.min.js" data-main="js/main"></script>
 		<script>
-			// 给am-gallery-item添加动画
-			function addGallery(elm) {
-				var animateDom;
-				if (elm) {
-					animateDom = elm.getElementsByClassName("am-gallery-item");
-				} else {
-					animateDom = document.getElementsByClassName("am-gallery-item");
-				}
-				if (animateDom.length < 1) {
-					return false;
-				}
-				for (var i = 0; i < animateDom.length; i++) {
-					var delay = parseInt(Math.random() * (150 - 250 + 1) + 230); // 生成随机数
-					animateDom[i].setAttribute("data-am-scrollspy", "{animation: 'scale-down',delay:" + delay + ",repeat: false}")
-				}
-			}
-			addGallery();
-			
 			function moduleLoad() {
-				require(["home"],function(home){
-				});
+				require(["home"], function(home) {});
 			}
 		</script>
 	</body>
