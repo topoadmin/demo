@@ -62,11 +62,6 @@
 			},
 			onMixEnd: function(event) {
 				filter.removeClass("am-disabled");
-			},
-			animation: {
-				duration: 210,
-				effects: 'fade translateY(-36%) rotateZ(-68deg) scale(1.00) translateX(86%) rotateX(-11deg) translateZ(100px) rotateY(-61deg) stagger(138ms)',
-				easing: 'cubic-bezier(0.6, -0.28, 0.735, 0.045)'
 			}
 		});
 	});

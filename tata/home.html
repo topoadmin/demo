@@ -6,7 +6,9 @@
 		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
 		<meta name="renderer" content="webkit">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<title>admin - 控制台</title>
+		<title>TATA旅游-相爱之缘、命中注定！</title>
+		<link rel="shortcut icon" href="http://www.taquta.com/favicon.ico">
+		<link rel="bookmark" href="http://www.taquta.com/favicon.ico">
 		<link rel="stylesheet" href="assets/css/amazeui.min.css">
 		<link rel="stylesheet" href="assets/css/loaders.css" />
 		<link rel="stylesheet" href="assets/css/app.css" />
@@ -206,6 +208,15 @@
 					<button type="button" class="am-btn am-btn-primary filter" data-filter=".湖北">湖北</button>
 					<button type="button" class="am-btn am-btn-primary filter" data-filter=".内蒙古">内蒙古</button>
 					<button type="button" class="am-btn am-btn-primary filter" data-filter=".湖南">湖南</button>
+					<div class="am-show-md-only" style="height: 10px;"></div>
+					<div class="am-show-sm-only" style="height: 10px;"></div>
+					<button type="button" class="am-btn am-btn-primary filter" data-filter=".四川">四川</button>
+					<button type="button" class="am-btn am-btn-primary filter" data-filter=".海南">海南</button>
+					<button type="button" class="am-btn am-btn-primary filter" data-filter=".云南">云南</button>
+					<div class="am-show-sm-only" style="height: 10px;"></div>
+					<button type="button" class="am-btn am-btn-primary filter" data-filter=".印尼">印尼</button>
+					<button type="button" class="am-btn am-btn-primary filter" data-filter=".泰国">泰国</button>
+					<button type="button" class="am-btn am-btn-primary filter" data-filter=".特价">特价</button>
 				</div>
 				<div id="activity-box" data-am-observe>
 				</div>
@@ -213,12 +224,17 @@
 		</div>
 		<!-- end 内容区域 -->
 
-		<div style="height: 800px;"></div>
 
+		<div style="height: 300px;"></div>
+		<!-- 活动模版 -->
 		<script id="activity-tpl" type="text/html">
 			<ul class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-5 am-gallery-imgbordered">
 				{{# for(var i = 0, len = d.length; i < len; i++){ }} 
-				<li class="all {{ d[i].site }}">
+				{{# if(d[i].privilege){  }}
+					<li class="all {{ d[i].site }} 特价">
+				{{# }else{ }}
+					<li class="all {{ d[i].site }}">
+				{{# }}}
 					<div class="am-gallery-item">
 						<a href="{{ d[i].href }}">
 							<img class="lazyload" data-original="{{ d[i].img }}" src="img/load.gif" alt="{{ d[i].alt }}" />
