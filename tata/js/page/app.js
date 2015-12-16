@@ -14,6 +14,7 @@
 		$(".loading").hide();
 	}, 222)
 	
+	// -- 宽窄屏切换
 	$(".fixed-widtn").on("click", function() {
 		var fixedTxt = $(this).children(".fixed-txt"),
 			txt = fixedTxt.text().trim();
@@ -21,5 +22,13 @@
 		$("body").toggleClass("am-g-fixed-1200");
 		$(window).trigger("resize"); // 触发resize事件,轮播重设宽度
 	});
+	
+	// -- 关闭浮动二维码
+	var floatCode = $("#float-code");
+	floatCode.on("click",".am-btn",function(){
+		floatCode.fadeOut(1000,function(){
+			floatCode.removeClass("am-show-lg-only");
+		});
+	})
 	
 }));

@@ -1,3 +1,8 @@
+body {
+	background-color: #ddd;
+}
+
+
 /*iconfont.cn阿里巴巴矢量图库*/
 
 @font-face {
@@ -91,17 +96,57 @@
 	content: "\e60f";
 }
 
-
-/* 重写 amazeui.css*/
 .am-text-white {
 	color: #ddd;
 }
+
+
+/* 重写 amazeui.css ***************************/
+
+
+/* 轮播控制点改变大小和颜色 */
+
+.am-slider-default .am-direction-nav a.am-prev,
+.am-slider-default .am-direction-nav a.am-next {
+	width: 50px;
+	height: 50px;
+	opacity: 1;
+}
+
+.am-slider-default .am-direction-nav a.am-prev:before,
+.am-slider-default .am-direction-nav a.am-next:before {
+	font-size: 3.5rem !important;
+	color: #fff;
+}
+
+
+/* 妹子ul插入的，  产生空隙 */
+
+.am-sticky-placeholder {
+	height: 0 !important;
+}
+
+
+/* 按钮之类的吧 */
 
 .am-active .am-btn-default.am-dropdown-toggle,
 .am-btn-default.am-active,
 .am-btn-default:active {
 	background-color: #fff;
 }
+
+.am-selected .am-btn {
+	padding: 0.6em 1em;
+}
+
+@media only screen and (max-width: 641px) {
+	.am-selected {
+		width: 150px;
+	}
+}
+
+
+/* form 表单修改部分样式*/
 
 .check-radio .am-radio-inline {
 	padding-top: 0;
@@ -115,23 +160,16 @@
 	padding: .5rem;
 }
 
+.chosen-container-multi .chosen-choices {
+	padding: 5px 5px;
+}
+
+
+/******************************************************/
+
 #my-quality-popup .am-checkbox-inline+.am-checkbox-inline,
 #my-quality-popup .am-radio-inline+.am-radio-inline {
 	margin-left: 0px;
-}
-
-@media only screen and (max-width: 641px) {
-	.am-selected {
-		width: 150px;
-	}
-}
-
-.am-selected .am-btn {
-	padding: 0.6em 1em;
-}
-
-.chosen-container-multi .chosen-choices {
-	padding: 5px 5px;
 }
 
 
@@ -158,3 +196,22 @@
 }
 
 
+/* 窄屏配置 */
+
+.am-g-fixed-1200 {
+	margin: 0 auto;
+	max-width: 1200px;
+}
+/* 让活动盒子一个一个挨着 */
+#activity-box .all {
+	display: none;
+	clear: none;
+}
+
+/* 浮动二维码 */
+#float-code {
+	width: 200px;
+	position: fixed;
+	right: 30px;
+	top: 51px;
+}

@@ -8,9 +8,81 @@
 		factory(root.jQuery);
 	}
 }(this, function($, laytpl) {
+	// 促销活动
+	$.getJSON("js/data/activity-soft.json", function(data) {
+		addActivity("activity-tpl", "activity-soft", data);
+		//addGallery(document.getElementById("activity-soft"));
+		$("#activity-soft .lazyload").lazyload({
+			threshold: 280
+		});
+	});
+	// 所有活动
+	$.getJSON("js/data/activity-box.json", function(data) {
+		addActivity("activity-tpl", "activity-box", data);
+		$("#activity-box .lazyload").lazyload({
+			threshold: 280
+		});
+	});
+	
+	// 添加用户
+	$.getJSON("js/data/user.json", function(data) {
+		var gettpl = document.getElementById("user-tpl").innerHTML;
+		laytpl(gettpl).render(data, function(html) {
+			document.getElementById("user-box").innerHTML = html;
+		});
+		var $userBox = $("#user-box");
+		
+		// 开启赖加载 绑定sporty事件立即执行
+		$userBox.find(".lazyload").lazyload({
+			threshold: 10,
+			event : "sporty"  
+		});
+		var iw;	// 获取用户图片指定宽度
+		if($userBox.width() > 1000){
+			iw = $userBox.width()/6;
+		}else{
+			iw = $userBox.width()/3;
+		}
+		$userBox.find(".am-slider").flexslider({
+			itemWidth: iw,
+			itemMargin: 5,
+			pauseOnHover: true,
+			slideshowSpeed: 300000,
+			after:function(){
+				$userBox.find(".lazyload").trigger("sporty");
+			}
+		});
+	});
+	
+	$("#home-carousel").flexslider({
+		slideshowSpeed : 3000,
+		controlNav: false
+	})
+
+	require(["mixitup"], function() {
+		// -- mixitup 排序分类
+		var filter = $("#classify .filter"); // -- 分类按钮节点
+		filter.on("click", function() {
+			$(this).addClass("am-active").siblings(".filter").removeClass("am-active");
+		});
+		$('#activity-box').mixitup({
+			targetSelector: ".all",
+			filterSelector: ".filter",
+			effects: ["fade"],
+			easing: "snap",
+			onMixStart: function(event) {
+				filter.addClass("am-disabled");
+			},
+			onMixEnd: function(event) {
+				filter.removeClass("am-disabled");
+				$(window).trigger("scroll"); // 触发浏览器滚动事件   防止图片卡在加载
+			}
+		});
+	});
+
 	// 添加模版
 	function addActivity(tplId, setDomId, data) {
-		var gettpl = '<ul class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-5 am-gallery-imgbordered">{{# for(var i = 0, len = d.length; i< len; i++){ }} {{# if(d[i].privilege){ }} <li class="all {{ d[i].site }} 特价">{{# }else{ }}<li class="all {{ d[i].site }}">{{# }}}<div class="am-gallery-item"><a href="{{ d[i].href }}"><img class="lazyload" data-original="{{ d[i].img }}" src="img/load.gif" alt="{{ d[i].alt }}" /><h3 class="am-gallery-title">{{ d[i].site }} - {{ d[i].site2 }}</h3><div class="am-gallery-desc"><span>出发时间:</span><span>{{ d[i].time }}</span><div class="am-text-lg">{{# if(d[i].privilege){ }}<del>￥:<span>{{ d[i].price }}.00</span></del><span class="am-text-danger">{{ d[i].privilege }}.00</span> {{# }else{ }} ￥:<span class="am-text-danger">{{ d[i].price }}.00</span> {{# }}}</div></div></a></div></li>{{# } }}</ul>'
+		var gettpl = '<ul class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-5 am-gallery-imgbordered">{{# for(var i = 0, len = d.length; i< len; i++){ }} {{# if(d[i].privilege){ }} <li class="all {{ d[i].site }} 特价">{{# }else{ }}<li class="all {{ d[i].site }}">{{# }}}<div class="am-gallery-item"><a href="{{ d[i].href }}"><img class="lazyload" data-original="{{ d[i].img }}" src="img/load.gif" alt="{{ d[i].alt }}" /><h3 class="am-gallery-title">{{ d[i].site }} - {{ d[i].site2 }}</h3><div class="am-gallery-desc"><span>出发时间:</span><span>{{ d[i].time }}</span><div class="am-text-lg">{{# if(d[i].privilege){ }}<del>￥:<span class="am-text-sm">{{ d[i].price }}.00</span></del> <span class="am-text-danger am-text-sm">{{ d[i].privilege }}.00</span> {{# }else{ }} ￥:<span class="am-text-danger">{{ d[i].price }}.00</span> {{# }}}</div></div></a></div></li>{{# } }}</ul>'
 		laytpl(gettpl).render(data, function(html) {
 			document.getElementById(setDomId).innerHTML = html;
 		});
@@ -32,51 +104,6 @@
 			animateDom[i].setAttribute("data-am-scrollspy", "{animation: 'scale-down',delay:" + delay + ",repeat: false}")
 		}
 	}
-	
-	// 促销活动
-	$.getJSON("js/data/activity-soft.json", function(data) {
-		addActivity("activity-tpl", "activity-soft", data);
-		//addGallery(document.getElementById("activity-soft"));
-		$(".lazyload").lazyload({
-			threshold: 280
-		}); // 开启赖加载
-	});
-	
-	// 所有活动
-	$.getJSON("js/data/activity-box.json", function(data) {
-		addActivity("activity-tpl", "activity-box", data);
-		//addGallery(document.getElementById("activity-box"));
-		$(".lazyload").lazyload({
-			threshold: 280
-		}); // 开启赖加载
-	});
-	$('#home-carousel').flexslider({
-		playAfterPaused: 8000,
-		slideshowSpeed: 3000,
-		controlNav: false
-	});
-
-	require(["mixitup"], function() {
-		// -- mixitup 排序分类
-		var filter = $("#classify .filter"); // -- 分类按钮节点
-		filter.on("click", function() {
-			$(this).addClass("am-active").siblings(".filter").removeClass("am-active");
-		});
-		$('#activity-box').mixitup({
-			targetSelector: ".all",
-			filterSelector: ".filter",
-			effects: ["fade"],
-			easing: "snap",
-			onMixStart: function(event) {
-				filter.addClass("am-disabled");
-			},
-			onMixEnd: function(event) {
-				filter.removeClass("am-disabled");
-				$(window).trigger("scroll"); // 触发浏览器滚动事件   防止图片卡在赖加载
-			}
-		});
-	});
-
 
 	return {
 		addActivity: addActivity,
