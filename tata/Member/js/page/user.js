@@ -55,7 +55,8 @@
 	// 性别 1为男  0为女
 	$("#options-tab").find("input.checkboxq").addCheckbox({
 		"sex": $checkSex
-	}); // 添加多选
+	});
+
 
 	// 关闭品质选择
 	$("#my-quality-popup").on("close.modal.amui", function() {
