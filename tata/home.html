@@ -17,6 +17,7 @@
 				color: #fff;
 			}
 			/* 某些设置出现换行BUG */
+			
 			.am-topbar-nav>li>a.min80 {
 				min-width: 80px;
 			}
@@ -25,8 +26,8 @@
 				width: 100% !important;
 				left: 0 !important;
 			}
-			
 			/* 轮播图设置最大高度 */
+			
 			#home-carousel .h-c-img {
 				margin: 0 auto;
 				max-height: 800px;
@@ -36,11 +37,12 @@
 				margin: 1em 0 .5em 0;
 			}
 			
-			#user-box .user-avatar{
+			#user-box .user-avatar {
 				max-width: 232px;
 				max-height: 299px;
 			}
-			#user-box .user-rank{
+			
+			#user-box .user-rank {
 				position: absolute;
 				z-index: 2;
 				bottom: 20px;
@@ -126,7 +128,7 @@
 			<div style="height: 20px;"></div>
 			<!-- 轮播 -->
 			<div class="am-g home-carousel-box">
-				<div class="am-slider am-slider-default" id="home-carousel" >
+				<div class="am-slider am-slider-default" id="home-carousel">
 					<ul class="am-slides">
 						<li><img class="h-c-img" src="http://www.taquta.com/Uploads/picture/564ecce3e516e.jpg" /></li>
 						<li><img class="h-c-img" src="http://www.taquta.com/Uploads/picture/5666537aa898b.jpg" /></li>
@@ -160,7 +162,7 @@
 					</div>
 				</div>
 			</section>
-			
+
 			<!-- 认证会员-->
 			<section class="am-panel am-panel-default">
 				<header class="am-panel-hd">
@@ -171,7 +173,7 @@
 				<div id="user-box">
 				</div>
 			</section>
-			
+
 			<!-- 冬季温柔团 -->
 			<section class="am-panel am-panel-default">
 				<header class="am-panel-hd">
@@ -293,17 +295,17 @@
 			<div class="am-g">
 				<div class="am-slider am-slider-default am-slider-carousel am-u-sm-10 am-u-sm-push-1">
 					<ul class="am-slides">
-						{{# for(var i = 0, len = d.length; i< len; i++){ }} 
-							<li>
-								<div class="am-gallery-item am-text-center" style="position: relative;">
-									<a class="user-img-box" href="#">
-										<img class="user-avatar am-center lazyload" data-original="{{ d[i].avatar }}" src="img/load.gif" alt="{{ d[i].name }}" />
-										<!--<img class="user-rank am-show-lg-up" src="img/vip-{{ d[i].rank }}.png" />-->
-									</a>
-									<span class="am-text-sm am-text-secondary">{{ d[i].name }}</span>
-								</div>
+						{{# for(var i = 0, len = d.length; i
+						< len; i++){ }} <li>
+							<div class="am-gallery-item am-text-center" style="position: relative;">
+								<a class="user-img-box" href="#">
+									<img class="user-avatar am-center lazyload" data-original="{{ d[i].avatar }}" src="img/load.gif" alt="{{ d[i].name }}" />
+									<!--<img class="user-rank am-show-lg-up" src="img/vip-{{ d[i].rank }}.png" />-->
+								</a>
+								<span class="am-text-sm am-text-secondary">{{ d[i].name }}</span>
+							</div>
 							</li>
-						{{# } }}
+							{{# } }}
 					</ul>
 				</div>
 			</div>

@@ -33,23 +33,37 @@
 		var $userBox = $("#user-box");
 		
 		// 开启赖加载 绑定sporty事件立即执行
-		$userBox.find(".lazyload").lazyload({
-			threshold: 10,
+		var userLazyLoad = $userBox.find(".lazyload");
+		userLazyLoad.lazyload({
 			event : "sporty"  
 		});
 		var iw;	// 获取用户图片指定宽度
 		if($userBox.width() > 1000){
 			iw = $userBox.width()/6;
+			// 打开页面时加载前7个用户头像
+			userLazyLoad.each(function(index){
+				if(index < 7){
+					$(this).trigger("sporty")
+				}
+			})
 		}else{
 			iw = $userBox.width()/3;
+			// 打开页面时加载前4个用户头像
+			userLazyLoad.each(function(index){
+				if(index < 4){
+					$(this).trigger("sporty")
+				}
+			})
 		}
+		
+		
 		$userBox.find(".am-slider").flexslider({
 			itemWidth: iw,
 			itemMargin: 5,
 			pauseOnHover: true,
 			slideshowSpeed: 300000,
 			after:function(){
-				$userBox.find(".lazyload").trigger("sporty");
+				userLazyLoad.trigger("sporty");
 			}
 		});
 	});
@@ -103,10 +117,5 @@
 			var delay = parseInt(Math.random() * (150 - 250 + 1) + 230); // 生成随机数
 			animateDom[i].setAttribute("data-am-scrollspy", "{animation: 'scale-down',delay:" + delay + ",repeat: false}")
 		}
-	}
-
-	return {
-		addActivity: addActivity,
-		addGallery: addGallery
 	}
 }));
