@@ -1,4 +1,5 @@
 /***
+ * @auth gaoshi-github 
  * 插件名称: 中国省市信息联动插件
  */
 (function(root, factory) {
@@ -12,8 +13,6 @@
 }(this, function(require, exports, module) {
 	/*
 	Ajax 三级省市联动
-	http://code.ciaoca.cn/
-	日期：2012-7-18
 	
 	settings 参数说明
 	-----
