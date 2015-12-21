@@ -62,7 +62,6 @@
 				</div>
 			</div>
     	<![endif]-->
-
 		<!-- start 加载框 -->
 		<div class="loading">
 			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
@@ -136,7 +135,6 @@
 				</div>
 			</div>
 
-			<!--<div class="am-show-lg-only" style="height: 20px;"></div>-->
 			<!-- 微电影 -->
 			<section class="am-panel am-panel-default">
 				<header class="am-panel-hd">
@@ -238,6 +236,7 @@
 			</a>
 		</div>
 
+		<!-- 底部信息 -->
 		<footer data-am-widget="footer" class="am-footer am-footer-default" data-am-footer>
 			<div class="am-g">
 				<div class="am-u-sm-12 am-u-md-5 am-text-center">
@@ -291,25 +290,6 @@
 			</div>
 		</footer>
 
-		<script id="user-tpl" type="text/html">
-			<div class="am-g">
-				<div class="am-slider am-slider-default am-slider-carousel am-u-sm-10 am-u-sm-push-1">
-					<ul class="am-slides">
-						{{# for(var i = 0, len = d.length; i
-						< len; i++){ }} <li>
-							<div class="am-gallery-item am-text-center" style="position: relative;">
-								<a class="user-img-box" href="#">
-									<img class="user-avatar am-center lazyload" data-original="{{ d[i].avatar }}" src="img/load.gif" alt="{{ d[i].name }}" />
-									<!--<img class="user-rank am-show-lg-up" src="img/vip-{{ d[i].rank }}.png" />-->
-								</a>
-								<span class="am-text-sm am-text-secondary">{{ d[i].name }}</span>
-							</div>
-							</li>
-							{{# } }}
-					</ul>
-				</div>
-			</div>
-		</script>
 		<script src="js/require.min.js" data-main="js/main"></script>
 		<script>
 			function moduleLoad() {
