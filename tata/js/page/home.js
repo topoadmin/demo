@@ -12,8 +12,8 @@
 	$("#home-carousel").flexslider({
 		slideshowSpeed: 3000,
 		controlNav: false
-	})
-	
+	});
+
 	// -- 添加用户
 	$.getJSON("js/data/user.json", function(data) {
 		var gettpl = '<div class="am-g"><div class="am-slider am-slider-default am-slider-carousel am-u-sm-10 am-u-sm-push-1"><ul class="am-slides">{{# for(var i = 0, len = d.length; i< len; i++){ }} <li><div class="am-gallery-item am-text-center" style="position: relative;"><a class="user-img-box" href="#"><img class="user-avatar am-center lazyload" data-original="{{ d[i].avatar }}" src="img/load.gif" alt="{{ d[i].name }}" /><img class="user-rank am-show-lg-up" src="img/vip-{{ d[i].rank }}.png" /></a><span class="am-text-sm am-text-secondary">{{ d[i].name }}</span></div></li>{{# } }}</ul></div></div>'
@@ -69,7 +69,6 @@
 			threshold: 280
 		});
 	});
-	
 	// -- mixitup 排序分类
 	require(["mixitup"], function() {
 		var filter = $("#classify .filter"); // -- 分类按钮节点
@@ -90,7 +89,6 @@
 			}
 		});
 	});
-
 	// -- 活动模版
 	function addActivity(tplId, setDomId, data) {
 		var gettpl = '<ul class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-5 am-gallery-imgbordered">{{# for(var i = 0, len = d.length; i< len; i++){ }} {{# if(d[i].privilege){ }} <li class="all {{ d[i].site }} 特价">{{# }else{ }}<li class="all {{ d[i].site }}">{{# }}}<div class="am-gallery-item"><a href="{{ d[i].href }}"><img class="lazyload" data-original="{{ d[i].img }}" src="img/load.gif" alt="{{ d[i].alt }}" /><h3 class="am-gallery-title">{{ d[i].site }} - {{ d[i].site2 }}</h3><div class="am-gallery-desc"><span>出发时间:</span><span>{{ d[i].time }}</span><div class="am-text-lg">{{# if(d[i].privilege){ }}<del>￥:<span class="am-text-sm">{{ d[i].price }}.00</span></del> <span class="am-text-danger am-text-sm">{{ d[i].privilege }}.00</span> {{# }else{ }} ￥:<span class="am-text-danger">{{ d[i].price }}.00</span> {{# }}}</div></div></a></div></li>{{# } }}</ul>'
@@ -98,7 +96,6 @@
 			document.getElementById(setDomId).innerHTML = html;
 		});
 	}
-	
 	
 	// 给am-gallery-item添加动画
 	// -- 移动端效果不佳 暂不开启
@@ -117,4 +114,5 @@
 			animateDom[i].setAttribute("data-am-scrollspy", "{animation: 'scale-down',delay:" + delay + ",repeat: false}")
 		}
 	}
+	
 }));

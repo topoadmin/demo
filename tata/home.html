@@ -70,7 +70,7 @@
 						<div></div>
 					</div>
 				</div>
-				<p class="am-text-white">加载中...</p>
+				<p class="am-text-white">别闹，加载是一门艺术...</p>
 			</div>
 			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
 		</div>
@@ -95,26 +95,25 @@
 							<span class="fixed-txt">宽屏</span>
 						</a>
 					</li>
-
 					<li>
-						<a href="#" class="min80">
+						<a href="javascript:;" class="min80 register">
 							<span class="am-icon-user-plus"></span> 注册
 						</a>
 					</li>
 					<li>
-						<a href="#" class="min80">
+						<a href="javascript:;" class="min80 login">
 							<span class="am-icon-user"></span> 登录
 						</a>
 					</li>
 
 					<li class="am-dropdown" data-am-dropdown="">
 						<a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
-							<span class="am-icon-user"></span>
+							<span class="am-icon-child"></span>
 							<small>13701378834@163.com</small>
 							<span class="am-icon-caret-down"></span>
 						</a>
 						<ul class="am-dropdown-content">
-							<li><a href="Member/user.html"><span class="am-icon-user"></span> 进入用户中心</a></li>
+							<li><a href="Member/user.html"><span class="am-icon-child"></span> 进入用户中心</a></li>
 							<li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
 						</ul>
 					</li>
@@ -218,7 +217,6 @@
 				<div id="activity-box" data-am-observe>
 				</div>
 			</section>
-
 		</div>
 		<!-- end 内容区域 -->
 
@@ -290,12 +288,98 @@
 			</div>
 		</footer>
 
-		<script src="js/require.min.js" data-main="js/main"></script>
-		<script>
-			function moduleLoad() {
-				require(["home"], function(home) {});
-			}
+		<!-- 登录弹窗 -->
+		<div class="am-modal am-modal-prompt" id="my-login-popup">
+			<div class="am-modal-dialog">
+				<div class="am-modal-hd">
+					<h4 class="am-popup-title">登录</h4>
+					<span data-am-modal-close class="am-close am-text-xl">&times;</span>
+				</div>
+				<div class="am-modal-bd">
+					<div class="am-g">
+						<div class="am-u-sm-6">
+							<button class="am-btn am-btn-block am-btn-primary">
+								<i class="am-icon-user"></i> 登录
+							</button>
+						</div>
+						<div class="am-u-sm-6">
+							<button class="am-btn am-btn-block register">
+								<i class="am-icon-user-plus"></i> 注册
+							</button>
+						</div>
+					</div>
+					<hr />
+					<form class="am-form" id="login-form">
+						<div class="am-g">
+							<div class="am-u-sm-12 my-modal-content">
+								<div class="am-form-group am-form-icon">
+									<i class="am-icon-user"></i>
+									<input type="text" class="am-form-field user" name="user" minlength="11" maxlength="11" placeholder="输入用户名" required>
+								</div>
+								<div class="am-form-group am-form-icon">
+									<i class="am-icon-expeditedssl"></i>
+									<input type="password" class="am-form-field" name="password" minlength="5" maxlength="18" placeholder="输入密码" required>
+								</div>
+							</div>
+						</div>
+						<button class="am-hide" type="submit"></button>
+					</form>
+				</div>
+				<div class="am-modal-footer">
+					<span class="am-modal-btn"><i class="am-icon-remove"></i> 取消</span>
+					<span class="am-modal-btn submit"><i class="am-icon-check"></i> 确定</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- 注册弹窗 -->
+		<div class="am-modal am-modal-prompt" id="my-register-popup">
+			<div class="am-modal-dialog">
+				<div class="am-modal-hd">
+					<h4 class="am-popup-title">注册</h4>
+					<span data-am-modal-close class="am-close am-text-xl">&times;</span>
+				</div>
+				<div class="am-modal-bd">
+					<div class="am-g">
+						<div class="am-u-sm-6">
+							<button class="am-btn am-btn-block login">
+								<i class="am-icon-user"></i> 登录
+							</button>
+						</div>
+						<div class="am-u-sm-6">
+							<button class="am-btn am-btn-block am-btn-primary">
+								<i class="am-icon-user-plus"></i> 注册
+							</button>
+						</div>
+					</div>
+					<hr />
+					<form class="am-form" id="register-form">
+						<div class="am-g">
+							<div class="am-u-sm-12 my-modal-content">
+								<div class="am-form-group am-form-icon">
+									<i class="am-icon-user"></i>
+									<input type="text" class="am-form-field user" name="user" minlength="11" maxlength="11" placeholder="输入用户名" required>
+								</div>
+								<div class="am-form-group am-form-icon">
+									<i class="am-icon-expeditedssl"></i>
+									<input type="text" class="am-form-field" name="password" minlength="5" maxlength="18" placeholder="输入密码" required>
+								</div>
+							</div>
+						</div>
+						<button class="am-hide" type="submit"></button>
+					</form>
+				</div>
+				<div class="am-modal-footer">
+					<span class="am-modal-btn"><i class="am-icon-remove"></i> 取消</span>
+					<span class="am-modal-btn submit"><i class="am-icon-check"></i> 确定</span>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			var thisPage = "home"; // 当前页面加载模块
 		</script>
+		<script src="js/require.min.js" data-main="js/main"></script>
 	</body>
 
 </html>
