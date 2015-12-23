@@ -5,153 +5,16 @@
  * @param storage.set {name,value,expires}		加本地存储数据，有效期是expries(单位秒)
  * @param storage.get  {name}        			获取本地存储数据
  * @param storage.remove  {name}        		删除本地数据
+ * 
+ * storage.set("name", "我是本地存储值");
+ * console.log(storage.get("name"));
+ * 
  */
 
-;
-(function(win, doc, undefined) {
-	var userData = function() {
-		var o;
-		try {
-			var htmlfile = new ActiveXObject('htmlfile'),
-				doc, o;
-			htmlfile.open();
-			htmlfile.write('<iframe src="/favicon.ico"></iframe>');
-			htmlfile.close();
-			doc = htmlfile.frames[0].document;
-			o = doc.createElement('div');
-			doc.appendChild(o);
-			o.addBehavior('#default#userData');
-		} catch (e) {}
 
-		return {
-			get: function(name) {
-				var value;
-				o.load(name);
+!function(a,b){"use strict";"function"==typeof define&&define.amd?define(b):"object"==typeof exports?module.exports=b():b()}(this,function(){var d,e,a=function(){var a,c,b;try{b=new ActiveXObject("htmlfile"),b.open(),b.write('<iframe src="/favicon.ico"></iframe>'),b.close(),c=b.frames[0].document,a=c.createElement("div"),c.appendChild(a),a.addBehavior("#default#userData")}catch(d){}return{get:function(b){var c;a.load(b),c=a.getAttribute(b);try{c=JSON.parse(c)}catch(d){}return c},set:function(b,c,d){if(d){var e=new Date;e.setTime(e.getTime()+1e3*d),a.expires=e.toUTCString()}a.setAttribute(b,JSON.stringify(c)),a.save(b)},remove:function(b){a.removeAttribute(b),a.save(b)}}},b=function(){var b,d,a=(new Date).getTime();for(key in localStorage){b=localStorage.getItem(key);try{b=JSON.parse(b)}catch(c){}Object.prototype.toString.call(b).toLowerCase().indexOf("array")>0&&(d=b[0].expires,d&&/^\d{13,}$/.test(d)&&a>=d&&localStorage.removeItem(key))}return{get:function(a){var d,e,b=localStorage.getItem(a);if(!b)return null;try{b=JSON.parse(b)}catch(c){}if("object"!=typeof b)return b;if(d=b[0].expires,d&&/^\d{13,}$/.test(d)){if(e=(new Date).getTime(),e>=d)return localStorage.removeItem(a),null;b.shift()}return b[0]},set:function(a,b,c){var e,d=[];c&&(e=(new Date).getTime(),d.push({expires:e+1e3*c})),d.push(b),localStorage.setItem(a,JSON.stringify(d))},remove:function(a){localStorage.removeItem(a)}}},c={get:function(a){var c,b=document.cookie,d=b.indexOf(a+"="),e=b.indexOf(";",d);if(-1==e&&(e=b.length),d>-1){c=b.substring(d+a.length+1,e);try{c=JSON.parse(c)}catch(f){}return c}return null},set:function(a,b,c,d,e){var f,g;d=d||"/",f="",c&&(window.ActiveXObject?(g=new Date,g.setTime(g.getTime()+1e3*c),f="expires="+g.toGMTString()):f="max-age="+c),document.cookie=a+"="+JSON.stringify(b)+";"+f+";path="+d+";"+(e?"domain="+e:"")},remove:function(a,b,c){this.set(a,"",-1,b,c)}};return d=window.localStorage?b():a(),e={get:d.get,set:d.set,remove:d.remove,cookie:c}});
 
-				value = o.getAttribute(name);
-				try {
-					value = JSON.parse(value)
-				} catch (e) {}
-				return value;
-			},
-			set: function(name, value, seconds) {
-				if (seconds) {
-					var d = new Date();
-					d.setTime(d.getTime() + seconds * 1000);
-					o.expires = d.toUTCString();
-				}
-				o.setAttribute(name, JSON.stringify(value));
-				o.save(name);
-			},
-			remove: function(name) {
-				o.removeAttribute(name);
-				o.save(name);
-			}
-		}
-	};
 
-	var _localStorage = function() {
-		var d = new Date().getTime();
-		for (key in localStorage) {
-			var v = localStorage.getItem(key);
-			try {
-				v = JSON.parse(v)
-			} catch (e) {};
-			if (Object.prototype.toString.call(v).toLowerCase().indexOf('array') > 0) {
-				var expires = v[0].expires;
-				if (expires && /^\d{13,}$/.test(expires) && expires <= d) localStorage.removeItem(key);
-			}
-		}
-		return {
-			get: function(name) {
-				var v = localStorage.getItem(name);
-				if (!v) return null;
-				try {
-					v = JSON.parse(v)
-				} catch (e) {};
-				if (typeof v != 'object') return v;
-				var expires = v[0].expires;
-				if (expires && /^\d{13,}$/.test(expires)) {
-					var d = new Date().getTime();
-					if (expires <= d) {
-						localStorage.removeItem(name);
-						return null;
-					}
-					v.shift();
-				}
-				return v[0];
-			},
-			set: function(name, value, seconds) {
-				var v = [];
-				if (seconds) {
-					var d = new Date().getTime();
-					v.push({
-						"expires": (d + seconds * 1000)
-					});
-				}
-				v.push(value);
-				localStorage.setItem(name, JSON.stringify(v));
-			},
-			remove: function(name) {
-				localStorage.removeItem(name);
-			}
-		}
-	}
 
-	var cookie = {
-		get: function(name) {
-			var v = document.cookie,
-				result;
-			var start = v.indexOf(name + '='),
-				end = v.indexOf(';', start);
-			if (end == -1) end = v.length;
-			if (start > -1) {
-				result = v.substring(start + name.length + 1, end);
-				try {
-					result = JSON.parse(result)
-				} catch (e) {};
-				return result;
-			} else {
-				return null;
-			}
-		},
-		set: function(name, value, seconds, path, domain) {
-			var path = path || '/',
-				expires = '';
-			if (seconds) {
-				if (window.ActiveXObject) {
-					var d = new Date();
-					d.setTime(d.getTime() + seconds * 1000);
-					expires = 'expires=' + d.toGMTString();
-				} else {
-					expires = 'max-age=' + seconds;
-				}
-			}
-			document.cookie = name + '=' + JSON.stringify(value) + ';' + expires + ';path=' + path + ';' + (domain ? ('domain=' + domain) : '');
-		},
-		remove: function(name, path, domain) {
-			this.set(name, '', -1, path, domain);
-		}
-	}
 
-	var adapter;
-	if (!window.localStorage) {
-		adapter = userData();
-	} else {
-		adapter = _localStorage();
-	}
-	var entry = {
-		get: adapter.get,
-		set: adapter.set,
-		remove: adapter.remove,
-		cookie: cookie
-	}
 
-	if (typeof define === 'function' && (define.amd || define.cmd)) {
-		define(function(require, exports, module) {
-			module.exports = entry;
-		});
-	} else {
-		win.storage = entry;
-	}
-})(window, document);

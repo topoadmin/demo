@@ -10,9 +10,10 @@
 
 }(this, function($) {
 	setTimeout(function() {
-			$(".loading").hide();
-		}, 222)
-		// -- 宽窄屏切换
+		$(".loading").hide();
+	}, 222);
+	
+	// -- 宽窄屏切换
 	$(".fixed-widtn").on("click", function() {
 		var fixedTxt = $(this).children(".fixed-txt"),
 			txt = fixedTxt.text().trim();
@@ -58,24 +59,25 @@
 		require(["formValid"], function() {
 			// 登录验证
 			form.each(function() {
-				$(this).formValidator({
-					success : function($form) {
+				var $this = $(this);
+				$this.formValidator({
+					success: function($form) {
 						var $form = $form;
 						$form.find(".offAuto").remove();
 						if ($form.data("isdata")) {
 							console.log($form.serialize());
 						}
-					},error:function($form){
-					}
+					},
+					error: function($form) {}
 				});
 			})
 		});
-
 	}
 
-	document.querySelector(".login").onclick = function() {
+	$(".login").on("click", function() {
 		loginModule();
-	}
+	});
+
 	return {
 		loginModule: loginModule
 	}
