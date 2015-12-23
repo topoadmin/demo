@@ -13,7 +13,7 @@ require.config({
     	"home":"page/home"
     }
 });
-require(["amazeui","app"],function(){
+require(["amazeui","app"],function($,app){
 	require([thisPage]);
 });
 

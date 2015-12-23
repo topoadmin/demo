@@ -13,7 +13,6 @@
 		slideshowSpeed: 3000,
 		controlNav: false
 	});
-
 	// -- 添加用户
 	$.getJSON("js/data/user.json", function(data) {
 		var gettpl = '<div class="am-g"><div class="am-slider am-slider-default am-slider-carousel am-u-sm-10 am-u-sm-push-1"><ul class="am-slides">{{# for(var i = 0, len = d.length; i< len; i++){ }} <li><div class="am-gallery-item am-text-center" style="position: relative;"><a class="user-img-box" href="#"><img class="user-avatar am-center lazyload" data-original="{{ d[i].avatar }}" src="img/load.gif" alt="{{ d[i].name }}" /><img class="user-rank am-show-lg-up" src="img/vip-{{ d[i].rank }}.png" /></a><span class="am-text-sm am-text-secondary">{{ d[i].name }}</span></div></li>{{# } }}</ul></div></div>'
@@ -96,7 +95,6 @@
 			document.getElementById(setDomId).innerHTML = html;
 		});
 	}
-	
 	// 给am-gallery-item添加动画
 	// -- 移动端效果不佳 暂不开启
 	function addGallery(elm) {
@@ -114,5 +112,4 @@
 			animateDom[i].setAttribute("data-am-scrollspy", "{animation: 'scale-down',delay:" + delay + ",repeat: false}")
 		}
 	}
-	
 }));

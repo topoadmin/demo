@@ -3,7 +3,9 @@
 
 	<head>
 		<meta charset="utf-8">
-		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
 		<meta name="renderer" content="webkit">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<title>TATA旅游-相爱之缘、命中注定！</title>
@@ -93,11 +95,6 @@
 						<a href="javascript:;" class="min80 fixed-widtn am-show-lg-only">
 							<span class="am-icon-tv"></span>
 							<span class="fixed-txt">宽屏</span>
-						</a>
-					</li>
-					<li>
-						<a href="javascript:;" class="min80 register">
-							<span class="am-icon-user-plus"></span> 注册
 						</a>
 					</li>
 					<li>
@@ -288,81 +285,58 @@
 			</div>
 		</footer>
 
-		<!-- 登录弹窗 -->
-		<div class="am-modal am-modal-prompt" id="my-login-popup">
+		<!-- 登录注册弹窗 -->
+		<div class="am-modal am-modal-prompt" id="my-lr-popup">
 			<div class="am-modal-dialog">
 				<div class="am-modal-hd">
-					<h4 class="am-popup-title">登录</h4>
+					<h4 class="am-popup-title">登录/注册</h4>
 					<span data-am-modal-close class="am-close am-text-xl">&times;</span>
 				</div>
 				<div class="am-modal-bd">
 					<div class="am-g">
 						<div class="am-u-sm-6">
-							<button class="am-btn am-btn-block am-btn-primary">
+							<button class="am-btn am-btn-block toggle-form am-btn-primary" data-form="#login-form">
 								<i class="am-icon-user"></i> 登录
 							</button>
 						</div>
 						<div class="am-u-sm-6">
-							<button class="am-btn am-btn-block register">
+							<button class="am-btn am-btn-block toggle-form" data-form="#register-form">
 								<i class="am-icon-user-plus"></i> 注册
 							</button>
 						</div>
 					</div>
 					<hr />
+					<!-- 登录表单 -->
 					<form class="am-form" id="login-form">
 						<div class="am-g">
 							<div class="am-u-sm-12 my-modal-content">
+								<input type="text" class="am-hide" />
 								<div class="am-form-group am-form-icon">
 									<i class="am-icon-user"></i>
-									<input type="text" class="am-form-field user" name="user" minlength="11" maxlength="11" placeholder="输入用户名" required>
+									<input type="text" class="am-form-field user" name="user" minlength="11" maxlength="11" placeholder="请填写手机号码" required>
 								</div>
 								<div class="am-form-group am-form-icon">
 									<i class="am-icon-expeditedssl"></i>
-									<input type="password" class="am-form-field" name="password" minlength="5" maxlength="18" placeholder="输入密码" required>
+									<input type="password" class="am-form-field" name="password" minlength="6" maxlength="18" placeholder="输入密码" required>
 								</div>
 							</div>
 						</div>
 						<button class="am-hide" type="submit"></button>
 					</form>
-				</div>
-				<div class="am-modal-footer">
-					<span class="am-modal-btn"><i class="am-icon-remove"></i> 取消</span>
-					<span class="am-modal-btn submit"><i class="am-icon-check"></i> 确定</span>
-				</div>
-			</div>
-		</div>
-
-		<!-- 注册弹窗 -->
-		<div class="am-modal am-modal-prompt" id="my-register-popup">
-			<div class="am-modal-dialog">
-				<div class="am-modal-hd">
-					<h4 class="am-popup-title">注册</h4>
-					<span data-am-modal-close class="am-close am-text-xl">&times;</span>
-				</div>
-				<div class="am-modal-bd">
-					<div class="am-g">
-						<div class="am-u-sm-6">
-							<button class="am-btn am-btn-block login">
-								<i class="am-icon-user"></i> 登录
-							</button>
-						</div>
-						<div class="am-u-sm-6">
-							<button class="am-btn am-btn-block am-btn-primary">
-								<i class="am-icon-user-plus"></i> 注册
-							</button>
-						</div>
-					</div>
-					<hr />
-					<form class="am-form" id="register-form">
+					<!-- 注册表单 -->
+					<form class="am-form am-hide" id="register-form">
+						<!-- 防止浏览器自动填充 提交时删除 -->
+						<input class="offAuto am-hide" type="text" name="user" />
+						<input class="offAuto am-hide" type="password" name="password" />
 						<div class="am-g">
 							<div class="am-u-sm-12 my-modal-content">
 								<div class="am-form-group am-form-icon">
 									<i class="am-icon-user"></i>
-									<input type="text" class="am-form-field user" name="user" minlength="11" maxlength="11" placeholder="输入用户名" required>
+									<input type="text" class="am-form-field user" name="user" minlength="11" maxlength="11" placeholder="请填写手机号码" required>
 								</div>
 								<div class="am-form-group am-form-icon">
 									<i class="am-icon-expeditedssl"></i>
-									<input type="text" class="am-form-field" name="password" minlength="5" maxlength="18" placeholder="输入密码" required>
+									<input type="password" class="am-form-field" name="password" minlength="6" maxlength="18" placeholder="6~16个字符，区分大小写" required>
 								</div>
 							</div>
 						</div>

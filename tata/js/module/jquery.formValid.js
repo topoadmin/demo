@@ -19,7 +19,13 @@
 		}
 	}
 
-	$.fn.formValidator = function() {
+	$.fn.formValidator = function(opt) {
+		var defaults = {
+			success: function(){},
+			error:function(){}
+		};
+		var options = $.extend(defaults, opt);
+		
 		$(this).validator({
 			validate: function(validity) {
 				var $this = $(validity.field),
@@ -47,14 +53,25 @@
 			submit: function(e, validity) {
 				var formValidity = this.isFormValid();
 				var $thisForm = $(e.target);
-				if (formValidity) {
-					$thisForm.data("isdata", true);
-				} else {
-					$thisForm.data("isdata", false);
-				}
-				return false;
+				
+				$thisForm.data("isdata", false).attr("onsubmit", "return false;");
+				$.when(formValidity).then(function() {
+					if (formValidity) {
+						$thisForm.data("isdata", true);
+						options.success($thisForm);
+					}else{
+						options.error($thisForm);
+					}
+				}, function() {
+					options.error($thisForm);
+				});
 			}
 		});
 		return $(this);
 	}
+
+	$.fn.submitForm = function() {
+
+	}
+
 }));

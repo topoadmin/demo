@@ -26,35 +26,58 @@
 		floatCode.fadeOut(1000, function() {
 			floatCode.removeClass("am-show-lg-only");
 		});
-	})
+	});
 
-	require(["formValid"], function() {
-		// 登录验证
-		$("#login-form").formValidator().on("submit", function() {
-			var $this = $(this);
-			if ($this.data("isdata")) {
-				console.log($this.serialize())
-			}
-		})
-	});
-	
-	
-	// -- 登录注册弹窗
-	var loginPopup = $("#my-login-popup"),regPopup = $("#my-register-popup");
-	$(".login,.register").on("click", function() {
-		var $this = $(this),popup;
-		if ($this.hasClass("login")) {
-			popup = loginPopup;
-			regPopup.modal("close");
+	// -- 加载登录模块
+	var loginModule = function() {
+		// -- 登录注册弹窗
+		var popup = $("#my-lr-popup"),
+			toggleForm = popup.find(".toggle-form"),
+			form = popup.find(".am-form");
+		if (popup.data("open")) {
+			// 打开Modal
+			popup.modal();
 		} else {
-			popup = regPopup;
-			loginPopup.modal("close");
+			// 第一次打开配置modal属性,并记录以打开过
+			popup.modal({
+				relatedTarget: this,
+				closeViaDimmer: false
+			}).data("open", true).find('.submit').off('click.close.modal.amui').on("click", function() {
+				popup.find("form:visible").submit();
+			});
+			toggleForm.on("click", function() {
+				var $this = $(this),
+					$form = $this.data("form") || $this.attr("data-form");
+				toggleForm.removeClass("am-btn-primary");
+				$this.addClass("am-btn-primary");
+				form.addClass("am-hide");
+				$($form).removeClass("am-hide");
+			});
 		}
-		popup.modal({
-			relatedTarget: this,
-			closeViaDimmer: false
-		}).find('.submit').off('click.close.modal.amui').on("click", function() {
-			popup.find("form").submit();
+		// -- 加载表单验证模块
+		require(["formValid"], function() {
+			// 登录验证
+			form.each(function() {
+				$(this).formValidator({
+					success : function($form) {
+						var $form = $form;
+						$form.find(".offAuto").remove();
+						if ($form.data("isdata")) {
+							console.log($form.serialize());
+						}
+					},error:function($form){
+					}
+				});
+			})
 		});
-	});
+
+	}
+
+	document.querySelector(".login").onclick = function() {
+		loginModule();
+	}
+	return {
+		loginModule: loginModule
+	}
+
 }));
