@@ -16,23 +16,23 @@ require.config({
 });
 require(["jquery", "amazeui", "app"], function($) {
 	require([thisPage]);
-	
-	
+
 	var sendCode = $(".send-code");
-	/*仿刷新：检测是否存在cookie*/
-	require(["storage"], function(storage) {
-		var count = storage.get("captcha");
-		console.log(count);
-		if (count) {
-			checkCaptcha(sendCode,count)
-		}
-	});
-	sendCode.on("click", function() {
-		checkCaptcha($(this));
-	})
+	if (sendCode.length) {
+		/*仿刷新：检测是否存在cookie*/
+		require(["storage"], function(storage) {
+			var count = storage.get("captcha");
+			if (count) {
+				checkCaptcha(sendCode, count);
+			}
+		});
+		sendCode.on("click", function() {
+			checkCaptcha($(this));
+		})
+	}
 
 	// 发送验证码按钮定时器事件
-	function checkCaptcha(elm,count) {
+	function checkCaptcha(elm, count) {
 		var $mobile = $(this).parents("form").find(".js-pattern-mobile");
 		var btn = $(elm);
 		var count = count || 60;
@@ -45,9 +45,9 @@ require(["jquery", "amazeui", "app"], function($) {
 				})
 			} else {
 				clearInterval(resend);
-				if(!$mobile.hasClass("am-field-valid")){
+				if (!$mobile.hasClass("am-field-valid")) {
 					btn.prop('disabled', false);
-				}else{
+				} else {
 					btn.prop('disabled', true);
 				}
 				btn.val("获取验证码");
@@ -55,6 +55,6 @@ require(["jquery", "amazeui", "app"], function($) {
 		}, 1000);
 		btn.prop('disabled', true);
 	}
-	
+
 
 });

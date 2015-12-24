@@ -1,6 +1,3 @@
-body {
-	background-color: #ddd;
-}
 /*iconfont.cn阿里巴巴矢量图库*/
 @font-face {
 	font-family: 'iconfont';
@@ -211,3 +208,14 @@ body {
 	right: 30px;
 	top: 51px;
 }
+
+.loading{
+	z-index: 1200;
+    position: fixed;
+}
+
+
+
+
+
+
