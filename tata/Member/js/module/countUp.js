@@ -1,3 +1,10 @@
+/**
+ * @option_param {dom} target dom对象
+ * @option_param {int} startVal 开始数字
+ * @option_param {int} endVal 结束数字
+ * @option_param {int} decimals 小数位数 
+ * @option_param {int} duration 持续时间 单位-秒
+ */
 (function(root, factory) {
 	if (typeof define === 'function' && define.amd) {
 		define(factory);

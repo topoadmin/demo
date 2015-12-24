@@ -4,9 +4,6 @@
  * - iscroll-zoom.js
  * - hammer.js
  *
- * @author 白俊杰 625603381@qq.com 2014/07/31
- * https://github.com/baijunjie/jQuery-photoClip
- *
  * @brief	支持手势的裁图插件
  *			在移动设备上双指捏合为缩放，双指旋转可根据旋转方向每次旋转90度
  *			在PC设备上鼠标滚轮为缩放，每次双击则顺时针旋转90度
@@ -28,14 +25,14 @@
 	"use strict";
 
 	if (typeof define === "function" && define.amd) {
-		define(["jquery", "hammer"], factory);
+		define(["jquery", "hammer","iscroll"], factory);
 	} else if (typeof exports === "object") {
-		module.exports = factory(require("jquery"), require("hammer"));
+		module.exports = factory(require("jquery"), require("hammer"),require("iscroll"));
 	} else {
-		factory(root.jQuery, root.Hammer);
+		factory(root.jQuery);
 	}
 
-}(this, function($, Hammer) {
+}(this, function($, Hammer,IScroll) {
 	"use strict";
 	$.fn.photoClip = function(option) {
 		if (!window.FileReader) {

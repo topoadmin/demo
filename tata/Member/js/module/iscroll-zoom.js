@@ -2188,10 +2188,19 @@ Indicator.prototype = {
 
 IScroll.utils = utils;
 
-if ( typeof module != 'undefined' && module.exports ) {
-	module.exports = IScroll;
+
+if (typeof define === 'function' && (define.amd || define.cmd)) {
+	define(function(require, exports, module) {
+		module.exports = IScroll;
+	});
 } else {
-	window.IScroll = IScroll;
+	win.IScroll = IScroll;
 }
+
+//if ( typeof module != 'undefined' && module.exports ) {
+//	module.exports = IScroll;
+//} else {
+//	window.IScroll = IScroll;
+//}
 
 })(window, document, Math);
