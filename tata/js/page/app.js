@@ -11,16 +11,39 @@
 }(this, function($) {
 	setTimeout(function() {
 		$(".loading").hide();
-	}, 222);
+	}, 500);
 	
-	// -- 宽窄屏切换
-	$(".fixed-widtn").on("click", function() {
-		var fixedTxt = $(this).children(".fixed-txt"),
-			txt = fixedTxt.text().trim();
-		fixedTxt.text((txt == "宽屏") ? "窄屏" : "宽屏")
-		$("body").toggleClass("am-g-fixed-1200");
-		$(window).trigger("resize"); // 触发resize事件,轮播重设宽度
+	$.ajax({
+		type:"get",
+		url:"http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=78eece1a7bdfd46555b81089075b6248",
+		type:"jsonp",
+		async:true,
+		success:function(data){
+			console.log(data);
+		}
 	});
+	
+	var $body = $("body");
+	require(["storage"], function(storage) {
+		// -- 宽窄屏切换
+		$(".fixed-widtn").on("click", function() {
+			var fixedTxt = $(this).children(".fixed-txt"),
+				txt = fixedTxt.text().trim();
+			fixedTxt.text((txt == "宽屏") ? "窄屏" : "宽屏")
+			$body.toggleClass("am-g-fixed-min");
+			$(window).trigger("resize"); // 触发resize事件,轮播重设宽度
+			if($body.hasClass("am-g-fixed-min")){
+				storage.set("am-g-fixed-min", true);
+			}else{
+				storage.set("am-g-fixed-min", false);
+			}
+		});
+		var afmStorage = storage.get("am-g-fixed-min");
+		if(!afmStorage){
+			$(".fixed-widtn").trigger("click");
+		}
+	});
+
 	// -- 关闭浮动二维码
 	var floatCode = $("#float-code");
 	floatCode.on("click", ".am-btn", function() {

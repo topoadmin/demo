@@ -190,8 +190,7 @@
 
 
 /* 窄屏配置 */
-
-.am-g-fixed-1200 {
+.am-g-fixed-min {
 	margin: 0 auto;
 	max-width: 1200px;
 }

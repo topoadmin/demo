@@ -11,6 +11,7 @@ require.config({
 		"laytpl": "module/laytpl",
 		"formValid": "module/jquery.formValid",
 		"app": "page/app",
+		"article":"page/article",
 		"home": "page/home"
 	}
 });
