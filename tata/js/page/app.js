@@ -13,16 +13,6 @@
 		$(".loading").hide();
 	}, 500);
 	
-	$.ajax({
-		type:"get",
-		url:"http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=78eece1a7bdfd46555b81089075b6248",
-		type:"jsonp",
-		async:true,
-		success:function(data){
-			console.log(data);
-		}
-	});
-	
 	var $body = $("body");
 	require(["storage"], function(storage) {
 		// -- 宽窄屏切换
@@ -42,14 +32,6 @@
 		if(!afmStorage){
 			$(".fixed-widtn").trigger("click");
 		}
-	});
-
-	// -- 关闭浮动二维码
-	var floatCode = $("#float-code");
-	floatCode.on("click", ".am-btn", function() {
-		floatCode.fadeOut(1000, function() {
-			floatCode.removeClass("am-show-lg-only");
-		});
 	});
 
 	// -- 加载登录模块
@@ -100,9 +82,38 @@
 	$(".login").on("click", function() {
 		loginModule();
 	});
-
+	
+	
+	// -- 关闭浮动二维码
+	var floatCode = $("#float-code");
+	floatCode.on("click", ".am-btn", function() {
+		floatCode.fadeOut(1000, function() {
+			floatCode.removeClass("am-show-lg-only");
+		});
+	});
+	
+	// 浮动客服
+	var floatKefu = $("#float-kefu");
+	if(floatKefu.length){
+		var open = floatKefu.children(".open-img"),kefu = floatKefu.children(".open-kefu"),
+			closeKefu = floatKefu.find(".close-kefu");
+		open.on("click",function(){
+			open.addClass("am-hide");
+			kefu.removeClass("am-hide");
+		});
+		closeKefu.on("click",function(){
+			kefu.addClass("am-hide");
+			open.removeClass("am-hide");
+		});
+	}
+	
+	
+	
 	return {
 		loginModule: loginModule
 	}
 
 }));
+
+
+

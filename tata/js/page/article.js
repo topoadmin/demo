@@ -8,5 +8,10 @@
 		factory(root.jQuery);
 	}
 }(this, function($, laytpl) {
+	var articleUser = $("#article-user");
+	articleUser.on("click", "li", function(e) {
+		console.log($(this).html());
+		
+	});
 
 }));

@@ -16,7 +16,7 @@
 		<link rel="stylesheet" href="assets/css/app.css" />
 		<style type="text/css">
 			body {
-				background-color: #ddd;
+				background-color: #f5f5f5;
 			}
 			
 			#topbar-collapse .am-topbar-nav>li.am-active>a {
@@ -85,7 +85,9 @@
 		<!-- start 头部导航 -->
 		<header class="am-topbar am-topbar-fixed-top am-badge-primary" id="fixed-top-topbar" data-am-sticky>
 			<div class="am-topbar-brand">
-				<strong>TATA</strong> <small>旅游</small>
+				<a href="home.html">
+					<strong>TATA</strong> <small>旅游</small>
+				</a>
 			</div>
 
 			<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
@@ -358,6 +360,32 @@
 				<div class="am-modal-footer">
 					<span class="am-modal-btn"><i class="am-icon-remove"></i> 取消</span>
 					<span class="am-modal-btn submit"><i class="am-icon-check"></i> 确定</span>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 浮动客服 -->
+		<div id="float-kefu" class="am-hide-sm">
+			<div class="open-img">
+				<img src="img/open_im.png"/>
+			</div>
+			<div class="open-kefu am-hide">
+				<div class="close-kefu">
+					<span class="am-text-xl"><i class="iconfont icon-remove"></i></span>
+				</div>
+				<div style="height: 15px;"></div>
+				<div class="am-text-center">
+					<a href="http://wpa.qq.com/msgrd?v=3&uin=465040621&site=qq&menu=yes" target="_blank" class="im-qq qq-a">
+						<div class="qq-container"></div>
+						<div class="qq-hover-c">
+							<img class="img-qq" src="img/qq.png"></div>
+						<span> QQ在线咨询</span>
+					</a>
+				</div>
+				<div style="height: 15px;"></div>
+				<div class="am-text-center">
+					<span class="am-text-weight am-text-sm">客服热线</span><br />
+					<span class="am-text-danger am-text-sm">4008-759-799 </span><br />
 				</div>
 			</div>
 		</div>
