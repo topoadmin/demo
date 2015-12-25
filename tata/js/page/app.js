@@ -23,13 +23,13 @@
 			$body.toggleClass("am-g-fixed-min");
 			$(window).trigger("resize"); // 触发resize事件,轮播重设宽度
 			if($body.hasClass("am-g-fixed-min")){
-				storage.set("am-g-fixed-min", true);
-			}else{
 				storage.set("am-g-fixed-min", false);
+			}else{
+				storage.set("am-g-fixed-min", true);
 			}
 		});
 		var afmStorage = storage.get("am-g-fixed-min");
-		if(!afmStorage){
+		if(afmStorage){
 			$(".fixed-widtn").trigger("click");
 		}
 	});
