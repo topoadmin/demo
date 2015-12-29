@@ -1,6 +1,6 @@
 require.config({
 	paths: {
-		//  	"amazeui":"../assets/js/amazeui.min",	// 妹子Ui
+//		  	"amazeui":"../assets/js/amazeui.min",	// 妹子Ui
 		"jquery": "../assets/js/jquery.min",
 		//		"jquery":"http://libs.baidu.com/jquery/2.0.0/jquery.min",	百度cdn搭配妹子会出BUG
 		"amazeui": "http://cdn.amazeui.org/amazeui/2.5.0/js/amazeui.min",
@@ -17,7 +17,9 @@ require.config({
 });
 require(["jquery", "amazeui", "app"], function($) {
 	require([thisPage]);
-
+	
+	
+	
 	var sendCode = $(".send-code");
 	if (sendCode.length) {
 		/*仿刷新：检测是否存在cookie*/

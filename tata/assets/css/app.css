@@ -86,17 +86,20 @@
 }
 
 .am-text-white {
-	color: #ddd;
+	color: #fff;
 }
 .am-text-weight{
 	padding: 0 .5em;
 	font-weight: 600;
 }
+.color-grey{
+	color: #666;
+}
+
 /* 重写 amazeui.css ***************************/
 
 
 /* 轮播控制点改变大小和颜色 */
-
 .am-slider-default .am-direction-nav a.am-prev,
 .am-slider-default .am-direction-nav a.am-next {
 	width: 50px;

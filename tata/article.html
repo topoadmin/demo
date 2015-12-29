@@ -31,6 +31,38 @@
 				max-width: 485px;
 				margin: 0 auto 20px auto;
 			}
+			.money-grade img {
+			    max-width: 100%;
+			}
+			.article-box{
+				background: #fff;
+				border: 1px solid #ddd;
+				padding: 1em 0;
+				margin-bottom: 20px;
+			}
+			.article-box blockquote {
+			    font-family: "microsoft yahei";
+			}
+			.article-box p {
+				text-indent: 2em;
+			}
+			.min-bd{
+				padding: .4em 0;
+				border-bottom: 1px solid #ddd;
+			}
+			#article-template .at-nav li a{
+				color: #000;
+				padding: .4em 0;
+			}
+			#article-template .at-nav li a.am-active{
+				color: #fff;
+			}
+			#article-template .c-left{
+				position: relative;
+			}
+			#article-template .c-left li{
+				width: 100%;
+			}
 		</style>
 	</head>
 
@@ -56,8 +88,9 @@
 			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
 		</div>
 		<!-- end 加载框 -->
+		
 		<!-- start 头部导航 -->
-		<header class="am-topbar am-topbar-fixed-top am-badge-primary" id="fixed-top-topbar" data-am-sticky>
+		<header class="am-topbar am-topbar-fixed-top am-badge-primary" id="fixed-top-topbar">
 			<div class="am-topbar-brand">
 				<a href="home.html">
 					<strong>TATA</strong> <small>旅游</small>
@@ -82,8 +115,8 @@
 							<span class="am-icon-home"></span> 返回首页
 						</a>
 					</li>
-					<li class="am-dropdown" data-am-dropdown="">
-						<a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
+					<li class="am-dropdown" data-am-dropdown>
+						<a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
 							<span class="am-icon-child"></span>
 							<small>13701378834@163.com</small>
 							<span class="am-icon-caret-down"></span>
@@ -97,9 +130,10 @@
 			</div>
 		</header>
 		<!-- start 内容区域 -->
+		
 		<div id="main">
 			<div style="height: 20px;"></div>
-			<!-- 头部 -->
+			<!-- 头部介绍 -->
 			<section class="am-panel am-panel-default">
 				<header class="am-panel-hd">
 					<div class="am-text-center">
@@ -123,8 +157,8 @@
 					</div>
 				</div>
 			</section>
-
-			<!--  活动介绍 -->
+			
+			<!--  地区图片 -->
 			<section class="am-panel am-panel-default">
 				<header class="am-panel-hd">
 					<div class="am-text-center">
@@ -133,7 +167,11 @@
 					<div class="am-cf"></div>
 				</header>
 				<div class="am-g">
-					<div class="am-u-sm-12 am-u-md-6">
+					<div class="am-u-sm-12">
+						<img class="am-img-thumbnail" src="http://img1.lotour.net/Inspiration/2015/1221/2015122115451645548453_1920.jpg"/>
+						<div style="height: 20px;"></div>
+					</div>
+					<div class="am-u-sm-12 am-u-md-8 am-u-md-push-2 am-u-lg-4 am-u-lg-push-0">
 						<div class="am-slider am-slider-default article-tese" data-am-flexslider="{controlNav: 'thumbnails', directionNav: false, slideshow: false}">
 							<ul class="am-slides am-text-center">
 								<li data-thumb="http://www.taquta.com/Uploads/image/product/20151216/20151216180029_63504.jpg">
@@ -150,15 +188,14 @@
 								</li>
 							</ul>
 						</div>
-						<hr />
-						<div class="am-u-sm-12">
-							<blockquote>
-								<p>无论走到哪里，都应该记住，过去都是假的，回忆是一条没有尽头的路，一切以往的春天都不复存在，就连那最坚韧而又狂乱的爱情归根结底也不过是一种转瞬即逝的现实。</p>
-								<small>马尔克斯 ——《百年孤独》</small>
-							</blockquote>
-						</div>
+						<!--<hr />-->
 					</div>
-					<div class="am-u-sm-12 am-u-md-6">
+					<div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
+						<p class="am-text-center">
+							<img src="img/article-title.jpg" class="am-img-thumbnail">
+						</p>
+					</div>
+					<div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
 						<p class="am-text-center">
 							<img src="img/article-title.jpg" class="am-img-thumbnail">
 						</p>
@@ -211,7 +248,7 @@
 							<!-- 男 -->
 							<li>
 								<div class="am-gallery-item">
-									<a href="javascript:;"><img src="http://www.taquta.com/Uploads/avatar/76/76.jpg" /></a>
+									<a href="javascript:;"><img src="http://www.taquta.com/Uploads/avatar/25/25.jpg" /></a>
 								</div>
 							</li>
 							<li>
@@ -243,10 +280,124 @@
 					</div>
 				</div>
 			</section>
-
+			
+			<!-- 价格明细 -->
+			<section class="am-panel am-panel-default">
+				<header class="am-panel-hd">
+					<div class="am-text-center">
+						<h3 class="am-panel-title"> 价格明细 </h3>
+					</div>
+					<div class="am-cf"></div>
+				</header>
+				<div class="am-g money-grade">
+					<div class="am-u-sm-12">
+						<ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-4 am-gallery-bordered am-text-center am-text-xl" data-am-gallery="{}">
+							<li>
+								<div>
+									<a href="javascript:;"><img src="img/vip-2.png" /></a>
+									<span class="am-block">一级会员</span>
+									<span class="am-block am-text-danger">8800.00元</span>
+								</div>
+							</li>
+							<li>
+								<div>
+									<a href="javascript:;"><img src="img/vip-3.png" /></a>
+									<span class="am-block">二级会员</span>
+									<span class="am-block am-text-danger">7800.00元</span>
+								</div>
+							</li>
+							<li>
+								<div>
+									<a href="javascript:;"><img src="img/vip-4.png" /></a>
+									<span class="am-block">三级会员</span>
+									<span class="am-block am-text-danger">5800.00元</span>
+								</div>
+							</li>
+							<li>
+								<div>
+									<a href="javascript:;"><img src="img/vip-5.png" /></a>
+									<span class="am-block">终极会员</span>
+									<span class="am-block am-text-danger">全程免费</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			
+			<!-- 目的地概况 -->
+			<div class="am-g article-box" >
+				<div class="am-u-sm-12">
+					<h3>目的地概况：</h3>
+					<blockquote>
+						<p>美丽的沙滩，清澈的海水，广袤的热带雨林，遍地的树丛野花，这就是世界上最令人陶醉的度假目的地之一《巴厘岛》。
+							它是印度尼西亚34个省之一，距首都雅加达1000多公里，以庙宇建筑、雕刻、绘画、音乐、纺织、歌舞和风景闻名于世。
+							岛上大部分为山地，全岛山脉纵横，地势东高西低，有四五座锥形完整的火山峰，其中阿贡火山（巴厘峰）海拔3142米，是岛上的最高点。
+							如画的风景、纯朴的民风，在这里您会感到身心无比的放松和惬意。</p>
+					</blockquote>
+							<hr />
+				</div>
+				<div class="am-u-sm-12">
+					<div class="min-bd"><h4 class="am-inline-block am-margin-0">出发城市：</h3><span>北京</span></div>	
+					<div class="min-bd"><h4 class="am-inline-block am-margin-0">目的地点：</h3><span>印尼·巴厘岛</span></div>
+					<div class="min-bd"><h4 class="am-inline-block am-margin-0">活动类型：</h3><span>主题游</span></div>
+					<div class="min-bd"><h4 class="am-inline-block am-margin-0">出发日期：</h3><span>2015-12-29</span></div>
+					<div class="min-bd">
+						<h4 class="am-margin-0">交通工具：</h3>
+						<span class="am-block">北京到登巴萨国际机场：飞机</span>
+						<span class="am-block">登巴萨国际机场到巴厘岛：TATA旅游专车</span>
+					</div>
+					<div class="min-bd">
+						<h4 class="am-margin-0">特别提示：</h3>
+						<span class="am-padding-left-lg">通过TATA旅游验证人员实地认证，获得出发级会员资格的会员方可报名参加活动。</span>
+					</div>
+					<div class="min-bd">
+						<h4 class="am-margin-0">活动介绍：</h3>
+						<span class="am-padding-left-lg">四天四晚，到达第一晚及后三天分组游戏互动，第四天自由活动。<span class="am-text-danger">【备注：行程时间除外】</span></span>
+					</div>
+					<div class="min-bd">
+						<h4 class="am-margin-0">活动关键词：</h3>
+						<span class="am-padding-left-lg">生存、爱心、耐心、责任、浪漫、沟通、团队、机智、勇敢、默契、学习能力、情绪管理等。</span>
+					</div>
+				</div>
+			</div>
+		
+			<!-- 详细介绍模版 -->
+			<div class="am-g article-box" id="article-template">
+				<div class="am-hide-sm-only am-u-md-2 c-left" >
+					<nav class="am-nav at-nav am-text-center">
+					   <li class="am-active"><a class="am-active" href="#one_day">第一天</a></li>
+					   <li class="am-active"><a href="#two">第二天</a></li>
+					   <li class="am-active"><a href="#three">第三天</a></li>
+					</nav>
+				</div>
+				
+				<div class="am-u-sm-12 am-u-md-10 c-right" style="border-left:1px solid #ddd ;">
+					<div id="one_day">
+						<div class="am-u-sm-1">
+							
+						</div>
+						<div class="am-u-sm-11">
+							<h2>出发 :<span class="am-padding-left-sm">北京<i class="am-icon-plane am-text-primary am-padding-horizontal-sm"></i>巴厘岛</span></h2>
+							<hr />
+							<div class="min-bd color-grey">
+								<span class="am-text-weight">
+									出发城市：
+								</span>
+								<span>
+									北京
+								</span>
+							</div>		
+						</div>
+					</div>
+					<div style="height: 500px;"></div>
+				</div>
+			</div>
+			
+			
 		</div>
 		<!-- end 内容区域 -->
-
+		
 		<script type="text/javascript">
 			var thisPage = "article"; // 当前页面加载模块
 		</script>
