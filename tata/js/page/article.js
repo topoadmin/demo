@@ -13,7 +13,6 @@
 		console.log($(this).html());
 	});
 
-
 	/*    -- 侦测导航 --    */
 	var at = $("#article-template"), // 需要侦测的盒子
 		atNav = at.find(".at-nav"),	// 需要侦测的导航

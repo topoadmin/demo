@@ -1,11 +1,11 @@
 /*iconfont.cn阿里巴巴矢量图库*/
 @font-face {
   font-family: 'iconfont';
-  src: url('//at.alicdn.com/t/font_1451028377_7328656.eot'); /* IE9*/
-  src: url('//at.alicdn.com/t/font_1451028377_7328656.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('//at.alicdn.com/t/font_1451028377_7328656.woff') format('woff'), /* chrome、firefox */
-  url('//at.alicdn.com/t/font_1451028377_7328656.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-  url('//at.alicdn.com/t/font_1451028377_7328656.svg#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('//at.alicdn.com/t/font_1451462936_6571872.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1451462936_6571872.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1451462936_6571872.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1451462936_6571872.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1451462936_6571872.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
@@ -15,11 +15,18 @@
 	-webkit-text-stroke-width: 0.2px;
 	-moz-osx-font-smoothing: grayscale;
 }
+.icon-xs{
+	font-size: 1.2em;
+}
 .icon-sm{
-	font-size: 1.5em;
+	font-size: 1.4em;
 }
 .icon-md{
 	font-size: 2em;
+}
+
+.icon-canshi:before {
+	content: "\e605";
 }
 .icon-jilu:before {
 	content: "\e60c";
@@ -94,6 +101,9 @@
 }
 .color-grey{
 	color: #666;
+}
+.am-text-index-2{
+	text-indent: 2em;
 }
 
 /* 重写 amazeui.css ***************************/
@@ -210,6 +220,7 @@
 	right: 30px;
 	top: 51px;
 }
+
 /*浮动客服*/
 #float-kefu{position: fixed;top: 400px;right: 0px;}
 #float-kefu .open-kefu{position: relative;background:#F9FAFB;border:1px solid #ddd;border-radius:10px;background:#F9FAFB;}

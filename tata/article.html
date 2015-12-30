@@ -11,12 +11,21 @@
 		<title>TATA旅游-相爱之缘、命中注定！</title>
 		<link rel="shortcut icon" href="http://www.taquta.com/favicon.ico">
 		<link rel="bookmark" href="http://www.taquta.com/favicon.ico">
-		<link rel="stylesheet" href="assets/css/amazeui.min.css">
+		<link rel="stylesheet" href="assets/css/amazeui.css">
 		<link rel="stylesheet" href="assets/css/animate.css" />
 		<link rel="stylesheet" href="assets/css/app.css" />
 		<style type="text/css">
 			body {
 				background-color: #f5f5f5;
+			}
+			
+			@media only screen {
+				.am-u-sm-3min {
+					width: 30.333333%;
+				}
+				.am-u-sm-8min {
+					width: 68.66666667%;
+				}
 			}
 			
 			#article-user {
@@ -31,37 +40,9 @@
 				max-width: 485px;
 				margin: 0 auto 20px auto;
 			}
+			
 			.money-grade img {
-			    max-width: 100%;
-			}
-			.article-box{
-				background: #fff;
-				border: 1px solid #ddd;
-				padding: 1em 0;
-				margin-bottom: 20px;
-			}
-			.article-box blockquote {
-			    font-family: "microsoft yahei";
-			}
-			.article-box p {
-				text-indent: 2em;
-			}
-			.min-bd{
-				padding: .4em 0;
-				border-bottom: 1px solid #ddd;
-			}
-			#article-template .at-nav li a{
-				color: #000;
-				padding: .4em 0;
-			}
-			#article-template .at-nav li a.am-active{
-				color: #fff;
-			}
-			#article-template .c-left{
-				position: relative;
-			}
-			#article-template .c-left li{
-				width: 100%;
+				max-width: 100%;
 			}
 		</style>
 	</head>
@@ -76,7 +57,7 @@
 			</div>
     	<![endif]-->
 		<!-- start 加载框 -->
-		<div class="loading">
+		<!--<div class="loading">
 			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
 				<div class="loader am-text-center">
 					<div class="loader-inner semi-circle-spin" style="display: inline-block;">
@@ -86,9 +67,8 @@
 				<p class="am-text-white">别闹，加载是一门艺术...</p>
 			</div>
 			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
-		</div>
+		</div>-->
 		<!-- end 加载框 -->
-		
 		<!-- start 头部导航 -->
 		<header class="am-topbar am-topbar-fixed-top am-badge-primary" id="fixed-top-topbar">
 			<div class="am-topbar-brand">
@@ -130,14 +110,13 @@
 			</div>
 		</header>
 		<!-- start 内容区域 -->
-		
 		<div id="main">
 			<div style="height: 20px;"></div>
 			<!-- 头部介绍 -->
 			<section class="am-panel am-panel-default">
 				<header class="am-panel-hd">
 					<div class="am-text-center">
-						<h3 class="am-panel-title"> 地区及费用 </h3>
+						<strong class="am-panel-title"> 地区及费用 </strong>
 					</div>
 					<div class="am-cf"></div>
 				</header>
@@ -157,18 +136,18 @@
 					</div>
 				</div>
 			</section>
-			
+
 			<!--  地区图片 -->
 			<section class="am-panel am-panel-default">
 				<header class="am-panel-hd">
 					<div class="am-text-center">
-						<h3 class="am-panel-title"> 活动介绍 </h3>
+						<strong class="am-panel-title"> 活动介绍 </strong>
 					</div>
 					<div class="am-cf"></div>
 				</header>
 				<div class="am-g">
 					<div class="am-u-sm-12">
-						<img class="am-img-thumbnail" src="http://img1.lotour.net/Inspiration/2015/1221/2015122115451645548453_1920.jpg"/>
+						<img class="am-img-responsive" src="http://img1.lotour.net/Inspiration/2015/1221/2015122115451645548453_1920.jpg" />
 						<div style="height: 20px;"></div>
 					</div>
 					<div class="am-u-sm-12 am-u-md-8 am-u-md-push-2 am-u-lg-4 am-u-lg-push-0">
@@ -207,7 +186,7 @@
 			<section class="am-panel am-panel-default">
 				<header class="am-panel-hd">
 					<div class="am-text-center">
-						<h3 class="am-panel-title"> 报名人员 </h3>
+						<strong class="am-panel-title"> 报名人员 </strong>
 					</div>
 					<div class="am-cf"></div>
 				</header>
@@ -280,18 +259,18 @@
 					</div>
 				</div>
 			</section>
-			
+
 			<!-- 价格明细 -->
 			<section class="am-panel am-panel-default">
 				<header class="am-panel-hd">
 					<div class="am-text-center">
-						<h3 class="am-panel-title"> 价格明细 </h3>
+						<strong class="am-panel-title"> 价格明细 </strong>
 					</div>
 					<div class="am-cf"></div>
 				</header>
 				<div class="am-g money-grade">
 					<div class="am-u-sm-12">
-						<ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-4 am-gallery-bordered am-text-center am-text-xl" data-am-gallery="{}">
+						<ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-4 am-gallery-bordered am-text-center" data-am-gallery="{}">
 							<li>
 								<div>
 									<a href="javascript:;"><img src="img/vip-2.png" /></a>
@@ -325,79 +304,460 @@
 				</div>
 			</section>
 			
-			<!-- 目的地概况 -->
-			<div class="am-g article-box" >
+			<!-- 巴厘岛模版 -->
+			<style type="text/css">
+				.article-box {
+					background: #EDEEF1;
+					border: 1px solid #ddd;
+					padding: 1em 0;
+					margin-bottom: 20px;
+				}
+				
+				.article-box blockquote {
+					font-family: "microsoft yahei";
+				}
+				
+				.min-bd {
+					padding: .4rem 0;
+					border-bottom: 1px solid #ddd;
+				}
+				#article-template .at-nav li a {
+					color: #fff;
+					background-color: #ddd;
+					padding: .4rem 0;
+				}
+				
+				#article-template .at-nav li a.am-active {
+					background-color: #F80;
+				}
+				
+				#article-template .c-left {
+					position: relative;
+				}
+				
+				#article-template .c-left li {
+					width: 100%;
+				}
+				
+				.article-day {
+					margin-bottom: 2rem;
+				}
+				
+				.c-right {
+					border-left: 1px solid #ddd;
+				}
+				
+				.c-right .icon-position {
+					position: relative;
+				}
+				
+				.c-right .icon-position span {
+					position: absolute;
+					top: .3rem;
+					left: .7rem;
+				}
+				
+				.article-table {
+				    margin-bottom: 1rem; 
+				}
+				.article-table tbody tr:first-child td{
+					border: none;
+				}
+				.article-table tbody tr td{
+					padding: .7rem .2rem;
+				}
+				.article-table tbody tr td:first-child {
+					min-width: 110px;
+					max-width: 120px;
+				}
+				.article-table tbody tr td .icon-position span {
+					top: .18rem;
+					left: .5rem;
+				}
+			</style>
+			<div class="am-g article-box">
 				<div class="am-u-sm-12">
-					<h3>目的地概况：</h3>
+					<strong>巴厘岛特色：</strong>
 					<blockquote>
-						<p>美丽的沙滩，清澈的海水，广袤的热带雨林，遍地的树丛野花，这就是世界上最令人陶醉的度假目的地之一《巴厘岛》。
-							它是印度尼西亚34个省之一，距首都雅加达1000多公里，以庙宇建筑、雕刻、绘画、音乐、纺织、歌舞和风景闻名于世。
-							岛上大部分为山地，全岛山脉纵横，地势东高西低，有四五座锥形完整的火山峰，其中阿贡火山（巴厘峰）海拔3142米，是岛上的最高点。
-							如画的风景、纯朴的民风，在这里您会感到身心无比的放松和惬意。</p>
+						<p class="am-text-index-2">美丽的沙滩，清澈的海水，广袤的热带雨林，遍地的树丛野花，这就是世界上最令人陶醉的度假目的地之一《巴厘岛》。 它是印度尼西亚34个省之一，距首都雅加达1000多公里，以庙宇建筑、雕刻、绘画、音乐、纺织、歌舞和风景闻名于世。 岛上大部分为山地，全岛山脉纵横，地势东高西低，有四五座锥形完整的火山峰，其中阿贡火山（巴厘峰）海拔3142米，是岛上的最高点。 如画的风景、纯朴的民风，在这里您会感到身心无比的放松和惬意。
+						</p>
 					</blockquote>
-							<hr />
+					<hr />
 				</div>
-				<div class="am-u-sm-12">
-					<div class="min-bd"><h4 class="am-inline-block am-margin-0">出发城市：</h3><span>北京</span></div>	
-					<div class="min-bd"><h4 class="am-inline-block am-margin-0">目的地点：</h3><span>印尼·巴厘岛</span></div>
-					<div class="min-bd"><h4 class="am-inline-block am-margin-0">活动类型：</h3><span>主题游</span></div>
-					<div class="min-bd"><h4 class="am-inline-block am-margin-0">出发日期：</h3><span>2015-12-29</span></div>
-					<div class="min-bd">
-						<h4 class="am-margin-0">交通工具：</h3>
-						<span class="am-block">北京到登巴萨国际机场：飞机</span>
-						<span class="am-block">登巴萨国际机场到巴厘岛：TATA旅游专车</span>
+				<div class="am-u-sm-12  am-text-sm">
+					<div class="min-bd"><strong class="am-inline-block am-margin-0">出发城市：</strong><span>北京</span></div>
+					<div class="min-bd"><strong class="am-inline-block am-margin-0">目的地点：</strong><span>印尼·巴厘岛</span></div>
+					<div class="min-bd"><strong class="am-inline-block am-margin-0">活动类型：</strong><span>主题游</span></div>
+					<div class="min-bd"><strong class="am-inline-block am-margin-0">出发日期：</strong><span>2015-12-29</span></div>
+					<div class="min-bd am-cf">
+						<div class="am-fl">
+							<strong class="am-margin-0">交通工具：</strong>
+						</div>
+						<div class="am-fl">
+							<span>北京到登巴萨国际机场：<strong class="am-text-warning">飞机</strong></span>
+							<span class="am-block">登巴萨国际机场到巴厘岛：<strong class="am-text-warning">TATA旅游专车</strong></span>
+						</div>
 					</div>
 					<div class="min-bd">
-						<h4 class="am-margin-0">特别提示：</h3>
-						<span class="am-padding-left-lg">通过TATA旅游验证人员实地认证，获得出发级会员资格的会员方可报名参加活动。</span>
+						<strong class="am-margin-0">特别提示：</strong>
+						<span>通过TATA旅游验证人员实地认证，获得出发级会员资格的会员方可报名参加活动。</span>
 					</div>
 					<div class="min-bd">
-						<h4 class="am-margin-0">活动介绍：</h3>
-						<span class="am-padding-left-lg">四天四晚，到达第一晚及后三天分组游戏互动，第四天自由活动。<span class="am-text-danger">【备注：行程时间除外】</span></span>
+						<strong class="am-margin-0">活动介绍：</strong>
+						<span>四天四晚，到达第一晚及后三天分组游戏互动，第四天自由活动。<span class="am-text-danger">【备注：行程时间除外】</span></span>
 					</div>
 					<div class="min-bd">
-						<h4 class="am-margin-0">活动关键词：</h3>
-						<span class="am-padding-left-lg">生存、爱心、耐心、责任、浪漫、沟通、团队、机智、勇敢、默契、学习能力、情绪管理等。</span>
+						<strong class="am-margin-0">活动关键词：</strong>
+						<span>生存、爱心、耐心、责任、浪漫、沟通、团队、机智、勇敢、默契、学习能力、情绪管理等。</span>
 					</div>
 				</div>
 			</div>
-		
-			<!-- 详细介绍模版 -->
 			<div class="am-g article-box" id="article-template">
-				<div class="am-hide-sm-only am-u-md-2 c-left" >
+				<div class="am-hide-sm-only am-u-md-2 c-left">
 					<nav class="am-nav at-nav am-text-center">
-					   <li class="am-active"><a class="am-active" href="#one_day">第一天</a></li>
-					   <li class="am-active"><a href="#two">第二天</a></li>
-					   <li class="am-active"><a href="#three">第三天</a></li>
+						<li><a class="am-active" href="#start_day">出发</a></li>
+						<li><a href="#one_day">第一天</a></li>
+						<li><a href="#two_day">第二天</a></li>
+						<li><a href="#three_day">第三天</a></li>
+						<li><a href="#four_day">第四天</a></li>
+						<li><a href="#five_day">第五天</a></li>
 					</nav>
 				</div>
-				
-				<div class="am-u-sm-12 am-u-md-10 c-right" style="border-left:1px solid #ddd ;">
-					<div id="one_day">
-						<div class="am-u-sm-1">
-							
-						</div>
-						<div class="am-u-sm-11">
-							<h2>出发 :<span class="am-padding-left-sm">北京<i class="am-icon-plane am-text-primary am-padding-horizontal-sm"></i>巴厘岛</span></h2>
-							<hr />
-							<div class="min-bd color-grey">
-								<span class="am-text-weight">
-									出发城市：
-								</span>
-								<span>
-									北京
-								</span>
-							</div>		
+
+				<div class="am-u-sm-12 am-u-md-10 am-padding-0 am-text-sm c-right">
+					<div id="start_day" class="article-day am-u-sm-12">
+						<table class="am-table article-table min-bd">
+							<tbody>
+								<tr>
+									<td>
+										<span class="am-padding-right-sm">
+											<i class="am-icon-calendar-o am-icon-sm am-text-warning icon-position"><span>0</span></i>
+										</span>
+										<strong>出　发 :</strong>
+									</td>
+									<td><span>北京<i class="am-icon-plane am-text-primary am-padding-horizontal-sm"></i>巴厘岛</span></td>
+								</tr>
+								<tr>
+									<td><i class="am-icon-plane am-text-warning am-padding-right-sm"></i>参考航班：</td>
+									<td>东航直飞,北京-巴厘岛 MU781(16:00—00:40)</td>
+								</tr>
+								<tr>
+									<td><i class="am-icon-map-marker am-text-warning am-padding-right-sm"></i>出发地点：</td>
+									<td>首都国际机场集合，搭乘国际航班飞往度假胜地-巴厘岛，抵达后搭乘TATA旅游专车送往酒店休息。</td>
+								</tr>
+								<tr>
+									<td><i class="am-icon-building-o am-text-warning am-padding-right-sm"></i>行程酒店：</td>
+									<td><strong>Mercure Nusa Dua 或 Mercure Legian 基础房型</strong></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="am-g min-bd">
+							<div class="am-u-sm-12">
+								<i class="am-icon-image am-text-warning am-padding-right-sm"></i>图片展示：
+							</div>
+							<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
+								<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB0-1.jpg" />
+								<span class="am-block">巴厘岛</span>
+							</div>
+							<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
+								<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB0-2.jpg" />
+								<span class="am-block">Mercure Nusa Dua酒店</span>
+							</div>
 						</div>
 					</div>
-					<div style="height: 500px;"></div>
+				
+					<div id="one_day" class="article-day am-u-sm-12">
+						<table class="am-table article-table min-bd">
+							<tbody>
+								<tr>
+									<td>
+										<span class="am-padding-right-sm">
+											<i class="am-icon-calendar-o am-icon-sm am-text-warning icon-position"><span>1</span></i>
+										</span>
+										<strong>第一天 :</strong>
+									</td>
+									<td><span class="am-text-sm">增进彼此了解＋Majoly悠闲下午茶-KUTA BEACH WALK悠闲逛街</span></td>
+								</tr>
+								<tr>
+									<td><i class="am-icon-file-text-o am-text-warning am-padding-right-sm"></i>行程描述：</td>
+									<td class="am-text-index-2">睡到自然醒后前往酒店餐厅享用早餐，今天是休闲放松的一天，早餐后参加我们为各位嘉宾安排的活动，活动结束享用午餐，
+										下午搭乘TATA旅游专车前往majoly餐厅享用下午茶，之后前往kuta沙滩悠闲逛街，晚上享用sheraton feast 国际自助餐。
+										<strong class="am-text-primary">晚餐后参加我们为各位嘉宾安排的活动。</strong></td>
+								</tr>
+								<tr>
+									<td><i class="iconfont icon-canshi icon-xs am-text-warning am-padding-right-xs"></i>餐食：</td>
+									<td>
+										早餐：<strong>酒店内</strong>
+										午餐：<strong>中式料理</strong> 
+										晚餐：<strong>SHERATON FEAST国际自助餐</strong>
+									</td>
+								</tr>
+								<tr>
+									<td><i class="am-icon-building-o am-text-warning am-padding-right-sm"></i>行程酒店：</td>
+									<td><strong>Mercure Nusa Dua 或 Mercure Legian 基础房型</strong></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="am-g ">
+							<div class="am-u-sm-12">
+								<i class="am-icon-image am-text-warning am-padding-right-sm"></i>图片展示：
+							</div>
+							<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
+								<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB1-1.jpg" />
+								<span class="am-block">巴厘岛</span>
+							</div>
+							<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
+								<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB1-2.jpg" />
+								<span class="am-block">Mercure Nusa Dua酒店</span>
+							</div>
+						</div>
+					</div>
+					
+					<div id="two_day" class="article-day am-u-sm-12">
+						<table class="am-table article-table min-bd">
+							<tbody>
+								<tr>
+									<td>
+										<span class="am-padding-right-sm">
+											<i class="am-icon-calendar-o am-icon-sm am-text-warning icon-position"><span>2</span></i>
+										</span>
+										<strong>第二天 :</strong>
+									</td>
+									<td><span class="am-text-sm">BALI ADVENTURE五星级漂流＋国际自助午餐＋海神庙</span></td>
+								</tr>
+								<tr>
+									<td><i class="am-icon-file-text-o am-text-warning am-padding-right-sm"></i>行程描述：</td>
+									<td class="am-text-index-2">漂流的距离大约9.6公里，整个行程大约两小时结束，会提供热水淋浴间，干净的毛巾和更衣室。 
+										漂流后，在俯瞰雄伟群山和稻田的私人餐厅里，享用一顿美食自助大餐。 享用完丰盛午餐后，下午，我们将前往注著名景点海神庙参观。
+										海神庙此庙建于海中岩石上，六百多年来在汹涛波涌印度洋海浪冲蚀下耸立依旧，黄昏时浮现于印度洋之波涛中，更显出它的美丽与神秘，值得您亲自体会。
+										<strong class="am-text-primary">期间，我们还会为各位嘉宾安排精彩的游戏环节，增进彼此之间的了解。</strong>
+										<strong class="am-block am-text-primary">晚餐后，我们将会在努沙杜瓦海滩上进行有趣的游戏环节。</strong>
+									</td>
+								</tr>
+								<tr>
+									<td><i class="iconfont icon-canshi icon-xs am-text-warning am-padding-right-xs"></i>餐食：</td>
+									<td>
+										早餐：<strong>酒店内</strong>
+										午餐：<strong>国际自助午餐</strong> 
+										晚餐：<strong>中式海鲜料理</strong>
+									</td>
+								</tr>
+								<tr>
+									<td><i class="am-icon-building-o am-text-warning am-padding-right-sm"></i>行程酒店：</td>
+									<td><strong>Mercure Nusa Dua 或 Mercure Legian 基础房型</strong></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="am-g ">
+							<div class="am-u-sm-12">
+								<i class="am-icon-image am-text-warning am-padding-right-sm"></i>图片展示：
+							</div>
+							<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
+								<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB2-1.jpg" />
+								<span class="am-block">巴厘岛</span>
+							</div>
+							<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
+								<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB2-2.jpg" />
+								<span class="am-block">Mercure Nusa Dua酒店</span>
+							</div>
+						</div>
+					</div>
+					
+					<div id="three_day" class="article-day am-u-sm-12">
+						<table class="am-table article-table min-bd">
+							<tbody>
+								<tr>
+									<td>
+										<span class="am-padding-right-sm">
+											<i class="am-icon-calendar-o am-icon-sm am-text-warning icon-position"><span>3</span></i>
+										</span>
+										<strong>第三天 :</strong>
+									</td>
+									<td><span class="am-text-sm">乌布皇宫-乌布传统市场-猴林路悠闲逛-德哥拉朗梯田美景</span></td>
+								</tr>
+								<tr>
+									<td><i class="am-icon-file-text-o am-text-warning am-padding-right-sm"></i>行程描述：</td>
+									<td class="am-text-index-2">
+										<span class="am-block">乌布传统市场是一个寻找纪念品的好地方，天然质料的手工艺术品、香料、线香、陶瓷器皿等...是在其他观光地区看不到，却又能代表当地纪念品。</span>
+										<span class="am-block">乌布皇宫历史悠久的广大皇宫就像是一座百花齐放的花园，花丛中皇宫内开放一半供游客参观与住宿，而另一半仍是皇宫后代现今的住处，精致的雕梁画栋再再展现着皇室昔日的绝代风华。
+											不同于路边看到的绿油油的麦田，德哥拉朗是陡峭的梯田，虽然与国内的比起，不够雄伟壮观，但是搭配着热带雨林特有的树木，还是别有一番滋味。</span>
+										<span class="am-block "><strong class="am-text-primary">在参观完德哥拉朗梯田美景之后，我们为各位嘉宾安排了游戏环节，让各位嘉宾在游戏互动中确定心仪的对象。</strong>
+										晚餐我们在巴厘岛久负盛名的金巴兰海滩为各位嘉宾安排了海鲜烧烤套餐，既能领略这里迷人的海上落日，又能品尝到美味地道的海鲜烧烤。</span>
+										<strong class="am-block am-text-primary">晚餐后，趁着月色，我们为大家安排了神秘的游戏环节。</strong>
+									</td>
+								</tr>
+								<tr>
+									<td><i class="iconfont icon-canshi icon-xs am-text-warning am-padding-right-xs"></i>餐食：</td>
+									<td>
+										早餐：<strong>酒店内</strong>
+										午餐：<strong>脏鸭风味套餐 </strong> 
+										晚餐：<strong>金芭兰海鲜烧烤套餐</strong>
+									</td>
+								</tr>
+								<tr>
+									<td><i class="am-icon-building-o am-text-warning am-padding-right-sm"></i>行程酒店：</td>
+									<td><strong>Mercure Nusa Dua 或 Mercure Legian 基础房型</strong></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="am-g ">
+							<div class="am-u-sm-12">
+								<i class="am-icon-image am-text-warning am-padding-right-sm"></i>图片展示：
+							</div>
+							<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
+								<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB3-1.jpg" />
+								<span class="am-block">乌布皇宫</span>
+							</div>
+							<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
+								<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB3-2.jpg" />
+								<span class="am-block">乌布传统市场</span>
+							</div>
+						</div>
+					</div>
+					
+					<div id="four_day" class="article-day am-u-sm-12">
+						<table class="am-table article-table min-bd">
+							<tbody>
+								<tr>
+									<td>
+										<span class="am-padding-right-sm">
+											<i class="am-icon-calendar-o am-icon-sm am-text-warning icon-position"><span>4</span></i>
+										</span>
+										<strong>第四天 :</strong>
+									</td>
+									<td><span class="am-text-sm">BALI HAI爱之船海滩俱乐部＋岛上自助午餐</span></td>
+								</tr>
+								<tr>
+									<td><i class="am-icon-file-text-o am-text-warning am-padding-right-sm"></i>行程描述：</td>
+									<td class="am-text-index-2">
+										<span class="am-block">早餐后，在Bali Hai爱之船码头，搭乘大帆船抵达位于蘑菇海湾的蓝梦岛海滩俱乐部，享受不受污染的热带小岛宁静。
+											沙滩日光浴、独木舟、浮潜、香蕉船、半潜艇跟玻璃底船赏海底风光等海上项目不限次数；或是俱乐部内沙滩、水上排球、泳池游玩。
+											另外也有更刺激的自费选项按每人自身健康状态衡量下挑战氧气筒深潜、滑翔伞、海底漫步。</span>
+										<span class="am-block">中午，岛上将提供烧烤海鲜、色拉等各式丰富菜色，供大家自由选用。
+											<strong class="am-text-primary">享用完岛上的自助午餐之后，下午，我们将在沙滩上进行有趣的户外游戏，让各位嘉宾在充分享受休闲度假的乐趣之余，尽情的展现自己的风采。</strong>
+										</span>
+										<span class="am-block am-text-primary">在一天的海滩之旅结束之后，晚上，我们将有一个特别环节，每位嘉宾有且仅有一次机会，希望各位好好把握。</span>	
+									</td>
+								</tr>
+								<tr>
+									<td><i class="iconfont icon-canshi icon-xs am-text-warning am-padding-right-xs"></i>餐食：</td>
+									<td>
+										早餐：<strong>酒店内</strong>
+										午餐：<strong>岛上自助</strong> 
+										晚餐：<strong>肋排/印尼式套餐</strong>
+									</td>
+								</tr>
+								<tr>
+									<td><i class="am-icon-building-o am-text-warning am-padding-right-sm"></i>行程酒店：</td>
+									<td><strong>Mercure Nusa Dua 或 Mercure Legian 基础房型</strong></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="am-g ">
+							<div class="am-u-sm-12">
+								<i class="am-icon-image am-text-warning am-padding-right-sm"></i>图片展示：
+							</div>
+							<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
+								<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB4-1.jpg" />
+								<span class="am-block">蓝梦岛</span>
+							</div>
+							<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
+								<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB4-2.jpg" />
+								<span class="am-block">蓝梦岛</span>
+							</div>
+						</div>
+					</div>
+					
+					<div id="five_day" class="article-day am-u-sm-12">
+						<table class="am-table article-table min-bd">
+							<tbody>
+								<tr>
+									<td>
+										<span class="am-padding-right-sm">
+											<i class="am-icon-calendar-o am-icon-sm am-text-warning icon-position"><span>5</span></i>
+										</span>
+										<strong>第五天 :</strong>
+									</td>
+									<td><span class="am-text-sm">上午享受酒店设施-DFS免税店- 2 小时贵族lulur spa疗程</span></td>
+								</tr>
+								<tr>
+									<td><i class="am-icon-file-text-o am-text-warning am-padding-right-sm"></i>行程描述：</td>
+									<td class="am-text-index-2">
+										<span class="am-block">
+											轻松早餐后，好好享受一下饭店内完善的设备，更别忘了照像留念才算不虚此行喔。午餐后，我们将进行此次行程的最后一个环节，各位嘉宾可以选择前往DFS免税店购买免税商品，或者享用贵族lulur spa疗程。
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td><i class="iconfont icon-canshi icon-xs am-text-warning am-padding-right-xs"></i>餐食：</td>
+									<td>
+										早餐：<strong>酒店内</strong>
+										午餐：<strong>敬请自理</strong>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="am-g ">
+							<div class="am-u-sm-12">
+								<i class="am-icon-image am-text-warning am-padding-right-sm"></i>图片展示：
+							</div>
+							<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
+								<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB5-1.jpg" />
+								<span class="am-block">巴厘岛</span>
+							</div>
+							<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
+								<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB5-2.jpg" />
+								<span class="am-block">情人崖</span>
+							</div>
+						</div>
+						<table class="am-table article-table min-bd">
+							<tbody>
+								<tr>
+									<td class="am-text-success am-text-index-2">当天返回</td>
+									<td><span>巴厘岛<i class="am-icon-plane am-text-primary am-padding-horizontal-sm"></i>北京</span></td>
+								</tr>
+								<tr>
+									<td><i class="am-icon-plane am-text-warning am-padding-right-sm"></i>参考航班：</td>
+									<td>东航直飞 巴里岛-北京 MU782 （01:50-08：40）</td>
+								</tr>
+								<tr>
+									<td><i class="am-icon-map-marker am-text-warning am-padding-right-sm"></i>出发地点：</td>
+									<td><span class="am-block">
+										 酒店出发，搭乘TATA旅游专车前往机场，乘坐东航航班返回温暖家中，结束愉快行程。
+									</span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="am-g article-box">
+				<div class="am-u-sm-12">
+					<strong class="am-block">费用包含：</strong>
+					<table class="am-table article-table min-bd">
+							<tbody>
+								<tr>
+									<td>1、机票：</td>
+									<td>含往返机票及机场税； 【机票自订的会员，以邮件形式将会员ID号、机票信息及价格通知TATA旅游，则该部分费用可以扣除。通常来说TATA旅游订的机票价格会比您单独订的要低。机票信息告知邮件：jt@taquta.com】</td>
+								</tr>
+								<tr>
+									<td>参考航班：</td>
+									<td>东航直飞 巴里岛-北京 MU782 （01:50-08：40）</td>
+								</tr>
+								<tr>
+									<td>出发地点：</td>
+									<td>酒店出发，搭乘TATA旅游专车前往机场，乘坐东航航班返回温暖家中，结束愉快行程。</td>
+								</tr>
+							</tbody>
+						</table>
 				</div>
 			</div>
 			
-			
+			<div style="height: 1100px;"></div>
+			<!-- end 模版 -->
 		</div>
 		<!-- end 内容区域 -->
-		
+
 		<script type="text/javascript">
 			var thisPage = "article"; // 当前页面加载模块
 		</script>
