@@ -23,6 +23,7 @@
 				color: #fff;
 			}
 			/* 某些设置出现换行BUG */
+			
 			.am-topbar-nav>li>a.min80 {
 				min-width: 80px;
 			}
@@ -176,7 +177,7 @@
 			<section class="am-panel am-panel-default">
 				<header class="am-panel-hd">
 					<div class="am-text-center">
-						<h3 class="am-panel-title">冬季温柔团</h3>
+						<h3 class="am-panel-title">冬季温柔团<span class="am-text-danger">[特价出发]</span></h3>
 					</div>
 					<div class="am-cf"></div>
 				</header>
@@ -222,7 +223,7 @@
 		<!-- end 内容区域 -->
 
 		<!-- 浮动二维码 -->
-		<div id="float-code" class="am-show-lg-only">
+		<div id="float-code" class="am-show-lg-only" data-am-scrollspy="{animation: 'slide-top', delay: 666}">
 			<img src="http://www.taquta.com/Application/Home/View/Default/Images/float-code.jpg">
 			<button class="am-btn am-btn-primary am-btn-block">关闭</button>
 		</div>
@@ -245,6 +246,7 @@
 				<div class="am-u-sm-12 am-u-md-7 am-hide-sm-only am-text-left">
 					<div class="am-u-md-5">
 						<h3>关于我们</h3>
+						<hr />
 						<ul class="am-nav">
 							<li><a href="http://www.taquta.com/about.jsp">关于TATA</a></li>
 							<li><a href="http://www.taquta.com/activity.jsp">活动流程</a></li>
@@ -252,20 +254,21 @@
 					</div>
 					<div class="am-u-md-7">
 						<h3>联系我们</h3>
+						<hr />
 						<ul class="am-nav">
 							<li>
 								<a href="tel:4008759799" class="am-padding-0">4008-759-799 [客服专线]</a>
-								<span class="am-text-xs">[本专线只接受已注册会员来电咨询]</span>
+								<span class="am-text-xs ">[本专线只接受已注册会员来电咨询]</span>
 							</li>
 							<li>
 								<span>商务合作：</span>
 								<br />
-								<span class="am-text-xs">shangwu@taquta.com</span>
+								<span class="am-text-xs am-text-primary">shangwu@taquta.com</span>
 							</li>
 							<li>
 								<span>投诉建议投诉建议：</span>
 								<br />
-								<span class="am-text-xs">tousu@taquta.com</span>
+								<span class="am-text-xs am-text-primary">tousu@taquta.com</span>
 							</li>
 						</ul>
 					</div>
@@ -274,6 +277,7 @@
 				<div class="am-u-sm-12 am-show-sm-only">
 					<div class="am-u-md-7">
 						<h3>联系我们</h3>
+						<hr />
 						<ul class="am-nav">
 							<li>
 								<a href="tel:4008759799" class="am-padding-0">4008-759-799 [客服专线]</a>
@@ -374,7 +378,7 @@
 				<div style="height: 15px;"></div>
 				<div class="am-text-center">
 					<a href="http://wpa.qq.com/msgrd?v=3&uin=465040621&site=qq&menu=yes" target="_blank" class="im-qq qq-a">
-						<div class="qq-container"></div>
+						<!--<div class="qq-container"></div>-->
 						<div class="qq-hover-c">
 							<img class="img-qq" src="img/qq.png"></div>
 						<span> QQ在线咨询</span>
@@ -389,6 +393,46 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- 用户头像模版 -->
+		<script id="users-tpl" type="text/html">
+			<div class="am-g">
+				<div class="am-slider am-slider-default am-slider-carousel am-u-sm-12">
+					<ul class="am-slides">
+						{{#for (var i = 0, len = d.length; i
+						< len; i++) {}} <li>
+							<div class="am-gallery-item am-text-center" style="position: relative;">
+								<a class="user-img-box" href="#">
+									<img class="user-avatar am-center lazyload" data-original="{{ d[i].avatar }}" src="img/load.gif" alt="{{ d[i].name }}" />
+									<img class="user-rank am-show-lg-up" src="img/vip-{{ d[i].rank }}.png" />
+								</a>
+								<span class="am-text-sm am-text-secondary">{{ d[i].name }}</span > 
+							</div>
+						</li > {{#}}} 
+						</ul>
+				</div > 
+			</div>
+		</script>
+		<!-- 活动模版 -->
+		<script id="article-tpl" type="text/html">
+			<ul class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-5 am-gallery-imgbordered">
+				{{# for(var i = 0, len = d.length; i< len; i++){ }} 
+					{{# if(d[i].privilege){ }} <li class="all {{ d[i].site }} 特价">
+					{{# }else{ }}<li class="all {{ d[i].site }}">{{# }}}
+					<div class="am-gallery-item">
+						<a href="{{ d[i].href }}">
+							<img class="lazyload" data-original="{{ d[i].img }}" src="img/load.gif" alt="{{ d[i].alt }}" />
+							<h3 class="am-gallery-title">{{ d[i].site }} - {{ d[i].site2 }}</h3>
+							<div class="am-gallery-desc"><span>出发时间:</span><span>{{ d[i].time }}</span>
+								<div class="am-text-lg">{{# if(d[i].privilege){ }}<del>￥:<span class="am-text-sm">{{ d[i].price }}.00</span></del>
+									<span class="am-text-danger am-text-sm">{{ d[i].privilege }}.00</span> {{# }else{ }} ￥:<span class="am-text-danger">{{ d[i].price }}.00</span> {{# }}}
+								</div>
+							</div>
+							</a>
+				</div>
+				</li>{{# } }}
+				</ul>
+		</script>
 
 		<script type="text/javascript">
 			var thisPage = "home"; // 当前页面加载模块

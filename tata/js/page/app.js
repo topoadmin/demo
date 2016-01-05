@@ -9,9 +9,7 @@
 	}
 
 }(this, function($) {
-	setTimeout(function() {
-		$(".loading").hide();
-	}, 500);
+	$(".loading").hide();
 	
 	var $body = $("body");
 	
@@ -127,9 +125,10 @@
 	// -- 关闭浮动二维码
 	var floatCode = $("#float-code");
 	floatCode.on("click", ".am-btn", function() {
-		floatCode.fadeOut(1000, function() {
-			floatCode.removeClass("am-show-lg-only");
+		floatCode.slideUp(666,function(){
+			floatCode.remove();
 		});
+		
 	});
 	
 	// 浮动客服

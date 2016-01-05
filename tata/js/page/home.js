@@ -15,7 +15,7 @@
 	});
 	// -- 添加用户
 	$.getJSON("js/data/user.json", function(data) {
-		var gettpl = '<div class="am-g"><div class="am-slider am-slider-default am-slider-carousel am-u-sm-10 am-u-sm-push-1"><ul class="am-slides">{{# for(var i = 0, len = d.length; i< len; i++){ }} <li><div class="am-gallery-item am-text-center" style="position: relative;"><a class="user-img-box" href="#"><img class="user-avatar am-center lazyload" data-original="{{ d[i].avatar }}" src="img/load.gif" alt="{{ d[i].name }}" /><img class="user-rank am-show-lg-up" src="img/vip-{{ d[i].rank }}.png" /></a><span class="am-text-sm am-text-secondary">{{ d[i].name }}</span></div></li>{{# } }}</ul></div></div>'
+		var gettpl = document.getElementById("users-tpl").innerHTML;
 		laytpl(gettpl).render(data, function(html) {
 			document.getElementById("user-box").innerHTML = html;
 		});
@@ -46,6 +46,7 @@
 		$userBox.find(".am-slider").flexslider({
 			itemWidth: iw,
 			itemMargin: 5,
+			controlNav:false,
 			pauseOnHover: true,
 			slideshowSpeed: 300000,
 			after: function() {
@@ -90,7 +91,7 @@
 	});
 	// -- 活动模版
 	function addActivity(tplId, setDomId, data) {
-		var gettpl = '<ul class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-5 am-gallery-imgbordered">{{# for(var i = 0, len = d.length; i< len; i++){ }} {{# if(d[i].privilege){ }} <li class="all {{ d[i].site }} 特价">{{# }else{ }}<li class="all {{ d[i].site }}">{{# }}}<div class="am-gallery-item"><a href="{{ d[i].href }}"><img class="lazyload" data-original="{{ d[i].img }}" src="img/load.gif" alt="{{ d[i].alt }}" /><h3 class="am-gallery-title">{{ d[i].site }} - {{ d[i].site2 }}</h3><div class="am-gallery-desc"><span>出发时间:</span><span>{{ d[i].time }}</span><div class="am-text-lg">{{# if(d[i].privilege){ }}<del>￥:<span class="am-text-sm">{{ d[i].price }}.00</span></del> <span class="am-text-danger am-text-sm">{{ d[i].privilege }}.00</span> {{# }else{ }} ￥:<span class="am-text-danger">{{ d[i].price }}.00</span> {{# }}}</div></div></a></div></li>{{# } }}</ul>'
+		var gettpl = document.getElementById("article-tpl").innerHTML;
 		laytpl(gettpl).render(data, function(html) {
 			document.getElementById(setDomId).innerHTML = html;
 		});
