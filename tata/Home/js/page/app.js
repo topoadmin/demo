@@ -12,7 +12,6 @@
 	$(".loading").hide();
 	
 	var $body = $("body");
-	
 	var sendCode = $(".send-code");
 	if (sendCode.length) {
 		/*仿刷新：检测是否存在cookie*/
@@ -24,34 +23,33 @@
 		});
 		sendCode.on("click", function() {
 			checkCaptcha($(this));
-		})
+		});
+		// 发送验证码按钮定时器事件
+		function checkCaptcha(elm, count) {
+			var $mobile = $(this).parents("form").find(".js-pattern-mobile");
+			var btn = $(elm);
+			var count = count || 60;
+			var resend = setInterval(function() {
+				count--;
+				if (count > 0) {
+					btn.val(count + "秒后可重新获取");
+					require(["storage"], function(storage) {
+						storage.set("captcha", count, count);
+					})
+				} else {
+					clearInterval(resend);
+					if (!$mobile.hasClass("am-field-valid")) {
+						btn.prop('disabled', false);
+					} else {
+						btn.prop('disabled', true);
+					}
+					btn.val("获取验证码");
+				}
+			}, 1000);
+			btn.prop('disabled', true);
+		}
 	}
 
-	// 发送验证码按钮定时器事件
-	function checkCaptcha(elm, count) {
-		var $mobile = $(this).parents("form").find(".js-pattern-mobile");
-		var btn = $(elm);
-		var count = count || 60;
-		var resend = setInterval(function() {
-			count--;
-			if (count > 0) {
-				btn.val(count + "秒后可重新获取");
-				require(["storage"], function(storage) {
-					storage.set("captcha", count, count);
-				})
-			} else {
-				clearInterval(resend);
-				if (!$mobile.hasClass("am-field-valid")) {
-					btn.prop('disabled', false);
-				} else {
-					btn.prop('disabled', true);
-				}
-				btn.val("获取验证码");
-			}
-		}, 1000);
-		btn.prop('disabled', true);
-	}
-	
 	require(["storage"], function(storage) {
 		// -- 宽窄屏切换
 		$(".fixed-widtn").on("click", function() {
@@ -144,12 +142,6 @@
 			kefu.addClass("am-hide");
 			open.removeClass("am-hide");
 		});
-	}
-	
-	
-	
-	return {
-		loginModule: loginModule
 	}
 
 }));

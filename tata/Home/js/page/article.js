@@ -16,20 +16,27 @@
 	/*    -- 侦测导航 --    */
 	var at = $("#article-template"), // 需要侦测的盒子
 		atNav = at.find(".at-nav"), // 需要侦测的导航
-		atRight = at.find(".c-right");
-	if (!atNav.is(":hidden")) {
-		atNav.sticky({
-			top: 61
-		}).scrollspynav();
+		atRight = at.find(".c-right"),
+		$win = $(window);
+	if (atNav.length > 0) {
+		if (!atNav.is(":hidden")) {
+			atNav.sticky({
+				top: 61
+			}).scrollspynav();
+		}
+		$win.on("scroll", function() {
+			scrollAtNav();
+		});
+		
 	}
-
-	$(window).on("scroll", function() {
+	
+	function scrollAtNav() {
 		var leftTop = atNav.offset().top + atNav.height();
 		var rightTop = atRight.offset().top + atRight.height();
-		if (leftTop >= rightTop - 20) {
+		if (leftTop >= rightTop - 50) {
 			atNav.hide();
 		} else {
 			atNav.show();
 		}
-	});
+	}
 }));
