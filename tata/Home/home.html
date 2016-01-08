@@ -43,14 +43,17 @@
 				max-width: 232px;
 				max-height: 299px;
 			}
-			
 			#user-box .user-rank {
 				position: absolute;
 				z-index: 2;
-				bottom: 20px;
 				right: 0;
+				bottom: 20px;
 				width: 100px;
 				height: 100px;
+			}
+			
+			.user-yaoqiu p{
+				margin: 0.4rem 1rem;
 			}
 		</style>
 	</head>
@@ -72,7 +75,7 @@
 						<div></div>
 					</div>
 				</div>
-				<p class="am-text-white">别闹，加载是一门艺术...</p>
+				<p class="am-text-white txt">别闹，加载是一门艺术...</p>
 			</div>
 			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
 		</div>
@@ -166,6 +169,7 @@
 					</div>
 				</header>
 				<div id="user-box">
+
 				</div>
 			</section>
 
@@ -219,7 +223,7 @@
 		<!-- end 内容区域 -->
 
 		<!-- 返回顶部 -->
-		<div data-am-widget="gotop" class="am-gotop am-gotop-fixed" >
+		<div data-am-widget="gotop" class="am-gotop am-gotop-fixed">
 			<a href="#top" title="回到顶部">
 				<span class="am-gotop-title">回到顶部</span>
 				<i class="am-gotop-icon am-icon-chevron-up"></i>
@@ -389,7 +393,72 @@
 				</div>
 			</div>
 		</div>
-
+		
+		<!-- 用户资料弹窗 -->
+		<div class="am-popup" id="my-user-popup">
+			<div class="am-popup-inner">
+				<div class="am-popup-hd">
+					<h4 class="am-popup-title">TA的资料</h4>
+					<span data-am-modal-close="" class="am-close">×</span>
+				</div>
+				<div class="am-popup-bd">
+					<div class="am-g">
+						<div class="am-u-sm-6 am-u-md-6 am-u-sm-push-3 am-u-md-push-0 am-text-center" style="max-width: 232px;max-height: 299px;">
+							<img class="am-img-thumbnail user-img-popup" src="img/load.gif"/>
+						</div>
+						<div class="am-u-sm-12 am-u-md-6 am-text-sm am-padding-left-0 am-text-left">
+							<div>
+								<strong class="am-inline-block am-margin-0">会员昵称：</strong>
+								<span class="am-text-lg">淡淡的真</span>
+							</div>
+							<div>
+								<strong class="am-inline-block am-margin-0">居住地址：</strong>
+								<span>石家庄市</span>
+							</div>
+							<div>
+								<strong class="am-inline-block am-margin-0">年　　龄：</strong>
+								<span>21</span>
+							</div>
+							<div>
+								<strong class="am-inline-block am-margin-0">身　　高：</strong>
+								<span>169</span>
+							</div>
+							<div>
+								<strong class="am-inline-block am-margin-0">体　　重：</strong>
+								<span>45-55</span>
+							</div>
+							<div>
+								<strong class="am-inline-block am-margin-0">星　　座：</strong>
+								<span>天蝎座</span>
+							</div>
+							<div>
+								<strong class="am-inline-block am-margin-0">职　　业：</strong>
+								<span>计算机/互联网/通信</span>
+							</div>
+						</div>
+					</div>
+					<section class="am-panel am-panel-default">
+						<header class="am-panel-hd">
+							<div class="am-text-center">
+								<h3 class="am-panel-title"> 对他说: </h3>
+							</div>
+							<div class="am-cf"></div>
+						</header>
+						<div class="am-g am-text-sm user-yaoqiu">
+							<p>温柔贤惠、懂生活、会持家长的顺眼就行。</p>
+							<p>你要是能力强，愿意养家，我做家庭煮夫也是可以的。</p>
+							<p>对婆媳关系处理上有耐心，懂得忍让，知晓吃亏是福的道理。</p>
+						</div>
+					</section>
+					
+					<div class="am-g am-text-center">
+						<a href="javascript:;" class="am-btn am-btn-danger heartbeat" ><i class="am-icon-heartbeat"></i> 令我心跳 </a>
+						<a href="javascript:;" class="am-btn am-btn-primary" data-am-modal-close><i class="am-icon-remove"></i> 关闭 </a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<!-- 用户头像模版 -->
 		<script id="users-tpl" type="text/html">
 			<div class="am-g">
@@ -397,9 +466,9 @@
 					<ul class="am-slides">
 						{{#for (var i = 0, len = d.length; i
 						< len; i++) {}} <li>
-							<div class="am-gallery-item am-text-center" style="position: relative;">
-								<a class="user-img-box" href="#">
-									<img class="user-avatar am-center lazyload" data-original="{{ d[i].avatar }}" src="img/load.gif" alt="{{ d[i].name }}" />
+							<div class="am-gallery-item am-text-center user-img-box" style="position: relative;">
+								<a class="show-popup" href="javascript:;">
+									<img class="am-text-center user-avatar lazyload" data-original="{{ d[i].avatar }}" src="img/load.gif" alt="{{ d[i].name }}" />
 									<img class="user-rank am-show-lg-up" src="img/vip-{{ d[i].rank }}.png" />
 								</a>
 								<span class="am-text-sm am-text-secondary">{{ d[i].name }}</span > 

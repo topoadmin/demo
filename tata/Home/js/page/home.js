@@ -8,6 +8,7 @@
 		factory(root.jQuery);
 	}
 }(this, function($, laytpl) {
+	var loading = $(".loading");
 	// -- 开启轮播
 	$("#home-carousel").flexslider({
 		slideshowSpeed: 3000,
@@ -21,16 +22,24 @@
 		});
 		var $userBox = $("#user-box");
 		// 开启赖加载 绑定sporty事件立即执行
-		var userLazyLoad = $userBox.find(".lazyload");
+		var userLazyLoad = $userBox.find(".lazyload"),
+			iw, // 获取用户图片指定宽度
+			userPopup = $("#my-user-popup"); // 用户弹窗
+		
 		userLazyLoad.lazyload({
 			event: "sporty"
 		});
-		var iw; // 获取用户图片指定宽度
 		if ($userBox.width() > 1000) {
-			iw = $userBox.width() / 6;
+			var size;
+			if($(".am-g-fixed-min").length >= 1){
+				size = 6;
+			}else{
+				size = 8;
+			}
+			iw = $userBox.width() / size;
 			// 打开页面时加载前7个用户头像
 			userLazyLoad.each(function(index) {
-				if (index < 7) {
+				if (index < size) {
 					$(this).trigger("sporty")
 				}
 			})
@@ -48,10 +57,27 @@
 			itemMargin: 5,
 			controlNav:false,
 			pauseOnHover: true,
-			slideshowSpeed: 300000,
+			slideshowSpeed: 3000000,
 			after: function() {
 				userLazyLoad.trigger("sporty");
 			}
+		}).find(".user-img-box").on("click",function(){
+			// 查看用户资料
+			loading.show().find(".txt").html("用户内容加载中。。。");
+			if (userPopup.data("open")) {
+				userPopup.modal();
+			} else {
+				userPopup.modal({
+					relatedTarget: this,
+					closeViaDimmer: false
+				}).data("open", true).find('.heartbeat').on("click",function(){
+				});
+			}
+			// 点击查看用户资料
+			var $this = $(this),$abox=$this.children("a"),
+				$imgSrc = $abox.children(".user-avatar").attr("src");
+			userPopup.find(".user-img-popup").attr("src",$imgSrc);
+			loading.hide();
 		});
 	});
 	// -- 促销活动
