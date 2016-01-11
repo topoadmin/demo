@@ -57,7 +57,7 @@
 			itemMargin: 5,
 			controlNav:false,
 			pauseOnHover: true,
-			slideshowSpeed: 3000000,
+			slideshowSpeed: 5000,
 			after: function() {
 				userLazyLoad.trigger("sporty");
 			}
@@ -70,8 +70,7 @@
 				userPopup.modal({
 					relatedTarget: this,
 					closeViaDimmer: false
-				}).data("open", true).find('.heartbeat').on("click",function(){
-				});
+				}).data("open", true).find('.heartbeat').on("click",function(){});
 			}
 			// 点击查看用户资料
 			var $this = $(this),$abox=$this.children("a"),
@@ -91,8 +90,9 @@
 	// -- 所有活动
 	$.getJSON("js/data/activity-box.json", function(data) {
 		addActivity("activity-tpl", "activity-box", data);
+//		addGallery(document.getElementById("activity-box"));
 		$("#activity-box .lazyload").lazyload({
-			threshold: 280
+			threshold: 300
 		});
 		// -- mixitup 排序分类
 		require(["mixitup"], function() {
@@ -110,7 +110,8 @@
 				},
 				onMixEnd: function(event) {
 					filter.removeClass("am-disabled");
-					$(window).trigger("scroll"); // 触发浏览器滚动事件   防止图片卡在加载
+					// 触发浏览器滚动事件   防止有些图片卡在加载
+					$(window).trigger("scroll"); 
 				}
 			});
 		});
@@ -134,7 +135,7 @@
 			return false;
 		}
 		for (var i = 0; i < animateDom.length; i++) {
-			var delay = parseInt(Math.random() * (150 - 250 + 1) + 150); // 生成随机数
+			var delay = parseInt(Math.random() * 150); // 生成随机数
 			animateDom[i].setAttribute("data-am-scrollspy", "{animation: 'fade',delay:" + delay + ",repeat: false}")
 		}
 	}

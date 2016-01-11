@@ -10,7 +10,7 @@
 
 }(this, function($) {
 	$(".loading").hide();
-	
+
 	var $body = $("body");
 	var sendCode = $(".send-code");
 	if (sendCode.length) {
@@ -49,23 +49,25 @@
 			btn.prop('disabled', true);
 		}
 	}
-
+	
+	// -- 宽窄屏切换
 	require(["storage"], function(storage) {
-		// -- 宽窄屏切换
 		$(".fixed-widtn").on("click", function() {
 			var fixedTxt = $(this).children(".fixed-txt"),
 				txt = fixedTxt.text().trim();
 			fixedTxt.text((txt == "宽屏") ? "窄屏" : "宽屏")
 			$body.toggleClass("am-g-fixed-min");
 			$(window).trigger("resize"); // 触发resize事件,轮播重设宽度
-			if($body.hasClass("am-g-fixed-min")){
+			if ($body.hasClass("am-g-fixed-min")) {
 				storage.set("am-g-fixed-min", false);
-			}else{
+			} else {
 				storage.set("am-g-fixed-min", true);
+				// 加载下一轮用户头像,防止页面加宽出现load图
+				$("#user-box").find(".lazyload").trigger("sporty");	
 			}
 		});
 		var afmStorage = storage.get("am-g-fixed-min");
-		if(afmStorage){
+		if (afmStorage) {
 			$(".fixed-widtn").trigger("click");
 		}
 	});
@@ -114,37 +116,39 @@
 			})
 		});
 	}
-
 	$(".login").on("click", function() {
 		loginModule();
 	});
 	
-	
 	// -- 关闭浮动二维码
 	var floatCode = $("#float-code");
-	floatCode.on("click", ".am-btn", function() {
-		floatCode.slideUp(666,function(){
-			floatCode.remove();
+	if (floatCode.length) {
+		floatCode.on("click", ".am-btn-close", function() {
+			floatCode.slideUp(666, function() {
+				floatCode.remove();
+			});
 		});
-		
-	});
-	
+	}
+
 	// 浮动客服
 	var floatKefu = $("#float-kefu");
-	if(floatKefu.length){
-		var open = floatKefu.children(".open-img"),kefu = floatKefu.children(".open-kefu"),
+	if (floatKefu.length) {
+		var open = floatKefu.children(".open-img"),
+			kefu = floatKefu.children(".open-kefu"),
 			closeKefu = floatKefu.find(".close-kefu");
-		open.on("click",function(){
+		open.on("click", function() {
 			open.addClass("am-hide");
 			kefu.removeClass("am-hide");
 		});
-		closeKefu.on("click",function(){
+		closeKefu.on("click", function() {
 			kefu.addClass("am-hide");
 			open.removeClass("am-hide");
+		});
+		floatKefu.on("click", ".am-btn-close", function() {
+			floatKefu.slideUp(666, function() {
+				floatKefu.remove();
+			});
 		});
 	}
 
 }));
-
-
-

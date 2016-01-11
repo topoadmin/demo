@@ -2,6 +2,7 @@
 	{
 		"href": "article.html",
 		"img": "http://www.taquta.com/Uploads/image/product/20151120/20151120115908_52341.jpg",
+		"info":"六天四晚社交旅游",
 		"alt": "巴厘岛",
 		"site":"印尼",
 		"site2": "巴厘岛",
@@ -11,6 +12,7 @@
 	}, {
 		"href": "http://www.taquta.com/tatatrip/VmtkNFUxUnNRbEpRVkRBOQ==?spm=1447992105",
 		"img": "http://www.taquta.com/Uploads/image/product/20151209/20151209142300_87385.jpg",
+		"info":"六天四晚社交旅游",
 		"alt": "普吉岛",
 		"site":"泰国",
 		"site2": "普吉岛",
@@ -20,6 +22,7 @@
 	}, {
 		"href": "http://www.taquta.com/tatatrip/VmtkNFUxWnNRbEpRVkRBOQ==?spm=1448002726",
 		"img": "http://www.taquta.com/Uploads/image/product/20151015/20151015183041_94992.jpg",
+		"info":"六天四晚社交旅游",
 		"alt": "古生",
 		"site":"云南",
 		"site2": "古生",
@@ -29,6 +32,7 @@
 	},{
 		"href": "http://www.taquta.com/tatatrip/VmtkNFUxZHNRbEpRVkRBOQ==?spm=1448003268",
 		"img": "http://www.taquta.com/Uploads/image/product/20151015/20151015180923_38333.jpg",
+		"info":"六天四晚社交旅游",
 		"alt": "古生",
 		"site":"海南",
 		"site2": "白查",
@@ -38,6 +42,7 @@
 	}, {
 		"href": "http://www.taquta.com/tatatrip/VmtkNFUyRnNRbEpRVkRBOQ==?spm=1448012766",
 		"img": "http://www.taquta.com/Uploads/image/product/20151015/20151015181058_69309.jpg",
+		"info":"六天四晚社交旅游",
 		"alt": "南港",
 		"site":"海南",
 		"site2": "南港",
