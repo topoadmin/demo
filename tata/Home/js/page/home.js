@@ -8,7 +8,7 @@
 		factory(root.jQuery);
 	}
 }(this, function($, laytpl) {
-	var loading = $(".loading");
+	var loading = $(".loading"); // 加载内容
 	// -- 开启轮播
 	$("#home-carousel").flexslider({
 		slideshowSpeed: 3000,
@@ -24,61 +24,97 @@
 		// 开启赖加载 绑定sporty事件立即执行
 		var userLazyLoad = $userBox.find(".lazyload"),
 			iw, // 获取用户图片指定宽度
-			userPopup = $("#my-user-popup"); // 用户弹窗
-		
+			userHeadSize; // 记录每页显示多少用户头像
+
 		userLazyLoad.lazyload({
 			event: "sporty"
 		});
 		if ($userBox.width() > 1000) {
-			var size;
-			if($(".am-g-fixed-min").length >= 1){
-				size = 6;
-			}else{
-				size = 8;
+			userHeadSize = 8; // 宽屏页面
+			if ($(".am-g-fixed-min").length >= 1) {
+				userHeadSize = 6; // 窄屏页面 
 			}
-			iw = $userBox.width() / size;
-			// 打开页面时加载前7个用户头像
-			userLazyLoad.each(function(index) {
-				if (index < size) {
-					$(this).trigger("sporty")
-				}
-			})
+			iw = $userBox.width() / userHeadSize;
+		} else if ($userBox.width() < 1000 && $userBox.width() > 720) {
+			userHeadSize = 4; // 平板页面
+			iw = $userBox.width() / userHeadSize;
 		} else {
-			iw = $userBox.width() / 3;
-			// 打开页面时加载前4个用户头像
-			userLazyLoad.each(function(index) {
-				if (index < 4) {
-					$(this).trigger("sporty")
-				}
-			})
+			userHeadSize = 3; // 手机页面
+			iw = $userBox.width() / userHeadSize;
 		}
+		// 打开页面时加载多少个用户头像
+		userLazyLoad.each(function(index) {
+			if (index < userHeadSize) {
+				$(this).trigger("sporty")
+			}
+		})
+		var $userPopup = $("#my-user-popup");// 用户弹窗
 		$userBox.find(".am-slider").flexslider({
 			itemWidth: iw,
 			itemMargin: 5,
-			controlNav:false,
+			controlNav: false,
 			pauseOnHover: true,
 			slideshowSpeed: 5000,
 			after: function() {
 				userLazyLoad.trigger("sporty");
 			}
-		}).find(".user-img-box").on("click",function(){
+		}).find(".user-img-box").on("click", function() {
 			// 查看用户资料
 			loading.show().find(".txt").html("用户内容加载中。。。");
-			if (userPopup.data("open")) {
-				userPopup.modal();
-			} else {
-				userPopup.modal({
-					relatedTarget: this,
-					closeViaDimmer: false
-				}).data("open", true).find('.heartbeat').on("click",function(){});
-			}
-			// 点击查看用户资料
-			var $this = $(this),$abox=$this.children("a"),
-				$imgSrc = $abox.children(".user-avatar").attr("src");
-			userPopup.find(".user-img-popup").attr("src",$imgSrc);
-			loading.hide();
+			var $abox = $(this).children("a"),
+				$userImg = $abox.children(".user-avatar").attr("src"),
+				$rankImg = $abox.children(".user-rank").attr("src");
+			setTimeout(function(){
+				// 点击查看用户资料
+				$.getJSON("js/data/userInfo.json", function(data) {
+					loading.hide();
+					data.userimg = $userImg;
+					data.rank = $rankImg;
+					fillUserPopup(data,$userPopup);
+				});
+			},333)
 		});
+		
+		// -- 点赞
+		$userPopup.on("click",".addPraise", function() {
+			var $this = $(this),$praise = $this.find(".user-praise span");
+			var praiseSize = parseFloat($praise.text())+1;
+			$praise.text(praiseSize);
+		});
+		
 	});
+	
+	// -- 填充用户信息
+	function fillUserPopup(data,$userPopup){
+		var $data = data,
+		$userDom={
+			username:$userPopup.find(".user-username"),
+			site:$userPopup.find(".user-site"),
+			age:$userPopup.find(".user-age"),
+			height:$userPopup.find(".user-height"),
+			weight:$userPopup.find(".user-weight"),
+			constellation:$userPopup.find(".user-constellation"),
+			job:$userPopup.find(".user-job")
+		},
+		$yaoqiu=$userPopup.find(".user-yaoqiu"),
+		$addPraise=$userPopup.find(".addPraise"),
+		$praise=$userPopup.find(".user-praise");
+		
+		for(var k in $userDom){
+			$userDom[k].text($data[k]);
+		}
+		if ($userPopup.data("open")) {
+			$userPopup.modal();
+		} else {
+			$userPopup.modal({
+				relatedTarget: this,
+				closeViaDimmer: false
+			}).data("open", true);
+		}
+		$userPopup.find(".user-img-popup").attr("src", $data.userimg);
+		$userPopup.find(".user-rank").attr("src", $data.rank);
+	}
+	
 	// -- 促销活动
 	$.getJSON("js/data/activity-soft.json", function(data) {
 		addActivity("activity-tpl", "activity-soft", data);
@@ -90,7 +126,7 @@
 	// -- 所有活动
 	$.getJSON("js/data/activity-box.json", function(data) {
 		addActivity("activity-tpl", "activity-box", data);
-//		addGallery(document.getElementById("activity-box"));
+		//		addGallery(document.getElementById("activity-box"));
 		$("#activity-box .lazyload").lazyload({
 			threshold: 300
 		});
@@ -111,7 +147,7 @@
 				onMixEnd: function(event) {
 					filter.removeClass("am-disabled");
 					// 触发浏览器滚动事件   防止有些图片卡在加载
-					$(window).trigger("scroll"); 
+					$(window).trigger("scroll");
 				}
 			});
 		});

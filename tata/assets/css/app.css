@@ -58,16 +58,23 @@
 /******************************************************/#my-quality-popup .am-checkbox-inline+.am-checkbox-inline,
 #my-quality-popup .am-radio-inline+.am-radio-inline{margin-left: 0px;}
 body{background-color: #f5f5f5;}
-/* 头部导航*/#fixed-top-topbar{z-index: 1099;border: none;margin-bottom: 0;}
-#fixed-top-topbar.am-topbar,
-.am-topbar a{color: #fff;}
-#fixed-top-topbar .am-nav>li>a:focus,
-#fixed-top-topbar .am-nav>li>a:hover{background-color: #1580B7;}
-#fixed-top-topbar .am-topbar-nav>li>a:hover:after{border-bottom-color: #fff;}
+#fixed-top-topbar{z-index: 1099;border: none;background-color: rgba(0,0,0,0.7);height: 71px;}
+@media only screen and (max-width: 642px) {
+	#fixed-top-topbar{background-color: rgba(0,0,0,0);}
+	#fixed-top-topbar .am-container{background-color: rgba(0,0,0,0.7);}
+}
+#fixed-top-topbar .am-nav>li.am-active>a{cursor: pointer;}
+#fixed-top-topbar .check-head-nav{margin-top: 18px;}
+#fixed-top-topbar.am-topbar,.am-topbar a{color: #fff;}
+.am-topbar-brand a:hover{color: #fff;}
+#fixed-top-topbar .am-nav>li>a,#fixed-top-topbar .am-nav>li>a:focus,#fixed-top-topbar .am-nav>li>a:hover,#fixed-top-topbar .am-nav>li>a:active,#fixed-top-topbar .am-nav>li.am-active>a,#fixed-top-topbar .am-nav>li.am-active>a:focus,#fixed-top-topbar .am-nav>li.am-active>a:hover,#fixed-top-topbar .am-nav>li.am-active>a:active{background: none;color: #fff;}
+.am-topbar-brand,#fixed-top-topbar .am-nav>li>a{line-height: 70px;height: 70px;}
+#fixed-top-topbar .am-nav>li.am-active>a::after{border-bottom-color: #fff;}
+
 .loading{z-index: 1200;position: fixed;}
 /* 窄屏配置*/.am-g-fixed-min{margin: 0 auto;max-width: 1200px;}
 /* 让活动盒子一个一个挨着*/#activity-box .all{display: none;clear: none;}
-/* 浮动二维码*/#float-code{width: 200px;position: fixed;right: 30px;top: 51px;}
+/* 浮动二维码*/#float-code{width: 200px;position: fixed;right: 30px;top: 70px;}
 /*浮动客服*/#float-kefu{position: fixed;top: 400px;right: 0px;}
 #float-kefu .open-kefu{position: relative;background: #F9FAFB;border: 1px solid #ddd;border-radius: 10px;background: #F9FAFB;}
 #float-kefu .close-kefu{position: absolute;right: 10px;top: -23px;color: #969090;}

@@ -53,8 +53,10 @@
 	// -- 宽窄屏切换
 	require(["storage"], function(storage) {
 		$(".fixed-widtn").on("click", function() {
-			var fixedTxt = $(this).children(".fixed-txt"),
+			var $this = $(this),
+				fixedTxt = $this.children(".fixed-txt"),
 				txt = fixedTxt.text().trim();
+			$this.parent("li").addClass("am-active").siblings("li").removeClass("am-active");	
 			fixedTxt.text((txt == "宽屏") ? "窄屏" : "宽屏")
 			$body.toggleClass("am-g-fixed-min");
 			$(window).trigger("resize"); // 触发resize事件,轮播重设宽度
@@ -119,7 +121,7 @@
 	$(".login").on("click", function() {
 		loginModule();
 	});
-	
+	loginModule();
 	// -- 关闭浮动二维码
 	var floatCode = $("#float-code");
 	if (floatCode.length) {

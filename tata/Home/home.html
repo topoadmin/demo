@@ -35,18 +35,22 @@
 				max-height: 800px;
 			}
 			
-			#user-box .user-avatar {
+			.show-popup .user-avatar {
 				max-width: 232px;
 				max-height: 299px;
 			}
 			
-			#user-box .user-rank {
+			.show-popup .user-rank {
 				position: absolute;
 				z-index: 2;
 				right: 0;
 				bottom: 20px;
-				width: 100px;
+				width: 100px !important;
 				height: 100px;
+			}
+			#my-user-popup .show-popup .user-rank {
+				right: 20px;
+				bottom: 0;
 			}
 			
 			.user-yaoqiu p {
@@ -73,7 +77,6 @@
 			.article-dis{
 				position: absolute;top: 3px;right: 5%;
 			}
-			
 		</style>
 	</head>
 
@@ -98,54 +101,52 @@
 			</div>
 			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
 		</div>
-		<!-- end 加载框 -->
 		<!-- start 头部导航 -->
-		<header class="am-topbar am-topbar-fixed-top am-badge-primary" id="fixed-top-topbar">
-			<div class="am-topbar-brand">
-				<a href="home.html">
-					<strong>TATA</strong> <small>旅游</small>
-				</a>
-			</div>
-
-			<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
-				<span class="am-sr-only">导航切换</span>
-				<span class="am-icon-bars"></span>
-			</button>
-
-			<div class="am-collapse am-topbar-collapse" id="topbar-collapse">
-				<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-					<li>
-						<a href="javascript:;" class="min80 fixed-widtn am-show-lg-only">
-							<span class="am-icon-tv"></span>
-							<span class="fixed-txt">宽屏</span>
-						</a>
-					</li>
-					<li>
-						<a href="javascript:;" class="min80 login">
-							<span class="am-icon-user"></span> 登录
-						</a>
-					</li>
-
-					<li class="am-dropdown" data-am-dropdown="">
-						<a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
-							<span class="am-icon-child"></span>
-							<small>13701378834@163.com</small>
-							<span class="am-icon-caret-down"></span>
-						</a>
-						<ul class="am-dropdown-content">
-							<li><a href="../Member/user.html"><span class="am-icon-child"></span> 进入用户中心</a></li>
-							<li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
-						</ul>
-					</li>
-				</ul>
+		<header class="am-topbar am-topbar-fixed-top" id="fixed-top-topbar">
+			<div class="am-container">
+				<h1 class="am-topbar-brand" style="border-right:2px solid rgba(255, 255, 255, 0.66);"> 
+				   	<a href="home.html">
+				   		<img src="http://www.taquta.com/Application/Mobile/View/Default/Images/logo4.png" height="30" alt="logo"> TATA旅游网
+				   	</a>
+				</h1>
+				<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only check-head-nav" data-am-collapse="{target: '#collapse-head'}">
+					<span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span>
+				</button>
+				<div class="am-collapse am-topbar-collapse" id="collapse-head">
+					<ul class="am-nav am-nav-pills am-topbar-nav">
+						<li class="am-active">
+							<a href="javascript:;" class="min80 fixed-widtn am-show-lg-only">
+								<span class="am-icon-tv"></span>
+								<span class="fixed-txt">宽屏</span>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="min80 login">
+								<span class="am-icon-user"></span> 登录
+							</a>
+						</li>
+	
+						<li class="am-dropdown" data-am-dropdown="">
+							<a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
+								<span class="am-icon-child"></span>
+								<small>13701378834@163.com</small>
+								<span class="am-icon-caret-down"></span>
+							</a>
+							<ul class="am-dropdown-content">
+								<li><a href="../Member/user.html"><span class="am-icon-child"></span> 进入用户中心</a></li>
+								<li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</header>
-
+		
 		<!-- start 内容区域 -->
 		<div id="main">
 			<div style="height: 20px;"></div>
 			<!-- 轮播 -->
-			<div class="am-g home-carousel-box">
+			<div class="am-g home-carousel-box" >
 				<div class="am-slider am-slider-default" id="home-carousel">
 					<ul class="am-slides">
 						<li><img class="h-c-img" src="http://www.taquta.com/Uploads/picture/564ecce3e516e.jpg" /></li>
@@ -179,7 +180,7 @@
 					</div>
 				</div>
 			</section>
-
+			
 			<!-- 认证会员-->
 			<section class="am-panel am-panel-default">
 				<header class="am-panel-hd">
@@ -236,6 +237,7 @@
 				<div id="activity-box" data-am-observe>
 				</div>
 			</section>
+			
 		</div>
 		<!-- end 内容区域 -->
 
@@ -305,13 +307,13 @@
 		</footer>
 
 		<!-- 登录注册弹窗 -->
-		<div class="am-modal am-modal-prompt" id="my-lr-popup">
-			<div class="am-modal-dialog">
-				<div class="am-modal-hd">
+		<div class="am-popup" id="my-lr-popup">
+			<div class="am-popup-inner">
+				<div class="am-popup-hd">
 					<h4 class="am-popup-title">登录/注册</h4>
 					<span data-am-modal-close class="am-close am-text-xl">&times;</span>
 				</div>
-				<div class="am-modal-bd">
+				<div class="am-popup-bd">
 					<div class="am-g">
 						<div class="am-u-sm-6">
 							<button class="am-btn am-btn-block toggle-form am-btn-primary" data-form="#login-form">
@@ -343,7 +345,7 @@
 						<button class="am-hide" type="submit"></button>
 					</form>
 					<!-- 注册表单 -->
-					<form class="am-form am-form-inline  am-hide" id="register-form">
+					<form class="am-form am-form-inline am-hide" id="register-form">
 						<!-- 防止浏览器自动填充 提交时删除 -->
 						<input class="offAuto am-hide" type="text" name="user" />
 						<input class="offAuto am-hide" type="password" name="password" />
@@ -353,30 +355,32 @@
 									<i class="am-icon-user"></i>
 									<input type="text" class="am-form-field js-pattern-mobile user" name="user" minlength="11" maxlength="11" placeholder="请填写手机号码" required>
 								</div>
-								<div style="height: 1.5rem;"></div>
+								<div style="height: 1rem;"></div>
 								<div class="am-form-group am-block am-form-icon">
 									<i class="am-icon-expeditedssl"></i>
 									<input type="password" class="am-form-field" name="password" minlength="6" maxlength="18" placeholder="6~16个字符，区分大小写" required>
 								</div>
-								<div style="height: 1.5rem;"></div>
-								<div class="am-form-group am-u-sm-12 am-u-md-6 am-padding-left-0">
+								<div style="height: 1rem;"></div>
+								<div class="am-form-group am-form-icon">
+									<i class="am-icon-expeditedssl"></i>
 									<input type="text" class="am-form-field" minlength="6" maxlength="6" placeholder="验证码" required>
 								</div>
-								<div class="am-form-group am-u-sm-12 am-u-md-6 am-padding-right-0">
-									<input class="am-btn am-btn-primary am-btn-sm am-btn-block send-code" disabled type="button" value="获取验证码" />
+								<div class="am-form-group">
+									<input class="am-btn am-btn-primary send-code" disabled type="button" value="获取验证码" />
 								</div>
 							</div>
 						</div>
 						<button class="am-hide" type="submit"></button>
 					</form>
-				</div>
-				<div class="am-modal-footer">
-					<span class="am-modal-btn"><i class="am-icon-remove"></i> 取消</span>
-					<span class="am-modal-btn submit"><i class="am-icon-check"></i> 确定</span>
+					<div class="am-g am-text-center">
+						<div style="height: 1rem;"></div>
+						<a href="javascript:;" class="am-btn am-btn-danger" data-am-modal-close><i class="am-icon-remove"></i> 取消</a>
+						<a href="javascript:;" class="am-btn am-btn-success submit"><i class="am-icon-check"></i> 确定 </a>
+					</div>
 				</div>
 			</div>
 		</div>
-
+		
 		<!-- 浮动二维码 -->
 		<div id="float-code" class="am-hide-md-down" data-am-scrollspy="{animation: 'slide-top', delay: 666}">
 			<img src="http://www.taquta.com/Application/Home/View/Default/Images/float-code.jpg">
@@ -409,7 +413,7 @@
 					<br />
 				</div>
 			</div>
-			<button class="am-btn am-btn-warning am-btn-block am-text-xs am-btn-close">关闭</button>
+			<button class="am-btn am-btn-primary am-btn-block am-text-xs am-btn-close">关闭</button>
 		</div>
 
 		<!-- 用户资料弹窗 -->
@@ -421,41 +425,45 @@
 				</div>
 				<div class="am-popup-bd">
 					<div class="am-g">
-						<div class="am-u-sm-6 am-u-md-6 am-u-sm-push-3 am-u-md-push-0 am-text-center" style="max-width: 232px;max-height: 299px;">
-							<img class="am-img-thumbnail user-img-popup" src="img/load.gif" />
+						<div class="am-u-sm-6 am-u-md-6 am-u-sm-push-3 am-u-md-push-0 am-text-center" style="position: relative;max-width: 232px;">
+							<a class="show-popup" href="javascript:;">
+								<img class="am-img-thumbnail user-img-popup" src="img/load.gif" />
+								<img class="am-show-lg-up user-rank" src="img/vip-2.png" />
+							</a>
+							<!--<img class="am-img-thumbnail user-img-popup" src="img/load.gif" />-->
 						</div>
 						<div class="am-u-sm-12 am-u-md-6 am-text-sm am-padding-left-0 am-text-left">
 							<div>
 								<strong class="am-inline-block am-margin-0">会员昵称：</strong>
-								<span class="am-text-lg">淡淡的真</span>
+								<span class="am-text-lg user-username">淡淡的真</span>
 							</div>
 							<div>
 								<strong class="am-inline-block am-margin-0">居住地址：</strong>
-								<span>石家庄市</span>
+								<span class="user-site">石家庄市</span>
 							</div>
 							<div>
 								<strong class="am-inline-block am-margin-0">年　　龄：</strong>
-								<span>21</span>
+								<span class="user-age">21</span>
 							</div>
 							<div>
 								<strong class="am-inline-block am-margin-0">身　　高：</strong>
-								<span>169</span>
+								<span class="user-height">169</span>
 							</div>
 							<div>
 								<strong class="am-inline-block am-margin-0">体　　重：</strong>
-								<span>45-55</span>
+								<span class="user-weight">45-55</span>
 							</div>
 							<div>
 								<strong class="am-inline-block am-margin-0">星　　座：</strong>
-								<span>天蝎座</span>
+								<span class="user-constellation">天蝎座</span>
 							</div>
 							<div>
 								<strong class="am-inline-block am-margin-0">职　　业：</strong>
-								<span>计算机/互联网/通信</span>
+								<span class="user-job">计算机/互联网/通信</span>
 							</div>
 						</div>
 					</div>
-					<section class="am-panel am-panel-default">
+					<section class="am-panel am-panel-default am-margin-top-sm">
 						<header class="am-panel-hd">
 							<div class="am-text-center">
 								<h3 class="am-panel-title"> 对他说: </h3>
@@ -470,7 +478,8 @@
 					</section>
 
 					<div class="am-g am-text-center">
-						<a href="javascript:;" class="am-btn am-btn-danger heartbeat"><i class="am-icon-heartbeat"></i> 令我心跳 </a>
+						<a href="javascript:;" class="am-btn am-btn-success addPraise"><i class="am-icon-thumbs-up"></i> 赞
+							<span class="am-padding-horizontal-xs user-praise">(<span>11</span>)</span></a>
 						<a href="javascript:;" class="am-btn am-btn-primary" data-am-modal-close><i class="am-icon-remove"></i> 关闭 </a>
 					</div>
 				</div>
@@ -487,7 +496,7 @@
 							<div class="am-gallery-item am-text-center user-img-box" style="position: relative;">
 								<a class="show-popup" href="javascript:;">
 									<img class="am-text-center user-avatar lazyload" data-original="{{ d[i].avatar }}" src="img/load.gif" alt="{{ d[i].name }}" />
-									<img class="user-rank am-show-lg-up" src="img/vip-{{ d[i].rank }}.png" />
+									<img class="am-show-lg-up user-rank" data-rank="{{ d[i].rank }}" src="img/vip-{{ d[i].rank }}.png" />
 								</a>
 								<span class="am-text-sm am-text-secondary">{{ d[i].name }}</span > 
 							</div>
@@ -498,7 +507,7 @@
 		</script>
 		<!-- 活动模版 -->
 		<script id="article-tpl" type="text/html">
-			<ul class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-imgbordered">
+			<ul class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-5 am-gallery-imgbordered">
 				{{# for(var i = 0, len = d.length; i< len; i++){ }} 
 					{{# if(d[i].privilege){ }} <li class="all {{ d[i].site }} 特价">
 					{{# }else{ }}<li class="all {{ d[i].site }}">{{# }}}
