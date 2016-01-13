@@ -1,17 +1,11 @@
 /** * admin.css*/
-
 ul {
 	margin-top: 0;
 }
 
 #admin-offcanvas {
-	top: 52.5px;
+	top: 70px;
 }
-
-
-/*.admin-main {
-	background: #f3f3f3;
-}*/
 
 .admin-menu {
 	position: fixed;

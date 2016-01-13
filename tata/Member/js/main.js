@@ -21,5 +21,7 @@ require.config({
 });
 require(["jquery", "amazeui"], function($) {
 	require(["app"]);
-	require([thisPage]);
+	if(typeof(thisPage) == "string"){
+		require([thisPage]);
+	}
 });

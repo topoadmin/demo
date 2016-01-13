@@ -89,62 +89,49 @@
 				</div>
 			</div>
     	<![endif]-->
-		<!-- start 加载框 -->
-		<div class="loading">
-			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
-				<div class="loader am-text-center">
-					<div class="loader-inner semi-circle-spin" style="display: inline-block;">
-						<div></div>
-					</div>
-				</div>
-				<p class="am-text-white txt">别闹，加载是一门艺术...</p>
-			</div>
-			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
-		</div>
+		
 		<!-- start 头部导航 -->
 		<header class="am-topbar am-topbar-fixed-top" id="fixed-top-topbar">
-			<div class="am-container">
-				<h1 class="am-topbar-brand" style="border-right:2px solid rgba(255, 255, 255, 0.66);"> 
-				   	<a href="home.html">
-				   		<img src="http://www.taquta.com/Application/Mobile/View/Default/Images/logo4.png" height="30" alt="logo"> TATA旅游网
-				   	</a>
-				</h1>
-				<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only check-head-nav" data-am-collapse="{target: '#collapse-head'}">
-					<span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span>
-				</button>
-				<div class="am-collapse am-topbar-collapse" id="collapse-head">
-					<ul class="am-nav am-nav-pills am-topbar-nav">
-						<li class="am-active">
-							<a href="javascript:;" class="min80 fixed-widtn am-show-lg-only">
-								<span class="am-icon-tv"></span>
-								<span class="fixed-txt">宽屏</span>
-							</a>
-						</li>
-						<li>
-							<a href="javascript:;" class="min80 login">
-								<span class="am-icon-user"></span> 登录
-							</a>
-						</li>
-	
-						<li class="am-dropdown" data-am-dropdown="">
-							<a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
-								<span class="am-icon-child"></span>
-								<small>13701378834@163.com</small>
-								<span class="am-icon-caret-down"></span>
-							</a>
-							<ul class="am-dropdown-content">
-								<li><a href="../Member/user.html"><span class="am-icon-child"></span> 进入用户中心</a></li>
-								<li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
+			<div class="am-topbar-brand am-text-white">
+				<a href="home.html">
+			   		<img src="http://www.taquta.com/Application/Mobile/View/Default/Images/logo4.png" height="30" alt="logo"> 
+			   			TATA旅游网 <small>用户管理中心</small>
+			   	</a>
+			</div>
+			<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only check-head-nav" data-am-collapse="{target: '#collapse-head'}">
+				<span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span>
+			</button>
+			<div class="am-collapse am-topbar-collapse am-fr" id="collapse-head">
+				<ul class="am-nav am-nav-pills am-topbar-nav">
+					<li class="am-active">
+						<a href="javascript:;" class="min80 fixed-widtn am-show-lg-only">
+							<span class="am-icon-tv"></span>
+							<span class="fixed-txt">宽屏</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" class="min80 login">
+							<span class="am-icon-user"></span> 登录
+						</a>
+					</li>
+
+					<li class="am-dropdown" data-am-dropdown="">
+						<a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
+							<span class="am-icon-child"></span>
+							<small>13701378834@163.com</small>
+							<span class="am-icon-caret-down"></span>
+						</a>
+						<ul class="am-dropdown-content">
+							<li><a href="../Member/user.html"><span class="am-icon-child"></span> 进入用户中心</a></li>
+							<li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+						</ul>
+					</li>
+				</ul>
 			</div>
 		</header>
 		
 		<!-- start 内容区域 -->
 		<div id="main">
-			<div style="height: 20px;"></div>
 			<!-- 轮播 -->
 			<div class="am-g home-carousel-box" >
 				<div class="am-slider am-slider-default" id="home-carousel">

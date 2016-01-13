@@ -121,7 +121,6 @@
 	$(".login").on("click", function() {
 		loginModule();
 	});
-	loginModule();
 	// -- 关闭浮动二维码
 	var floatCode = $("#float-code");
 	if (floatCode.length) {

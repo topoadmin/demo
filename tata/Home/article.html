@@ -108,45 +108,45 @@
 		</div>
 		<!-- end 加载框 -->
 		<!-- start 头部导航 -->
-		<header class="am-topbar am-topbar-fixed-top am-badge-primary" id="fixed-top-topbar">
-			<div class="am-topbar-brand">
+		<header class="am-topbar am-topbar-fixed-top" id="fixed-top-topbar">
+			<div class="am-topbar-brand am-text-white">
 				<a href="home.html">
-					<strong>TATA</strong> <small>旅游</small>
-				</a>
+			   		<img src="http://www.taquta.com/Application/Mobile/View/Default/Images/logo4.png" height="30" alt="logo"> 
+			   			TATA旅游网 <small>用户管理中心</small>
+			   	</a>
 			</div>
-
-			<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
-				<span class="am-sr-only">导航切换</span>
-				<span class="am-icon-bars"></span>
+			<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only check-head-nav" data-am-collapse="{target: '#collapse-head'}">
+				<span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span>
 			</button>
-
-			<div class="am-collapse am-topbar-collapse" id="topbar-collapse">
-				<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-					<li>
+			<div class="am-collapse am-topbar-collapse am-fr" id="collapse-head">
+				<ul class="am-nav am-nav-pills am-topbar-nav">
+					<li class="am-active">
 						<a href="javascript:;" class="min80 fixed-widtn am-show-lg-only">
 							<span class="am-icon-tv"></span>
 							<span class="fixed-txt">宽屏</span>
 						</a>
 					</li>
 					<li>
-						<a href="home.html">
-							<span class="am-icon-home"></span> 返回首页
+						<a href="javascript:;" class="min80 login">
+							<span class="am-icon-user"></span> 登录
 						</a>
 					</li>
-					<li class="am-dropdown" data-am-dropdown>
-						<a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+
+					<li class="am-dropdown" data-am-dropdown="">
+						<a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
 							<span class="am-icon-child"></span>
 							<small>13701378834@163.com</small>
 							<span class="am-icon-caret-down"></span>
 						</a>
 						<ul class="am-dropdown-content">
-							<li><a href="Member/user.html"><span class="am-icon-child"></span> 进入用户中心</a></li>
-							<li><a href="javascript:;"><span class="am-icon-power-off"></span> 退出</a></li>
+							<li><a href="../Member/user.html"><span class="am-icon-child"></span> 进入用户中心</a></li>
+							<li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
 						</ul>
 					</li>
 				</ul>
 			</div>
 		</header>
+			
 		<!-- start 内容区域 -->
 		<div id="main">
 			<div style="height: 20px;"></div>
@@ -948,13 +948,13 @@
 		</footer>
 
 		<!-- 登录注册弹窗 -->
-		<div class="am-modal am-modal-prompt" id="my-lr-popup">
-			<div class="am-modal-dialog">
-				<div class="am-modal-hd">
+		<div class="am-popup" id="my-lr-popup">
+			<div class="am-popup-inner">
+				<div class="am-popup-hd">
 					<h4 class="am-popup-title">登录/注册</h4>
 					<span data-am-modal-close class="am-close am-text-xl">&times;</span>
 				</div>
-				<div class="am-modal-bd">
+				<div class="am-popup-bd">
 					<div class="am-g">
 						<div class="am-u-sm-6">
 							<button class="am-btn am-btn-block toggle-form am-btn-primary" data-form="#login-form">
@@ -986,7 +986,7 @@
 						<button class="am-hide" type="submit"></button>
 					</form>
 					<!-- 注册表单 -->
-					<form class="am-form am-form-inline  am-hide" id="register-form">
+					<form class="am-form am-form-inline am-hide" id="register-form">
 						<!-- 防止浏览器自动填充 提交时删除 -->
 						<input class="offAuto am-hide" type="text" name="user" />
 						<input class="offAuto am-hide" type="password" name="password" />
@@ -996,38 +996,40 @@
 									<i class="am-icon-user"></i>
 									<input type="text" class="am-form-field js-pattern-mobile user" name="user" minlength="11" maxlength="11" placeholder="请填写手机号码" required>
 								</div>
-								<div style="height: 1.5rem;"></div>
+								<div style="height: 1rem;"></div>
 								<div class="am-form-group am-block am-form-icon">
 									<i class="am-icon-expeditedssl"></i>
 									<input type="password" class="am-form-field" name="password" minlength="6" maxlength="18" placeholder="6~16个字符，区分大小写" required>
 								</div>
-								<div style="height: 1.5rem;"></div>
-								<div class="am-form-group am-u-sm-12 am-u-md-6 am-padding-left-0">
+								<div style="height: 1rem;"></div>
+								<div class="am-form-group am-form-icon">
+									<i class="am-icon-expeditedssl"></i>
 									<input type="text" class="am-form-field" minlength="6" maxlength="6" placeholder="验证码" required>
 								</div>
-								<div class="am-form-group am-u-sm-12 am-u-md-6 am-padding-right-0">
-									<input class="am-btn am-btn-primary am-btn-sm am-btn-block send-code" disabled type="button" value="获取验证码" />
+								<div class="am-form-group">
+									<input class="am-btn am-btn-primary send-code" disabled type="button" value="获取验证码" />
 								</div>
 							</div>
 						</div>
 						<button class="am-hide" type="submit"></button>
 					</form>
-				</div>
-				<div class="am-modal-footer">
-					<span class="am-modal-btn"><i class="am-icon-remove"></i> 取消</span>
-					<span class="am-modal-btn submit"><i class="am-icon-check"></i> 确定</span>
+					<div class="am-g am-text-center">
+						<div style="height: 1rem;"></div>
+						<a href="javascript:;" class="am-btn am-btn-danger" data-am-modal-close><i class="am-icon-remove"></i> 取消</a>
+						<a href="javascript:;" class="am-btn am-btn-success submit"><i class="am-icon-check"></i> 确定 </a>
+					</div>
 				</div>
 			</div>
 		</div>
-
+		
 		<!-- 浮动二维码 -->
 		<div id="float-code" class="am-hide-md-down" data-am-scrollspy="{animation: 'slide-top', delay: 666}">
 			<img src="http://www.taquta.com/Application/Home/View/Default/Images/float-code.jpg">
-			<button class="am-btn am-btn-primary am-btn-block">关闭</button>
+			<button class="am-btn am-btn-primary am-btn-block am-btn-close">关闭</button>
 		</div>
 
 		<!-- 浮动客服 -->
-		<div id="float-kefu" class="am-hide-md-down">
+		<div id="float-kefu" class="am-hide-md-down" data-am-scrollspy="{animation: 'slide-right', delay: 666}">
 			<div class="open-img">
 				<img src="img/open_im.png" />
 			</div>
@@ -1052,6 +1054,7 @@
 					<br />
 				</div>
 			</div>
+			<button class="am-btn am-btn-primary am-btn-block am-text-xs am-btn-close">关闭</button>
 		</div>
 
 		<script type="text/javascript">

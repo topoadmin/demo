@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="../assets/css/animate.css" />
 		<link rel="stylesheet" type="text/css" href="../assets/css/app.css" />
 		<link rel="stylesheet" href="css/admin.css" />
+		<link rel="stylesheet" type="text/css" href="css/photoClip.css" />
 		<style type="text/css">
 			#my-quality-popup .am-checkbox,
 			#my-quality-popup .am-checkbox-inline,
@@ -37,7 +38,7 @@
 
 	<body class="am-with-topbar-fixed-top">
 		<!-- start 加载框 -->
-		<div class="loading">
+		<!--<div class="loading">
 			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
 				<div class="loader am-text-center">
 					<div class="loader-inner semi-circle-spin" style="display: inline-block;">
@@ -47,24 +48,21 @@
 				<p class="am-text-white">加载中...</p>
 			</div>
 			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
-		</div>
+		</div>-->
 		<!-- end 加载框 -->
 
 		<!-- start 头部导航 -->
-		<header class="am-topbar am-topbar-fixed-top am-badge-primary" id="fixed-top-topbar" data-am-sticky>
-			<div class="am-topbar-brand">
-				<strong>admin</strong> <small>控制台</small>
-				<button class="am-btn am-btn-sm am-btn-primary" id="is-left-nav">
-					<span class="am-icon-bars"></span>
-				</button>
+		<header class="am-topbar am-topbar-fixed-top" id="fixed-top-topbar">
+			<div class="am-topbar-brand am-text-white">
+				<a href="home.html">
+			   		<img src="http://www.taquta.com/Application/Mobile/View/Default/Images/logo4.png" height="30" alt="logo"> 
+			   			TATA旅游网 <small>用户管理中心</small>
+			   	</a>
 			</div>
-
-			<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}">
-				<span class="am-sr-only">导航切换</span>
-				<span class="am-icon-bars"></span>
+			<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only check-head-nav" data-am-collapse="{target: '#collapse-head'}">
+				<span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span>
 			</button>
-
-			<div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+			<div class="am-collapse am-topbar-collapse" id="collapse-head">
 				<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
 					<li>
 						<a href="javascript:;">
@@ -88,15 +86,9 @@
 							<li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
 						</ul>
 					</li>
-					<li class="am-hide-sm-only">
-						<a href="javascript:;" id="admin-fullscreen">
-							<span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span>
-						</a>
-					</li>
 				</ul>
 			</div>
 		</header>
-		<!-- end 头部导航 -->
 
 		<!-- start 内容区域 -->
 		<div class="admin-main" id="main">
@@ -105,7 +97,7 @@
 				<div class="am-offcanvas-bar admin-offcanvas-bar">
 					<ul class="am-list admin-sidebar-list" id="admin-left-nav">
 						<li>
-							<a href="index.html">
+							<a href="vipRank.html">
 								<span class="am-icon-home"></span> 会员等级
 							</a>
 						</li>
