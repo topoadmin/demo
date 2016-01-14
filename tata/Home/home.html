@@ -12,72 +12,7 @@
 		<link rel="shortcut icon" href="http://www.taquta.com/favicon.ico">
 		<link rel="bookmark" href="http://www.taquta.com/favicon.ico">
 		<link rel="stylesheet" href="../assets/css/amazeui.min.css">
-		<link rel="stylesheet" href="../assets/css/animate.css" />
 		<link rel="stylesheet" href="../assets/css/app.css" />
-		<style type="text/css">
-			#topbar-collapse .am-topbar-nav>li.am-active>a {
-				color: #fff;
-			}
-			/* 某些设置出现换行BUG */
-			
-			.am-topbar-nav>li>a.min80 {
-				min-width: 80px;
-			}
-			
-			#fixed-top-topbar {
-				width: 100% !important;
-				left: 0 !important;
-			}
-			/* 轮播图设置最大高度 */
-			
-			#home-carousel .h-c-img {
-				margin: 0 auto;
-				max-height: 800px;
-			}
-			
-			.show-popup .user-avatar {
-				max-width: 232px;
-				max-height: 299px;
-			}
-			
-			.show-popup .user-rank {
-				position: absolute;
-				z-index: 2;
-				right: 0;
-				bottom: 20px;
-				width: 100px !important;
-				height: 100px;
-			}
-			#my-user-popup .show-popup .user-rank {
-				right: 20px;
-				bottom: 0;
-			}
-			
-			.user-yaoqiu p {
-				margin: 0.4rem 1rem;
-			}
-			/* 分类 */
-			
-			#classify .filter {
-				color: #535353;
-				cursor: pointer;
-				padding: .5rem;
-			}
-			
-			#classify .filter:hover {
-				color: #F87171;
-			}
-			
-			#classify .filter.am-active {
-				color: #ff5656;
-			}
-			.article-img-box{
-				position: relative;
-			}
-			.article-dis{
-				position: absolute;top: 3px;right: 5%;
-			}
-		</style>
 	
 	</head>
 
@@ -92,7 +27,7 @@
     	<![endif]-->
     	
     	<!-- start 加载框 -->
-		<!--<div class="loading">
+		<div class="loading">
 			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
 				<div class="loader am-text-center">
 					<div class="loader-inner semi-circle-spin" style="display: inline-block;">
@@ -102,7 +37,7 @@
 				<p class="am-text-white">别闹，加载是一门艺术...</p>
 			</div>
 			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
-		</div>-->
+		</div>
 		<!-- end 加载框 -->
 		
 		<!-- start 头部导航 -->
@@ -110,8 +45,7 @@
 			<div class="header-fixed am-g-fixed-min">
 				<div class="am-topbar-brand am-text-white">
 					<a href="home.html">
-				   		<img src="http://www.taquta.com/Application/Mobile/View/Default/Images/logo4.png" height="50" alt="logo"> 
-				   			旅游网
+				   		<img src="../assets/img/mini_logo.png" height="50" alt="TATA旅游网"> 
 				   	</a>
 				</div>
 				<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only check-head-nav" data-am-collapse="{target: '#collapse-head'}">
@@ -119,21 +53,9 @@
 				</button>
 				<div class="am-collapse am-topbar-collapse am-fr" id="collapse-head">
 					<ul class="am-nav am-nav-pills am-topbar-nav">
-						<li>
-							<a href="javascript:;" class="min80 login">
-								<span class="am-icon-user"></span> 登录
-							</a>
-						</li>
-						<li>
-							<a href="about.html" class="min80">
-								关于TATA
-							</a>
-						</li>
-						<li>
-							<a href="activity.html" class="min80">
-								活动流程
-							</a>
-						</li>
+						<li><a href="about.html" class="min80">关于TATA</a></li>
+						<li><a href="activity.html" class="min80">活动流程</a></li>
+						<li><a href="javascript:;" class="min80 login"><span class="am-icon-user"></span> 登录</a></li>
 						<li class="am-dropdown" data-am-dropdown="">
 							<a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
 								<span class="am-icon-child"></span>
@@ -406,7 +328,6 @@
 				<div style="height: 15px;"></div>
 				<div class="am-text-center">
 					<a href="http://wpa.qq.com/msgrd?v=3&uin=465040621&site=qq&menu=yes" target="_blank" class="im-qq qq-a">
-						<!--<div class="qq-container"></div>-->
 						<div class="qq-hover-c">
 							<img class="img-qq" src="img/qq.png"></div>
 						<span> QQ在线咨询</span>
@@ -520,7 +441,7 @@
 					{{# }else{ }}<li class="all {{ d[i].site }}">{{# }}}
 					<div class="am-gallery-item">
 						<a href="{{ d[i].href }}">
-							<div class="am-transition scale article-img-box">
+							<div class="article-img-box am-transition scale">
 								<img class="lazyload" data-original="{{ d[i].img }}" src="img/load.gif" alt="{{ d[i].alt }}" />
 								{{# if(d[i].privilege){ }}
 									<span class="am-padding-horizontal-sm am-btn-warning article-dis">

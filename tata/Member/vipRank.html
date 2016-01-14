@@ -4,46 +4,27 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="description" content="">
-		<meta name="keywords" content="">
 		<meta name="renderer" content="webkit">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<title>TATA旅游-相爱之缘、命中注定！</title>
-		<link rel="shortcut icon" href="http://www.taquta.com/favicon.ico">
-		<link rel="bookmark" href="http://www.taquta.com/favicon.ico">
-		<link rel="stylesheet" href="../assets/css/amazeui.css">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<title>admin - 控制台</title>
+		<link rel="stylesheet" href="../assets/css/amazeui.min.css">
 		<link rel="stylesheet" href="../assets/css/animate.css" />
-		<link rel="stylesheet" href="../assets/css/app.css" />
-		<link rel="stylesheet" type="text/css" href="css/admin.css" />
+		<link rel="stylesheet" type="text/css" href="../assets/css/app.css" />
+		<link rel="stylesheet" href="css/admin.css" />
+		<style type="text/css">
+			.vip-rank{
+				background-color: #000000;
+			}
+		</style>
 	</head>
 
-	<body class="am-with-topbar-fixed-top am-g-fixed-min">
-		<!--[if lte IE 9 ]>
-			<div class="am-alert am-alert-danger ie-warning" data-am-alert>
-				<button type="button" class="am-close">&times;</button>
-				<div class="am-container">
-					365 安全卫士提醒：你的浏览器太古董了，妹子无爱，<a href="http://browsehappy.com/" target="_blank">速速点击换一个</a>！
-				</div>
-			</div>
-    	<![endif]-->
-		<!-- start 加载框 -->
-		<!--<div class="loading">
-			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
-				<div class="loader am-text-center">
-					<div class="loader-inner semi-circle-spin" style="display: inline-block;">
-						<div></div>
-					</div>
-				</div>
-				<p class="am-text-white">别闹，加载是一门艺术...</p>
-			</div>
-			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
-		</div>-->
+	<body class="am-with-topbar-fixed-top">
 		<!-- start 头部导航 -->
 		<header class="am-topbar am-topbar-fixed-top" id="fixed-top-topbar">
 			<div class="am-topbar-brand am-text-white">
 				<a href="home.html">
-			   		<img src="http://www.taquta.com/Application/Mobile/View/Default/Images/logo4.png" height="30" alt="logo"> 
-			   			TATA旅游网 <small>用户管理中心</small>
+			   		<img src="http://www.taquta.com/Application/Home/View/Default/Images/mini_logo.png" height="50" alt="logo"> 
 			   	</a>
 			</div>
 			<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only check-head-nav" data-am-collapse="{target: '#collapse-head'}">
@@ -51,78 +32,75 @@
 			</button>
 			<div class="am-collapse am-topbar-collapse" id="collapse-head">
 				<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
-				<li>
-					<a href="javascript:;">
-						<span class="am-icon-bell"></span> 通知
-						<span class="am-badge am-badge-success countUp" data-endVal="60">0</span>
-					</a>
-				</li>
-				<li>
-					<a href="../Home/home.html">
-						<span class="am-icon-home"></span> 返回首页
-					</a>
-				</li>
-				<li class="am-dropdown" data-am-dropdown="">
-					<a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
-						<span class="am-icon-user"></span>
-						<small>13701378834@163.com</small>
-						<span class="am-icon-caret-down"></span>
-					</a>
-					<ul class="am-dropdown-content">
-						<li><a href="user.html"><span class="am-icon-user"></span> 资料</a></li>
-						<li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
-					</ul>
-				</li>
+					<li>
+						<a href="javascript:;">
+							<span class="am-icon-bell"></span> 通知
+							<span class="am-badge am-badge-success countUp" data-endVal="60">0</span>
+						</a>
+					</li>
+					<li>
+						<a href="../Home/home.html">
+							<span class="am-icon-home"></span> 返回首页
+						</a>
+					</li>
+					<li class="am-dropdown" data-am-dropdown="">
+						<a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
+							<span class="am-icon-user"></span>
+							<small>13701378834@163.com</small>
+							<span class="am-icon-caret-down"></span>
+						</a>
+						<ul class="am-dropdown-content">
+							<li><a href="user.html"><span class="am-icon-user"></span> 资料</a></li>
+							<li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+						</ul>
+					</li>
+				</ul>
 			</div>
 		</header>
-		
+
 		<!-- start 内容区域 -->
 		<div class="admin-main" id="main">
 			<!-- start 导航开始 -->
 			<div class="am-cf admin-sidebar am-offcanvas" id="admin-offcanvas">
-				<div class="am-g">
-					<div class="am-offcanvas-bar admin-offcanvas-bar">
-						<ul class="am-list admin-sidebar-list" id="admin-left-nav">
-							<li class="active">
-								<a href="vipRank.html">
-									<span class="am-icon-home"></span> 会员等级
-								</a>
-							</li>
-							<li>
-								<a href="user.html">
-									<span class="am-icon-user"></span> 账户信息
-									<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span>
-								</a>
-							</li>
-						</ul>
+				<div class="am-offcanvas-bar admin-offcanvas-bar">
+					<ul class="am-list admin-sidebar-list" id="admin-left-nav">
+						<li class="active">
+							<a href="vipRank.html">
+								<span class="iconfont icon-dengji"></span> 会员等级
+							</a>
+						</li>
+						<li>
+							<a href="user.html">
+								<span class="am-icon-user"></span> 账户信息
+								<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span>
+							</a>
+						</li>
+					</ul>
 
-						<div class="am-panel am-panel-default admin-sidebar-panel">
-							<div class="am-panel-bd">
-								<p><span class="am-icon-bookmark"></span> 公告</p>
-								<p>时光静好，与君语。</br>细水流年，与君同。</p>
-							</div>
+					<div class="am-panel am-panel-default admin-sidebar-panel">
+						<div class="am-panel-bd">
+							<p><span class="am-icon-bookmark"></span> 公告</p>
+							<p class="am-margin-xs">时光静好，与君语。</p>
+							<p class="am-margin-xs">细水流年，与君同。</p>
 						</div>
 					</div>
 				</div>
-				<!-- end 导航结束 -->
 			</div>
-			<!-- start 正式内容开始 -->
+			<!-- end 导航结束 -->
+
+			<!-- start 内容开始 -->
 			<div class="am-g pd-left270" id="admin-right-main">
+				<div style="height: 2rem;"></div>
+				<div class="am-u-sm-12">
+					<div class="am-u-sm-3 vip-rank">
+						<img src="../Home/img/vip-1.png"/>
+					</div>
+				</div>
 			</div>
-			<!-- end 正式内容结束 -->
-
+			<!-- end 内容区域 -->
 		</div>
-		<!-- end 内容区域 -->
-
-		<!-- 返回顶部 -->
-		<div data-am-widget="gotop" class="am-gotop am-gotop-fixed">
-			<a href="#top" title="回到顶部">
-				<span class="am-gotop-title">回到顶部</span>
-				<i class="am-gotop-icon am-icon-chevron-up"></i>
-			</a>
-		</div>
-
-		<script src="js/require.min.js" data-main="js/main"></script>
+		
+		<script src="http://apps.bdimg.com/libs/require.js/2.1.9/require.min.js" data-main="js/main"></script>
 	</body>
 
 </html>
