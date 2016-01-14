@@ -383,12 +383,6 @@ a::-moz-focus-inner {
 	padding-top: .3em;
 }
 
-.go-top {
-	position: fixed;
-	right: 30px;
-	bottom: 100px;
-	z-index: 1001;
-}
 
 #main {
 	/*position: absolute;*/
@@ -396,13 +390,6 @@ a::-moz-focus-inner {
 	z-index: 2;
 }
 
-#return-top {
-	background-color: #D4D0D0;
-}
-
-#return-top:hover {
-	background-color: #A8A5A5;
-}
 
 #topbar-collapse .am-topbar-nav>li.am-active>a {
 	color: #fff;

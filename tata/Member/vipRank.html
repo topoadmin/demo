@@ -14,7 +14,17 @@
 		<link rel="stylesheet" href="css/admin.css" />
 		<style type="text/css">
 			.vip-rank{
-				background-color: #000000;
+				position: relative;
+				min-height: 100px;
+				padding-left: 120px;
+				border-bottom: 2px solid #BDBBBB;
+			}
+			.vip-rank img {
+				max-height: 100px;max-width: 100px;
+				position: absolute;left: 0px;top: -2px;
+			}
+			.vip-rank h3{
+				margin: 0;
 			}
 		</style>
 	</head>
@@ -24,8 +34,8 @@
 		<header class="am-topbar am-topbar-fixed-top" id="fixed-top-topbar">
 			<div class="am-topbar-brand am-text-white">
 				<a href="home.html">
-			   		<img src="http://www.taquta.com/Application/Home/View/Default/Images/mini_logo.png" height="50" alt="logo"> 
-			   	</a>
+					<img src="http://www.taquta.com/Application/Home/View/Default/Images/mini_logo.png" height="50" alt="logo">
+				</a>
 			</div>
 			<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only check-head-nav" data-am-collapse="{target: '#collapse-head'}">
 				<span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span>
@@ -87,19 +97,49 @@
 				</div>
 			</div>
 			<!-- end 导航结束 -->
-
 			<!-- start 内容开始 -->
 			<div class="am-g pd-left270" id="admin-right-main">
-				<div style="height: 2rem;"></div>
-				<div class="am-u-sm-12">
-					<div class="am-u-sm-3 vip-rank">
-						<img src="../Home/img/vip-1.png"/>
-					</div>
+				<div class="am-margin-bottom-sm"></div>
+				<div class="vip-rank">
+					<img class="am-img-thumbnail" src="../Home/img/vip-1.png" />
+					<h3>登录级会员</h3>
+					<span>不能直接报名参加旅游交友活动，完整填写账户信息并提交，通过本站人工实地考察后，方可升至出发一级会员。</span>
 				</div>
+				<div class="am-margin-bottom-sm"></div>
+				<div class="vip-rank">
+					<img class="am-img-thumbnail" src="../Home/img/vip-2.png" />
+					<h3>出发一级会员</h3>
+					<span>恭喜您可以直接报名参加旅游交友活动。</span>
+				</div>
+				<div class="am-margin-bottom-sm"></div>
+				<div class="vip-rank">
+					<img class="am-img-thumbnail" src="../Home/img/vip-3.png" />
+					<h3>出发二级会员</h3>
+					<span>本级会员表明你可以第二次报名参加旅游交友活动。</span>
+				</div>
+				<div class="am-margin-bottom-sm"></div>
+				<div class="vip-rank">
+					<img class="am-img-thumbnail" src="../Home/img/vip-4.png" />
+					<h3>出发三级会员</h3>
+					<span>本级会员表明你可以第三次报名参加旅游交友活动。</span>
+				</div>
+				<div class="am-margin-bottom-sm"></div>
+				<div class="vip-rank">
+					<img class="am-img-thumbnail" src="../Home/img/vip-5.png" />
+					<h3>出发终级会员</h3>
+					<span>本级会员表明你将获得全程免费报名参加旅游交友活动 资格。同时表明你在本站的第一轮旅游交友活动结束。新一轮至少在三个月后方可启动。</span>
+				</div>
+				<div class="am-margin-bottom-sm"></div>
 			</div>
 			<!-- end 内容区域 -->
 		</div>
 		
+		<!-- start 漂浮按钮 -->
+		<div class="amz-toolbar">
+			<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas', closeViaDimmer: 0}"></a>
+		</div>
+		<!-- end 漂浮按钮 -->
+
 		<script src="http://apps.bdimg.com/libs/require.js/2.1.9/require.min.js" data-main="js/main"></script>
 	</body>
 
