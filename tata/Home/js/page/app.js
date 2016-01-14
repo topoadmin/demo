@@ -9,9 +9,10 @@
 	}
 
 }(this, function($) {
-	$(".loading").hide();
-
-	var $body = $("body");
+	setTimeout(function(){
+		$(".loading").hide();
+	},333)
+	
 	var sendCode = $(".send-code");
 	if (sendCode.length) {
 		/*仿刷新：检测是否存在cookie*/
@@ -50,30 +51,6 @@
 		}
 	}
 	
-	// -- 宽窄屏切换
-	require(["storage"], function(storage) {
-		$(".fixed-widtn").on("click", function() {
-			var $this = $(this),
-				fixedTxt = $this.children(".fixed-txt"),
-				txt = fixedTxt.text().trim();
-			$this.parent("li").addClass("am-active").siblings("li").removeClass("am-active");	
-			fixedTxt.text((txt == "宽屏") ? "窄屏" : "宽屏")
-			$body.toggleClass("am-g-fixed-min");
-			$(window).trigger("resize"); // 触发resize事件,轮播重设宽度
-			if ($body.hasClass("am-g-fixed-min")) {
-				storage.set("am-g-fixed-min", false);
-			} else {
-				storage.set("am-g-fixed-min", true);
-				// 加载下一轮用户头像,防止页面加宽出现load图
-				$("#user-box").find(".lazyload").trigger("sporty");	
-			}
-		});
-		var afmStorage = storage.get("am-g-fixed-min");
-		if (afmStorage) {
-			$(".fixed-widtn").trigger("click");
-		}
-	});
-
 	// -- 加载登录模块
 	var loginModule = function() {
 		// -- 登录注册弹窗

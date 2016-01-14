@@ -39,7 +39,8 @@
 .am-text-white{color: #fff;}
 .am-text-weight{padding: 0 .5em;font-weight: 600;}
 .color-grey{color: #666;}
-.am-text-index-2{text-indent: 2em;}
+.am-text-index-2{text-indent: 2rem;}
+.am-text-index-4{text-indent: 4rem;}
 /* 重写 amazeui.css ***************************//*盖不住内容*/.am-popup-hd{z-index: 2;}
 /* 轮播控制点改变大小和颜色*/.am-slider-default .am-direction-nav a.am-prev,
 .am-slider-default .am-direction-nav a.am-next{width: 50px;height: 50px;opacity: 1;}

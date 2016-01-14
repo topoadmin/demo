@@ -11,7 +11,7 @@
 	var loading = $(".loading"); // 加载内容
 	// -- 开启轮播
 	$("#home-carousel").flexslider({
-		slideshowSpeed: 3000,
+		slideshowSpeed: 5000,
 		controlNav: false
 	});
 	// -- 添加用户
