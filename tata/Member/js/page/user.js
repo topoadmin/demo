@@ -30,7 +30,7 @@
 			$form = $this.parents("form");
 		if ($form.validator('isFormValid')) {
 			$.getJSON('data/checkinfo.json', function(data) {
-				$form.setForm(data.user);
+				$("#reality-info").setForm(data.user);
 				$("#my-checkinfo").modal().find(".my-modal-content").text(JSON.stringify(data.user));
 			});
 		}
