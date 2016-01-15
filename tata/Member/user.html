@@ -33,12 +33,22 @@
 			#form-box {
 				overflow: hidden;
 			}
+			
+			.am-form .am-input-group span.am-input-group-label {
+				min-width: 120px;
+			}
+			
+			@media only screen and (min-width: 630px) {
+				#notice-popup {
+					width: 700px;
+				}
+			}
 		</style>
 	</head>
 
 	<body class="am-with-topbar-fixed-top">
 		<!-- start 加载框 -->
-		<div class="loading">
+		<!--<div class="loading">
 			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
 				<div class="loader am-text-center">
 					<div class="loader-inner semi-circle-spin" style="display: inline-block;">
@@ -48,16 +58,15 @@
 				<p class="am-text-white">加载中...</p>
 			</div>
 			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
-		</div>
+		</div>-->
 		<!-- end 加载框 -->
 
 		<!-- start 头部导航 -->
 		<header class="am-topbar am-topbar-fixed-top" id="fixed-top-topbar">
 			<div class="am-topbar-brand am-text-white">
 				<a href="home.html">
-			   		<img src="http://www.taquta.com/Application/Mobile/View/Default/Images/logo4.png" height="30" alt="logo"> 
-			   			TATA旅游网 <small>用户管理中心</small>
-			   	</a>
+					<img src="http://www.taquta.com/Application/Mobile/View/Default/Images/logo4.png" height="30" alt="logo"> TATA旅游网 <small>用户管理中心</small>
+				</a>
 			</div>
 			<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only check-head-nav" data-am-collapse="{target: '#collapse-head'}">
 				<span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span>
@@ -166,58 +175,40 @@
 						<li><a href="#options-tab">其他选项</a></li>
 					</ul>
 					<div class="am-tabs-bd" id="form-box">
-						<div class="am-tab-panel am-fade  am-in am-active" id="basic-tab">
-							<form class="am-form am-form-horizontal form-vail">
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">会员编号</span>
-											<input class="am-form-field" name="number" type="text" placeholder="自动生成" readonly/>
-										</div>
+						<div class="am-tab-panel am-fade am-in am-active" id="basic-tab">
+							<form class="am-form am-container am-padding-bottom" method="post" action="">
+								<div class="am-g am-padding-sm">
+									<div class="am-form-group am-input-group">
+										<span class="am-input-group-label"><i class="am-icon am-icon-user"></i> <span>会员编号</span></span>
+										<input type="text" name="number" class="am-form-field am-radius" placeholder="会员编号系统自动生成" disabled>
 									</div>
-								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">昵称</span>
-											<input class="am-form-field" name="nickname" type="text" minlength="2" maxlength="12" placeholder="2-12位昵称" required/>
-										</div>
+									<div class="am-form-group am-input-group">
+										<span class="am-input-group-label"><i class="am-icon am-icon-comment"></i><span class="am-padding-horizontal-xs">昵　称</span></span>
+										<input type="text" name="" class="am-form-field am-radius" placeholder="昵称" required="" value="">
 									</div>
-								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">婚姻状况</span>
-											<select class="am-form-field" name="marriage">
-												<option>未婚</option>
-												<option>离异无子</option>
-											</select>
-										</div>
+									<div class="am-form-group am-input-group">
+										<span class="am-input-group-label"><i class="am-icon am-icon-heartbeat"></i> <span>婚姻状况</span></span>
+										<select class="am-form-field" name="marriage">
+											<option>未婚</option>
+											<option>离异无子</option>
+										</select>
 									</div>
-								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">身高</span>
-											<select id="sel-height" class="am-form-field" name="height" data-value="165">
-												<option>165</option>
-											</select>
-										</div>
+									<div class="am-form-group am-input-group">
+										<span class="am-input-group-label"><i class="am-icon am-icon-child"></i><span class="am-padding-horizontal-xs">身　高</span></span>
+										<select id="sel-height" class="am-form-field" name="height" data-value="165">
+											<option>165</option>
+										</select>
 									</div>
-								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">体重</span>
-											<select id="kg-height" name="kg" data-value="50">
-												<option>50</option>
-											</select>
-										</div>
+									<div class="am-form-group am-input-group">
+										<span class="am-input-group-label"><i class="am-icon am-icon-male"></i><span class="am-padding-horizontal-xs">体　重</span></span>
+										<select id="kg-height" name="kg" data-value="50">
+											<option>50</option>
+										</select>
 									</div>
-								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-4 am-u-lg-push-4">
-										<button class="am-btn am-btn-success am-radius am-btn-block btn-submit" type="submit">确定</button>
+									<div class="am-g">
+										<div class="am-u-sm-12 am-u-md-12 am-u-lg-4 am-u-lg-push-4">
+											<button class="am-btn am-btn-success am-radius am-btn-block btn-submit" type="submit">确定</button>
+										</div>
 									</div>
 								</div>
 							</form>
@@ -225,254 +216,173 @@
 
 						<div class="am-tab-panel am-fade" id="reality-tab">
 							<h3 class="am-text-center">每个用户只能绑定一个身份证</h3>
-							<form class="am-form am-form-horizontal form-vail">
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">姓名</span>
-											<input class="am-form-field" name="username" type="text" minlength="2" maxlength="12" placeholder="真实姓名" required/>
+							<form class="am-form am-container am-padding-bottom" method="post" action="">
+								<div class="am-g am-padding-sm">
+									<div class="am-form-group am-input-group">
+										<span class="am-input-group-label"><i class="am-icon am-icon-user"></i> <span class="am-padding-horizontal-xs">姓　名</span></span>
+										<input type="text" name="username" class="am-form-field am-radius" placeholder="真实姓名" required minlength="2" maxlength="12">
+									</div>
+									<div class="am-form-group am-input-group">
+										<span class="am-input-group-label"><i class="am-icon am-icon-credit-card"></i><span class="am-padding-horizontal-xs">身份证</span></span>
+										<input type="text" name="card" class="am-form-field am-radius" placeholder="身份证" required minlength="18" maxlength="18">
+									</div>
+									<div class="am-g">
+										<div class="am-u-sm-12 am-text-center">
+											<button class="am-btn am-btn-primary am-radius" id="checkinfo" type="submit">验证信息</button>
 										</div>
 									</div>
+									<hr />
+									<h3 class="am-text-center">根据真实信息自动输入</h3>
+									<fieldset disabled class="am-padding-left-0">
+										<div class="am-form-group am-input-group">
+											<span class="am-input-group-label"><i class="am-icon am-icon-intersex"></i> <span class="am-padding-horizontal-xs">性　别</span></span>
+											<select class="am-form-field" name="sex">
+												<option value="男">男</option>
+												<option value="女">女</option>
+											</select>
+										</div>
+										<div class="am-form-group am-input-group">
+											<span class="am-input-group-label"><i class="am-icon am-icon-connectdevelop"></i> <span class="am-padding-horizontal-xs">星　座</span></span>
+											<select class="am-form-field" name="constellation">
+												<option value="白羊座">白羊座</option>
+												<option value="金牛座">金牛座</option>
+												<option value="双子座">双子座</option>
+												<option value="巨蟹座">巨蟹座</option>
+												<option value="狮子座">狮子座</option>
+												<option value="处女座">处女座</option>
+												<option value="天枰座">天枰座</option>
+												<option value="天蝎座">天蝎座</option>
+												<option value="射手座">射手座</option>
+												<option value="魔蝎座">魔蝎座</option>
+												<option value="水瓶座">水瓶座</option>
+												<option value="双鱼座">双鱼座</option>
+											</select>
+										</div>
+										<div class="am-form-group am-input-group">
+											<span class="am-input-group-label"><i class="iconfont icon-nianling icon-md"></i><span class="am-padding-horizontal-xs">年　龄</span></span>
+											<input type="text" name="card" class="am-form-field am-radius" placeholder="自动输入" required minlength="18" maxlength="18">
+										</div>
+										<div class="am-form-group am-input-group">
+											<span class="am-input-group-label"><i class="am-icon am-icon-home"></i><span class="am-padding-horizontal-xs">出生地</span></span>
+											<input type="text" name="card" class="am-form-field am-radius" placeholder="自动输入" required minlength="18" maxlength="18">
+										</div>
+									</fieldset>
 								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">身份证</span>
-											<input class="am-form-field js-my-card" name="card" type="text" minlength="18" maxlength="18" placeholder="身份证" required/>
-										</div>
-									</div>
-								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-text-center">
-										<button class="am-btn am-btn-primary am-radius" id="checkinfo" type="submit">验证信息</button>
-									</div>
-								</div>
-								<hr />
-								<h3 class="am-text-center">根据真实信息自动输入</h3>
-								<fieldset disabled>
-									<div class="am-g">
-										<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-											<div class="am-input-group am-form-group am-input-group-default">
-												<span class="am-input-group-label">性别</span>
-												<select class="am-form-field" name="sex">
-													<option value="男">男</option>
-													<option value="女">女</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="am-g">
-										<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-											<div class="am-input-group am-form-group am-input-group-default">
-												<span class="am-input-group-label">星座</span>
-												<select class="am-form-field" name="constellation">
-													<option value="白羊座">白羊座</option>
-													<option value="金牛座">金牛座</option>
-													<option value="双子座">双子座</option>
-													<option value="巨蟹座">巨蟹座</option>
-													<option value="狮子座">狮子座</option>
-													<option value="处女座">处女座</option>
-													<option value="天枰座">天枰座</option>
-													<option value="天蝎座">天蝎座</option>
-													<option value="射手座">射手座</option>
-													<option value="魔蝎座">魔蝎座</option>
-													<option value="水瓶座">水瓶座</option>
-													<option value="双鱼座">双鱼座</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="am-g">
-										<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-											<div class="am-input-group am-form-group am-input-group-default">
-												<span class="am-input-group-label">年龄</span>
-												<input class="am-form-field" name="age" type="text" placeholder="自动输入" />
-											</div>
-										</div>
-									</div>
-									<div class="am-g">
-										<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-											<div class="am-input-group am-form-group am-input-group-default">
-												<span class="am-input-group-label">出生地</span>
-												<input class="am-form-field" name="birthplace" type="text" placeholder="自动输入" />
-											</div>
-										</div>
-									</div>
-								</fieldset>
-
 							</form>
 						</div>
 
 						<div class="am-tab-panel am-fade" id="rest-tab">
-							<form class="am-form am-form-horizontal form-vail">
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">邮箱</span>
-											<input class="am-form-field" name="email" type="text" placeholder="Email地址" required/>
+							<form class="am-form am-container am-padding-bottom" method="post" action="">
+								<div class="am-g am-padding-sm">
+									<div class="am-form-group am-input-group">
+										<span class="am-input-group-label"><i class="am-icon am-icon-envelope"></i><span class="am-padding-horizontal-xs">邮　箱</span></span>
+										<input type="text" name="email" class="am-form-field am-radius" placeholder="Email地址" required="">
+									</div>
+									<div class="am-form-group am-input-group">
+										<span class="am-input-group-label"><i class="am-icon am-icon-graduation-cap"></i><span class="am-padding-horizontal-xs">学　历</span></span>
+										<select class="am-form-field" name="marriage">
+											<option value="大专">大专</option>
+											<option value="本科">本科</option>
+											<option value="硕士">硕士</option>
+											<option value="博士">博士</option>
+											<option value="其他">其他</option>
+										</select>
+									</div>
+									<div class="am-form-group am-input-group">
+										<span class="am-input-group-label"><i class="am-icon am-icon-bank"></i><span>毕业学校</span></span>
+										<input type="text" name="school" class="am-form-field am-radius" placeholder="xx学校" required="">
+									</div>
+									<div class="am-form-group am-input-group">
+										<span class="am-input-group-label"><i class="am-icon am-icon-user-secret"></i><span class="am-padding-horizontal-xs">职　业</span></span>
+										<select class="am-form-field" name="marriage">
+											<option value="计算机/互联网/通信">计算机/互联网/通信</option>
+											<option value="生产/工艺/制造">生产/工艺/制造</option>
+											<option value="医疗/护理/制药">医疗/护理/制药</option>
+											<option value="金融/银行/投资/保险">金融/银行/投资/保险</option>
+											<option value="商业/服务业/个体经营">商业/服务业/个体经营</option>
+											<option value="文化/广告/传媒">文化/广告/传媒</option>
+											<option value="娱乐/艺术/表演">娱乐/艺术/表演</option>
+											<option value="律师/法务">律师/法务</option>
+											<option value="教育/培训">教育/培训</option>
+											<option value="公务员/行政/事业单位">公务员/行政/事业单位</option>
+											<option value="模特/空姐">模特/空姐</option>
+											<option value="自由职业/SOHO">自由职业/SOHO</option>
+											<option value="其他">其他</option>
+										</select>
+									</div>
+									<div class="am-form-group am-input-group">
+										<span class="am-input-group-label"><i class="am-icon am-icon-automobile"></i><span>生活资料</span></span>
+										<select class="am-form-field" name="marriage">
+											<option value="有车有房">有车有房</option>
+											<option value="有车无房">有车无房</option>
+											<option value="无车有房">无车有房</option>
+											<option value="无车无房">无车无房</option>
+										</select>
+									</div>
+									<div id="city-sel">
+										<div class="am-form-group am-input-group">
+											<span class="am-input-group-label"><span>居住省份</span></span>
+											<select class="am-form-field prov"></select>
+										</div>
+										<div class="am-form-group am-input-group">
+											<span class="am-input-group-label"><span>居住城市</span></span>
+											<select class="am-form-field city"></select>
+										</div>
+										<div class="am-form-group am-input-group">
+											<span class="am-input-group-label"><span>居住县区</span></span>
+											<select class="am-form-field dist" disabled style="visibility: visible;"></select>
 										</div>
 									</div>
-								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">毕业于</span>
-											<input class="am-form-field" name="school" type="text" minlength="2" maxlength="12" placeholder="xx学校" required/>
-										</div>
+									<div class="am-form-group am-input-group">
+										<span class="am-input-group-label"><i class="am-icon am-icon-home"></i><span>详细地址</span></span>
+										<textarea minlength="5" data-validation-message="*输入错误，请仔细检查" maxlength="100" min-height="40px" placeholder="请输入详细地址"></textarea>
 									</div>
-								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">职业</span>
-											<select class="am-form-field" name="marriage">
-												<option value="计算机/互联网/通信">计算机/互联网/通信</option>
-												<option value="生产/工艺/制造">生产/工艺/制造</option>
-												<option value="医疗/护理/制药">医疗/护理/制药</option>
-												<option value="金融/银行/投资/保险">金融/银行/投资/保险</option>
-												<option value="商业/服务业/个体经营">商业/服务业/个体经营</option>
-												<option value="文化/广告/传媒">文化/广告/传媒</option>
-												<option value="娱乐/艺术/表演">娱乐/艺术/表演</option>
-												<option value="律师/法务">律师/法务</option>
-												<option value="教育/培训">教育/培训</option>
-												<option value="公务员/行政/事业单位">公务员/行政/事业单位</option>
-												<option value="模特/空姐">模特/空姐</option>
-												<option value="自由职业/SOHO">自由职业/SOHO</option>
-												<option value="其他">其他</option>
-											</select>
-										</div>
+									<div class="am-form-group am-input-group">
+										<span class="am-input-group-label"><span>工作单位名称</span></span>
+										<input type="text" name="" class="am-form-field am-radius" required="">
 									</div>
-								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">学历</span>
-											<select class="am-form-field" name="marriage">
-												<option value="大专">大专</option>
-												<option value="本科">本科</option>
-												<option value="硕士">硕士</option>
-												<option value="博士">博士</option>
-												<option value="其他">其他</option>
-											</select>
-										</div>
+									<div class="am-form-group am-input-group">
+										<span class="am-input-group-label"><span>工作单位地址</span></span>
+										<input type="text" name="" class="am-form-field am-radius" required="">
 									</div>
-								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group">
-											<span class="am-input-group-label">生活资料</span>
-											<select class="am-form-field" name="marriage">
-												<option value="有车有房">有车有房</option>
-												<option value="有车无房">有车无房</option>
-												<option value="无车有房">无车有房</option>
-												<option value="无车无房">无车无房</option>
-											</select>
-										</div>
-									</div>
-								</div>
-								<div id="city-sel">
-									<div class="am-g">
-										<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-											<div class="am-input-group am-form-group am-input-group-default">
-												<span class="am-input-group-label">居住省份</span>
-												<select class="prov"></select>
-											</div>
-										</div>
-									</div>
-									<div class="am-g">
-										<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-											<div class="am-input-group am-form-group am-input-group-default">
-												<span class="am-input-group-label">居住城市</span>
-												<select class="city" disabled="disabled"></select>
-											</div>
-										</div>
+									<div class="am-form-group am-input-group">
+										<span class="am-input-group-label"><span>工作单位电话</span></span>
+										<input type="text" name="" class="am-form-field am-radius" required="">
 									</div>
 									<div class="am-g">
-										<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-											<div class="am-input-group am-form-group am-input-group-default">
-												<span class="am-input-group-label">居住县区</span>
-												<select class="dist" disabled="disabled" style="visibility: visible;"></select>
-											</div>
+										<div class="am-u-sm-12 am-u-md-12 am-u-lg-4 am-u-lg-push-4">
+											<button class="am-btn am-btn-success am-radius am-btn-block btn-submit" type="submit">确定</button>
 										</div>
-									</div>
-								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">详细地址</span>
-											<textarea minlength="5" data-validation-message="*输入错误，请仔细检查" maxlength="100" min-height="40px" placeholder="请输入详细地址"></textarea>
-										</div>
-									</div>
-								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">工作单位名称</span>
-											<input class="am-form-field" name="workunit" type="text" required/>
-										</div>
-									</div>
-								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">工作单位地址</span>
-											<input class="am-form-field" name="workaddress" type="text" required/>
-										</div>
-									</div>
-								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">工作单位电话</span>
-											<input class="am-form-field" name="worktelephone" type="text" required/>
-										</div>
-									</div>
-								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-4 am-u-lg-push-4">
-										<button class="am-btn am-btn-success am-radius am-btn-block btn-submit" type="submit">确定</button>
 									</div>
 								</div>
 							</form>
 						</div>
 
 						<div class="am-tab-panel am-fade" id="options-tab">
-							<form class="am-form am-form-horizontal form-vail">
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">TA的年龄</span>
-											<select class="am-form-field" name="niandai">
-												<option value="60后">60后</option>
-												<option value="70后">70后</option>
-												<option selected value="80后">80后</option>
-												<option value="90后">90后</option>
-												<option value="其他">其他</option>
-											</select>
-										</div>
+							<form class="am-form am-container am-padding-bottom" method="post" action="">
+								<div class="am-g am-padding-sm">
+									<div class="am-form-group am-input-group">
+										<span class="am-input-group-label"><span>TA的年龄</span></span>
+										<select class="am-form-field" name="niandai">
+											<option value="60后">60后</option>
+											<option value="70后">70后</option>
+											<option selected value="80后">80后</option>
+											<option value="90后">90后</option>
+											<option value="其他">其他</option>
+										</select>
 									</div>
-								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">TA的品质</span>
-											<input class="am-form-field checkboxq" name="character" type="text" placeholder="选择我的品质" readonly required value="成熟、稳重、顾家、有责任心的男人。|阳光帅气、对生活充满热情的男人。|" />
-										</div>
+									<div class="am-form-group am-input-group">
+										<span class="am-input-group-label"><span>TA的品质</span></span>
+										<input class="am-form-field checkboxq" name="character" type="text" placeholder="选择我的品质" readonly required value="成熟、稳重、顾家、有责任心的男人。|阳光帅气、对生活充满热情的男人。|" />
 									</div>
-								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
-										<div class="am-input-group am-form-group am-input-group-default">
-											<span class="am-input-group-label">我的品质</span>
-											<input class="am-form-field checkboxq" name="characteristic" type="text" placeholder="选择我的品质" value="温柔|贤惠|" readonly required/>
-										</div>
+									<div class="am-form-group am-input-group">
+										<span class="am-input-group-label"><span>我的品质</span></span>
+										<input class="am-form-field checkboxq" name="characteristic" type="text" placeholder="选择我的品质" value="温柔|贤惠|" readonly required/>
 									</div>
-								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2">
+									<div class="am-u-sm-12">
 										<h5 style="padding-bottom: 0;margin-bottom: 0;">　　在本网站推出的各地旅游相亲活动中，有一些活动可能会被全程拍成真人秀节目， 未来在视频网站上播出，对于愿意参加真人秀节目的嘉宾，所有费用全免。</h5>
 										<div style="height: 5px;"></div>
-										<div class="am-g">
+										<div id="open-radio-alert" class="am-g">
 											<div class="am-u-sm-6 am-text-right">
 												<label class="am-radio-inline">
 													<input type="radio" value="" name="publicstatus" value="1" required> 同意
@@ -489,26 +399,24 @@
 											<p class="am-text-sm am-text-center">[选择此项意味着您对参加真人秀节目拍摄、播出的肖像权无任何争议。] </p>
 										</div>
 									</div>
-								</div>
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-8 am-u-lg-push-2 am-text-center" data-am-popover="{content: '请仔细观看提交须知', trigger: 'hover focus'}">
+									<div class="am-u-sm-12 am-text-center am-padding-bottom-sm" data-am-popover="{content: '请仔细观看提交须知', trigger: 'hover focus'}">
 										<i class="iconfont icon-xinghao am-text-default am-text-middle am-text-danger"></i>
 										<label class="am-radio-inline">
 											<input type="radio" id="notice" name="notice" value="1" required> 我同意
 											<a data-am-modal="{target: '#notice-popup'}" href="javascript:;"> "用户提交须知" </a>
 										</label>
 									</div>
-								</div>
-								<hr />
-								<div class="am-g">
-									<div class="am-u-sm-12 am-u-md-12 am-u-lg-4 am-u-lg-push-4">
-										<button class="am-btn am-btn-success am-radius am-btn-block" type="submit">确定</button>
+									<hr />
+									<div class="am-g">
+										<div class="am-u-sm-12 am-u-md-12 am-u-lg-4 am-u-lg-push-4">
+											<button class="am-btn am-btn-success am-radius am-btn-block" type="submit">确定</button>
+										</div>
 									</div>
 								</div>
 							</form>
 						</div>
-					</div>
 
+					</div>
 					<div class="am-show-sm-only" style="height: 25px;"></div>
 				</div>
 				<!-- end 用户信息栏 -->
@@ -569,13 +477,11 @@
 					<span data-am-modal-close class="am-close">&times;</span>
 				</div>
 				<div class="am-popup-bd">
-					<img class="am-img-responsive .am-show-sm-up" src="img/notice.jpg" />
-					<img class="am-img-responsive .am-show-sm-only" src="img/notice-m.jpg" />
-				</div>
-				<div class="am-modal-footer">
-					<span class="am-modal-btn">
-						<span class="am-text-success">同意</span>
-					</span>
+					<img class="am-img-thumbnail am-hide-sm-only" src="img/notice.jpg" />
+					<img class="am-img-thumbnail am-show-sm-only" src="img/notice-m.jpg" />
+					<div class="am-text-center am-margin-top-sm">
+						<button data-am-modal-close class="am-btn am-btn-success am-round">同意</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -604,7 +510,7 @@
 
 		<!-- 脚本 -->
 		<script type="text/javascript">
-			var thisPage = "user";
+			var thisPage = "page/user2";
 		</script>
 		<script src="http://apps.bdimg.com/libs/require.js/2.1.9/require.min.js" data-main="js/main"></script>
 		<!--<script src="js/module/iscroll-zoom.js"></script>-->

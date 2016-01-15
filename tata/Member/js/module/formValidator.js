@@ -41,7 +41,7 @@
 					var $type = $field.attr("type");
 					if($type == "radio" || $type == "checkbox"){
 						if($("#my-amAlert").length == 0){
-							$field.parents("form").prepend(amAler);
+							$field.parents("#open-radio-alert").prepend(amAler);
 						}
 					}else{
 						addAlert(validity, $field, _this);

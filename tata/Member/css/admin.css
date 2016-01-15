@@ -9,7 +9,7 @@ ul {
 
 .admin-menu {
 	position: fixed;
-	z-index: 10;
+	z-index: 101;
 	bottom: 30px;
 	right: 30px;
 	background-color: #D4D0D0;

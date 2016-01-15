@@ -1,9 +1,9 @@
 (function(root, factory) {
 	"use strict";
 	if (typeof define === "function" && define.amd) {
-		define(["jquery", "amazeui", "formValid"], factory);
+		define(["jquery", "amazeui", "formValidator"], factory);
 	} else if (typeof exports === "object") {
-		module.exports = factory(require("jquery"), require("amazeui"), require("formValid"));
+		module.exports = factory(require("jquery"), require("amazeui"), require("formValidator"));
 	} else {
 		factory(root.jQuery);
 	}
@@ -12,7 +12,7 @@
 	addOption(150, 200, "#sel-height");
 	addOption(40, 90, "#kg-height");
 	// 绑定form验证
-	var $formArr = $(".form-vail");
+	var $formArr = $(".am-form");
 	$formArr.each(function(i) {
 		var $this = $(this);
 		$this.formValidator();
@@ -59,6 +59,7 @@
 	$("#notice-popup").on("close.modal.amui", function() {
 		$("#notice").attr("checked", "checked")
 	});
+
 	// -- 上传头像
 	var $file = $("#file"),
 		$load = $(".loading"),
@@ -105,10 +106,10 @@
 		$file.click();
 	});
 	$("#clipBtn").on("click", function() {
-		// 裁剪完毕
-		uploadModal.modal("close");
-	})
-	// 地区选择
+			// 裁剪完毕
+			uploadModal.modal("close");
+		})
+		// 地区选择
 	var citySel = $("#city-sel");
 	if (citySel.length > 0) {
 		require(["citySelect"], function() {　　
@@ -129,4 +130,5 @@
 		}
 		$elm.html(_html)
 	}
+
 }));

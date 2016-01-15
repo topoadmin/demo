@@ -8,7 +8,7 @@ require.config({
 		"countUp": "module/countUp", // 数字动态效果
 		"chosen": "module/amazeui.chosen", // 下拉组件
 		"datetime": "module/amazeui.datetimepicker", // 日历组件
-		"formValid": "module/formValid", // form验证
+		"formValidator": "module/formValidator", // form验证
 		"citySelect": "module/jquery.cityselect", // 城市选择
 		"quality": "module/qualityCheck", // 城市选择
 		"hammer": "module/hammer", // 移动端滑动事件
@@ -21,7 +21,7 @@ require.config({
 });
 require(["jquery", "amazeui"], function($) {
 	require(["app"]);
-	if(typeof(thisPage) == "string"){
+	if (typeof(thisPage) == "string") {
 		require([thisPage]);
 	}
 });
