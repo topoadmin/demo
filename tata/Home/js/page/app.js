@@ -9,10 +9,9 @@
 	}
 
 }(this, function($) {
-	setTimeout(function(){
+	setTimeout(function() {
 		$(".loading").hide();
-	},333)
-	
+	}, 333)
 	var sendCode = $(".send-code");
 	if (sendCode.length) {
 		/*仿刷新：检测是否存在cookie*/
@@ -51,22 +50,23 @@
 		}
 	}
 	
+	var $window = $(window);
 	// -- 加载登录模块
 	var loginModule = function() {
 		// -- 登录注册弹窗
-		var popup = $("#my-lr-popup"),
-			toggleForm = popup.find(".toggle-form"),
-			form = popup.find(".am-form");
-		if (popup.data("open")) {
-			// 打开Modal
-			popup.modal();
+		var lrpopup = $("#my-lr-popup"),
+			toggleForm = lrpopup.find(".toggle-form"),
+			form = lrpopup.find(".am-form");
+		
+		if (lrpopup.data("open")) {
+			lrpopup.modal();
 		} else {
 			// 第一次打开配置modal属性,并记录以打开过
-			popup.modal({
+			lrpopup.modal({
 				relatedTarget: this,
 				closeViaDimmer: false
 			}).data("open", true).find('.submit').off('click.close.modal.amui').on("click", function() {
-				popup.find("form:visible").submit();
+				lrpopup.find("form:visible").submit();
 			});
 			toggleForm.on("click", function() {
 				var $this = $(this),
@@ -77,6 +77,24 @@
 				$($form).removeClass("am-hide");
 			});
 		}
+		lrpopup.one('open.modal.amui opened.modal.amui', function(){
+			/* 改变popup的默认高度，不需要过多白边 */
+			if($window.width() <= 620){
+				lrpopup.css("height","100%");
+			}else{
+				lrpopup.height("auto");
+				lrpopup.removeClass("hide").css({"margin-top":-lrpopup.height()/2});
+			}
+			$window.on("resize",function(){
+				if($(this).width() <=620){
+					lrpopup.css({"height":"100%","margin-top":"0"})
+				}else{
+					lrpopup.height("auto");
+					lrpopup.css({"margin-top":-lrpopup.height()/2});
+				}
+			})
+		});
+
 		// -- 加载表单验证模块
 		require(["formValid"], function() {
 			// 登录验证
@@ -95,6 +113,7 @@
 			})
 		});
 	}
+	
 	$(".login").on("click", function() {
 		loginModule();
 	});

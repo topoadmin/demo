@@ -13,7 +13,6 @@
 		<link rel="bookmark" href="http://www.taquta.com/favicon.ico">
 		<link rel="stylesheet" href="../assets/css/amazeui.min.css">
 		<link rel="stylesheet" href="../assets/css/app.css" />
-	
 	</head>
 
 	<body class="am-with-topbar-fixed-top am-g-fixed-min">
@@ -25,8 +24,8 @@
 				</div>
 			</div>
     	<![endif]-->
-    	
-    	<!-- start 加载框 -->
+
+		<!-- start 加载框 -->
 		<div class="loading">
 			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
 				<div class="loader am-text-center">
@@ -39,14 +38,14 @@
 			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
 		</div>
 		<!-- end 加载框 -->
-		
+
 		<!-- start 头部导航 -->
 		<header class="am-topbar am-topbar-fixed-top" id="fixed-top-topbar">
 			<div class="header-fixed am-g-fixed-min">
 				<div class="am-topbar-brand am-text-white">
 					<a href="home.html">
-				   		<img src="../assets/img/mini_logo.png" height="50" alt="TATA旅游网"> 
-				   	</a>
+						<img class="logo" src="../assets/img/mini_logo.png" alt="TATA旅游网">
+					</a>
 				</div>
 				<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only check-head-nav" data-am-collapse="{target: '#collapse-head'}">
 					<span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span>
@@ -71,15 +70,15 @@
 				</div>
 			</div>
 		</header>
-		
+
 		<!-- start 内容区域 -->
 		<div id="main">
 			<!-- 轮播 -->
-			<div class="am-g home-carousel-box" >
+			<div class="am-g home-carousel-box">
 				<div class="am-slider am-slider-default" id="home-carousel">
 					<ul class="am-slides">
-						<li class="am-block"><img class="h-c-img" src="http://www.taquta.com/Uploads/picture/5666537aa898b.jpg" /></li>
-						<li><img class="h-c-img" src="http://www.taquta.com/Uploads/picture/564ecce3e516e.jpg"/></li>
+						<li><img class="h-c-img" src="http://www.taquta.com/Uploads/picture/5666537aa898b.jpg" /></li>
+						<li><img class="h-c-img" src="http://www.taquta.com/Uploads/picture/564ecce3e516e.jpg" /></li>
 					</ul>
 				</div>
 			</div>
@@ -109,7 +108,7 @@
 					</div>
 				</div>
 			</section>
-			
+
 			<!-- 认证会员-->
 			<section class="am-panel am-panel-default">
 				<header class="am-panel-hd">
@@ -166,7 +165,7 @@
 				<div id="activity-box" data-am-observe>
 				</div>
 			</section>
-			
+
 		</div>
 		<!-- end 内容区域 -->
 
@@ -236,7 +235,7 @@
 		</footer>
 
 		<!-- 登录注册弹窗 -->
-		<div class="am-popup" id="my-lr-popup">
+		<div class="am-popup hide" id="my-lr-popup">
 			<div class="am-popup-inner">
 				<div class="am-popup-hd">
 					<h4 class="am-popup-title">登录/注册</h4>
@@ -309,7 +308,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- 浮动二维码 -->
 		<div id="float-code" class="am-hide-md-down" data-am-scrollspy="{animation: 'slide-top', delay: 666}">
 			<img src="http://www.taquta.com/Application/Home/View/Default/Images/float-code.jpg">
@@ -446,7 +445,7 @@
 								{{# if(d[i].privilege){ }}
 									<span class="am-padding-horizontal-sm am-btn-warning article-dis">
 										<span class="am-text-white">5折</span>
-									</span>
+								</span>
 								{{# }}}
 							</div>
 							<h3 class="am-gallery-title">{{ d[i].site }} - {{ d[i].site2 }}</h3>

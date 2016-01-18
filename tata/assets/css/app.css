@@ -41,24 +41,31 @@
 .color-grey{color: #666;}
 .am-text-index-2{text-indent: 2rem;}
 .am-text-index-4{text-indent: 4rem;}
-/* 重写 amazeui.css ***************************//*盖不住内容*/.am-popup-hd{z-index: 2;}
-/* 轮播控制点改变大小和颜色*/.am-slider-default .am-direction-nav a.am-prev,
+/* 重写 amazeui.css ***************************//*盖不住内容*/
+.am-popup-hd{z-index: 2;}
+/* 轮播控制点改变大小和颜色*/
+.am-slider-default .am-direction-nav a.am-prev,
 .am-slider-default .am-direction-nav a.am-next{width: 50px;height: 50px;opacity: 1;}
 .am-slider-default .am-direction-nav a.am-prev:before,
 .am-slider-default .am-direction-nav a.am-next:before{font-size: 3.5rem !important;color: #fff;}
-/* 妹子ul插入的， 产生空隙*/.am-sticky-placeholder{height: 0 !important;}
-/* 按钮之类的吧*/.am-active .am-btn-default.am-dropdown-toggle,
+/* 妹子ul插入的， 产生空隙*/
+.am-sticky-placeholder{height: 0 !important;}
+/* 按钮之类的吧*/
+.am-active .am-btn-default.am-dropdown-toggle,
 .am-btn-default.am-active,
 .am-btn-default:active{background-color: #fff;}
 .am-selected .am-btn{padding: 0.6em 1em;}
 @media only screen and (max-width: 641px){.am-selected{width: 150px;}}
-/* form 表单修改部分样式*/.check-radio .am-radio-inline{padding-top: 0;}
+/* form 表单修改部分样式*/
+.check-radio .am-radio-inline{padding-top: 0;}
 .am-input-group .am-form-field{padding: 0 0.5rem;}
 .am-input-group div.am-form-field{padding: .5rem;}
 .chosen-container-multi .chosen-choices{padding: 5px 5px;}
-/******************************************************/#my-quality-popup .am-checkbox-inline+.am-checkbox-inline,
+/******************************************************/
+#my-quality-popup .am-checkbox-inline+.am-checkbox-inline,
 #my-quality-popup .am-radio-inline+.am-radio-inline{margin-left: 0px;}
 body{background-color: #f5f5f5;}
+img.logo{height: 50px;}
 .am-with-topbar-fixed-top {padding-top: 70px;}
 #fixed-top-topbar{z-index: 1099;border: none;background-color: rgba(0,0,0,0.7);height: 70px;}
 #fixed-top-topbar .am-nav>li.am-active>a{cursor: pointer;}
@@ -70,16 +77,31 @@ body{background-color: #f5f5f5;}
 #fixed-top-topbar .am-topbar-nav>li>a{bottom: 0;}
 #fixed-top-topbar .am-topbar-nav>li>a:hover:after{border-bottom-color: #fff;}
 #fixed-top-topbar .am-nav>li.am-active>a::after{border-bottom-color: #fff;}
-@media only screen and (max-width: 642px) {
+/* 自定义样式 */
+@media only screen and (max-width: 640px){
+	.am-with-topbar-fixed-top {padding-top: 50px;}
+	#fixed-top-topbar{height: 50px;}
+	img.logo{height: 30px;}
+	#fixed-top-topbar .am-topbar-brand{line-height: 50px;height: 50px;}
 	#fixed-top-topbar .am-nav>li>a{line-height: 40px;height: 40px;}
 	#collapse-head{background-color: rgba(0,0,0,0.7);}
+	#fixed-top-topbar .check-head-nav {
+	    margin-top: 8px;
+	}
 }
 
+
 .loading{z-index: 1200;position: fixed;}
-/* 窄屏配置*/.am-g-fixed-min{margin: 0 auto;max-width: 1200px;}
-/* 让活动盒子一个一个挨着*/#activity-box .all{display: none;clear: none;}
-/* 浮动二维码*/#float-code{width: 200px;position: fixed;right: 30px;top: 70px;}
-/*浮动客服*/#float-kefu{position: fixed;top: 400px;right: 0px;}
+.am-popup{height: auto;}
+.hide{display: none !important;}
+/* 窄屏配置*/
+.am-g-fixed-min{margin: 0 auto;max-width: 1200px;}
+/* 让活动盒子一个一个挨着*/
+#activity-box .all{display: none;clear: none;}
+/* 浮动二维码*/
+#float-code{width: 200px;position: fixed;right: 30px;top: 70px;}
+/*浮动客服*/
+#float-kefu{position: fixed;top: 400px;right: 0px;}
 #float-kefu .open-kefu{position: relative;background: #F9FAFB;border: 1px solid #ddd;border-radius: 10px;background: #F9FAFB;}
 #float-kefu .close-kefu{position: absolute;right: 10px;top: -23px;color: #969090;}
 #float-kefu .qq-a{display: block;width: 130px;height: 116px;position: relative;padding: 0 10px;}
@@ -96,9 +118,6 @@ body{background-color: #f5f5f5;}
 #float-kefu .weixing-show .weixing-sanjiao-big{width: 0;height: 0;border-style: solid;border-color: transparent transparent transparent #dddddd;border-width: 8px;left: 112px;top: 80px;position: absolute;}
 
 /* 滑动放大效果 */
-/*.am-transition-box{overflow: hidden;}
-.am-transition-box .am-transition{border: 0 !important;}
-.am-transition-box .article-dis{top: 0;}*/
 .am-transition:hover{transition: All .3s ease-in-out;-webkit-transition: All .3s ease-in-out;-moz-transition: All .3s ease-in-out;-o-transition: All .3s ease-in-out;-ms-transition: All .3s ease-in-out;}
 .am-transition-1:hover{transition: All .5s ease-in-out;-webkit-transition: All .5s ease-in-out;-moz-transition: All .5s ease-in-out;-o-transition: All .5s ease-in-out;-ms-transition: All .5s ease-in-out;}
 .am-transition.scale:hover{transform: scale(1.1);-webkit-transform: scale(1.1);-moz-transform: scale(1.1);-o-transform: scale(1.1);-ms-transform: scale(1.1);}
@@ -110,14 +129,17 @@ body{background-color: #f5f5f5;}
 
 /* 首页样式 */
 #topbar-collapse .am-topbar-nav>li.am-active>a{color: #fff;}
-/* 某些设置出现换行BUG*/.am-topbar-nav>li>a.min80{min-width: 80px;}
+/* 某些设置出现换行BUG*/
+.am-topbar-nav>li>a.min80{min-width: 80px;}
 #fixed-top-topbar{width: 100% !important;left: 0 !important;}
-/* 轮播图设置最大高度*/#home-carousel .h-c-img{margin: 0 auto;max-height: 800px;}
+/* 轮播图设置最大高度*/
+#home-carousel .h-c-img{margin: 0 auto;max-height: 800px;}
 .show-popup .user-avatar{max-width: 232px;max-height: 299px;}
 .show-popup .user-rank{position: absolute;z-index: 2;right: 0;bottom: 20px;width: 100px !important;height: 100px;}
 #my-user-popup .show-popup .user-rank{right: 20px;bottom: 0;}
 .user-yaoqiu p{margin: 0.4rem 1rem;}
-/* 分类*/#classify .filter{color: #535353;cursor: pointer;padding: .5rem;}
+/* 分类*/
+#classify .filter{color: #535353;cursor: pointer;padding: .5rem;}
 #classify .filter:hover{color: #F87171;}
 #classify .filter.am-active{color: #ff5656;}
 .article-img-box{position: relative;}
@@ -139,6 +161,14 @@ body{background-color: #f5f5f5;}
 .article-table tbody tr td{padding: .7rem .2rem;}
 .article-table tbody tr td .icon-position span{top: .18rem;left: .5rem;}
 
+/* 关于我们，活动流程*/
+#main{background-color: #fff;}
+.about-img img{min-height: 380px;min-width: 100%;}
+@media only screen and (max-width: 640px){.about-img img{min-height: auto;}}.about-info .am-text-danlan{color: #5085C7;}
+.about-info h2{margin-bottom: .5rem;}
+.about-info .hr{height: 2px;background-color: #C8C8C8;border: medium none;}
+.about-info strong{font-size: 1.5rem;}
+.about-info .am-text-danlan{color: #5085C7;}
 
 
 
