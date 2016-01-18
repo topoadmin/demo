@@ -134,10 +134,7 @@ img.logo{height: 50px;}
 #fixed-top-topbar{width: 100% !important;left: 0 !important;}
 /* 轮播图设置最大高度*/
 #home-carousel .h-c-img{margin: 0 auto;max-height: 800px;}
-.show-popup .user-avatar{max-width: 232px;max-height: 299px;}
-.show-popup .user-rank{position: absolute;z-index: 2;right: 0;bottom: 20px;width: 100px !important;height: 100px;}
-#my-user-popup .show-popup .user-rank{right: 20px;bottom: 0;}
-.user-yaoqiu p{margin: 0.4rem 1rem;}
+
 /* 分类*/
 #classify .filter{color: #535353;cursor: pointer;padding: .5rem;}
 #classify .filter:hover{color: #F87171;}
@@ -145,9 +142,19 @@ img.logo{height: 50px;}
 .article-img-box{position: relative;}
 .article-dis{position: absolute;top: 3px;right: 5%;}
 
+/* 用户头像 */
+.user-img-box{position: relative;}
+.show-popup .user-avatar{max-width: 232px;max-height: 299px;}
+.show-popup .user-rank{position: absolute;z-index: 2;right: 0;bottom: 20px;width: 100px !important;height: 100px;}
+#article-user .show-popup .user-rank{bottom: 0;}
+#my-user-popup .show-popup .user-rank{right: 20px;bottom: 0;}
+.user-character p{margin: 0.4rem 1rem;}
+
+
 /* 活动详情 */
 @media only screen{.am-u-sm-3min{width: 30.333333%;}
-.am-u-sm-8min{width: 68.66666667%;}}#article-user{max-width: 1200px;}
+.am-u-sm-8min{width: 68.66666667%;}}
+#article-user{max-width: 1200px;}
 .am-g-fixed-min{max-width: 1200px;}
 .article-tese{max-width: 485px;margin: 0 auto 20px auto;}
 .money-grade img{max-width: 100%;}

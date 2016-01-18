@@ -1,17 +1,16 @@
 (function(root, factory) {
 	"use strict";
 	if (typeof define === "function" && define.amd) {
-		define(["jquery"], factory);
+		define(["jquery", "app"], factory);
 	} else if (typeof exports === "object") {
-		module.exports = factory(require("jquery"));
+		module.exports = factory(require("jquery"), require("app"));
 	} else {
 		factory(root.jQuery);
 	}
-}(this, function($, laytpl) {
+}(this, function($) {
 	var articleUser = $("#article-user");
-	articleUser.on("click", "li", function(e) {
-		console.log($(this).html());
-	});
+	/* 查看用户信息 */
+	articleUser.userPopup();
 
 	/*    -- 侦测导航 --    */
 	var at = $("#article-template"), // 需要侦测的盒子
@@ -27,9 +26,8 @@
 		$win.on("scroll", function() {
 			scrollAtNav();
 		});
-		
 	}
-	
+
 	function scrollAtNav() {
 		var leftTop = atNav.offset().top + atNav.height();
 		var rightTop = atRight.offset().top + atRight.height();

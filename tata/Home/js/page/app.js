@@ -9,8 +9,9 @@
 	}
 
 }(this, function($) {
+	var loading = $(".loading");
 	setTimeout(function() {
-		$(".loading").hide();
+		loading.hide();
 	}, 333)
 	var sendCode = $(".send-code");
 	if (sendCode.length) {
@@ -49,7 +50,7 @@
 			btn.prop('disabled', true);
 		}
 	}
-	
+
 	var $window = $(window);
 	// -- 加载登录模块
 	var loginModule = function() {
@@ -57,7 +58,7 @@
 		var lrpopup = $("#my-lr-popup"),
 			toggleForm = lrpopup.find(".toggle-form"),
 			form = lrpopup.find(".am-form");
-		
+
 		if (lrpopup.data("open")) {
 			lrpopup.modal();
 		} else {
@@ -77,20 +78,27 @@
 				$($form).removeClass("am-hide");
 			});
 		}
-		lrpopup.one('open.modal.amui opened.modal.amui', function(){
+		lrpopup.one('open.modal.amui opened.modal.amui', function() {
 			/* 改变popup的默认高度，不需要过多白边 */
-			if($window.width() <= 620){
-				lrpopup.css("height","100%");
-			}else{
+			if ($window.width() <= 620) {
+				lrpopup.css("height", "100%");
+			} else {
 				lrpopup.height("auto");
-				lrpopup.removeClass("hide").css({"margin-top":-lrpopup.height()/2});
+				lrpopup.removeClass("hide").css({
+					"margin-top": -lrpopup.height() / 2
+				});
 			}
-			$window.on("resize",function(){
-				if($(this).width() <=620){
-					lrpopup.css({"height":"100%","margin-top":"0"})
-				}else{
+			$window.on("resize", function() {
+				if ($(this).width() <= 620) {
+					lrpopup.css({
+						"height": "100%",
+						"margin-top": "0"
+					})
+				} else {
 					lrpopup.height("auto");
-					lrpopup.css({"margin-top":-lrpopup.height()/2});
+					lrpopup.css({
+						"margin-top": -lrpopup.height() / 2
+					});
 				}
 			})
 		});
@@ -113,10 +121,10 @@
 			})
 		});
 	}
-	
 	$(".login").on("click", function() {
 		loginModule();
 	});
+
 	// -- 关闭浮动二维码
 	var floatCode = $("#float-code");
 	if (floatCode.length) {
@@ -146,6 +154,87 @@
 				floatKefu.remove();
 			});
 		});
+	}
+
+	/* 打开用户弹窗 */
+	$.fn.userPopup = function(opt) {
+		var defaults = {
+			$userPopup: $("#my-user-popup"),
+			$userImgBox: ".user-img-box"
+		};
+		var opts = $.extend(defaults, opt);
+		var self = $(this);
+		self.on("click", opts.$userImgBox, function() {
+			openUserPopup($(this));
+		})
+
+		function openUserPopup(elm) {
+			loading.show().find(".txt").html("用户内容加载中。。。");
+			var $abox = elm.children("a"),
+				$userImg = $abox.children(".user-avatar").attr("src"),
+				$rankImg = $abox.children(".user-rank").attr("src");
+			setTimeout(function() {
+				// 点击查看用户资料
+				$.getJSON("js/data/userInfo.json", function(data) {
+					loading.hide();
+					data.userimg = $userImg;
+					data.rank = $rankImg;
+					data.characterDom = splitCharacter(data.character);
+					fillUserPopup(data);
+				});
+			}, 333);
+		}
+
+		function splitCharacter(character) {
+			var jsondata = character.split("|");
+			var newStr = "";
+			for (var i = 0; i < jsondata.length; i++) {
+				if (jsondata[i]) {
+					newStr += "<p>" + jsondata[i] + "</p>";
+				}
+			}
+			newStr += "</br>"
+			return newStr;
+		}
+
+		// -- 填充用户信息
+		function fillUserPopup(data) {
+			var $data = data,
+				$userPopup = opts.$userPopup,
+				$userDom = {
+					username: $userPopup.find(".user-username"),
+					site: $userPopup.find(".user-site"),
+					age: $userPopup.find(".user-age"),
+					height: $userPopup.find(".user-height"),
+					weight: $userPopup.find(".user-weight"),
+					constellation: $userPopup.find(".user-constellation"),
+					job: $userPopup.find(".user-job")
+				},
+				$character = $userPopup.find(".user-character"),
+				$addPraise = $userPopup.find(".add-praise"),
+				$praise = $userPopup.find(".user-praise");
+
+			for (var k in $userDom) {
+				$userDom[k].text($data[k]);
+			}
+			if ($userPopup.data("open")) {
+				$userPopup.modal();
+			} else {
+				$userPopup.modal({
+					relatedTarget: this,
+					closeViaDimmer: false
+				}).data("open", true).on("click", ".add-praise", function() {
+					// -- 点赞
+					var $this = $(this),
+						$praise = $this.find(".user-praise span");
+					var praiseSize = parseFloat($praise.text()) + 1;
+					$praise.text(praiseSize);
+				});
+			}
+			$character.html(data.characterDom)
+			$userPopup.find(".user-img-popup").attr("src", $data.userimg);
+			$userPopup.find(".user-rank").attr("src", $data.rank);
+		}
 	}
 
 }));

@@ -17,7 +17,12 @@
 				position: relative;
 				min-height: 100px;
 				padding-left: 120px;
-				border-bottom: 2px solid #BDBBBB;
+				border-bottom: 2px solid #f5f5f5;
+			}
+			@media only screen and (max-width: 640px) {
+				.vip-rank{
+					border-color: #f5f5f5;
+				}
 			}
 			.vip-rank img {
 				max-height: 100px;max-width: 100px;
@@ -34,7 +39,7 @@
 		<header class="am-topbar am-topbar-fixed-top" id="fixed-top-topbar">
 			<div class="am-topbar-brand am-text-white">
 				<a href="home.html">
-					<img src="http://www.taquta.com/Application/Home/View/Default/Images/mini_logo.png" height="50" alt="logo">
+					<img class="logo" src="../assets/img/logo.png" > <small>用户管理中心</small>
 				</a>
 			</div>
 			<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only check-head-nav" data-am-collapse="{target: '#collapse-head'}">

@@ -32,11 +32,11 @@
 						<div></div>
 					</div>
 				</div>
-				<p class="am-text-white">别闹，加载是一门艺术...</p>
+				<p class="am-text-white txt">别闹，加载是一门艺术...</p>
 			</div>
 			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
 		</div>
-		
+
 		<!-- start 头部导航 -->
 		<header class="am-topbar am-topbar-fixed-top" id="fixed-top-topbar">
 			<div class="header-fixed am-g-fixed-min">
@@ -68,7 +68,7 @@
 				</div>
 			</div>
 		</header>
-		
+
 		<!-- start 内容区域 -->
 		<div id="main">
 			<div style="height: 20px;"></div>
@@ -153,12 +153,15 @@
 				<div id="article-user" class="am-g">
 					<div class="am-u-sm-12">
 						<ul data-am-widget="gallery" class="am-gallery am-avg-sm-3 am-avg-md-6 am-gallery-bordered" data-am-gallery="{}">
-							<!-- 女 -->
 							<li>
-								<div class="am-gallery-item">
-									<a href="javascript:;"><img src="http://www.taquta.com/Uploads/avatar/95/95.jpg" /></a>
+								<div class="am-gallery-item am-text-center user-img-box">
+									<a class="show-popup" href="javascript:;">
+										<img class="am-text-center user-avatar" src="http://www.taquta.com/Uploads/avatar/95/95.jpg" alt="宋词"> 
+										<img class="am-show-lg-up user-rank" data-rank="3" src="img/vip-3.png"> 
+									</a> 
 								</div>
 							</li>
+							<!-- 女 -->
 							<li>
 								<div class="am-gallery-item">
 									<a href="javascript:;"><img src="img/woman-baoming.jpg" /></a>
@@ -186,8 +189,11 @@
 							</li>
 							<!-- 男 -->
 							<li>
-								<div class="am-gallery-item">
-									<a href="javascript:;"><img src="http://www.taquta.com/Uploads/avatar/25/25.jpg" /></a>
+								<div class="am-gallery-item am-text-center user-img-box">
+									<a class="show-popup" href="javascript:;">
+										<img class="am-text-center user-avatar" src="http://www.taquta.com/Uploads/avatar/25/25.jpg"> 
+										<img class="am-show-lg-up user-rank" data-rank="3" src="img/vip-3.png"> 
+									</a> 
 								</div>
 							</li>
 							<li>
@@ -869,7 +875,6 @@
 			</div>
 		</footer>
 
-
 		<!-- 登录注册弹窗 -->
 		<div class="am-popup" id="my-lr-popup">
 			<div class="am-popup-inner">
@@ -944,7 +949,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- 浮动二维码 -->
 		<div id="float-code" class="am-hide-md-down" data-am-scrollspy="{animation: 'slide-top', delay: 666}">
 			<img src="http://www.taquta.com/Application/Home/View/Default/Images/float-code.jpg">
@@ -978,6 +983,76 @@
 				</div>
 			</div>
 			<button class="am-btn am-btn-primary am-btn-block am-text-xs am-btn-close">关闭</button>
+		</div>
+
+		<!-- 用户资料弹窗 -->
+		<div class="am-popup" id="my-user-popup">
+			<div class="am-popup-inner">
+				<div class="am-popup-hd">
+					<h4 class="am-popup-title">TA的资料</h4>
+					<span data-am-modal-close="" class="am-close">×</span>
+				</div>
+				<div class="am-popup-bd">
+					<div class="am-g">
+						<div class="am-u-sm-6 am-u-md-6 am-u-sm-push-3 am-u-md-push-0 am-text-center" style="position: relative;max-width: 232px;">
+							<a class="show-popup" href="javascript:;">
+								<img class="am-img-thumbnail user-img-popup" src="img/load.gif" />
+								<img class="am-show-lg-up user-rank" src="img/vip-2.png" />
+							</a>
+							<!--<img class="am-img-thumbnail user-img-popup" src="img/load.gif" />-->
+						</div>
+						<div class="am-u-sm-12 am-u-md-6 am-text-sm am-padding-left-0 am-text-left">
+							<div>
+								<strong class="am-inline-block am-margin-0">会员昵称：</strong>
+								<span class="am-text-lg user-username">淡淡的真</span>
+							</div>
+							<div>
+								<strong class="am-inline-block am-margin-0">居住地址：</strong>
+								<span class="user-site">石家庄市</span>
+							</div>
+							<div>
+								<strong class="am-inline-block am-margin-0">年　　龄：</strong>
+								<span class="user-age">21</span>
+							</div>
+							<div>
+								<strong class="am-inline-block am-margin-0">身　　高：</strong>
+								<span class="user-height">169</span>
+							</div>
+							<div>
+								<strong class="am-inline-block am-margin-0">体　　重：</strong>
+								<span class="user-weight">45-55</span>
+							</div>
+							<div>
+								<strong class="am-inline-block am-margin-0">星　　座：</strong>
+								<span class="user-constellation">天蝎座</span>
+							</div>
+							<div>
+								<strong class="am-inline-block am-margin-0">职　　业：</strong>
+								<span class="user-job">计算机/互联网/通信</span>
+							</div>
+						</div>
+					</div>
+					<section class="am-panel am-panel-default am-margin-top-sm">
+						<header class="am-panel-hd">
+							<div class="am-text-center">
+								<h3 class="am-panel-title"> 对他说: </h3>
+							</div>
+							<div class="am-cf"></div>
+						</header>
+						<div class="am-g am-text-sm user-character">
+							<p>温柔贤惠、懂生活、会持家长的顺眼就行。</p>
+							<p>你要是能力强，愿意养家，我做家庭煮夫也是可以的。</p>
+							<p>对婆媳关系处理上有耐心，懂得忍让，知晓吃亏是福的道理。</p>
+						</div>
+					</section>
+
+					<div class="am-g am-text-center">
+						<a href="javascript:;" class="am-btn am-btn-success add-praise"><i class="am-icon-thumbs-up"></i> 赞
+							<span class="am-padding-horizontal-xs user-praise">(<span>11</span>)</span></a>
+						<a href="javascript:;" class="am-btn am-btn-primary" data-am-modal-close><i class="am-icon-remove"></i> 关闭 </a>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<script type="text/javascript">

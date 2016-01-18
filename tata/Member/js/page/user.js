@@ -11,6 +11,24 @@
 }(this, function($) {
 	addOption(150, 200, "#sel-height");
 	addOption(40, 90, "#kg-height");
+	$(".am-popup").one('open.modal.amui opened.modal.amui', function(){
+		/* 改变popup的默认高度，不需要过多白边 */
+		var $thisPopup = $(this);
+		if($(window).width() <= 620){
+			$thisPopup.css("height","100%");
+		}else{
+			$thisPopup.height("auto");
+			$thisPopup.removeClass("hide").css({"margin-top":-$thisPopup.height()/2});
+		}
+		$(window).on("resize",function(){
+			if($(this).width() <=620){
+				$thisPopup.css({"height":"100%","margin-top":"0"})
+			}else{
+				$thisPopup.height("auto");
+				$thisPopup.css({"margin-top":-$thisPopup.height()/2});
+			}
+		})
+	});
 	// 绑定form验证
 	var $formArr = $(".am-form");
 	$formArr.each(function(i) {
