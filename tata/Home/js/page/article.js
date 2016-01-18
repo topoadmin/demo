@@ -37,4 +37,8 @@
 			atNav.show();
 		}
 	}
+	
+	$(".balidao img").on("click",function(){
+		$("#article-gallery li a").trigger("click");
+	})
 }));

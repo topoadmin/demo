@@ -1,6 +1,6 @@
 [
 	{
-		"href": "article.html",
+		"href": "http://www.taquta.com/tatatrip/VmtkNFUySnNRbEpRVkRBOQ==?spm=1450755341",
 		"img": "http://www.taquta.com/Uploads/image/product/20151120/20151120115908_52341.jpg",
 		"info":"六天四晚社交旅游",
 		"alt": "巴厘岛",
@@ -49,5 +49,15 @@
 		"time": "人满出发",
 		"price": "7500",
 		"privilege": "3750"
+	},{
+		"href": "article.html",
+		"img": "http://www.taquta.com/Uploads/image/product/20151216/20151216180039_81327.jpg",
+		"info":"活动详情页演示",
+		"alt": "演示",
+		"site":"演示",
+		"site2": "演示",
+		"time": "演示",
+		"price": "演示",
+		"privilege": "演示"
 	}
 ]

@@ -41,7 +41,10 @@
 .color-grey{color: #666;}
 .am-text-index-2{text-indent: 2rem;}
 .am-text-index-4{text-indent: 4rem;}
-/* 重写 amazeui.css ***************************//*盖不住内容*/
+/* 重写 amazeui.css ***************************/
+.r-slide .am-control-nav {width: 100%;position: absolute;bottom: 40px;right: 40px;text-align: right;}
+.r-slide .am-control-nav>li>a.am-active{color: #fff;background-color: #fff;}
+/*盖不住内容*/
 .am-popup-hd{z-index: 2;}
 /* 轮播控制点改变大小和颜色*/
 .am-slider-default .am-direction-nav a.am-prev,
@@ -90,9 +93,8 @@ img.logo{height: 50px;}
 	}
 }
 
-
 .loading{z-index: 1200;position: fixed;}
-.am-popup{height: auto;}
+.my-lr-popup{height: auto;}
 .hide{display: none !important;}
 /* 窄屏配置*/
 .am-g-fixed-min{margin: 0 auto;max-width: 1200px;}

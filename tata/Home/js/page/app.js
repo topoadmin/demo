@@ -10,6 +10,7 @@
 
 }(this, function($) {
 	var loading = $(".loading");
+	var $window = $(window);
 	setTimeout(function() {
 		loading.hide();
 	}, 333)
@@ -51,7 +52,7 @@
 		}
 	}
 
-	var $window = $(window);
+	
 	// -- 加载登录模块
 	var loginModule = function() {
 		// -- 登录注册弹窗
