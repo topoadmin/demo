@@ -7,7 +7,7 @@ require.config({
 		"lazyload": "../../assets/js/jquery.lazyload",
 		"easing": "../../assets/js/jquery.easing",
 		"mixitup": "../../assets/js/jquery.mixitup",
-		"storage": "module/storage",
+		"storage": "../../assets/js/storage",
 		"laytpl": "../../assets/js/laytpl",
 		"formValid": "../../assets/js/jquery.formValid",
 		"app": "page/app",
