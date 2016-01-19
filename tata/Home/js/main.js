@@ -2,17 +2,18 @@ require.config({
 	paths: {
 		 "amazeui":"../../assets/js/amazeui.min",	// 妹子Ui
 		"jquery": "../../assets/js/jquery.min",
-		//		"jquery":"http://libs.baidu.com/jquery/2.0.0/jquery.min",	百度cdn搭配妹子会出BUG
+		"countUp": "../../assets/js/countUp", // 数字动态效果
 //		"amazeui": "http://cdn.amazeui.org/amazeui/2.5.0/js/amazeui.min",
-		"lazyload": "module/jquery.lazyload",
-		"easing": "module/jquery.easing",
-		"mixitup": "module/jquery.mixitup",
+		"lazyload": "../../assets/js/jquery.lazyload",
+		"easing": "../../assets/js/jquery.easing",
+		"mixitup": "../../assets/js/jquery.mixitup",
 		"storage": "module/storage",
-		"laytpl": "module/laytpl",
-		"formValid": "module/jquery.formValid",
+		"laytpl": "../../assets/js/laytpl",
+		"formValid": "../../assets/js/jquery.formValid",
 		"app": "page/app",
 		"article":"page/article",
-		"home": "page/home"
+		"home": "page/home",
+		"allUser":"page/all-user"
 	}
 });
 require(["jquery", "amazeui", "app"], function($) {

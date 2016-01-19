@@ -70,7 +70,7 @@
 body{background-color: #f5f5f5;}
 img.logo{height: 50px;}
 .am-with-topbar-fixed-top {padding-top: 70px;}
-#fixed-top-topbar{z-index: 1099;border: none;background-color: rgba(0,0,0,0.7);height: 70px;}
+#fixed-top-topbar{z-index: 1099;border: none;background-color: rgba(0,0,0,0.7);height: 70px;border-bottom: 2px solid #ff5656;}
 #fixed-top-topbar .am-nav>li.am-active>a{cursor: pointer;}
 #fixed-top-topbar .check-head-nav{margin-top: 18px;}
 #fixed-top-topbar .am-topbar,.am-topbar a{color: #fff;}
