@@ -13,7 +13,8 @@ require.config({
 		"app": "page/app",
 		"article":"page/article",
 		"home": "page/home",
-		"allUser":"page/all-user"
+		"allUser":"page/all-user",
+		"photoWall":"page/photoWall"
 	}
 });
 require(["jquery", "amazeui", "app"], function($) {

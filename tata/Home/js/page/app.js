@@ -51,7 +51,6 @@
 		}
 	}
 
-	
 	// -- 加载登录模块
 	var loginModule = function() {
 		// -- 登录注册弹窗
@@ -123,6 +122,9 @@
 	}
 	$(".login").on("click", function() {
 		loginModule();
+		if($(this).hasClass("register")){
+			$("#register").trigger("click");
+		}
 	});
 
 	// -- 关闭浮动二维码

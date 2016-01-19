@@ -9,18 +9,24 @@
 	}
 
 }(this, function($) {
+	$("footer").addClass("am-g-fixed-min");
+	// 加载更多图片
 	require(["laytpl","lazyload"],function(laytpl){
 		var $allUpImg = $("#all-user-box");
-		var gettpl = document.getElementById("all-user-tpl").innerHTML;
+		$allUpImg.find(".lazyload").lazyload();
 		var newsLoadBtn = $(".news-load-up-btn"),
 			newsLoadI = newsLoadBtn.find(".news-load-i");
-			
-		loadUserUpImg("js/data/up-img.json");
-		newsLoadBtn.on("click",function(){
-			loadUserUpImg("js/data/load-user-up-img.json","load");
-		});
 		
-		// 加载更多图片
+		var gettpl = document.getElementById("all-user-tpl").innerHTML;
+		
+		/* 查看用户信息 */
+		if($allUpImg.find(".user-img-box").length >= 1){
+			$allUpImg.userPopup();
+		}
+		
+		newsLoadBtn.on("click",function(){
+			loadUserUpImg($(this).data("load-url"),"load");
+		});
 		function loadUserUpImg(jsonUrl,method){
 			if(method){
 				newsLoadI.show();
@@ -35,7 +41,7 @@
 				}
 			});
 		}
-	})
+	});
 	
 	// 动态数字效果
 	if ($(".countUp").length > 0) {
