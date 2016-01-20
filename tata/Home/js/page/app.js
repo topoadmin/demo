@@ -52,7 +52,7 @@
 	}
 
 	// -- 加载登录模块
-	var loginModule = function() {
+	var loginModule = function(method) {
 		// -- 登录注册弹窗
 		var lrpopup = $("#my-lr-popup"),
 			toggleForm = lrpopup.find(".toggle-form"),
@@ -77,13 +77,14 @@
 				$($form).removeClass("am-hide");
 			});
 		}
-		lrpopup.one('open.modal.amui opened.modal.amui', function() {
-			/* 改变popup的默认高度，不需要过多白边 */
+		/*lrpopup.one('open.modal.amui opened.modal.amui', function() {
 			if ($window.width() <= 620) {
-				lrpopup.css("height", "100%");
+				lrpopup.css({
+					"height": "100%",
+					"margin-top": "0"
+				})
 			} else {
-				lrpopup.height("auto");
-				lrpopup.removeClass("hide").css({
+				lrpopup.css({
 					"margin-top": -lrpopup.height() / 2
 				});
 			}
@@ -100,7 +101,7 @@
 					});
 				}
 			})
-		});
+		});*/
 
 		// -- 加载表单验证模块
 		require(["formValid"], function() {
@@ -122,9 +123,6 @@
 	}
 	$(".login").on("click", function() {
 		loginModule();
-		if($(this).hasClass("register")){
-			$("#register").trigger("click");
-		}
 	});
 
 	// -- 关闭浮动二维码

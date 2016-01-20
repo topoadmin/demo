@@ -45,7 +45,11 @@
 /* 重写 amazeui.css ***************************/
 .r-slide .am-control-nav {width: 100%;position: absolute;bottom: 40px;right: 40px;text-align: right;}
 .r-slide .am-control-nav>li>a.am-active{color: #fff;background-color: #fff;}
-/*盖不住内容*/
+.am-popup{height: auto;}
+@media only screen and (max-width: 640px) {
+	.am-popup{height: 100%;}
+}
+/*遮罩层盖不住内容*/
 .am-popup-hd{z-index: 2;}
 /* 轮播控制点改变大小和颜色*/
 .am-slider-default .am-direction-nav a.am-prev,
@@ -96,8 +100,6 @@ img.logo{height: 50px;}
 }
 
 .loading{z-index: 1200;position: fixed;}
-.my-lr-popup{height: auto;}
-.hide{display: none !important;}
 /* 窄屏配置*/
 .am-g-fixed-min{margin: 0 auto;max-width: 1200px;}
 /* 让活动盒子一个一个挨着*/
@@ -182,7 +184,7 @@ img.logo{height: 50px;}
 .about-info .am-text-danlan{color: #5085C7;}
 
 /* 查看所有用户  */
-.banner_bg{background: url(http://assets.petshow.cc/pc/v2/img/banner_bg.png) top center no-repeat;color: #fff;text-align: center;height: 278px;}
+.banner_bg{background: url(../img/banner_bg.png) top center no-repeat;color: #fff;text-align: center;height: 278px;}
 .min-text-xs .m-t-xl{font-size: 3rem;}
 .min-text-xs .m-t-max{font-size: 10rem;}
 .banner_navbg{width: 100%;border-bottom: 2px solid #B1A7A7;}

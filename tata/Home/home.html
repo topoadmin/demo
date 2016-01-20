@@ -12,6 +12,7 @@
 		<link rel="shortcut icon" href="http://www.taquta.com/favicon.ico">
 		<link rel="bookmark" href="http://www.taquta.com/favicon.ico">
 		<link rel="stylesheet" href="../assets/css/amazeui.min.css">
+		<link rel="stylesheet" href="../assets/css/animate.css">	
 		<link rel="stylesheet" href="../assets/css/app.css" />
 	</head>
 
@@ -119,7 +120,7 @@
 				<div id="user-box">
 				</div>
 				<div class="am-g am-text-right am-margin-bottom-xs">
-					<a class="am-padding-right-sm" href="all-user.html"><i class="am-icon-hand-o-right"></i> 查看更多会员 </a>
+					<a class="am-padding-right-sm am-text-danger" href="allUser.html"><i class="am-icon-hand-o-right faa-horizontal animated am-text-xl"></i> 查看更多会员 </a>
 				</div>
 			</section>
 
@@ -144,7 +145,7 @@
 			<section class="am-panel am-panel-default">
 				<header class="am-panel-hd">
 					<div class="am-text-center">
-						<h3 class="am-panel-title">热门景点</h3>
+						<h3 class="am-panel-title">所有景点</h3>
 					</div>
 					<div class="am-cf"></div>
 				</header>
@@ -238,7 +239,7 @@
 		</footer>
 
 		<!-- 登录注册弹窗 -->
-		<div class="am-popup hide" id="my-lr-popup">
+		<div class="am-popup" id="my-lr-popup">
 			<div class="am-popup-inner">
 				<div class="am-popup-hd">
 					<h4 class="am-popup-title">登录/注册</h4>
@@ -419,7 +420,7 @@
 		<!-- 用户头像模版 -->
 		<script id="users-tpl" type="text/html">
 			<div class="am-g">
-				<div class="am-slider am-slider-default am-slider-carousel am-u-sm-12">
+				<div class="am-slider am-slider-default am-slider-carousel am-u-sm-12 am-margin-0">
 					<ul class="am-slides">
 						{{#for (var i = 0, len = d.length; i
 						< len; i++) {}} <li>

@@ -14,9 +14,11 @@ require.config({
 		"hammer": "../../assets/js/hammer", // 移动端滑动事件
 		"iscroll": "../../assets/js/iscroll-zoom", // pc滚轮事件
 		"photoClip": "../../assets/js/jquery.photoClip", // 头像截取
-		"autoexec": "page/autoexec", // 组件初始化
+		"webuploader": "page/webuploader.html5only.min", // 组件初始化
+		"textupload": "page/textupload", // 组件初始化
 		"app": "page/app", // 公共的js
-		"user": "page/user"
+		"user": "page/user", 
+		"uploadPhoto": "page/uploadPhoto"
 	}
 });
 require(["jquery", "amazeui","app"], function($) {

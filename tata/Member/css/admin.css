@@ -84,7 +84,7 @@ a::-moz-focus-inner{border-color: transparent!important;}
 .am-form-horizontal .am-radio-inline{padding-top: .3em;}
 #main{/*position: absolute;*//*top: 51px;*/z-index: 2;}
 #topbar-collapse .am-topbar-nav>li.am-active>a{color: #fff;}
-/* 左侧导航*/#admin-left-nav>li.active{background-color: #D4D0D0;}
+/* 左侧导航*/#admin-left-nav>li.am-active{background-color: #D4D0D0;}
 #admin-left-nav>li:hover,
 #admin-left-nav>li:focus{background-color: #EAEAEA;}
 .pd-left270{padding-left: 270px;}

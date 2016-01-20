@@ -14,9 +14,7 @@
 		<link rel="stylesheet" href="../assets/css/amazeui.min.css">
 		<link rel="stylesheet" href="../assets/css/app.css" />
 		<style type="text/css">
-			#main {
-				background: none;
-			}
+			#main{background:none;}
 		</style>
 	</head>
 
@@ -56,30 +54,51 @@
 			<div class="am-g">
 				<div class="am-u-lg-12">
 					<div class="min-text-xs">
-						<span class="m-t-xl">共有有</span>
-						<span class="am-text-danger m-t-max countUp" data-endVal="54321">0</span>
-						<span class="m-t-xl">张照片 <i class="am-icon-venus-double"></i></span>
+						<span class="m-t-xl">已经有</span>
+						<span class="am-text-danger m-t-max countUp" data-endVal="12345">0</span>
+						<span class="m-t-xl">位会员 <i class="am-icon-venus-double"></i></span>
 					</div>
 					<div>
-						<a class="am-btn am-btn-primary am-radius" href="#">
-							<i class="am-icon-upload"></i> 我要上传
+						<a class="am-btn am-btn-primary am-radius login register" href="javascript:;">
+						  <i class="am-icon-user-plus"></i> 我要加入
 						</a>
-						<a class="am-btn am-btn-danger am-radius" href="photo-wall.html">
-						  <i class="am-icon-list-ul"></i> 查看会员墙
+						<a class="am-btn am-btn-success am-radius" href="photoWall.html">
+						  <i class="am-icon-list-ul"></i> 查看照片墙
 						</a>
 					</div>
 				</div>
 			</div>
 		</div>
-
+		
 		<!-- start 内容区域 -->
 		<div id="main">
 			<div class="banner_navbg">
 				<div class="am-g am-g-fixed-min">
 					<div class="banner_nav">
 						<span class="am-icon-caret-right sm-hide"> 筛选：</span>
-						<a class="banner_nav_a am-active" href="javascript:;" class="am-active">最新</a>
-						<a class="banner_nav_a" href="javascript:;">最热</a>
+						<a class="banner_nav_a am-active" href="javascript:;" class="am-active">所有</a>
+						<a class="banner_nav_a" href="javascript:;">同城</a>
+						<a class="banner_nav_a sm-hide" href="javascript:;">等级升序 <i class="am-icon-level-up am-text-warning"></i></a>
+						<!--<a class="banner_nav_a sm-hide am-hide" href="javascript:;">等级降序 <i class="am-icon-level-down"></i></a>-->
+						<a class="banner_nav_a sm-hide" href="javascript:;">随机推送</a>
+						<a class="banner_nav_a sm-hide" href="javascript:;">老战友</a>
+						<div class="am-dropdown sm-show" data-am-dropdown>
+							<a href="javascript:;" class="am-dropdown-toggle banner_nav_a" data-am-dropdown-toggle>分类 <i class="am-icon-caret-down"></i><a>
+							<ul class="am-dropdown-content">
+								<li class="am-show-sm-only">
+									<a class="am-padding-sm" href="#">等级升序 <i class="am-icon-level-up"></i></a>
+								</li>
+								<!--<li class="am-show-sm-only">
+									<a class="am-padding-sm" href="#">等级降序 <i class="am-icon-level-down"></i></a>
+								</li>-->
+								<li>
+									<a class="am-padding-sm" href="#">随机推送</a>
+								</li>
+								<li>
+									<a class="am-padding-sm" href="#">老战友</a>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -87,26 +106,18 @@
 			<div class="am-g am-g-fixed-min">
 				<ul id="all-user-box" data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-4 am-avg-lg-5 am-gallery-default">
 					<li>
-						<div class="am-gallery-item am_list_block">
-							<a href="javascript:;">
-								<img class="lazyload" data-original="http://www.taquta.com/Uploads/avatar/100/100.jpg" src="img/load.gif" />
-							</a>
-							<div class="am_listimg_info">
-								<span class="am-icon-heart">15</span>
-								<span class="am_imglist_time">1小时前</span>
-							</div>
+						<div class="am-gallery-item am_list_block am-text-center user-img-box">
+							<a class="show-popup" href="javascript:;"> 
+								<img class="am-text-center user-avatar lazyload" data-original="http://www.taquta.com/Uploads/avatar/100/100.jpg" src="img/load.gif" > 
+								<img class="user-rank" data-rank="3" src="img/vip-3.png" > 
+							</a> <br />
+							<span class="am-text-sm am-text-secondary">Gaoshi</span> 
 						</div>
-						<a class="am_imglist_user">
-							<span class="am_imglist_user_ico">
-								<img src="http://www.taquta.com/Uploads/avatar/100/100.jpg">
-							</span>
-							<span class="am-text-xs">gaoshi</span>
-						</a>
 					</li>
 				</ul>
-
+				
 				<!-- 加载更多按钮 -->
-				<div class="news-load-up-btn" data-load-url="js/data/new-up-img.json">
+				<div class="news-load-up-btn" data-load-url="js/data/user.json">
 					<span>
 						<i class="am-icon-spinner am-icon-spin news-load-i" style="display: none;"></i>
 						加载更多
@@ -115,37 +126,99 @@
 			</div>
 		</div>
 		<!-- end 内容区域 -->
-
+		
 		<!-- 用户头像模版 -->
 		<script id="all-user-tpl" type="text/html">
-			{{# for(var i = 0, len = d.length; i
-			< len; i++){ }}
+			{{# for(var i = 0, len = d.length; i< len; i++){ }} 
 				<li>
-					<div class="am-gallery-item am_list_block">
-						<a href="javascript:;">
-							<img class="lazyload" data-original="{{ d[i].upImg }}" src="img/load.gif" />
-						</a>
-						<div class="am_listimg_info">
-							<span class="am-icon-heart">{{ d[i].zan }}</span>
-							<span class="am_imglist_time">{{ d[i].time }}</span>
-						</div>
+					<div class="am-gallery-item am_list_block am-text-center user-img-box">
+						<a class="show-popup" href="javascript:;"> 
+							<img class="am-text-center user-avatar lazyload" data-original="{{ d[i].avatar }}" src="img/load.gif" > 
+								<img class="user-rank" data-rank="{{ d[i].rank }}" src="img/vip-{{ d[i].rank }}.png" > 
+						</a> 
+						<br />
+						<span class="am-text-sm am-text-secondary">{{ d[i].name }}</span> 
 					</div>
-					<a class="am_imglist_user">
-						<span class="am_imglist_user_ico">
-							<img src="{{ d[i].avatar }}">
-						</span>
-						<span class="am-text-xs">{{ d[i].name }}</span>
-					</a>
 				</li>
 			{{# } }}
 		</script>
-
+		
 		<!-- 返回顶部 -->
 		<div data-am-widget="gotop" class="am-gotop am-gotop-fixed">
 			<a href="#top" title="回到顶部">
 				<span class="am-gotop-title">回到顶部</span>
 				<i class="am-gotop-icon am-icon-chevron-up"></i>
 			</a>
+		</div>
+		
+		<!-- 用户资料弹窗 -->
+		<div class="am-popup" id="my-user-popup">
+			<div class="am-popup-inner">
+				<div class="am-popup-hd">
+					<h4 class="am-popup-title">TA的资料</h4>
+					<span data-am-modal-close="" class="am-close">×</span>
+				</div>
+				<div class="am-popup-bd">
+					<div class="am-g">
+						<div class="am-u-sm-6 am-u-md-6 am-u-sm-push-3 am-u-md-push-0 am-text-center" style="position: relative;max-width: 232px;">
+							<a class="show-popup" href="javascript:;">
+								<img class="am-img-thumbnail user-img-popup" src="img/load.gif" />
+								<img class="am-show-lg-up user-rank" src="img/vip-2.png" />
+							</a>
+							<!--<img class="am-img-thumbnail user-img-popup" src="img/load.gif" />-->
+						</div>
+						<div class="am-u-sm-12 am-u-md-6 am-text-sm am-padding-left-0 am-text-left">
+							<div>
+								<strong class="am-inline-block am-margin-0">会员昵称：</strong>
+								<span class="am-text-lg user-username">淡淡的真</span>
+							</div>
+							<div>
+								<strong class="am-inline-block am-margin-0">居住地址：</strong>
+								<span class="user-site">石家庄市</span>
+							</div>
+							<div>
+								<strong class="am-inline-block am-margin-0">年　　龄：</strong>
+								<span class="user-age">21</span>
+							</div>
+							<div>
+								<strong class="am-inline-block am-margin-0">身　　高：</strong>
+								<span class="user-height">169</span>
+							</div>
+							<div>
+								<strong class="am-inline-block am-margin-0">体　　重：</strong>
+								<span class="user-weight">45-55</span>
+							</div>
+							<div>
+								<strong class="am-inline-block am-margin-0">星　　座：</strong>
+								<span class="user-constellation">天蝎座</span>
+							</div>
+							<div>
+								<strong class="am-inline-block am-margin-0">职　　业：</strong>
+								<span class="user-job">计算机/互联网/通信</span>
+							</div>
+						</div>
+					</div>
+					<section class="am-panel am-panel-default am-margin-top-sm">
+						<header class="am-panel-hd">
+							<div class="am-text-center">
+								<h3 class="am-panel-title"> 对他说: </h3>
+							</div>
+							<div class="am-cf"></div>
+						</header>
+						<div class="am-g am-text-sm user-character">
+							<p>温柔贤惠、懂生活、会持家长的顺眼就行。</p>
+							<p>你要是能力强，愿意养家，我做家庭煮夫也是可以的。</p>
+							<p>对婆媳关系处理上有耐心，懂得忍让，知晓吃亏是福的道理。</p>
+						</div>
+					</section>
+
+					<div class="am-g am-text-center">
+						<a href="javascript:;" class="am-btn am-btn-success add-praise"><i class="am-icon-thumbs-up"></i> 赞
+							<span class="am-padding-horizontal-xs user-praise">(<span>11</span>)</span></a>
+						<a href="javascript:;" class="am-btn am-btn-primary" data-am-modal-close><i class="am-icon-remove"></i> 关闭 </a>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<!-- 底部信息 -->
@@ -206,7 +279,7 @@
 		</footer>
 
 		<!-- 登录注册弹窗 -->
-		<div class="am-popup hide" id="my-lr-popup">
+		<div class="am-popup" id="my-lr-popup">
 			<div class="am-popup-inner">
 				<div class="am-popup-hd">
 					<h4 class="am-popup-title">登录/注册</h4>
@@ -215,12 +288,12 @@
 				<div class="am-popup-bd">
 					<div class="am-g">
 						<div class="am-u-sm-6">
-							<button class="am-btn am-btn-block toggle-form am-btn-primary" data-form="#login-form">
+							<button class="am-btn am-btn-block toggle-form am-btn-primary" id="login" data-form="#login-form">
 								<i class="am-icon-user"></i> 登录
 							</button>
 						</div>
 						<div class="am-u-sm-6">
-							<button class="am-btn am-btn-block toggle-form" data-form="#register-form">
+							<button class="am-btn am-btn-block toggle-form" id="register" data-form="#register-form">
 								<i class="am-icon-user-plus"></i> 注册
 							</button>
 						</div>
