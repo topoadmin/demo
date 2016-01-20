@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html class="js cssanimations">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<title>admin - 控制台</title>
+		<link rel="stylesheet" href="../assets/css/amazeui.min.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/app.css" />
+		<link rel="stylesheet" href="css/admin.css" />
+		<style type="text/css">
+			.webuploader-container {
+				position: relative;
+			}
+			.webuploader-element-invisible {
+				position: absolute !important;
+				clip: rect(1px 1px 1px 1px);
+				clip: rect(1px, 1px, 1px, 1px);
+			}
+			.webuploader-pick {
+				position: relative;
+				display: inline-block;
+				cursor: pointer;
+				background: #00b7ee;
+				padding: .5em 1em;
+				color: #fff;
+				text-align: center;
+				border-radius: 2px;
+				overflow: hidden;
+			}
+			.open-upload{
+				background: #D8750C;
+			}
+			.webuploader-pick-hover {
+				background: #00a2d4;
+			}
+			
+			.webuploader-pick-disable {
+				opacity: 0.6;
+				pointer-events: none;
+			}
+		</style>
+	</head>
+
+	<body class="am-with-topbar-fixed-top">
+
+		<!-- start 头部导航 -->
+		<header class="am-topbar am-topbar-fixed-top" id="fixed-top-topbar">
+			<div class="am-topbar-brand am-text-white">
+				<a href="home.html">
+					<img class="logo" src="../assets/img/logo.png"> <small>用户管理中心</small>
+				</a>
+			</div>
+			<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only check-head-nav" data-am-collapse="{target: '#collapse-head'}">
+				<span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span>
+			</button>
+			<div class="am-collapse am-topbar-collapse" id="collapse-head">
+				<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+					<li>
+						<a href="javascript:;">
+							<span class="am-icon-bell"></span> 通知
+							<span class="am-badge am-badge-success countUp" data-endVal="60">0</span>
+						</a>
+					</li>
+					<li>
+						<a href="../Home/home.html">
+							<span class="am-icon-home"></span> 返回首页
+						</a>
+					</li>
+					<li class="am-dropdown" data-am-dropdown="">
+						<a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
+							<span class="am-icon-user"></span>
+							<small>13701378834@163.com</small>
+							<span class="am-icon-caret-down"></span>
+						</a>
+						<ul class="am-dropdown-content">
+							<li><a href="user.html"><span class="am-icon-user"></span> 资料</a></li>
+							<li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</header>
+
+		<!-- start 内容区域 -->
+		<div class="admin-main" id="main">
+			<!-- start 导航开始 -->
+			<div class="am-cf admin-sidebar am-offcanvas" id="admin-offcanvas">
+				<div class="am-offcanvas-bar admin-offcanvas-bar">
+					<ul class="am-list admin-sidebar-list" id="admin-left-nav">
+						<li>
+							<a href="vipRank.html">
+								<span class="iconfont icon-dengji"></span> 会员等级
+							</a>
+						</li>
+						<li>
+							<a href="user.html">
+								<span class="am-icon-user"></span> 账户信息
+								<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span>
+							</a>
+						</li>
+						<li class="am-active">
+							<a href="uploadPhoto.html">
+								<span class="am-icon-upload"></span> 上传照片
+							</a>
+						</li>
+					</ul>
+					<div class="am-panel am-panel-default admin-sidebar-panel">
+						<div class="am-panel-bd">
+							<p><span class="am-icon-bookmark"></span> 公告</p>
+							<p class="am-margin-xs">时光静好，与君语。</p>
+							<p class="am-margin-xs">细水流年，与君同。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end 导航结束 -->
+
+			<!-- start 内容开始 -->
+			<div class="am-g pd-left270" id="admin-right-main">
+				<div class="am-u-sm-12 am-margin-vertical-sm" id="box">
+					<ul id="select-img-box" data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-default am-no-layout">
+					</ul>
+					<div id="webupload" class="webuploader-container ">
+						<div class="webuploader-pick">
+							选择图片
+						</div>
+					</div>
+					<div class="new-up-btn" style="display: none;">
+						<div class="webuploader-pick open-upload">开始上传</div>
+						<!--<a id="start_upload" href="javascript:void(0)" class="am-btn am-btn-success am-radius">开始上传</a>-->
+						<!--<a id="all-remove" href="javascript:void(0)" class="am-btn am-btn-danger am-radius">全部删除</a>-->
+					</div>
+				</div>
+			</div>
+			<!-- end 内容区域 -->
+		</div>
+
+		<!-- start 漂浮按钮 -->
+		<div class="amz-toolbar">
+			<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas', closeViaDimmer: 0}"></a>
+		</div>
+		<!-- end 漂浮按钮 -->
+
+		<!-- 脚本 -->
+		<script type="text/javascript">
+			var thisPage = "uploadPhoto";
+		</script>
+		<script src="http://apps.bdimg.com/libs/require.js/2.1.9/require.min.js" data-main="js/main"></script>
+	</body>
+
+</html>
