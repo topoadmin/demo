@@ -88,7 +88,10 @@ a::-moz-focus-inner{border-color: transparent!important;}
 #admin-left-nav>li:hover,
 #admin-left-nav>li:focus{background-color: #EAEAEA;}
 .pd-left270{padding-left: 270px;}
-@media only screen and (max-width: 640px){.pd-left270{padding-left: 0px;}
+.pd-left260{padding-left: 260px;}
+@media only screen and (max-width: 640px){
+	.pd-left27,.pd-left260{padding-left: 0px;
+}
 #main{position: static;}
 .bg-wrap{display: none;}}
 @media only screen and (max-width: 980px){#main{position: static;}

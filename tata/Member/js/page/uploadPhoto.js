@@ -9,4 +9,9 @@
 	}
 
 }(this, function($) {
+	require(["batchUpload"], function() {
+		$('#webupload').batchUpload({
+			url: 'server/fileupload.php'
+		});
+	});
 }));
