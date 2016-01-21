@@ -9,10 +9,19 @@
 		<meta http-equiv="Cache-Control" content="no-siteapp" />
 		<title>admin - 控制台</title>
 		<link rel="stylesheet" href="../assets/css/amazeui.css">
-			<link rel="stylesheet" type="text/css" href="../assets/css/animate.css" />
+		<link rel="stylesheet" type="text/css" href="../assets/css/animate.css" />
 		<link rel="stylesheet" type="text/css" href="../assets/css/app.css" />
 		<link rel="stylesheet" href="css/admin.css" />
-		<link rel="stylesheet" href="css/diyUpload.css" />
+		<style type="text/css">
+			.webuploader-container{position: relative;}
+			.webuploader-element-invisible{position: absolute !important;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);}
+			.webuploader-pick{position: relative;display: inline-block;cursor: pointer;background: #00b7ee;padding: .5em 1em;color: #fff;text-align: center;border-radius: 2px;overflow: hidden;}
+			.webuploader-pick-hover{background: #00a2d4;}
+			.webuploader-pick-disable{opacity: 0.6;pointer-events: none;}
+			.am_list_block .remove-file-img{
+				position: absolute;top: -15px;right:13px;
+			}
+		</style>
 	</head>
 
 	<body class="am-with-topbar-fixed-top">
@@ -28,7 +37,7 @@
 			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
 		</div>
 		<!-- end 加载框 -->
-		
+
 		<!-- start 头部导航 -->
 		<header class="am-topbar am-topbar-fixed-top" id="fixed-top-topbar">
 			<div class="am-topbar-brand am-text-white">
@@ -103,11 +112,6 @@
 
 			<!-- start 内容开始 -->
 			<div class="am-g pd-left260" id="admin-right-main">
-				<div class="am-alert am-alert-danger ie-warning am-text-center am-text-lg" data-am-alert id="main-alert">
-					<button type="button" class="am-close">&times;</button>
-					<i class="am-icon-warning"></i> <span class="main-alert-text">上传功能需要在环境中使用</span>
-				</div>
-
 				<div class="am-u-sm-12 am-margin-vertical-sm">
 					<div id="webupload"></div>
 					<div id="select-box">
@@ -124,7 +128,7 @@
 			<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas', closeViaDimmer: 0}"></a>
 		</div>
 		<!-- end 漂浮按钮 -->
-		
+
 		<!-- 上传成功 -->
 		<div class="am-modal am-modal-confirm" tabindex="-1" id="upload-status-alert">
 			<div class="am-modal-dialog">

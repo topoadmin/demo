@@ -128,6 +128,7 @@
 				var $alert = '<div class="am-alert am-alert-danger ie-warning am-text-center am-text-lg" data-am-alert id="main-alert">' +
 					'<button type="button" class="am-close">&times;</button>' +
 					'<i class="am-icon-warning faa-flash animated"></i> ' + text + '</div>';
+				$("#admin-right-main").prepend($alert);
 			} else {
 				mainAlert.find(".main-alert-text").text(text);
 				mainAlert.find(".am-icon-warning").addClass("faa-flash animated");
@@ -192,6 +193,7 @@
 			$progressText.text(text);
 			if (text == "上传失败") {
 				$progress.width("5%").addClass("am-progress-bar-danger")
+				$progressText.addClass("am-text-danger");
 			}
 		}
 
@@ -268,14 +270,19 @@
 			}
 
 			var $newUploadLi = '<li id="fileBox_' + file_id + '" class="diyUploadHover"><div class="am-gallery-item am_list_block am-text-center">' +
-				'<img id="fileImg_' + file_id + '" class="am-img-thumbnail" src="../assets/img/load.gif"></br> <span class="am-text-truncate am-block">' + file.name + '</span>' +
+				'<img id="fileImg_' + file_id + '" class="am-img-thumbnail" src="../assets/img/load.gif"></br>'+
+				'<div class="remove-file-img"><i class="am-icon-times-circle am-icon-sm am-text-danger"></i></div>'+
+				'<span class="am-text-truncate am-block">' + file.name + '</span>' +
 				'<div class="am-progress am-progress-striped am-progress-sm am-active" style="margin-bottom:5px;">' +
 				'<div class="am-progress-bar progress" style="width: 0%;"></div></div>' +
 				'<span class="progressText">等待上传</span></div></li>';
 
 			$selectBox.append($newUploadLi);
 			var $fileBox = $selectBox.find('#fileBox_' + file_id);
-
+			$fileBox.find('.remove-file-img').one('click', function() {
+				removeFile($fileBox, file_id, webUploader);
+			});
+			
 			// 生成预览缩略图;
 			webUploader.makeThumb(file, function(error, dataSrc) {
 				if (!error) {
