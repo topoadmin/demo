@@ -67,7 +67,7 @@
 
 				//全部上传结束后触发;
 				webUploader.on('uploadFinished', function() {
-					console.log("上传完毕");
+					$(".loading").hide();
 					uploadStatus("上传成功", webUploader);
 				});
 
@@ -258,6 +258,7 @@
 
 				//绑定开始上传按钮;
 				$startButton.on('click', function() {
+					$(".loading").show().find(".txt").html("上传中，请稍后。。。");
 					webUploader.upload();
 				});
 
