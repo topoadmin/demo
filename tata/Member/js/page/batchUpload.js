@@ -246,6 +246,7 @@
 				$pfbBtn = $parentFileBox.find('.batchButton');
 
 			if ($pfbBtn.length <= 0) {
+				$selectBox.html('');
 				var $div = '<div class="batchButton am-text-center"> \
 							<a class="batchStart am-btn am-btn-warning am-radius" href="javascript:void(0)">开始上传</a> \
 							<a class="batchRemoveAll am-btn am-btn-danger am-radius" href="javascript:void(0)">全部删除</a> \
@@ -272,7 +273,7 @@
 			var $newUploadLi = '<li id="fileBox_' + file_id + '" class="diyUploadHover"><div class="am-gallery-item am_list_block am-text-center">' +
 				'<img id="fileImg_' + file_id + '" class="am-img-thumbnail" src="../assets/img/load.gif"></br>'+
 				'<div class="remove-file-img"><i class="am-icon-times-circle am-icon-sm am-text-danger"></i></div>'+
-				'<span class="am-text-truncate am-block">' + file.name + '</span>' +
+				'<span class="am-text-truncate am-block" style="width:70%;">' + file.name + '</span>' +
 				'<div class="am-progress am-progress-striped am-progress-sm am-active" style="margin-bottom:5px;">' +
 				'<div class="am-progress-bar progress" style="width: 0%;"></div></div>' +
 				'<span class="progressText">等待上传</span></div></li>';
