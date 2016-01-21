@@ -90,7 +90,8 @@ a::-moz-focus-inner{border-color: transparent!important;}
 .pd-left270{padding-left: 270px;}
 .pd-left260{padding-left: 260px;}
 @media only screen and (max-width: 640px){
-	.pd-left27,.pd-left260{padding-left: 0px;
+	.pd-left27,
+	.pd-left260{padding-left: 0px;}
 }
 #main{position: static;}
 .bg-wrap{display: none;}}
