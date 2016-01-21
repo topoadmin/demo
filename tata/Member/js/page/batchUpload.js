@@ -264,7 +264,7 @@
 
 				//绑定取消全部按钮;
 				$batchRemoveAll.on('click', function() {
-					var fileArr = webUploader.getFiles("inited");
+					var fileArr = webUploader.getFiles();	// 删除全部，不管什么状态
 					$.each(fileArr, function(i, v) {
 						removeFile($('#fileBox_' + v.id), v.id, webUploader);
 					});
