@@ -13,60 +13,13 @@
 		<link rel="stylesheet" type="text/css" href="../assets/css/app.css" />
 		<link rel="stylesheet" href="css/admin.css" />
 		<style type="text/css">
-			.webuploader-container {
-				position: relative;
-			}
-			
-			.webuploader-element-invisible {
-				position: absolute !important;
-				clip: rect(1px 1px 1px 1px);
-				clip: rect(1px, 1px, 1px, 1px);
-			}
-			
-			.webuploader-pick {
-				position: relative;
-				display: inline-block;
-				cursor: pointer;
-				background: #00b7ee;
-				padding: .5em 1em;
-				color: #fff;
-				text-align: center;
-				border-radius: 2px;
-				overflow: hidden;
-			}
-			
-			.webuploader-pick-hover {
-				background: #00a2d4;
-			}
-			
-			.webuploader-pick-disable {
-				opacity: 0.6;
-				pointer-events: none;
-			}
-			
-			.am_list_block .remove-file-img {
-				position: absolute;
-				right: 13px;
-				bottom: 55px;
-				cursor: pointer;
+			.am-text-999 {
+				color: #999;
 			}
 		</style>
 	</head>
 
 	<body class="am-with-topbar-fixed-top">
-		<div class="loading">
-			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
-				<div class="loader am-text-center">
-					<div class="loader-inner semi-circle-spin" style="display: inline-block;">
-						<div></div>
-					</div>
-				</div>
-				<p class="am-text-white txt">加载中...</p>
-			</div>
-			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
-		</div>
-		<!-- end 加载框 -->
-
 		<!-- start 头部导航 -->
 		<header class="am-topbar am-topbar-fixed-top" id="fixed-top-topbar">
 			<div class="am-topbar-brand am-text-white">
@@ -80,7 +33,7 @@
 			<div class="am-collapse am-topbar-collapse" id="collapse-head">
 				<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
 					<li>
-						<a href="javascript:;">
+						<a href="msg.html">
 							<span class="am-icon-bell"></span> 通知
 							<span class="am-badge am-badge-success countUp" data-endVal="60">0</span>
 						</a>
@@ -122,14 +75,14 @@
 								<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span>
 							</a>
 						</li>
-						<li class="am-active">
+						<li>
 							<a href="uploadPhoto.html">
 								<span class="am-icon-upload"></span> 上传照片
 							</a>
 						</li>
-						<li>
+						<li class="am-active">
 							<a href="msg.html">
-								<span class="am-icon-twitch"></span> 消息中心
+								<span class="am-icon-ship"></span> 消息中心
 							</a>
 						</li>
 					</ul>
@@ -146,12 +99,53 @@
 
 			<!-- start 内容开始 -->
 			<div class="am-g pd-left260" id="admin-right-main">
-				<div class="am-u-sm-12 am-margin-vertical-sm">
-					<div id="webupload"></div>
-					<div id="select-box">
-						<ul id="select-img-box" data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-5 am-gallery-default am-no-layout">
-						</ul>
+				<div style="background-color: #F4F4F4;">
+					<div class="am-cf" style="height: 5rem;line-height: 5rem;">
+						<h2 class="am-fl am-margin-0 am-padding-horizontal-sm"> <span style="border-left:2px solid #88B7E0;">全部消息</span></h2>
+						<a href="#" class="am-fr am-btn am-btn-success am-radius" style="height: 3rem;margin: 1rem;">
+							<i class="am-icon-check"></i> 全部已读
+						</a>
 					</div>
+					<hr class="am-cf" />
+				</div>
+				
+				<div class="am-u-sm-12">
+					<table class="am-table am-table-bordered">
+						<thead>
+							<tr>
+								<th>网站名称</th>
+								<th>网址</th>
+								<th>创建时间</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Amaze UI</td>
+								<td>http://amazeui.org</td>
+								<td>2012-10-01</td>
+							</tr>
+							<tr>
+								<td>Amaze UI</td>
+								<td>http://amazeui.org</td>
+								<td>2012-10-01</td>
+							</tr>
+							<tr class="am-active">
+								<td>Amaze UI(Active)</td>
+								<td>http://amazeui.org</td>
+								<td>2012-10-01</td>
+							</tr>
+							<tr>
+								<td>Amaze UI</td>
+								<td>http://amazeui.org</td>
+								<td>2012-10-01</td>
+							</tr>
+							<tr>
+								<td>Amaze UI</td>
+								<td>http://amazeui.org</td>
+								<td>2012-10-01</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
 			<!-- end 内容区域 -->
@@ -163,22 +157,8 @@
 		</div>
 		<!-- end 漂浮按钮 -->
 
-		<!-- 上传成功 -->
-		<div class="am-modal am-modal-confirm" tabindex="-1" id="upload-status-alert">
-			<div class="am-modal-dialog">
-				<div class="am-modal-hd">TATA</div>
-				<div class="am-modal-bd upload-status-text">
-					图片上传完成
-				</div>
-				<div class="am-modal-footer">
-					<span class="am-modal-btn" data-am-modal-cancel>确定</span>
-				</div>
-			</div>
-		</div>
-
 		<!-- 脚本 -->
 		<script type="text/javascript">
-			var thisPage = "uploadPhoto";
 		</script>
 		<script src="http://apps.bdimg.com/libs/require.js/2.1.9/require.min.js" data-main="js/main"></script>
 	</body>
