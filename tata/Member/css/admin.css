@@ -1,6 +1,11 @@
 /** * admin.css*/ul{margin-top: 0;}
 #admin-offcanvas{top: 70px;background-color: #F5F5F5;}
-.admin-menu{position: fixed;z-index: 101;bottom: 30px;right: 30px;background-color: #D4D0D0;}
+@media only screen and (max-width:640px ) {
+	#admin-offcanvas{
+		background:rgba(0, 0, 0, 0.48);
+	}
+}
+.admin-menu{position: fixed;z-index: 101;bottom: 60px;right: 30px;background-color: #D4D0D0;}
 .admin-menu:hover{background-color: #A8A5A5;}
 .admin-sidebar{width: 260px;min-height: 100%;float: left;border-right: 1px solid #cecece;}
 .admin-sidebar-list{margin-bottom: 0;}

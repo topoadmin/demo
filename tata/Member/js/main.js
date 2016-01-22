@@ -17,6 +17,7 @@ require.config({
 		"webuploader": "../../assets/js/webuploader.html5only.min", // 组件初始化
 		"app": "page/app", // 公共的js
 		"user": "page/user", 
+		"msg": "page/msg", 
 		"uploadPhoto": "page/uploadPhoto"
 	}
 });
