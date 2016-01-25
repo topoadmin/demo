@@ -8,29 +8,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<meta http-equiv="Cache-Control" content="no-siteapp" />
 		<title>admin - 控制台</title>
-		<link rel="stylesheet" href="../assets/css/amazeui.min.css">
+		<link rel="stylesheet" href="../assets/css/amazeui.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/animate.css" />
 		<link rel="stylesheet" type="text/css" href="../assets/css/app.css" />
 		<link rel="stylesheet" href="css/admin.css" />
-		<style type="text/css">
-			.vip-rank{
-				position: relative;
-				min-height: 100px;
-				padding-left: 120px;
-				border-bottom: 2px solid #f5f5f5;
-			}
-			@media only screen and (max-width: 640px) {
-				.vip-rank{
-					border-color: #f5f5f5;
-				}
-			}
-			.vip-rank img {
-				max-height: 100px;max-width: 100px;
-				position: absolute;left: 0px;top: -2px;
-			}
-			.vip-rank h3{
-				margin: 0;
-			}
-		</style>
 	</head>
 
 	<body class="am-with-topbar-fixed-top">
@@ -38,7 +19,7 @@
 		<header class="am-topbar am-topbar-fixed-top" id="fixed-top-topbar">
 			<div class="am-topbar-brand am-text-white">
 				<a href="home.html">
-					<img class="logo" src="../assets/img/logo.png" > <small>用户管理中心</small>
+					<img class="logo" src="../assets/img/logo.png"> <small>用户管理中心</small>
 				</a>
 			</div>
 			<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only check-head-nav" data-am-collapse="{target: '#collapse-head'}">
@@ -47,7 +28,7 @@
 			<div class="am-collapse am-topbar-collapse" id="collapse-head">
 				<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
 					<li>
-						<a href="javascript:;">
+						<a href="msg.html">
 							<span class="am-icon-bell"></span> 通知
 							<span class="am-badge am-badge-success countUp" data-endVal="60">0</span>
 						</a>
@@ -68,11 +49,6 @@
 							<li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
 						</ul>
 					</li>
-					<li>
-						<a href="changpwd.html">
-							<span class="am-icon-expeditedssl"></span> 修改密码
-						</a>
-					</li>
 				</ul>
 			</div>
 		</header>
@@ -83,7 +59,7 @@
 			<div class="am-cf admin-sidebar am-offcanvas" id="admin-offcanvas">
 				<div class="am-offcanvas-bar admin-offcanvas-bar">
 					<ul class="am-list admin-sidebar-list" id="admin-left-nav">
-						<li class="am-active">
+						<li>
 							<a href="vipRank.html">
 								<span class="iconfont icon-dengji"></span> 会员等级
 							</a>
@@ -101,7 +77,7 @@
 						</li>
 						<li>
 							<a href="msg.html">
-								<span class="am-icon-twitch"></span> 消息中心
+								<span class="am-icon-ship"></span> 消息中心
 							</a>
 						</li>
 						<li>
@@ -109,7 +85,7 @@
 								<span class="am-icon-expeditedssl"></span> 修改密码
 							</a>
 						</li>
-						<li>
+						<li class="am-active">
 							<a href="orderList.html">
 								<span class="am-icon-upload"></span> 我的报团
 							</a>
@@ -120,7 +96,6 @@
 							</a>
 						</li>
 					</ul>
-
 					<div class="am-panel am-panel-default admin-sidebar-panel am-hide-sm-only">
 						<div class="am-panel-bd">
 							<p><span class="am-icon-bookmark"></span> 公告</p>
@@ -131,49 +106,111 @@
 				</div>
 			</div>
 			<!-- end 导航结束 -->
+
 			<!-- start 内容开始 -->
-			<div class="am-g pd-left270" id="admin-right-main">
-				<div class="am-margin-bottom-sm"></div>
-				<div class="vip-rank">
-					<img class="am-img-thumbnail" src="../Home/img/vip-1.png" />
-					<h3>登录级会员</h3>
-					<span>不能直接报名参加旅游交友活动，完整填写账户信息并提交，通过本站人工实地考察后，方可升至出发一级会员。</span>
+			<div class="am-g pd-left260" id="admin-right-main">
+				<div class="am-show-lg-only">
+					<div class="main-title">
+						<div class="am-cf main-box">
+							<h2 class="am-fl am-margin-0 am-padding-horizontal-sm main-box"> 
+								<span class="main-txt">当前报名活动：</span>
+							</h2>
+						</div>
+					</div>
+
+					<div class="am-u-sm-12 am-padding-lg">
+						<table class="am-table am-table-bordered">
+							<thead>
+								<tr>
+									<th>活动城市</th>
+									<th>景点</th>
+									<th>活动类型</th>
+									<th>出发时间</th>
+									<th>活动状态</th>
+									<th>下单时间</th>
+									<th>支付状态</th>
+									<th>金额</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="am-text-truncate">泰国</td>
+									<td class="am-text-truncate">普吉岛</td>
+									<td class="am-text-truncate">免费出行</td>
+									<td class="am-text-truncate">2016年2月2日 10:00:00</td>
+									<td class="am-text-truncate">等待出发</td>
+									<td class="am-text-truncate">已支付</td>
+									<td class="am-text-truncate">2016年1月25日 16:36:26</td>
+									<td class="am-text-truncate">免费</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="am-cf">
+							<a href="#" class="am-btn am-radius am-btn-warning am-fr">取消出行</a>
+						</div>
+					</div>
 				</div>
-				<div class="am-margin-bottom-sm"></div>
-				<div class="vip-rank">
-					<img class="am-img-thumbnail" src="../Home/img/vip-2.png" />
-					<h3>出发一级会员</h3>
-					<span>恭喜您可以直接报名参加旅游交友活动。</span>
+
+				<div class="am-hide-lg-only">
+					<div class="main-title">
+						<div class="am-cf main-box">
+							<h2 class="am-fl am-margin-0 am-padding-horizontal-sm main-box"> 
+								<span class="main-txt">当前报名活动：</span>
+							</h2>
+						</div>
+					</div>
+					<ul class="am-list am-text-fei list-ul">
+						<li>
+							<span>活动城市：</span>
+							<span>泰国</span>
+						</li>
+						<li>
+							<span>景点：</span>
+							<span>普吉岛</span>
+						</li>
+						<li>
+							<span>活动类型：</span>
+							<span>免费出行</span>
+						</li>
+						<li>
+							<span>出发时间：</span>
+							<span>2016年2月2日 10:00:00</span>
+						</li>
+						<li>
+							<span>活动状态：</span>
+							<span>等待出发</span>
+						</li>
+						<li>
+							<span>下单时间：</span>
+							<span>已支付</span>
+						</li>
+						<li>
+							<span>支付状态：</span>
+							<span>2016年1月25日 16:36:26</span>
+						</li>
+						<li>
+							<span>金额：</span>
+							<span>免费</span>
+						</li>
+					</ul>
+					<div class="am-cf">
+						<a href="#" class="am-btn am-radius am-btn-warning am-fr">取消出行</a>
+					</div>
 				</div>
-				<div class="am-margin-bottom-sm"></div>
-				<div class="vip-rank">
-					<img class="am-img-thumbnail" src="../Home/img/vip-3.png" />
-					<h3>出发二级会员</h3>
-					<span>本级会员表明你可以第二次报名参加旅游交友活动。</span>
-				</div>
-				<div class="am-margin-bottom-sm"></div>
-				<div class="vip-rank">
-					<img class="am-img-thumbnail" src="../Home/img/vip-4.png" />
-					<h3>出发三级会员</h3>
-					<span>本级会员表明你可以第三次报名参加旅游交友活动。</span>
-				</div>
-				<div class="am-margin-bottom-sm"></div>
-				<div class="vip-rank">
-					<img class="am-img-thumbnail" src="../Home/img/vip-5.png" />
-					<h3>出发终级会员</h3>
-					<span>本级会员表明你将获得全程免费报名参加旅游交友活动 资格。同时表明你在本站的第一轮旅游交友活动结束。新一轮至少在三个月后方可启动。</span>
-				</div>
-				<div class="am-margin-bottom-sm"></div>
+
 			</div>
 			<!-- end 内容区域 -->
 		</div>
-		
+
 		<!-- start 漂浮按钮 -->
 		<div class="amz-toolbar">
 			<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas', closeViaDimmer: 0}"></a>
 		</div>
 		<!-- end 漂浮按钮 -->
 
+		<!-- 脚本 -->
+		<script type="text/javascript">
+		</script>
 		<script src="http://apps.bdimg.com/libs/require.js/2.1.9/require.min.js" data-main="js/main"></script>
 	</body>
 

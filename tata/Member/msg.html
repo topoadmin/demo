@@ -12,79 +12,6 @@
 		<link rel="stylesheet" type="text/css" href="../assets/css/animate.css" />
 		<link rel="stylesheet" type="text/css" href="../assets/css/app.css" />
 		<link rel="stylesheet" href="css/admin.css" />
-		<style type="text/css">
-			.am-text-999 {
-				color: #999;
-			}
-			
-			#msg-table thead tr th,
-			#msg-table tbody tr td {
-				text-align: center;
-			}
-			
-			#msg-table .all-msg-checkbox {
-				width: 3rem;
-			}
-			
-			#msg-table td.msg-info {
-				max-width: 20rem;
-				padding-right: 4rem;
-			}
-			
-			#msg-table td.msg-time {
-				color: #999;
-			}
-			
-			#msg-table td.msg-user {
-				color: #999;
-			}
-			
-			#msg-mobile .am-list .am-list-item-dated a {
-				padding-right: 145px;
-			}
-			
-			#msg-list {
-				overflow-x: hidden;
-				position: relative;
-			}
-			
-			#msg-list li {
-				position: relative;
-				-webkit-transition: all 0.3s linear;
-				transition: all 0.3s linear;
-				margin-bottom: 0px;
-			}
-			
-			#msg-list li {
-				border-bottom: 0;
-			}
-			#msg-list li:last-child{
-				border-bottom: 1px solid #DEDEDE;
-			}
-			.left-touch {
-				transform: translate(-100px, 0);
-				-webkit-transform: translate(-100px, 0);
-				-webkit-transition: all 0.2s linear;
-				transition: all 0.2s linear;
-			}
-			
-			.right-remove {
-				position: absolute;
-				height: 100%;
-				right: -110px;
-				width: 100px;
-				top: 0;
-			}
-			
-			.left-touch .right-remove {
-				right: -100px;
-			}
-			
-			.read-msg {
-				border-right: 2px solid #88B7E0;
-				padding-right: 5px;
-			}
-		</style>
 	</head>
 
 	<body class="am-with-topbar-fixed-top">
@@ -153,8 +80,23 @@
 								<span class="am-icon-ship"></span> 消息中心
 							</a>
 						</li>
+						<li>
+							<a href="changpwd.html">
+								<span class="am-icon-expeditedssl"></span> 修改密码
+							</a>
+						</li>
+						<li>
+							<a href="orderList.html">
+								<span class="am-icon-upload"></span> 我的报团
+							</a>
+						</li>
+						<li>
+							<a href="history.html">
+								<span class="am-icon-ship"></span> 历史记录
+							</a>
+						</li>
 					</ul>
-					<div class="am-panel am-panel-default admin-sidebar-panel">
+					<div class="am-panel am-panel-default admin-sidebar-panel am-hide-sm-only">
 						<div class="am-panel-bd">
 							<p><span class="am-icon-bookmark"></span> 公告</p>
 							<p class="am-margin-xs">时光静好，与君语。</p>

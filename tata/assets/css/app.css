@@ -42,6 +42,7 @@
 .color-grey{color: #666;}
 .am-text-index-2{text-indent: 2rem;}
 .am-text-index-4{text-indent: 4rem;}
+.am-text-fei{color: #989797;}
 /* 重写 amazeui.css ***************************/
 .r-slide .am-control-nav {width: 100%;position: absolute;bottom: 40px;right: 40px;text-align: right;}
 .r-slide .am-control-nav>li>a.am-active{color: #fff;background-color: #fff;}

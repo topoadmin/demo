@@ -13,19 +13,6 @@
 		$(".loading").hide();
 	}, 222);
 	
-	var $fullText = $('.admin-fullText');
-	$('#admin-fullscreen').on('click', function() {
-		$.AMUI.fullscreen.toggle();
-	});
-	$(document).on($.AMUI.fullscreen.raw.fullscreenchange, function() {
-		$fullText.text($.AMUI.fullscreen.isFullscreen ? '退出全屏' : '开启全屏');
-	});
-
-	// 显示隐藏导航
-	$("#is-left-nav").on("click", function() {
-		$("#admin-offcanvas").toggleClass("admin-sidebar")
-		$("#admin-right-main").toggleClass("pd-left270")
-	});
 
 	if ($(".countUp").length > 0) {
 		require(["countUp"], function(countUp) {　　
