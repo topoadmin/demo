@@ -9,55 +9,53 @@
 	}
 
 }(this, function($) {
-	var Hammer = $.AMUI.Hammer;
 	var msgList = $("#msg-list");
-	var msgListDom = msgList[0];
-	var elmHammer = new Hammer(msgListDom);
 	var msgListLi = msgList.children("li");
-	elmHammer.on('pan', function(e) {
-		var deltaX = e.deltaX;
-		msgList.data("deltaX",deltaX);
-	});
-	
-	// 点击关闭左滑效果
-	$(document).on("click",function(){
-		msgListLi.removeClass("left-touch");
-	});
-	
-	// 删除按钮
-	msgListLi.on("click",".right-remove",function(e){
-		var $li = $(this).parents("li"),
-			msgNoRead = $li.find(".msg-no-read");
-		if(msgNoRead.length >= 1){
-			$('#remove-msg-popup').modal({
-				relatedTarget: this,
-				onConfirm: function(options) {
-					$li.remove();
-				},
-				onCancel: function() {
-					alert("我还是先看看吧")
+	var msgPopup = $('#remove-msg-popup');
+	// 单条消息滑动事件
+	require(["touch"], function(touch) {
+		msgListLi.each(function() {
+			var _this = this,
+				$this = $(this);
+			touch.on(_this, 'swiperight', function(ev) {
+				var touchNode = $(ev.target);
+				var tagName = touchNode.get(0).tagName;
+				if (tagName != "LI" || tagName != "li") {
+					touchNode = touchNode.parents("li");
 				}
+				touchNode.removeClass("left-touch");
 			});
-		}else{
-			$li.remove();
-		}
+
+			touch.on(_this, 'swipeleft', function(ev) {
+				var touchNode = $(ev.target);
+				var tagName = touchNode.get(0).tagName;
+				if (tagName != "LI" || tagName != "li") {
+					touchNode = touchNode.parents("li");
+				}
+				msgListLi.removeClass("left-touch");
+				touchNode.addClass("left-touch");
+			});
+			touch.on($this.find(".right-remove"), 'touchstart', function(ev) {
+				$this.remove();
+			});
+		});
+		touch.on(msgListLi, 'touchstart', function(ev) {
+			ev.preventDefault();
+		});
 	});
-	
-	msgListDom.addEventListener("touchend",function(e){
-		var deltaX = msgList.data("deltaX")
-		var touchNode = $(e.target);
-		var tagName = touchNode.get(0).tagName;
-		if(tagName != "LI" || tagName != "li"){
-			touchNode = touchNode.parents("li");
-		}
-		if(deltaX < 10){
-			msgListLi.removeClass("left-touch");
-			touchNode.addClass("left-touch");
-		}else{
-			touchNode.removeClass("left-touch");
-		}
+	// 删除按钮
+	$(".msg-list-all-remove").on("click", function() {
+		msgPopup.modal({
+			onConfirm: function(options) {
+				msgList.html('<li class="am-g am-list-item-dated"><h1 class="am-text-success am-margin-sm">暂时没有新消息</h1></li>');
+			},
+			onCancel: function() {
+				alert("我还是先看看吧")
+			}
+		});
 	})
-	
+
+
 	var $table = $("#msg-table"),
 		$allCheckbox = $(".all-msg-checkbox input"),
 		$msgCheckbox = $table.find("tbody .msg-checkbox input"),
@@ -123,12 +121,17 @@
 	}
 	// 删除选中
 	function removeCheck() {
-		$msgCheckbox.each(function() {
-			var $this = $(this);
-			if ($this.is(":checked")) {
-				$this.parents("tr").remove();
-			}
-		});
-		$allCheckbox.prop("checked", false);
+		if ($allCheckbox.is(":checked")) {
+			msgPopup.modal({
+				onConfirm: function(options) {
+					$allCheckbox.prop("checked", false);
+					$table.find("tbody").html("");
+					$table.after('<h1 class="am-text-success am-margin-sm">暂时没有新消息</h1><hr>');
+				},
+				onCancel: function() {
+					alert("我还是先看看吧")
+				}
+			});
+		};
 	}
 }));

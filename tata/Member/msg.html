@@ -174,7 +174,7 @@
 						<a href="#">
 							<h2>全部消息</h2>
 							<span class="am-list-news-more am-text-999 am-fr">
-								右滑删除单挑
+								右滑删除单条
 							</span>
 						</a>
 					</div>
@@ -183,7 +183,7 @@
 						<ul class="am-list" id="msg-list">
 							<li class="am-g am-list-item-dated">
 								<a href="#" class="am-list-item-hd">
-									<span class="am-text-danger read-msg msg-no-read">未读</span> 这条信息我还没读呢
+									<span class="am-text-danger read-msg unread-msg">未读</span> 1111111111111
 								</a>
 								<span class="am-list-date">2016年1月22日 11:21:29</span>
 								<button class="am-btn am-btn-primary am-btn-danger right-remove"><i class="am-icon-remove"></i> 删除</button>
@@ -197,7 +197,7 @@
 							</li>
 							<li class="am-g am-list-item-dated">
 								<a href="#" class="am-list-item-hd">
-									<span class="am-text-danger read-msg msg-no-read">未读</span> 这条信息我还没读呢
+									<span class="am-text-danger read-msg unread-msg">未读</span> 222222222
 								</a>
 								<span class="am-list-date">2016年1月22日 11:21:29</span>
 								<button class="am-btn am-btn-primary am-btn-danger right-remove"><i class="am-icon-remove"></i> 删除</button>
@@ -211,7 +211,7 @@
 							</li>
 							<li class="am-g am-list-item-dated">
 								<a href="#" class="am-list-item-hd">
-									<span class="am-text-danger read-msg msg-no-read">未读</span> 这条信息我还没读呢
+									<span class="am-text-danger read-msg unread-msg">未读</span> 这条信息我还没读呢
 								</a>
 								<span class="am-list-date">2016年1月22日 11:21:29</span>
 								<button class="am-btn am-btn-primary am-btn-danger right-remove"><i class="am-icon-remove"></i> 删除</button>
@@ -225,28 +225,7 @@
 							</li>
 							<li class="am-g am-list-item-dated">
 								<a href="#" class="am-list-item-hd">
-									<span class="am-text-danger read-msg msg-no-read">未读</span> 这条信息我还没读呢
-								</a>
-								<span class="am-list-date">2016年1月22日 11:21:29</span>
-								<button class="am-btn am-btn-primary am-btn-danger right-remove"><i class="am-icon-remove"></i> 删除</button>
-							</li>
-							<li class="am-g am-list-item-dated">
-								<a href="#" class="am-list-item-hd ">
-									<span class="am-text-success read-msg">已读</span> 这条信息我已经读完了
-								</a>
-								<span class="am-list-date">2016年1月22日 11:21:29</span>
-								<button class="am-btn am-btn-primary am-btn-danger right-remove"><i class="am-icon-remove"></i> 删除</button>
-							</li>
-							<li class="am-g am-list-item-dated">
-								<a href="#" class="am-list-item-hd">
-									<span class="am-text-danger read-msg msg-no-read">未读</span> 这条信息我还没读呢
-								</a>
-								<span class="am-list-date">2016年1月22日 11:21:29</span>
-								<button class="am-btn am-btn-primary am-btn-danger right-remove"><i class="am-icon-remove"></i> 删除</button>
-							</li>
-							<li class="am-g am-list-item-dated">
-								<a href="#" class="am-list-item-hd ">
-									<span class="am-text-success read-msg">已读</span> 这条信息我已经读完了
+									<span class="am-text-danger read-msg unread-msg">未读</span> 这条信息我还没读呢
 								</a>
 								<span class="am-list-date">2016年1月22日 11:21:29</span>
 								<button class="am-btn am-btn-primary am-btn-danger right-remove"><i class="am-icon-remove"></i> 删除</button>
@@ -254,7 +233,7 @@
 						</ul>
 					</div>
 					<div class="am-text-center">
-						<a href="#" class="am-btn am-radius am-btn-danger">全部删除</a>
+						<a href="#" class="am-btn am-radius am-btn-danger msg-list-all-remove">全部删除</a>
 						<a href="#" class="am-btn am-radius am-btn-success">全部已读</a>
 					</div>
 				</div>
@@ -287,7 +266,7 @@
 									<td class="am-text-truncate msg-info">
 										<a href="#">2222222222222222222233333333333333333333333122222222222222222222222222211111111111111111</a>
 									</td>
-									<td class="am-text-truncate am-text-success msg-status">已读</td>
+									<td class="am-text-truncate am-text-success">已读</td>
 									<td class="am-text-truncate msg-time">2016年1月22日 10:45:33</td>
 									<td class="am-text-truncate msg-user">系统</td>
 								</tr>
@@ -298,7 +277,7 @@
 									<td class="am-text-truncate msg-info">
 										<a href="#">11111111111111</a>
 									</td>
-									<td class="am-text-truncate am-text-danger msg-status">未读</td>
+									<td class="am-text-truncate am-text-danger unread-msg">未读</td>
 									<td class="am-text-truncate msg-time">2016年1月22日 10:45:33</td>
 									<td class="am-text-truncate msg-user">系统</td>
 								</tr>
@@ -324,9 +303,11 @@
 
 		<div class="am-modal am-modal-confirm" tabindex="-1" id="remove-msg-popup">
 			<div class="am-modal-dialog">
-				<div class="am-modal-hd">删除未读消息</div>
+				<div class="am-modal-hd am-text-danger"><i class="am-icon-warning"></i> 删除所有信息</div>
+				<hr class="am-margin-0" />
 				<div class="am-modal-bd">
-					你，确定要删除这条消息吗？
+					<i class="am-icon-check am-text-success"></i>
+					确定删除消息？
 				</div>
 				<div class="am-modal-footer">
 					<span class="am-modal-btn" data-am-modal-cancel>查看</span>
