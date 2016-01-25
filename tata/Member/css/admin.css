@@ -118,7 +118,7 @@ a::-moz-focus-inner{border-color: transparent!important;}
 
 /* 消息中心 表格和列表 */
 .am-text-999{color: #999;}
-#msg-table thead tr th,#msg-table tbody tr td{text-align: center;}
+.am-table thead tr th,.am-table tbody tr td{text-align: center;}
 #msg-table .all-msg-checkbox{width: 3rem;}
 #msg-table td.msg-info{max-width: 20rem;padding-right: 4rem;}
 #msg-table td.msg-time{color: #999;}
@@ -132,6 +132,10 @@ a::-moz-focus-inner{border-color: transparent!important;}
 .right-remove{position: absolute;height: 100%;right: -110px;width: 100px;top: 0;}
 .left-touch .right-remove{right: -100px;}
 .read-msg{border-right: 2px solid #88B7E0;padding-right: 5px;}
+/* 订单 时间 长度管理 */
+@media only screen and (max-width: 1130px) {
+	.order-time{max-width: 6rem;}
+}
 
 .list-ul>li{padding: 0.5rem;}
 .list-ul>li>span{min-width: 8rem;display: inline-block;}
