@@ -14,7 +14,6 @@
 		loading.hide();
 	}, 333)
 	
-	
 	var sendCode = $(".send-code");
 	var cookie = $.AMUI.utils.cookie;
 	if (sendCode.length) {
@@ -47,14 +46,13 @@
 			btn.prop('disabled', true);
 		}
 	}
-
+	
 	// -- 加载登录模块
 	var loginModule = function(method) {
 		// -- 登录注册弹窗
 		var lrpopup = $("#my-lr-popup"),
 			toggleForm = lrpopup.find(".toggle-form"),
 			form = lrpopup.find(".am-form");
-
 		if (lrpopup.data("open")) {
 			lrpopup.modal();
 		} else {
@@ -65,40 +63,19 @@
 			}).data("open", true).find('.submit').off('click.close.modal.amui').on("click", function() {
 				lrpopup.find("form:visible").submit();
 			});
+			lrpopup.on("click",".changepwd",function(){
+				var $this = $(this),$form = $this.data("form") || $this.attr("data-form");
+				form.addClass("am-hide");
+				$($form).removeClass("am-hide");
+			});
 			toggleForm.on("click", function() {
-				var $this = $(this),
-					$form = $this.data("form") || $this.attr("data-form");
+				var $this = $(this),$form = $this.data("form") || $this.attr("data-form");
 				toggleForm.removeClass("am-btn-primary");
 				$this.addClass("am-btn-primary");
 				form.addClass("am-hide");
 				$($form).removeClass("am-hide");
 			});
 		}
-		/*lrpopup.one('open.modal.amui opened.modal.amui', function() {
-			if ($window.width() <= 620) {
-				lrpopup.css({
-					"height": "100%",
-					"margin-top": "0"
-				})
-			} else {
-				lrpopup.css({
-					"margin-top": -lrpopup.height() / 2
-				});
-			}
-			$window.on("resize", function() {
-				if ($(this).width() <= 620) {
-					lrpopup.css({
-						"height": "100%",
-						"margin-top": "0"
-					})
-				} else {
-					lrpopup.height("auto");
-					lrpopup.css({
-						"margin-top": -lrpopup.height() / 2
-					});
-				}
-			})
-		});*/
 
 		// -- 加载表单验证模块
 		require(["formValid"], function() {
