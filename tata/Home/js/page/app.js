@@ -13,19 +13,18 @@
 	setTimeout(function() {
 		loading.hide();
 	}, 333)
+	
+	
 	var sendCode = $(".send-code");
+	var cookie = $.AMUI.utils.cookie;
 	if (sendCode.length) {
-		/*仿刷新：检测是否存在cookie*/
-		require(["storage"], function(storage) {
-			var count = storage.get("captcha");
-			if (count) {
-				checkCaptcha(sendCode, count);
-			}
-		});
+		var count = cookie.get("captcha");
+		if (count) {
+			checkCaptcha(sendCode, count);
+		}
 		sendCode.on("click", function() {
 			checkCaptcha($(this));
 		});
-		// 发送验证码按钮定时器事件
 		function checkCaptcha(elm, count) {
 			var $mobile = $(this).parents("form").find(".js-pattern-mobile");
 			var btn = $(elm);
@@ -34,9 +33,7 @@
 				count--;
 				if (count > 0) {
 					btn.val(count + "秒后可重新获取");
-					require(["storage"], function(storage) {
-						storage.set("captcha", count, count);
-					})
+					cookie.set("captcha", count, count)
 				} else {
 					clearInterval(resend);
 					if (!$mobile.hasClass("am-field-valid")) {

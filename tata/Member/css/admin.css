@@ -137,7 +137,10 @@ a::-moz-focus-inner{border-color: transparent!important;}
 	.order-time{max-width: 6rem;}
 }
 
+.list-ul{margin-bottom: 1px;}
 .list-ul>li{padding: 0.5rem;}
+.list-ul>li:first-child{border-top:0;}
+.list-ul>li:last-child{border-bottom:0;}
 .list-ul>li>span{min-width: 8rem;display: inline-block;}
 .list-ul>li>span:first-child{text-align: right;}
 

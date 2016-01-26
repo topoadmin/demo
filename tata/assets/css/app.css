@@ -140,7 +140,7 @@ img.logo{height: 50px;}
 .am-topbar-nav>li>a.min80{min-width: 80px;}
 #fixed-top-topbar{width: 100% !important;left: 0 !important;}
 /* 轮播图设置最大高度*/
-#home-carousel .h-c-img{margin: 0 auto;max-height: 800px;}
+#home-carousel .h-c-img{margin: 0 auto;max-height: 800px;width: 100%;}
 
 /* 分类*/
 #classify .filter{color: #535353;cursor: pointer;padding: .5rem;}

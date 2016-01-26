@@ -1,7 +1,7 @@
 (function(root, factory) {
 	"use strict";
 	if (typeof define === "function" && define.amd) {
-		define(["jquery", "laytpl", "lazyload","app"], factory);
+		define(["jquery", "laytpl", "lazyload", "app"], factory);
 	} else if (typeof exports === "object") {
 		module.exports = factory(require("jquery"), require("laytpl"), require("lazyload"), require("app"));
 	} else {
@@ -9,10 +9,15 @@
 	}
 }(this, function($, laytpl) {
 	// -- 开启轮播
-	$("#home-carousel").flexslider({
+	var homeCarousel = $("#home-carousel");
+	homeCarousel.flexslider({
+		smoothHeight: false,
 		slideshowSpeed: 5000,
-		controlNav: false
+		controlNav: false,
+		start:function(){
+		}
 	});
+	
 	// -- 添加用户
 	$.getJSON("js/data/user.json", function(data) {
 		var gettpl = document.getElementById("users-tpl").innerHTML;
@@ -47,7 +52,7 @@
 				$(this).trigger("sporty")
 			}
 		})
-		var $userPopup = $("#my-user-popup");// 用户弹窗
+		var $userPopup = $("#my-user-popup"); // 用户弹窗
 		$userBox.find(".am-slider").flexslider({
 			itemWidth: iw,
 			itemMargin: 5,
@@ -60,9 +65,9 @@
 		});
 		/* 查看用户信息 */
 		$userBox.userPopup();
-		
+
 	});
-	
+
 	// -- 促销活动
 	$.getJSON("js/data/activity-soft.json", function(data) {
 		addActivity("activity-tpl", "activity-soft", data);
