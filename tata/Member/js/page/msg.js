@@ -13,37 +13,28 @@
 	var msgListLi = msgList.children("li");
 	var msgPopup = $('#remove-msg-popup');
 	// 单条消息滑动事件
-	require(["touch"], function(touch) {
-		msgListLi.each(function() {
-			var _this = this,
-				$this = $(this);
-			touch.on(_this, 'swiperight', function(ev) {
-				var touchNode = $(ev.target);
-				var tagName = touchNode.get(0).tagName;
-				if (tagName != "LI" || tagName != "li") {
-					touchNode = touchNode.parents("li");
-				}
-				touchNode.removeClass("left-touch");
-			});
-
-			touch.on(_this, 'swipeleft', function(ev) {
-				var touchNode = $(ev.target);
-				var tagName = touchNode.get(0).tagName;
-				if (tagName != "LI" || tagName != "li") {
-					touchNode = touchNode.parents("li");
-				}
+	msgListLi.each(function() {
+		var _this = this,
+			$this = $(this);
+		$this.on("mousedown",function(event){
+			event.preventDefault();
+			$this.data("pageX",event.pageX);
+		}).on("mouseup",function(event){
+			event.preventDefault();
+			var	downPageX = $this.data("pageX"),
+				upPageX = event.pageX;
+			if(downPageX > upPageX){
 				msgListLi.removeClass("left-touch");
-				touchNode.addClass("left-touch");
-			});
-			touch.on($this.find(".right-remove"), 'touchstart', function(ev) {
-				$this.remove();
-			});
-		});
-		touch.on(msgListLi, 'touchstart', function(ev) {
-			ev.preventDefault();
-		});
+				$this.addClass("left-touch");
+			}else{
+				$this.removeClass("left-touch");
+			}
+		}).on("click",".right-remove",function(){
+			$this.remove();
+		})
 	});
-	// 删除按钮
+	
+	// 全部删除按钮
 	$(".msg-list-all-remove").on("click", function() {
 		msgPopup.modal({
 			onConfirm: function(options) {
