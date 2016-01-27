@@ -20,11 +20,33 @@
 		$this.on("click", function(event) {
 			if ($(event.target).attr("class") == "msg-list-content") {
 				msgListLi.removeClass("left-touch");
+				$this.remove();
 			} else {
 				$this.toggleClass("left-touch").siblings("li").removeClass("left-touch");
 			}
 		});
 	});
+
+	require(["touch"], function(touch) {
+		msgListLi.each(function() {
+			var _this = this,
+				$this = $(this);
+			touch.on(_this, 'swiperight', function(ev) {
+				$this.removeClass("left-touch");
+			});
+
+			touch.on(_this, 'swipeleft', function(ev) {
+				$this.toggleClass("left-touch").siblings("li").removeClass("left-touch");
+			});
+			touch.on($this.find(".right-remove"), 'touchstart', function(ev) {
+				$this.remove();
+			});
+		});
+		touch.on(msgListLi, 'touchstart', function(ev) {
+			ev.preventDefault();
+		});
+	});
+
 
 	// 全部删除按钮
 	$(".msg-list-all-remove").on("click", function() {
