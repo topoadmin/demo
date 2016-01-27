@@ -43,6 +43,7 @@
 .am-text-index-2{text-indent: 2rem;}
 .am-text-index-4{text-indent: 4rem;}
 .am-text-fei{color: #989797;}
+.am-text-red{color: red;}
 /* 重写 amazeui.css ***************************/
 .r-slide .am-control-nav {width: 100%;position: absolute;bottom: 40px;right: 40px;text-align: right;}
 .r-slide .am-control-nav>li>a.am-active{color: #fff;background-color: #fff;}
@@ -50,6 +51,10 @@
 @media only screen and (max-width: 640px) {
 	.am-popup{height: 100%;}
 }
+.am-popup-hd .am-close{
+	opacity: 1;
+}
+
 /*遮罩层盖不住内容*/
 .am-popup-hd{z-index: 2;}
 /* 轮播控制点改变大小和颜色*/

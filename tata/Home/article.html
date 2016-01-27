@@ -13,6 +13,23 @@
 		<link rel="bookmark" href="http://www.taquta.com/favicon.ico">
 		<link rel="stylesheet" href="../assets/css/amazeui.min.css">
 		<link rel="stylesheet" href="../assets/css/app.css" />
+		<style type="text/css">
+			@media (min-height: 630px) and (min-width: 630px){
+				#my-apply-popup {
+				    width: 760px;
+				    margin-left: -380px;
+				}
+			}
+			#my-apply-popup .am-list>li{
+				background: #A0A0A0;border-color: #CCC;padding: .3rem 0;
+			}
+			#my-apply-popup .am-list>li .am-fr{
+				height: 50px;line-height: 50px;
+			}
+			#my-apply-popup .am-list>li img{
+				width: 50px;display: inline-block;
+			}
+		</style>
 	</head>
 
 	<body class="am-with-topbar-fixed-top am-g-fixed-min">
@@ -25,7 +42,7 @@
 			</div>
     	<![endif]-->
 		<!-- start 加载框 -->
-		<div class="loading">
+		<!--<div class="loading">
 			<div class="am-modal am-modal-loading am-modal-no-btn am-modal-active" id="my-modal-loading" style="display: block;opacity: 1;margin-top: -51px;">
 				<div class="loader am-text-center">
 					<div class="loader-inner semi-circle-spin" style="display: inline-block;">
@@ -35,7 +52,7 @@
 				<p class="am-text-white txt">别闹，加载是一门艺术...</p>
 			</div>
 			<div style="display: block;" class="am-dimmer am-active" data-am-dimmer></div>
-		</div>
+		</div>-->
 
 		<!-- start 头部导航 -->
 		<header class="am-topbar am-topbar-fixed-top" id="fixed-top-topbar">
@@ -110,26 +127,26 @@
 						<img class="am-img-responsive" src="http://img1.lotour.net/Inspiration/2015/1221/2015122115451645548453_1920.jpg" />
 						<div style="height: 20px;"></div>
 					</div>
-					<div class="am-u-sm-12 am-u-md-6 r-slide ">
+					<div class="am-u-sm-12 am-u-md-6 r-slide">
 						<div class="am-slider am-slider-default article-tese" data-am-flexslider="{slideshowSpeed: 5000}">
 							<ul class="am-slides am-text-center">
 								<li>
-									<img class="am-img-thumbnail" src="http://www.taquta.com/Uploads/image/product/20151216/20151216180029_63504.jpg" />
+									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Uploads/image/product/20151216/20151216180029_63504.jpg" />
 								</li>
 								<li>
-									<img class="am-img-thumbnail" src="http://www.taquta.com/Uploads/image/product/20151216/20151216180044_98281.jpg" />
+									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Uploads/image/product/20151216/20151216180044_98281.jpg" />
 								</li>
 								<li>
-									<img class="am-img-thumbnail" src="http://www.taquta.com/Uploads/image/product/20151216/20151216180039_81327.jpg" />
+									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Uploads/image/product/20151216/20151216180039_81327.jpg" />
 								</li>
 								<li>
-									<img class="am-img-thumbnail" src="http://www.taquta.com/Uploads/image/product/20151216/20151216180034_71470.jpg" />
+									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Uploads/image/product/20151216/20151216180034_71470.jpg" />
 								</li>
 							</ul>
 						</div>
 					</div>
-					<div class="am-u-sm-12 am-u-md-6">
-						<img class="am-img-thumbnail" src="img/article-title.jpg" />
+					<div class="am-u-sm-12 am-u-md-6 am-text-center">
+						<img class="am-img-thumbnail bind-gallery" src="img/article-title.jpg" />
 					</div>
 				</div>
 			</section>
@@ -391,11 +408,11 @@
 									<i class="am-icon-image am-text-warning am-padding-right-sm"></i>图片展示：
 								</div>
 								<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
-									<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB0-1.jpg" />
+									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB0-1.jpg"/>
 									<span class="am-block">巴厘岛</span>
 								</div>
 								<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
-									<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB0-2.jpg" />
+									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB0-2.jpg" />
 									<span class="am-block">Mercure Nusa Dua酒店</span>
 								</div>
 							</div>
@@ -437,11 +454,11 @@
 									<i class="am-icon-image am-text-warning am-padding-right-sm"></i>图片展示：
 								</div>
 								<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
-									<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB1-1.jpg" />
+									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB1-1.jpg" />
 									<span class="am-block">巴厘岛</span>
 								</div>
 								<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
-									<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB1-2.jpg" />
+									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB1-2.jpg" />
 									<span class="am-block">Mercure Nusa Dua酒店</span>
 								</div>
 							</div>
@@ -485,11 +502,11 @@
 									<i class="am-icon-image am-text-warning am-padding-right-sm"></i>图片展示：
 								</div>
 								<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
-									<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB2-1.jpg" />
+									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB2-1.jpg" />
 									<span class="am-block">巴厘岛</span>
 								</div>
 								<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
-									<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB2-2.jpg" />
+									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB2-2.jpg" />
 									<span class="am-block">Mercure Nusa Dua酒店</span>
 								</div>
 							</div>
@@ -537,11 +554,11 @@
 									<i class="am-icon-image am-text-warning am-padding-right-sm"></i>图片展示：
 								</div>
 								<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
-									<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB3-1.jpg" />
+									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB3-1.jpg" />
 									<span class="am-block">乌布皇宫</span>
 								</div>
 								<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
-									<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB3-2.jpg" />
+									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB3-2.jpg" />
 									<span class="am-block">乌布传统市场</span>
 								</div>
 							</div>
@@ -590,11 +607,11 @@
 									<i class="am-icon-image am-text-warning am-padding-right-sm"></i>图片展示：
 								</div>
 								<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
-									<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB4-1.jpg" />
+									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB4-1.jpg" />
 									<span class="am-block">蓝梦岛</span>
 								</div>
 								<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
-									<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB4-2.jpg" />
+									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB4-2.jpg" />
 									<span class="am-block">蓝梦岛</span>
 								</div>
 							</div>
@@ -634,11 +651,11 @@
 									<i class="am-icon-image am-text-warning am-padding-right-sm"></i>图片展示：
 								</div>
 								<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
-									<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB5-1.jpg" />
+									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB5-1.jpg" />
 									<span class="am-block">巴厘岛</span>
 								</div>
 								<div class="am-u-sm-6 am-text-center am-padding-vertical-xs">
-									<img class="am-img-thumbnail" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB5-2.jpg" />
+									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Application/Home/View/Default/Images/balidao/DB5-2.jpg" />
 									<span class="am-block">情人崖</span>
 								</div>
 							</div>
@@ -665,21 +682,8 @@
 					</div>
 				</div>
 			</div>
-			
-			<ul data-am-widget="gallery" id="article-gallery" class="am-gallery am-avg-sm-2 am-gallery-imgbordered am-hide" data-am-gallery="{pureview:{target: 'a'}}">
-				<li>
-					<div class="am-gallery-item">
-						<a href="http://s.cn.bing.net/az/hprichbg/rb/LlynIdwal_ZH-CN8763664463_1920x1080.jpg" title="远方 有一个地方 那里种有我们的梦想"></a>
-					</div>
-				</li>
-				<li>
-					<div class="am-gallery-item">
-						<a href="http://s.cn.bing.net/az/hprichbg/rb/LlynIdwal_ZH-CN8763664463_1920x1080.jpg" title="远方 有一个地方 那里种有我们的梦想"></a>
-					</div>
-				</li>
-			</ul>
 			<!-- end 模版 -->
-
+			
 			<!-- 公用文字模版 -->
 			<div class="am-g article-box">
 				<h3 class="am-margin-bottom-xs">费用包含：</h3>
@@ -956,13 +960,13 @@
 		</div>
 
 		<!-- 浮动二维码 -->
-		<div id="float-code" class="am-hide-md-down" data-am-scrollspy="{animation: 'slide-top', delay: 666}">
+		<!--<div id="float-code" class="am-hide-md-down" data-am-scrollspy="{animation: 'slide-top', delay: 666}">
 			<img src="http://www.taquta.com/Application/Home/View/Default/Images/float-code.jpg">
 			<button class="am-btn am-btn-primary am-btn-block am-btn-close">关闭</button>
-		</div>
+		</div>-->
 
 		<!-- 浮动客服 -->
-		<div id="float-kefu" class="am-hide-md-down" data-am-scrollspy="{animation: 'slide-right', delay: 666}">
+		<!--<div id="float-kefu" class="am-hide-md-down" data-am-scrollspy="{animation: 'slide-right', delay: 666}">
 			<div class="open-img">
 				<img src="img/open_im.png" />
 			</div>
@@ -973,7 +977,6 @@
 				<div style="height: 15px;"></div>
 				<div class="am-text-center">
 					<a href="http://wpa.qq.com/msgrd?v=3&uin=465040621&site=qq&menu=yes" target="_blank" class="im-qq qq-a">
-						<!--<div class="qq-container"></div>-->
 						<div class="qq-hover-c">
 							<img class="img-qq" src="img/qq.png"></div>
 						<span> QQ在线咨询</span>
@@ -988,7 +991,7 @@
 				</div>
 			</div>
 			<button class="am-btn am-btn-primary am-btn-block am-text-xs am-btn-close">关闭</button>
-		</div>
+		</div>-->
 
 		<!-- 用户资料弹窗 -->
 		<div class="am-popup" id="my-user-popup">
@@ -1001,10 +1004,9 @@
 					<div class="am-g">
 						<div class="am-u-sm-6 am-u-md-6 am-u-sm-push-3 am-u-md-push-0 am-text-center" style="position: relative;max-width: 232px;">
 							<a class="show-popup" href="javascript:;">
-								<img class="am-img-thumbnail user-img-popup" src="img/load.gif" />
+								<img class="am-img-thumbnail user-img-popup" src="../assets/img/load.gif" />
 								<img class="am-show-lg-up user-rank" src="img/vip-2.png" />
 							</a>
-							<!--<img class="am-img-thumbnail user-img-popup" src="img/load.gif" />-->
 						</div>
 						<div class="am-u-sm-12 am-u-md-6 am-text-sm am-padding-left-0 am-text-left">
 							<div>
@@ -1055,6 +1057,81 @@
 						<a href="javascript:;" class="am-btn am-btn-success add-praise"><i class="am-icon-thumbs-up"></i> 赞
 							<span class="am-padding-horizontal-xs user-praise">(<span>11</span>)</span></a>
 						<a href="javascript:;" class="am-btn am-btn-primary" data-am-modal-close><i class="am-icon-remove"></i> 关闭 </a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 报名窗口 -->
+		<div class="am-popup" id="my-apply-popup">
+			<div class="am-popup-inner">
+				<div class="am-popup-hd">
+					<h4 class="am-popup-title"> 报名参加 </h4>
+					<span data-am-modal-close class="am-close">&times;</span>
+				</div>
+				<div class="am-popup-bd">
+					<div class="am-g" style="height: 500px;">
+						<div class="am-u-sm-12 am-u-md-6 am-radius">
+							<div class="am-text-center am-padding-vertical-lg" style="background: #A0A0A0;">
+								<button class="am-btn am-radius am-btn-success am-text-xl" style="min-width: 150px;"> 旅费 </button>
+								<ul class="am-list am-padding-horizontal-sm am-text-left">
+								   <li>真实机票、酒店、活动等；</li>
+								   <li>全部原始票据计价；</li>
+								   <li>正规营运旅游空调车，保证5%空座率；</li>
+								   <li>TATA旅游专职专线领队全程精致服务；</li>
+								   <li>住宿：四晚，100元/人；</li>
+								   <li>保险：旅游意外险；</li>
+								   <li>门票：无；</li>
+								</ul>
+							</div>
+						</div>
+						
+						<div class="am-show-sm-only am-u-sm-12" style="height: 1rem;"></div>
+						
+						<div class="am-u-sm-12 am-u-md-6 am-radius">
+							<div class="am-text-center am-padding-vertical-lg" style="background: #A0A0A0;">
+								<button class="am-btn am-radius am-btn-success am-text-xl" style="min-width: 150px;"> 服务费 </button>
+								<ul class="am-list am-padding-horizontal-sm am-text-left">
+								   <li class="am-cf">
+								   		<div class="am-fl">
+									   		<img src="img/vip-2.png"/> 出发一级会员 
+								   		</div>
+								   		<div class="am-fr am-text-lg">
+									   		<span>RMB： <span class="am-text-danger">5000元</span></span>
+								   		</div>
+								   </li>
+								   <li class="am-cf">
+								   		<div class="am-fl">
+									   		<img src="img/vip-3.png"/> 出发二级会员 
+								   		</div>
+								   		<div class="am-fr am-text-lg">
+									   		<span>RMB： <span class="am-text-danger">4000元</span></span>
+								   		</div>
+								   </li>
+								   <li class="am-cf">
+								   		<div class="am-fl">
+									   		<img src="img/vip-4.png"/> 出发三级会员 
+								   		</div>
+								   		<div class="am-fr am-text-lg">
+									   		<span>RMB： <span class="am-text-danger">2000元</span></span>
+								   		</div>
+								   </li>
+								   <li class="am-cf">
+								   		<div class="am-fl">
+									   		<img src="img/vip-5.png"/> 出发四级会员 
+								   		</div>
+								   		<div class="am-fr am-text-lg">
+									   		<span>RMB： <span style="color: green;">全程免费</span></span>
+								   		</div>
+								   </li>
+								</ul>
+							</div>
+						</div>
+					
+						<div class="am-u-sm-12 am-margin-top-sm am-text-center">
+							<button type="button" class="am-btn am-radius am-btn-success am-text-lg" style="width: 300px;">立即付款</button>
+						</div>
+					
 					</div>
 				</div>
 			</div>

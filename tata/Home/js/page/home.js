@@ -72,7 +72,7 @@
 	$.getJSON("js/data/activity-soft.json", function(data) {
 		addActivity("activity-tpl", "activity-soft", data);
 		addGallery(document.getElementById("activity-soft"));
-		$("#activity-soft .lazyload").lazyload({
+		$("#activity-soft .lazyload").lazyload({ // 开启赖加载
 			threshold: 280
 		});
 	});

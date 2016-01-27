@@ -19,7 +19,7 @@ require.config({
 		"app": "page/app", // 公共的js
 		"user": "page/user", 
 		"msg": "page/msg", 
-		"changepwd": "page/changpwd", 
+		"changepwd": "page/changepwd", 
 		"uploadPhoto": "page/uploadPhoto"
 	}
 });
