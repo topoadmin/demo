@@ -15,25 +15,17 @@
 	// 单条消息滑动事件
 	msgListLi.each(function() {
 		var _this = this,
-			$this = $(this);
-		$this.on("mousedown",function(event){
-			event.preventDefault();
-			$this.data("pageX",event.pageX);
-		}).on("mouseup",function(event){
-			event.preventDefault();
-			var	downPageX = $this.data("pageX"),
-				upPageX = event.pageX;
-			if(downPageX > upPageX){
+			$this = $(this),
+			sdsadas = $this.find(".sdsadas");
+		$this.on("click", function(event) {
+			if ($(event.target).attr("class") == "msg-list-content") {
 				msgListLi.removeClass("left-touch");
-				$this.addClass("left-touch");
-			}else{
-				$this.removeClass("left-touch");
+			} else {
+				$this.toggleClass("left-touch").siblings("li").removeClass("left-touch");
 			}
-		}).on("click",".right-remove",function(){
-			$this.remove();
-		})
+		});
 	});
-	
+
 	// 全部删除按钮
 	$(".msg-list-all-remove").on("click", function() {
 		msgPopup.modal({

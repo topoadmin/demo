@@ -15,7 +15,6 @@ require.config({
 		"iscroll": "../../assets/js/iscroll-zoom", // pc滚轮事件
 		"photoClip": "../../assets/js/jquery.photoClip", // 头像截取
 		"webuploader": "../../assets/js/webuploader.html5only.min", // 图片批量上传
-		"touch": "../../assets/js/touch", // 百度开发的滑动组件
 		"app": "page/app", // 公共的js
 		"user": "page/user", 
 		"msg": "page/msg", 
