@@ -11,22 +11,26 @@
 	var loading = $(".loading");
 	setTimeout(function() {
 		loading.hide();
-	}, 333)
-	
-	var sendCode = $(".send-code"),
-		cookie = $.AMUI.utils.cookie;
-	
-	if (sendCode.length) {
-		var count = cookie.get("captcha");
-		if (count) {
-			checkCaptcha(sendCode, count);
+	}, 333);
+
+
+	/* 缓存发送短信倒计时 */
+	(function(cookie) {
+		var sendCode = $(".send-code");
+		if (sendCode.length) {
+			var count = cookie.get("captcha");
+			if (count) {
+				checkCaptcha(sendCode, count);
+			}
+			sendCode.on("click", function() {
+				checkCaptcha($(this));
+			});
 		}
-		sendCode.on("click", function() {
-			checkCaptcha($(this));
-		});
+
 		function checkCaptcha(elm, count) {
-			var btn = $(elm),count = count || 60,
-				$mobile = btn.parents("form").find(".js-pattern-mobile");
+			var btn = $(elm),
+				count = count || 60,
+				$user = btn.parents("form").find(".user");
 			var resend = setInterval(function() {
 				count--;
 				if (count > 0) {
@@ -35,7 +39,7 @@
 				} else {
 					clearInterval(resend);
 					cookie.unset("captcha");
-					if($mobile.data("validator")){
+					if ($user.data("validator")) {
 						btn.prop('disabled', false);
 					}
 					btn.val("获取验证码");
@@ -43,8 +47,9 @@
 			}, 1000);
 			btn.prop('disabled', true);
 		}
-	}
-	
+
+	}($.AMUI.utils.cookie));
+
 	// -- 加载登录模块
 	var loginModule = function(method) {
 		// -- 登录注册弹窗
@@ -61,13 +66,15 @@
 			}).data("open", true).find('.submit').off('click.close.modal.amui').on("click", function() {
 				lrpopup.find("form:visible").submit();
 			});
-			lrpopup.on("click",".changepwd",function(){
-				var $this = $(this),$form = $this.data("form") || $this.attr("data-form");
+			lrpopup.on("click", ".changepwd", function() {
+				var $this = $(this),
+					$form = $this.data("form") || $this.attr("data-form");
 				allForm.addClass("am-hide");
 				$($form).removeClass("am-hide");
 			});
 			toggleForm.on("click", function() {
-				var $this = $(this),$form = $this.data("form") || $this.attr("data-form");
+				var $this = $(this),
+					$form = $this.data("form") || $this.attr("data-form");
 				toggleForm.removeClass("am-btn-primary");
 				$this.addClass("am-btn-primary");
 				allForm.addClass("am-hide");
@@ -82,39 +89,37 @@
 				var $thisForm = $(this);
 				$thisForm.formValidator({
 					success: function($form) {
-						$form.find(".offAuto").remove();	// 删除防止浏览器自动填充的节点
+						$form.find(".offAuto").remove(); // 删除防止浏览器自动填充的节点
 						if ($form.data("isdata")) {
 							console.log($form.serialize());
 						}
 					}
-				});
-				// 验证账户是否可以等等
-				$thisForm.on("blur",".user",function(){
+				}).on("blur", ".user", function() {
 					var $this = $(this);
-					if($this.data("validator")){
+					if ($this.data("validator")) {
 						$.ajax({
 							url: 'js/data/checkUser.json',
 							dataType: 'json',
-							success:function(data){
-								if(data.status && !cookie.get("captcha")){
-									$thisForm.find(".send-code").prop("disabled",false);
-								}else{
-									$thisForm.find(".send-code").prop("disabled",true);
+							success: function(data) {
+								if (data.status && !$.AMUI.utils.cookie.get("captcha")) {
+									$thisForm.find(".send-code").prop("disabled", false);
+								} else {
+									$thisForm.find(".send-code").prop("disabled", true);
 								}
 							}
 						})
-					}else{
-						$thisForm.find(".send-code").prop("disabled",true);
+					} else {
+						$thisForm.find(".send-code").prop("disabled", true);
 					}
 				});
 			})
 		});
 	}
-	
+
 	$(".login").on("click", function() {
 		loginModule();
 	});
-	
+
 	// -- 关闭浮动二维码
 	var floatCode = $("#float-code");
 	if (floatCode.length) {

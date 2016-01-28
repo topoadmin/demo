@@ -39,7 +39,9 @@
 				$this.toggleClass("left-touch").siblings("li").removeClass("left-touch");
 			});
 			touch.on($this.find(".right-remove"), 'touchstart', function(ev) {
-				$this.remove();
+				$this.fadeOut(function(){
+					$this.remove();
+				})
 			});
 		});
 		touch.on(msgListLi, 'touchstart', function(ev) {

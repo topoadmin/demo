@@ -8,7 +8,7 @@ require.config({
 		"easing": "../../assets/js/jquery.easing.min",		// jquery 动画
 		"mixitup": "../../assets/js/jquery.mixitup.min",	// jquery 排序分类
 		"laytpl": "../../assets/js/laytpl",		// 模版引擎
-		"formValidator": "../../assets/js/home.formValidator",	// Home模块的form验证
+		"formValidator": "page/home.formValidator",	// Home模块的form验证
 		"app": "page/app",	
 		"article":"page/article",
 		"home": "page/home",
