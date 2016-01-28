@@ -12,7 +12,7 @@
 		<link rel="shortcut icon" href="http://www.taquta.com/favicon.ico">
 		<link rel="bookmark" href="http://www.taquta.com/favicon.ico">
 		<link rel="stylesheet" href="../assets/css/amazeui.min.css">
-		<link rel="stylesheet" href="../assets/css/animate.css">	
+		<link rel="stylesheet" href="../assets/css/animate.css">
 		<link rel="stylesheet" href="../assets/css/app.css" />
 	</head>
 
@@ -75,14 +75,17 @@
 		<!-- start 内容区域 -->
 		<div id="main">
 			<!-- 轮播 -->
-
 			<div class="am-g">
-				<div class="am-slider am-slider-default" id="home-carousel">
+				<div class="am-slider am-slider-default" id="home-carousel" >
 					<ul class="am-slides">
 						<li><img class="h-c-img" src="http://www.taquta.com/Uploads/picture/5666537aa898b.jpg" /></li>
 						<li><img class="h-c-img" src="http://www.taquta.com/Uploads/picture/564ecce3e516e.jpg" /></li>
 					</ul>
 				</div>
+			</div>
+			<!-- 设置图片占位，轮播初始化后删除 -->
+			<div class="am-g" style="margin-top: -20px;">
+				<img id="load-h-c-img" class="am-img-responsive" src="http://www.taquta.com/Uploads/picture/5666537aa898b.jpg"/>
 			</div>
 
 			<!-- 微电影 -->
@@ -337,7 +340,7 @@
 						</div>
 						<button class="am-hide" type="submit"></button>
 					</form>
-					
+
 					<div class="am-g am-text-center">
 						<div style="height: 1rem;"></div>
 						<a href="javascript:;" class="am-btn am-btn-danger" data-am-modal-close><i class="am-icon-remove"></i> 取消</a>
@@ -495,10 +498,10 @@
 									<span class="am-text-danger am-text-sm">{{ d[i].privilege }}.00</span> {{# }else{ }} ￥:<span class="am-text-danger">{{ d[i].price }}.00</span> {{# }}}
 								</div>
 							</div>
-						</a>
-					</div>
+							</a>
+				</div>
 				</li>{{# } }}
-			</ul>
+				</ul>
 		</script>
 
 		<script type="text/javascript">

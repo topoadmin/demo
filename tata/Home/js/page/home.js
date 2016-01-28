@@ -15,6 +15,8 @@
 		slideshowSpeed: 5000,
 		controlNav: false,
 		start:function(){
+			$("#load-h-c-img").remove();
+			homeCarousel.find(".am-direction-nav a").animate({"opacity":1},300)
 		}
 	});
 	

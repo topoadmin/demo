@@ -59,7 +59,7 @@
 .am-popup-hd{z-index: 2;}
 /* 轮播控制点改变大小和颜色*/
 .am-slider-default .am-direction-nav a.am-prev,
-.am-slider-default .am-direction-nav a.am-next{width: 50px;height: 50px;opacity: 1;}
+.am-slider-default .am-direction-nav a.am-next{width: 50px;height: 50px;opacity: 0;}
 .am-slider-default .am-direction-nav a.am-prev:before,
 .am-slider-default .am-direction-nav a.am-next:before{font-size: 3.5rem !important;color: #fff;}
 /* 妹子ul插入的， 产生空隙*/
