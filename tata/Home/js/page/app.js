@@ -13,7 +13,21 @@
 	setTimeout(function() {
 		loading.hide();
 	}, 333)
-	
+	// -- 开启轮播
+	setTimeout(function(){
+		$("#load-h-c-img").remove();
+	},120);
+	var homeCarousel = $("#home-carousel");
+	if(homeCarousel.length > 0){
+		homeCarousel.flexslider({
+			smoothHeight: false,
+			slideshowSpeed: 5000,
+			controlNav: false,
+			start:function(){
+				homeCarousel.find(".am-direction-nav a").animate({"opacity":1},300	)
+			}
+		});
+	}
 	var sendCode = $(".send-code");
 	var cookie = $.AMUI.utils.cookie;
 	if (sendCode.length) {

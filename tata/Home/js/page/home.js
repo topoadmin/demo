@@ -8,18 +8,6 @@
 		factory(root.jQuery);
 	}
 }(this, function($, laytpl) {
-	// -- 开启轮播
-	var homeCarousel = $("#home-carousel");
-	homeCarousel.flexslider({
-		smoothHeight: false,
-		slideshowSpeed: 5000,
-		controlNav: false,
-		start:function(){
-			$("#load-h-c-img").remove();
-			homeCarousel.find(".am-direction-nav a").animate({"opacity":1},300)
-		}
-	});
-	
 	// -- 添加用户
 	$.getJSON("js/data/user.json", function(data) {
 		var gettpl = document.getElementById("users-tpl").innerHTML;
