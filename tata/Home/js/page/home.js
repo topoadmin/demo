@@ -8,6 +8,21 @@
 		factory(root.jQuery);
 	}
 }(this, function($, laytpl) {
+	// -- 开启轮播
+	setTimeout(function(){
+		$("#load-h-c-img").remove();
+	},120);
+	var homeCarousel = $("#home-carousel");
+	if(homeCarousel.length > 0){
+		homeCarousel.flexslider({
+			smoothHeight: false,
+			slideshowSpeed: 5000,
+			controlNav: false,
+			start:function(){
+				homeCarousel.find(".am-direction-nav a").animate({"opacity":1},300	)
+			}
+		});
+	}
 	// -- 添加用户
 	$.getJSON("js/data/user.json", function(data) {
 		var gettpl = document.getElementById("users-tpl").innerHTML;

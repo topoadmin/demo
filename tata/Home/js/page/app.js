@@ -9,27 +9,13 @@
 
 }(this, function($) {
 	var loading = $(".loading");
-	var $window = $(window);
 	setTimeout(function() {
 		loading.hide();
 	}, 333)
-	// -- 开启轮播
-	setTimeout(function(){
-		$("#load-h-c-img").remove();
-	},120);
-	var homeCarousel = $("#home-carousel");
-	if(homeCarousel.length > 0){
-		homeCarousel.flexslider({
-			smoothHeight: false,
-			slideshowSpeed: 5000,
-			controlNav: false,
-			start:function(){
-				homeCarousel.find(".am-direction-nav a").animate({"opacity":1},300	)
-			}
-		});
-	}
-	var sendCode = $(".send-code");
-	var cookie = $.AMUI.utils.cookie;
+	
+	var sendCode = $(".send-code"),
+		cookie = $.AMUI.utils.cookie;
+	
 	if (sendCode.length) {
 		var count = cookie.get("captcha");
 		if (count) {
@@ -39,9 +25,8 @@
 			checkCaptcha($(this));
 		});
 		function checkCaptcha(elm, count) {
-			var $mobile = $(this).parents("form").find(".js-pattern-mobile");
-			var btn = $(elm);
-			var count = count || 60;
+			var btn = $(elm),count = count || 60,
+				$mobile = btn.parents("form").find(".js-pattern-mobile");
 			var resend = setInterval(function() {
 				count--;
 				if (count > 0) {
@@ -49,10 +34,9 @@
 					cookie.set("captcha", count, count)
 				} else {
 					clearInterval(resend);
-					if (!$mobile.hasClass("am-field-valid")) {
+					cookie.unset("captcha");
+					if($mobile.data("validator")){
 						btn.prop('disabled', false);
-					} else {
-						btn.prop('disabled', true);
 					}
 					btn.val("获取验证码");
 				}
@@ -66,7 +50,7 @@
 		// -- 登录注册弹窗
 		var lrpopup = $("#my-lr-popup"),
 			toggleForm = lrpopup.find(".toggle-form"),
-			form = lrpopup.find(".am-form");
+			allForm = lrpopup.find(".am-form");
 		if (lrpopup.data("open")) {
 			lrpopup.modal();
 		} else {
@@ -79,40 +63,58 @@
 			});
 			lrpopup.on("click",".changepwd",function(){
 				var $this = $(this),$form = $this.data("form") || $this.attr("data-form");
-				form.addClass("am-hide");
+				allForm.addClass("am-hide");
 				$($form).removeClass("am-hide");
 			});
 			toggleForm.on("click", function() {
 				var $this = $(this),$form = $this.data("form") || $this.attr("data-form");
 				toggleForm.removeClass("am-btn-primary");
 				$this.addClass("am-btn-primary");
-				form.addClass("am-hide");
+				allForm.addClass("am-hide");
 				$($form).removeClass("am-hide");
 			});
 		}
 
 		// -- 加载表单验证模块
-		require(["formValid"], function() {
+		require(["formValidator"], function() {
 			// 登录验证
-			form.each(function() {
-				var $this = $(this);
-				$this.formValidator({
+			allForm.each(function() {
+				var $thisForm = $(this);
+				$thisForm.formValidator({
 					success: function($form) {
-						var $form = $form;
-						$form.find(".offAuto").remove();
+						$form.find(".offAuto").remove();	// 删除防止浏览器自动填充的节点
 						if ($form.data("isdata")) {
 							console.log($form.serialize());
 						}
-					},
-					error: function($form) {}
+					}
+				});
+				// 验证账户是否可以等等
+				$thisForm.on("blur",".user",function(){
+					var $this = $(this);
+					if($this.data("validator")){
+						$.ajax({
+							url: 'js/data/checkUser.json',
+							dataType: 'json',
+							success:function(data){
+								if(data.status && !cookie.get("captcha")){
+									$thisForm.find(".send-code").prop("disabled",false);
+								}else{
+									$thisForm.find(".send-code").prop("disabled",true);
+								}
+							}
+						})
+					}else{
+						$thisForm.find(".send-code").prop("disabled",true);
+					}
 				});
 			})
 		});
 	}
+	
 	$(".login").on("click", function() {
 		loginModule();
 	});
-
+	
 	// -- 关闭浮动二维码
 	var floatCode = $("#float-code");
 	if (floatCode.length) {

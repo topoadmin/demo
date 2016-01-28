@@ -32,23 +32,10 @@
 			patternClassPrefix: 'js-pattern-',
 			validate: function(validity) {
 				var $validity = validity,
-				 	$this = $($validity.field),
+					$this = $($validity.field),
 					valid = validity.valid;
-				// -- 异步验证手机号码
-				if ($this.hasClass('user am-field-valid')) {
-					return $.ajax({
-						url: 'js/data/checkUser.json',
-						dataType: 'json'
-					}).then(function(data) {
-						$validity.valid = data.status;
-						$thisForm.find(".send-code").prop("disabled",false);
-						return $validity;
-					}, function() {
-						$thisForm.find(".send-code").prop("disabled",true);
-						$validity.valid = false;
-						return $validity;
-					});
-				}
+				// 给与验证通过的input状态
+				$this.data("validator", valid);
 			},
 			submit: function(e, validity) {
 				var formValidity = this.isFormValid();

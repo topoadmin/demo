@@ -55,7 +55,6 @@
 					<ul class="am-nav am-nav-pills am-topbar-nav">
 						<li><a href="about.html" class="min80">关于TATA</a></li>
 						<li><a href="activity.html" class="min80">活动流程</a></li>
-						<li><a href="javascript:;" class="min80 login"><span class="am-icon-user"></span> 登录</a></li>
 						<li class="am-dropdown" data-am-dropdown="">
 							<a class="am-dropdown-toggle" data-am-dropdown-toggle="" href="javascript:;">
 								<span class="am-icon-child"></span>
@@ -84,7 +83,7 @@
 				</div>
 			</div>
 			<!-- 设置图片占位，轮播初始化后删除 -->
-			<div class="am-g" style="margin-top: -20px;opacity: 0.7;">
+			<div class="am-g" style="margin-top: -20px;">
 				<img id="load-h-c-img" class="am-img-responsive" src="http://www.taquta.com/Uploads/picture/5666537aa898b.jpg"/>
 			</div>
 
@@ -302,7 +301,7 @@
 								<div style="height: 1rem;"></div>
 								<div class="am-form-group am-form-icon">
 									<i class="am-icon-shield"></i>
-									<input type="text" class="am-form-field" minlength="6" maxlength="6" placeholder="验证码" required>
+									<input type="text" name="code" class="am-form-field" minlength="6" maxlength="6" placeholder="验证码" required>
 								</div>
 								<div class="am-form-group am-fr am-margin-bottom-0">
 									<input class="am-btn am-btn-primary send-code" disabled type="button" value="获取验证码" />
@@ -331,7 +330,7 @@
 								<div style="height: 1rem;"></div>
 								<div class="am-form-group am-form-icon">
 									<i class="am-icon-shield"></i>
-									<input type="text" class="am-form-field" minlength="6" maxlength="6" placeholder="验证码" required>
+									<input type="text" name="code" class="am-form-field" minlength="6" maxlength="6" placeholder="验证码" required>
 								</div>
 								<div class="am-form-group am-fr am-margin-bottom-0">
 									<input class="am-btn am-btn-primary send-code" disabled type="button" value="获取验证码" />

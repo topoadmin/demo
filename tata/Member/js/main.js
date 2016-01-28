@@ -3,27 +3,24 @@ require.config({
 	paths: { // -- 配置别名
 		//  	"amazeui":"../../assets/js/amazeui.min",	// 妹子Ui
 		"jquery": "../../assets/js/jquery.min",
-		//		"jquery":"http://libs.baidu.com/jquery/2.0.0/jquery.min",
 		"amazeui": "http://cdn.amazeui.org/amazeui/2.5.0/js/amazeui.min",
-		"countUp": "../../assets/js/countUp", // 数字动态效果
+		"countUp": "../../assets/js/countUp.min", // 数字动态效果
 		"chosen": "../../assets/js/amazeui.chosen", // 下拉组件
 		"datetime": "../../assets/js/amazeui.datetimepicker", // 日历组件
-		"formValidator": "../../assets/js/formValidator", // form验证
-		"citySelect": "../../assets/js/jquery.cityselect", // 城市选择
-		"quality": "../../assets/js/qualityCheck", // 城市选择
-		"hammer": "../../assets/js/hammer", // 移动端滑动事件
-		"iscroll": "../../assets/js/iscroll-zoom", // pc滚轮事件
-		"photoClip": "../../assets/js/jquery.photoClip", // 头像截取
+		"formValidator": "../../assets/js/member.formValidator", // form验证
+		"citySelect": "../../assets/js/jquery.cityselect.min", // 城市选择
+		"photoClip": "../../assets/js/jquery.photoClip.min", // 头像截取
+		"hammer": "../../assets/js/hammer.min", // 图片裁剪移动端滑动事件
+		"iscroll": "../../assets/js/iscroll-zoom.min", // 图片裁剪pc滚轮事件
 		"webuploader": "../../assets/js/webuploader.html5only.min", // 图片批量上传
-		"touch": "../../assets/js/touch", // 百度滑动事件
 		"app": "page/app", // 公共的js
-		"user": "page/user", 
-		"msg": "page/msg", 
-		"changepwd": "page/changepwd", 
+		"user": "page/user",
+		"msg": "page/msg",
+		"changepwd": "page/changepwd",
 		"uploadPhoto": "page/uploadPhoto"
 	}
 });
-require(["jquery", "amazeui","app"], function($) {
+require(["jquery", "amazeui", "app"], function($) {
 	if (typeof(thisPage) == "string") {
 		require([thisPage]);
 	}
