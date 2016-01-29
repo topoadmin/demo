@@ -131,22 +131,22 @@
 						<div class="am-slider am-slider-default article-tese" data-am-flexslider="{slideshowSpeed: 5000}">
 							<ul class="am-slides am-text-center">
 								<li>
-									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Uploads/image/product/20151216/20151216180029_63504.jpg" />
+									<img class="am-img-thumbnail bind-gallery" alt="111" src="http://www.taquta.com/Uploads/image/product/20151216/20151216180029_63504.jpg" />
 								</li>
 								<li>
-									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Uploads/image/product/20151216/20151216180044_98281.jpg" />
+									<img class="am-img-thumbnail bind-gallery" alt="222" src="http://www.taquta.com/Uploads/image/product/20151216/20151216180044_98281.jpg" />
 								</li>
 								<li>
-									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Uploads/image/product/20151216/20151216180039_81327.jpg" />
+									<img class="am-img-thumbnail bind-gallery" alt="333" src="http://www.taquta.com/Uploads/image/product/20151216/20151216180039_81327.jpg" />
 								</li>
 								<li>
-									<img class="am-img-thumbnail bind-gallery" src="http://www.taquta.com/Uploads/image/product/20151216/20151216180034_71470.jpg" />
+									<img class="am-img-thumbnail bind-gallery" alt="444" src="http://www.taquta.com/Uploads/image/product/20151216/20151216180034_71470.jpg" />
 								</li>
 							</ul>
 						</div>
 					</div>
 					<div class="am-u-sm-12 am-u-md-6 am-text-center" style="margin-bottom: 20px;">
-						<img class="am-img-thumbnail bind-gallery" src="img/article-title.jpg" />
+						<img class="am-img-thumbnail bind-gallery" alt="555" src="img/article-title.jpg" />
 					</div>
 				</div>
 			</section>
@@ -883,115 +883,6 @@
 				<p>京ICP备15048938号</p>
 			</div>
 		</footer>
-
-		<!-- 登录注册弹窗 -->
-		<div class="am-popup" id="my-lr-popup">
-			<div class="am-popup-inner">
-				<div class="am-popup-hd">
-					<h4 class="am-popup-title">登录/注册</h4>
-					<span data-am-modal-close class="am-close am-text-xl">&times;</span>
-				</div>
-				<div class="am-popup-bd">
-					<div class="am-g">
-						<div class="am-u-sm-6">
-							<button class="am-btn am-btn-block toggle-form am-btn-primary" data-form="#login-form">
-								<i class="am-icon-user"></i> 登录
-							</button>
-						</div>
-						<div class="am-u-sm-6">
-							<button class="am-btn am-btn-block toggle-form" data-form="#register-form">
-								<i class="am-icon-user-plus"></i> 注册
-							</button>
-						</div>
-					</div>
-					<hr />
-					<!-- 登录表单 -->
-					<form class="am-form" id="login-form">
-						<div class="am-g">
-							<div class="am-u-sm-12 my-modal-content">
-								<input type="text" class="am-hide" />
-								<div class="am-form-group am-form-icon">
-									<i class="am-icon-user"></i>
-									<input type="text" class="am-form-field js-pattern-mobile" name="user" minlength="11" maxlength="11" placeholder="请填写手机号码" required>
-								</div>
-								<div class="am-form-group am-form-icon">
-									<i class="am-icon-expeditedssl"></i>
-									<input type="password" class="am-form-field" name="password" minlength="6" maxlength="18" placeholder="输入密码" required>
-								</div>
-							</div>
-						</div>
-						<button class="am-hide" type="submit"></button>
-					</form>
-					<!-- 注册表单 -->
-					<form class="am-form am-form-inline am-hide" id="register-form">
-						<!-- 防止浏览器自动填充 提交时删除 -->
-						<input class="offAuto am-hide" type="text" name="user" />
-						<input class="offAuto am-hide" type="password" name="password" />
-						<div class="am-g">
-							<div class="am-u-sm-12 my-modal-content">
-								<div class="am-form-group am-block am-form-icon">
-									<i class="am-icon-user"></i>
-									<input type="text" class="am-form-field js-pattern-mobile user" name="user" minlength="11" maxlength="11" placeholder="请填写手机号码" required>
-								</div>
-								<div style="height: 1rem;"></div>
-								<div class="am-form-group am-block am-form-icon">
-									<i class="am-icon-expeditedssl"></i>
-									<input type="password" class="am-form-field" name="password" minlength="6" maxlength="18" placeholder="6~16个字符，区分大小写" required>
-								</div>
-								<div style="height: 1rem;"></div>
-								<div class="am-form-group am-form-icon">
-									<i class="am-icon-expeditedssl"></i>
-									<input type="text" class="am-form-field" minlength="6" maxlength="6" placeholder="验证码" required>
-								</div>
-								<div class="am-form-group">
-									<input class="am-btn am-btn-primary send-code" disabled type="button" value="获取验证码" />
-								</div>
-							</div>
-						</div>
-						<button class="am-hide" type="submit"></button>
-					</form>
-					<div class="am-g am-text-center">
-						<div style="height: 1rem;"></div>
-						<a href="javascript:;" class="am-btn am-btn-danger" data-am-modal-close><i class="am-icon-remove"></i> 取消</a>
-						<a href="javascript:;" class="am-btn am-btn-success submit"><i class="am-icon-check"></i> 确定 </a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- 浮动二维码 -->
-		<!--<div id="float-code" class="am-hide-md-down" data-am-scrollspy="{animation: 'slide-top', delay: 666}">
-			<img src="http://www.taquta.com/Application/Home/View/Default/Images/float-code.jpg">
-			<button class="am-btn am-btn-primary am-btn-block am-btn-close">关闭</button>
-		</div>-->
-
-		<!-- 浮动客服 -->
-		<!--<div id="float-kefu" class="am-hide-md-down" data-am-scrollspy="{animation: 'slide-right', delay: 666}">
-			<div class="open-img">
-				<img src="img/open_im.png" />
-			</div>
-			<div class="open-kefu am-hide">
-				<div class="close-kefu">
-					<span class="am-text-xl"><i class="iconfont icon-remove"></i></span>
-				</div>
-				<div style="height: 15px;"></div>
-				<div class="am-text-center">
-					<a href="http://wpa.qq.com/msgrd?v=3&uin=465040621&site=qq&menu=yes" target="_blank" class="im-qq qq-a">
-						<div class="qq-hover-c">
-							<img class="img-qq" src="img/qq.png"></div>
-						<span> QQ在线咨询</span>
-					</a>
-				</div>
-				<div style="height: 15px;"></div>
-				<div class="am-text-center">
-					<span class="am-text-weight am-text-sm">客服热线</span>
-					<br />
-					<span class="am-text-danger am-text-sm">4008-759-799 </span>
-					<br />
-				</div>
-			</div>
-			<button class="am-btn am-btn-primary am-btn-block am-text-xs am-btn-close">关闭</button>
-		</div>-->
 
 		<!-- 用户资料弹窗 -->
 		<div class="am-popup" id="my-user-popup">

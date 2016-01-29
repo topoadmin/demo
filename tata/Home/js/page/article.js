@@ -27,25 +27,26 @@
 	 * 根据bind-gallery类生成画廊
 	 * @author gaoshi-github
 	 * 类标签上 data-big-src 为大图路径
-	 * 类标签上 data-title 为名称文本
+	 * 类标签上 alt 为名称文本
 	 */
 	var $gallery = $("#article-gallery"),
 		$bindGallery = $("img.bind-gallery"),
-		imgGallery = "";
-
+		imgGallery = "",galleryIndex=0;
+	
 	$bindGallery.each(function() {
-		var _this = this,
-			$this = $(_this),
-			_src = $this.attr("data-big-src") || _this.src,
-			_title = $this.attr("data-title") || $this.siblings("span").text(),
-			_thisIndex = $bindGallery.index($this);
+		var $this = $(this),
+			_src = $this.attr("data-big-src") || $this.attr("src"),
+			_title = $this.attr("alt") || $this.siblings("span").text();
 
-		if (!$this.parents("li").hasClass("clone")) { // 不能为克隆的标签
+		if (!$this.parents("li").hasClass("clone")) { 
+			// 不能为克隆的标签
 			imgGallery += '<li><div class="am-gallery-item"><a href="' + _src + '"' +
 				'title="' + _title + '"></a></div></li>';
+			$this.data("gallery-index",galleryIndex)
+			galleryIndex++;
 		}
 		$this.on("click", function() {
-			$("#article-gallery li a").eq(_thisIndex).trigger("click");
+			$("#article-gallery li a").eq($this.data("gallery-index")).trigger("click");
 		});
 	});
 
@@ -81,7 +82,7 @@
 		if (atNav.length > 0) {
 			if (!atNav.is(":hidden")) {
 				atNav.sticky({
-					top: 61
+					top: 70
 				}).scrollspynav();
 			}
 			$win.on("scroll", function() {
