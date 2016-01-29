@@ -172,10 +172,10 @@
 				chunked: true,
 				// 分片大小
 				chunkSize: 512 * 1024,
-				//最大上传的文件数量, 总文件大小,单个文件大小(单位字节);
-				fileNumLimit: 5,
-				fileSizeLimit: 5000 * 1024,
-				fileSingleSizeLimit: 500 * 1024
+				//最大上传的文件数量, 总文件大小,单个文件大小(单位字节);	kb
+				fileNumLimit: 20,
+				fileSizeLimit: 100000 * 1024,
+				fileSingleSizeLimit: 5000 * 1024
 			};
 		}
 
