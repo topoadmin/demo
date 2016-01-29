@@ -9,6 +9,7 @@
  *			在PC设备上鼠标滚轮为缩放，每次双击则顺时针旋转90度
  * @option_param {number} width 截取区域的宽度
  * @option_param {number} height 截取区域的高度
+ * @option_param {number} fileMinSize 设置文件最小为多少KB
  * @option_param {string} file 上传图片的<input type="file">控件的选择器或者DOM对象
  * @option_param {string} view 显示截取后图像的容器的选择器或者DOM对象
  * @option_param {string} ok 确认截图按钮的选择器或者DOM对象
@@ -87,7 +88,6 @@
 		var $img,
 			imgWidth, imgHeight, //图片当前的宽高
 			imgLoaded; //图片是否已经加载完成
-		
 		$file.change(function() {
 			if (!this.files.length) return;
 			if (!/image\/\w+/.test(this.files[0].type)) {
@@ -121,6 +121,8 @@
 							createImg(newDataURL);
 						});
 						$tempImg.attr("src", this.result);
+					} else if(kbs < option.fileMinSize){
+						option.imgSizeMin(kbs,"图片过小，请重新选择!");
 					} else {
 						createImg(this.result);
 					}
@@ -130,7 +132,6 @@
 					loadError.call(this, e);
 				};
 				fileReader.readAsDataURL(this.files[0]); // 读取文件内容
-
 				loadStart.call(fileReader, this.files[0]);
 			}
 		});

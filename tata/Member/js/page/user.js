@@ -105,14 +105,17 @@
 				clipArea.photoClip({
 					width: 232,
 					height: 299,
+					fileMinSize:40,
 					file: $file,
 					view: "#user-head",
 					ok: "#clipBtn",
 					loadStart: function() {
 						//console.log("照片读取中");
+						$("#clipAlert").addClass("am-hide");
 						$load.show();
 					},
-					loadComplete: function() { //console.log("照片读取完成");
+					loadComplete: function() {
+						//console.log("照片读取完成");
 						$load.hide();
 					},
 					clipFinish: function(dataURL) {
@@ -120,7 +123,19 @@
 							"userhead": dataURL
 						}
 						clipArea.find("img").attr("src", "");
-						console.log(headdata);
+						console.log("裁剪完成：" + headdata);
+					},
+					imgSizeMin: function(kbs, error) {
+						// 上传图片过小
+						$uploadModal.modal();
+						$load.hide();
+						$("#my-clip-alert").modal({
+							relatedTarget: this,
+							onConfirm: function(options) {
+								$uploadModal.modal();
+								$file.click();
+							}
+						});
 					}
 				});
 				$load.hide();
