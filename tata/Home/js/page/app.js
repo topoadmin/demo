@@ -8,9 +8,9 @@
 	}
 
 }(this, function($) {
-	var loading = $(".loading");
+	var $loading = $(".loading");
 	setTimeout(function() {
-		loading.hide();
+		$loading.hide();
 	}, 333);
 
 
@@ -164,14 +164,14 @@
 		})
 
 		function openUserPopup(elm) {
-			loading.show().find(".txt").html("用户内容加载中。。。");
+			$loading.show().find(".txt").html("用户内容加载中。。。");
 			var $abox = elm.children("a"),
 				$userImg = $abox.children(".user-avatar").attr("src"),
 				$rankImg = $abox.children(".user-rank").attr("src");
 			setTimeout(function() {
 				// 点击查看用户资料
 				$.getJSON("js/data/userInfo.json", function(data) {
-					loading.hide();
+					$loading.hide();
 					data.userimg = $userImg;
 					data.rank = $rankImg;
 					data.characterDom = splitCharacter(data.character);

@@ -11,21 +11,28 @@
 }(this, function($) {
 	addOption(150, 200, "#sel-height");
 	addOption(40, 90, "#kg-height");
-	$(".am-popup").one('open.modal.amui opened.modal.amui', function(){
+	$(".am-popup").one('open.modal.amui opened.modal.amui', function() {
 		/* 改变popup的默认高度，不需要过多白边 */
 		var $thisPopup = $(this);
-		if($(window).width() <= 620){
-			$thisPopup.css("height","100%");
-		}else{
+		if ($(window).width() <= 620) {
+			$thisPopup.css("height", "100%");
+		} else {
 			$thisPopup.height("auto");
-			$thisPopup.removeClass("hide").css({"margin-top":-$thisPopup.height()/2});
+			$thisPopup.removeClass("hide").css({
+				"margin-top": -$thisPopup.height() / 2
+			});
 		}
-		$(window).on("resize",function(){
-			if($(this).width() <=620){
-				$thisPopup.css({"height":"100%","margin-top":"0"})
-			}else{
+		$(window).on("resize", function() {
+			if ($(this).width() <= 620) {
+				$thisPopup.css({
+					"height": "100%",
+					"margin-top": "0"
+				})
+			} else {
 				$thisPopup.height("auto");
-				$thisPopup.css({"margin-top":-$thisPopup.height()/2});
+				$thisPopup.css({
+					"margin-top": -$thisPopup.height() / 2
+				});
 			}
 		})
 	});
@@ -81,18 +88,18 @@
 	// -- 上传头像
 	var $file = $("#file"),
 		$load = $(".loading"),
-		uploadModal = $('#my-upload-head');
+		$uploadModal = $('#my-upload-head');
 	$("#upload-head").on("click", function() {
-		uploadModal.modal({
+		$uploadModal.modal({
 			relatedTarget: this,
 			closeViaDimmer: false
 		});
-		uploadModal.find('.am-modal-btn').off('click.close.modal.amui');
+		$uploadModal.find('.am-modal-btn').off('click.close.modal.amui');
 		var clipArea = $("#clipArea");
 		if ($.fn.photoClip) {
 			$file.click();
 		} else {
-			$load.show();
+			$load.find(".txt").text("初次加载，请稍候..").show();
 			require(["photoClip"], function() {
 				$(".clip-text").fadeOut();
 				clipArea.photoClip({
@@ -101,7 +108,8 @@
 					file: $file,
 					view: "#user-head",
 					ok: "#clipBtn",
-					loadStart: function() { //console.log("照片读取中");
+					loadStart: function() {
+						//console.log("照片读取中");
 						$load.show();
 					},
 					loadComplete: function() { //console.log("照片读取完成");
@@ -124,10 +132,10 @@
 		$file.click();
 	});
 	$("#clipBtn").on("click", function() {
-			// 裁剪完毕
-			uploadModal.modal("close");
-		})
-		// 地区选择
+		// 裁剪完毕
+		$uploadModal.modal("close");
+	});
+	// 地区选择
 	var citySel = $("#city-sel");
 	if (citySel.length > 0) {
 		require(["citySelect"], function() {　　

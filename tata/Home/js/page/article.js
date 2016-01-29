@@ -8,7 +8,9 @@
 		factory(root.jQuery);
 	}
 }(this, function($) {
-	$("#article-user").on("click", ".am-gallery-item", function() {
+	var $articleUser = $("#article-user");
+	$articleUser.on("click", ".am-gallery-item", function() {
+		// 打开报名窗口
 		if (!$(this).hasClass("user-img-box")) {
 			$("#my-apply-popup").modal({
 				relatedTarget: this,
@@ -16,10 +18,9 @@
 			})
 		}
 	});
-	/* 查看用户信息 */
-	var articleUser = $("#article-user");
+	// 查看用户信息 
 	require(["app"], function() {
-		articleUser.userPopup();
+		$articleUser.userPopup();
 	});
 
 	/*
@@ -39,14 +40,15 @@
 			_title = $this.attr("data-title") || $this.siblings("span").text(),
 			_thisIndex = $bindGallery.index($this);
 
-		imgGallery += '<li><div class="am-gallery-item"><a href="' + _src + '"' +
-			'title="' + _title + '"></a></div></li>';
-
+		if (!$this.parents("li").hasClass("clone")) { // 不能为克隆的标签
+			imgGallery += '<li><div class="am-gallery-item"><a href="' + _src + '"' +
+				'title="' + _title + '"></a></div></li>';
+		}
 		$this.on("click", function() {
 			$("#article-gallery li a").eq(_thisIndex).trigger("click");
 		});
-
 	});
+
 	if ($gallery.length == 1) {
 		$gallery.append(imgGallery);
 	} else {
@@ -56,7 +58,6 @@
 			target: 'a'
 		});
 	}
-	/* end 生成画廊 */
 
 	/* -- 侦测导航 -- */
 	var $window = $(window),
@@ -66,12 +67,12 @@
 		stickyBind = true;
 	}
 	$window.on("resize", function() {
-			if ($window.width() > 640 && !stickyBind) {
-				stickyBind = true;
-				addSticky();
-			}
-		})
-		/* 绑定导航跟随事件 */
+		if ($window.width() > 640 && !stickyBind) {
+			stickyBind = true;
+			addSticky();
+		}
+	});
+	/* 绑定导航跟随事件 */
 	function addSticky() {
 		var at = $("#article-template"), // 需要侦测的盒子
 			atNav = at.find(".at-nav"), // 需要侦测的导航

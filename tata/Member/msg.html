@@ -125,15 +125,15 @@
 						<ul class="am-list" id="msg-list">
 							<li class="am-g am-list-item-dated">
 								<a href="javascript:;" class="am-list-item-hd">
-									<span class="am-text-danger read-msg unread-msg">未读</span> 
+									<span class="am-text-danger read-msg unread-msg" data-mid="0">未读</span> 
 									<span class="msg-list-content">111111111111111111111111111111111111111111111111111111111</span>
 								</a>
 								<span class="am-list-date">2016年1月22日 11:21:29</span>
 								<button class="am-btn am-btn-primary am-btn-danger right-remove"><i class="am-icon-remove"></i> 删除</button>
 							</li>
 							<li class="am-g am-list-item-dated">
-								<a href="#" class="am-list-item-hd ">
-									<span class="am-text-success read-msg">已读</span> 
+								<a href="#" class="am-list-item-hd">
+									<span class="am-text-success read-msg" data-mid="1">已读</span> 
 									<span class="msg-list-content">这条信息我已经读完了</span>
 								</a>
 								<span class="am-list-date">2016年1月22日 11:21:29</span>
@@ -141,7 +141,7 @@
 							</li>
 							<li class="am-g am-list-item-dated">
 								<a href="#" class="am-list-item-hd">
-									<span class="am-text-danger read-msg unread-msg">未读</span> 
+									<span class="am-text-danger read-msg unread-msg" data-mid="2">未读</span> 
 									<span class="msg-list-content">222222222</span>
 								</a>
 								<span class="am-list-date">2016年1月22日 11:21:29</span>
@@ -150,8 +150,8 @@
 						</ul>
 					</div>
 					<div class="am-text-center">
+						<a href="#" class="am-btn am-radius am-btn-success mark-read">全部已读</a>
 						<a href="#" class="am-btn am-radius am-btn-danger msg-list-all-remove">全部删除</a>
-						<a href="#" class="am-btn am-radius am-btn-success">全部已读</a>
 					</div>
 				</div>
 
@@ -180,32 +180,43 @@
 							<tbody>
 								<tr>
 									<td class="msg-checkbox">
-										<input type="checkbox">
+										<input type="checkbox" data-mid="0">
 									</td>
 									<td class="am-text-truncate msg-info">
 										<a href="#">2222222222222222222233333333333333333333333122222222222222222222222222211111111111111111</a>
 									</td>
-									<td class="am-text-truncate am-text-success">已读</td>
+									<td class="am-text-success">已读</td>
 									<td class="am-text-truncate msg-time">2016年1月22日 10:45:33</td>
-									<td class="am-text-truncate msg-user">系统</td>
+									<td class="msg-user">系统</td>
 								</tr>
 								<tr>
 									<td class="msg-checkbox">
-										<input type="checkbox">
+										<input type="checkbox" data-mid="1">
 									</td>
 									<td class="am-text-truncate msg-info">
 										<a href="#">11111111111111</a>
 									</td>
-									<td class="am-text-truncate am-text-danger unread-msg">未读</td>
+									<td class="am-text-danger unread-msg">未读</td>
 									<td class="am-text-truncate msg-time">2016年1月22日 10:45:33</td>
-									<td class="am-text-truncate msg-user">系统</td>
+									<td class="msg-user">系统</td>
+								</tr>
+								<tr>
+									<td class="msg-checkbox">
+										<input type="checkbox" data-mid="2">
+									</td>
+									<td class="am-text-truncate msg-info">
+										<a href="#">11111111111111</a>
+									</td>
+									<td class="am-text-danger unread-msg">未读</td>
+									<td class="am-text-truncate msg-time">2016年1月22日 10:45:33</td>
+									<td class="msg-user">系统</td>
 								</tr>
 							</tbody>
 						</table>
 						<div id="msg-btn-check">
 							<a href="#" class="am-btn am-radius am-btn-primary all-trig-check">全选</a>
 							<a href="#" class="am-btn am-radius am-btn-warning invert-check">反选</a>
-							<a href="#" class="am-btn am-radius am-btn-success">标记已读</a>
+							<a href="#" class="am-btn am-radius am-btn-success mark-read">标记已读</a>
 							<a href="#" class="am-btn am-radius am-btn-danger remove-check">删除选中</a>
 						</div>
 					</div>
@@ -229,7 +240,7 @@
 					确定删除消息？
 				</div>
 				<div class="am-modal-footer">
-					<span class="am-modal-btn" data-am-modal-cancel>查看</span>
+					<span class="am-modal-btn" data-am-modal-cancel>取消</span>
 					<span class="am-modal-btn" data-am-modal-confirm>确定</span>
 				</div>
 			</div>

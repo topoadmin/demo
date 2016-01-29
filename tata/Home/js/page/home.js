@@ -9,20 +9,23 @@
 	}
 }(this, function($, laytpl) {
 	// -- 开启轮播
-	setTimeout(function(){
+	setTimeout(function() {
 		$("#load-h-c-img").remove();
-	},120);
-	var homeCarousel = $("#home-carousel");
-	if(homeCarousel.length > 0){
-		homeCarousel.flexslider({
+	}, 120);
+	var $homeCarousel = $("#home-carousel");
+	if ($homeCarousel.length > 0) {
+		$homeCarousel.flexslider({
 			smoothHeight: false,
 			slideshowSpeed: 5000,
 			controlNav: false,
-			start:function(){
-				homeCarousel.find(".am-direction-nav a").animate({"opacity":1},300	)
+			start: function() {
+				$homeCarousel.find(".am-direction-nav a").animate({
+					"opacity": 1
+				}, 300)
 			}
 		});
 	}
+	
 	// -- 添加用户
 	$.getJSON("js/data/user.json", function(data) {
 		var gettpl = document.getElementById("users-tpl").innerHTML;
@@ -31,11 +34,11 @@
 		});
 		var $userBox = $("#user-box");
 		// 开启赖加载 绑定sporty事件立即执行
-		var userLazyLoad = $userBox.find(".lazyload"),
+		var $userLazyLoad = $userBox.find(".lazyload"),
 			iw, // 获取用户图片指定宽度
 			userHeadSize; // 记录每页显示多少用户头像
 
-		userLazyLoad.lazyload({
+		$userLazyLoad.lazyload({
 			event: "sporty"
 		});
 		if ($userBox.width() > 1000) {
@@ -52,7 +55,7 @@
 			iw = $userBox.width() / userHeadSize;
 		}
 		// 打开页面时加载多少个用户头像
-		userLazyLoad.each(function(index) {
+		$userLazyLoad.each(function(index) {
 			if (index < userHeadSize) {
 				$(this).trigger("sporty")
 			}
@@ -65,7 +68,7 @@
 			pauseOnHover: true,
 			slideshowSpeed: 5000,
 			after: function() {
-				userLazyLoad.trigger("sporty");
+				$userLazyLoad.trigger("sporty");
 			}
 		});
 		/* 查看用户信息 */

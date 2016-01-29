@@ -262,7 +262,7 @@
 
 				//绑定取消全部按钮;
 				$batchRemoveAll.on('click', function() {
-					var fileArr = webUploader.getFiles();	// 删除全部，不管什么状态
+					var fileArr = webUploader.getFiles(); // 删除全部，不管什么状态
 					$.each(fileArr, function(i, v) {
 						removeFile($('#fileBox_' + v.id), v.id, webUploader);
 					});
@@ -270,8 +270,8 @@
 			}
 
 			var $newUploadLi = '<li id="fileBox_' + file_id + '" class="diyUploadHover"><div class="am-gallery-item am_list_block am-text-center">' +
-				'<img id="fileImg_' + file_id + '" class="am-img-thumbnail" src="../assets/img/load.gif"></br>'+
-				'<div class="remove-file-img"><i class="am-icon-times-circle am-icon-sm am-text-danger"></i></div>'+
+				'<img id="fileImg_' + file_id + '" class="am-img-thumbnail" src="../assets/img/load.gif"></br>' +
+				'<div class="remove-file-img"><i class="am-icon-times-circle am-icon-sm am-text-danger"></i></div>' +
 				'<span class="am-text-truncate am-block" style="width:70%;">' + file.name + '</span>' +
 				'<div class="am-progress am-progress-striped am-progress-sm am-active" style="margin-bottom:5px;">' +
 				'<div class="am-progress-bar progress" style="width: 0%;"></div></div>' +
@@ -282,7 +282,7 @@
 			$fileBox.find('.remove-file-img').one('click', function() {
 				removeFile($fileBox, file_id, webUploader);
 			});
-			
+
 			// 生成预览缩略图;
 			webUploader.makeThumb(file, function(error, dataSrc) {
 				if (!error) {
@@ -306,7 +306,6 @@
 			fileType = fileType[type] || 'txt';
 			return fileType + suffix;
 		}
-
 	})(jQuery);
 
 	$('#webupload').batchUpload({

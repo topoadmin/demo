@@ -12,7 +12,6 @@
 	setTimeout(function() {
 		$(".loading").hide();
 	}, 222);
-	
 
 	if ($(".countUp").length > 0) {
 		require(["countUp"], function(countUp) {　　
@@ -21,8 +20,8 @@
 						target: "",
 						startVal: "",
 						endVal: "",
-						decimals: 0, 
-						duration: 1 
+						decimals: 0,
+						duration: 1
 					},
 					$this = $(this),
 					opts = $.extend(defaults, options);
@@ -73,9 +72,4 @@
 		});
 	}
 
-
-
 }));
-
-
-
