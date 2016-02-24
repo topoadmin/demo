@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>拓扑展示</title>
+		<link rel="stylesheet" href="css/topo.css" />
+		<link rel="stylesheet" href="css/nav.css" />
+		<link rel="stylesheet" href="css/rgb.css" />
+		<link rel="stylesheet" href="css/dialog.css" />
+
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="js/jtopo-0.4.8-min.js"></script>
+		<script type="text/javascript" src="js/rgb.js"></script>
+		<script type="text/javascript" src="js/app.min.js"></script>
+		<script>
+			$(function() {
+				navEvent();
+				topoSelectAjax();
+			})
+		</script>
+	</head>
+
+	<body>
+		<ul id="contextmenu" style="display:none;font-size:12px">
+			<!--右击div-->
+			<li><a>设备配置</a>
+			</li>
+			<li><a>样式设置</a>
+			</li>
+			<li><a>删除节点</a>
+			</li>
+			<li id="XAlign"><a>左右对齐</a>
+			</li>
+			<li id="YAlign"><a>上下对齐</a>
+			</li>
+			<li><a>顺时针旋转</a>
+			</li>
+			<li><a>逆时针旋转</a>
+			</li>
+			<li><a>锚定</a>
+			</li>
+			<li><a>放开</a>
+			</li>
+			<li><a>加大</a>
+			</li>
+			<li><a>缩小</a>
+			</li>
+			<li><a>拐角加大</a>
+			</li>
+			<li><a>拐角缩小</a>
+			</li>
+		</ul>
+		<header>
+			<div id="nav"></div>
+			<div id="navControl" class="navClickShow"></div>
+		</header>
+		<div id="main"></div>
+	</body>
+
+</html>

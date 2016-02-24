@@ -1,0 +1,43 @@
+/*iconfont.cn阿里巴巴矢量图库*/@font-face{font-family: 'iconfont';src: url('//at.alicdn.com/t/font_1452837707_5141904.eot');/* IE9*/src: url('//at.alicdn.com/t/font_1452837707_5141904.eot?#iefix') format('embedded-opentype'),
+/* IE6-IE8*/url('//at.alicdn.com/t/font_1452837707_5141904.woff') format('woff'),
+/* chrome、firefox*/url('//at.alicdn.com/t/font_1452837707_5141904.ttf') format('truetype'),
+/* chrome、firefox、opera、Safari, Android, iOS 4.2+*/url('//at.alicdn.com/t/font_1452837707_5141904.svg#iconfont') format('svg');/* iOS 4.1-*/}
+.iconfont{font-family: "iconfont" !important;font-style: normal;-webkit-font-smoothing: antialiased;-webkit-text-stroke-width: 0.2px;-moz-osx-font-smoothing: grayscale;}
+.icon-xs{font-size: 1.2rem;}
+.icon-sm{font-size: 1.4rem;}
+.icon-md{font-size: 2rem;}
+.icon-nianling:before{content: "\e618";}
+.icon-haidao1:before{content: "\e615";}
+.icon-haidao2:before{content: "\e616";}
+.icon-haidao3:before{content: "\e617";}
+.icon-tejia:before{content: "\e614";}
+.icon-all:before{content: "\e610";}
+.icon-fan:before{content: "\e606";}
+.icon-canshi:before{content: "\e605";}
+.icon-jilu:before{content: "\e60c";}
+.icon-wenti:before{content: "\e60b";}
+.icon-remove:before{content: "\e604";}
+.icon-soso:before{content: "\e60a";}
+.icon-shouchang:before{content: "\e609";}
+.icon-mmkj:before{content: "\e608";}
+.icon-zhifubao:before{content: "\e607";}
+.icon-kefu:before{content: "\e603";}
+.icon-play:before{content: "\e602";}
+.icon-tupian:before{content: "\e601";}
+.icon-paishe:before{content: "\e600";}
+.icon-dengji:before{content: "\e60d";}
+.icon-zhinan:before{content: "\e60e";}
+.icon-dingdan:before{content: "\e611";}
+.icon-tuituan:before{content: "\e612";}
+.icon-xinghao:before{content: "\e60f";}
+.am-text-white{color: #fff;}
+.am-text-white:hover,.am-text-white:focus,.am-text-white:active{color: #fff;}
+.am-text-weight{padding: 0 .5em;font-weight: 600;}
+.color-grey{color: #666;}
+.am-text-index-2{text-indent: 2rem;}
+.am-text-index-4{text-indent: 4rem;}
+.am-text-fei{color: #989797;}
+.am-text-red{color: red;}
+
+/*angular 闪烁*/
+.ng-cloak{display: none;}

@@ -1,0 +1,548 @@
+#fullGet {
+	background-color: Gray;height: 100%;left: 0;opacity: 0.4;position: fixed;top: 0;width: 100%;z-index: 1001;
+}
+#dialogGet {
+	background-color: #fff;color: #fff;height: 70%;left: 40%;min-height: 500px;min-width: 520px;overflow: hidden;position: absolute;
+	top: 15%;width: 30%;z-index: 1002;
+}
+#dialogGet .dialogTitleGet {
+	background-color: #00a5d5;cursor: move;float: left;height: 30px;line-height: 30px;width: 90%;
+}
+#dialogGet #closeDialogGet {
+	background-color: #00a5d5;cursor: pointer;float: right;font-size: 20px;font-weight: 600;height: 30px;
+	line-height: 30px;text-align: right;width: 10%;
+}
+#dialogGet #contenDiv {
+	color: #000000;cursor: pointer;height: 90%;margin: 40px 10px 10px;text-align: center;width: 95%;
+}
+#topoFn {
+	height: 65px;width: 100%;
+}
+
+#topoFn div{
+	float: left;height: 50px;width: 50px;background-size: 100% 100%;margin-left: 10px;
+	-moz-transition: all 0.8s ease-in-out; -webkit-transition: all 0.8s ease-in-out; 
+	-o-transition: all 0.8s ease-in-out; -ms-transition: all 0.8s ease-in-out; transition: all 0.8s ease-in-out; 
+}
+#topoFn div:hover{
+	-moz-transform: rotate(360deg); -webkit-transform: rotate(360deg); -o-transform: rotate(360deg); 
+	-ms-transform: rotate(360deg); transform: rotate(360deg); 
+}
+#topoFn #newSaveTopo {background-image: url("../image/dialog_ui/u127.png");}
+#topoFn #updeteTopo {background-image: url("../image/dialog_ui/u129.png");}
+#topoFn #deleteTopo{width: 55px;height:55px;background-image: url("../image/dialog_ui/shanchu.png");}
+
+#buttomTable {
+	overflow: hidden;
+}
+#buttomTable table {
+	-moz-user-select: none;border-collapse: collapse;text-align: center;
+}
+#buttomTable table tr {
+	background-color: #00a5d5;height: 30px;
+}
+#buttomTable table tr td {
+	border-right: 1px solid #dfe3eb;white-space: nowrap;
+}
+#buttomTbody {
+	max-height: 380px;overflow-x: hidden;overflow-y: auto;
+}
+#buttomTbody table {
+	-moz-user-select: none;border-collapse: collapse;text-align: center;
+}
+#buttomTbody table tr {
+	background-color: #fff;height: 30px;
+}
+#buttomTbody table tr td {
+	border: 1px solid #dfe3eb;white-space: nowrap;
+}
+#buttomTbody table tr.altow {
+	background-color: #f1f1f1;
+}
+#buttomTbody table tr td div {
+	color: blue;float: left;height: 30px;text-align: center;width: 50%;
+}
+#buttomTbody table tr td .tableUpdete {
+	background-image: url("../image/dialog_ui/u186.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+#buttomTbody table tr td .tableUpdete:hover {
+	background-image: url("../image/dialog_ui/u186_mouseOver.png");
+}
+#buttomTbody table tr td .tableDetele {
+	background-image: url("../image/dialog_ui/u1691.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+#buttomTbody table tr td .tableDetele:hover {
+	background-image: url("../image/dialog_ui/u1691_mouseOver.png");
+}
+
+#modelDialog {
+	-moz-user-select: none;
+    background: none repeat scroll 0 0 #fff;
+    border: 2px solid #00a5d5;
+    height: 80%;
+    left: 10px;
+    max-height: 550px;
+    position: absolute;
+    top: 10%;
+    width: 260px;
+    z-index: 20;
+}
+#modelDialog #modelDialogTitle {
+    background: none repeat scroll 0 0 #00a5d5;
+    color: #fff;
+    cursor: move;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    width: 90%;
+}
+#modelDialog #modelDialogClose {
+    background: none repeat scroll 0 0 #00a5d5;
+    color: #fff;
+    cursor: pointer;
+    float: left;
+    font-weight: 600;
+    height: 30px;
+    line-height: 30px;
+    width: 10%;
+}
+#modelDialog #modelDiv {
+    background: none repeat scroll 0 0 #cccccc;
+    min-height: 520px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-top: 1px;
+    width: 100%;
+}
+#modelDialog #modelDiv .iconTitle {
+    background: none repeat scroll 0 0 #00a5d5;
+    cursor: pointer;
+    height: 20px;
+    margin-top: 10px;
+    width: 100%;
+}
+#modelDialog #modelDiv .iconTitle div {
+    float: left;
+}
+#modelDialog #modelDiv .iconTitle .img {
+    background: url("../image/dialog_ui/xiala.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+    height: 20px;
+    width: 8%;
+}
+#modelDialog #modelDiv .iconTitle .clickImg{
+	background-image: url("../image/dialog_ui/shouqi.png");
+}
+#modelDialog #modelDiv .iconTitle .title {
+    height: 20px;
+    line-height: 20px;
+    width: 92%;
+}
+#modelDialog #modelDiv .iconConten {
+    display: none;
+    height: 360px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 10px;
+    width: 100%;
+}
+#operateDialog {
+    background-color: #ccc;
+    border: 2px solid #00a5d5;
+    color: #000000;
+    height: 80%;
+    left: 80%;
+    max-height: 520px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10%;
+    width: 260px;
+    z-index: 20;
+}
+#operateDialog #operateDialogTitle {
+    background: none repeat scroll 0 0 #00a5d5;
+    color: #fff;
+    cursor: move;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    width: 90%;
+}
+#operateDialog #operateDialogClose {
+    background: none repeat scroll 0 0 #00a5d5;
+    color: #fff;
+    cursor: pointer;
+    float: left;
+    font-weight: 600;
+    height: 30px;
+    line-height: 30px;
+    width: 10%;
+}
+#operateDialog #operateDiv {
+    float: left;
+    max-height: 420px;
+    width: 100%;
+}
+#operateDialog #operateDiv div {
+    border: 1px solid #cccccc;
+    float: left;
+    height: 50px;
+    margin-left: 8px;
+    margin-top: 8px;
+    width: 50px;
+}
+#operateDialog #operateDiv .straight {
+    border: 0 none;
+    height: 60px;
+    margin-left: 0;
+    margin-top: 0;
+    width: 100%;
+}
+#operateDialog #operateDiv .straight div{
+    -webkit-transition: all ease .5s;
+	-moz-transition: all ease .5s;
+	-ms-transition: all ease .5s;
+	-o-transition: all ease .5s;
+	transition: all ease .5s;
+}
+#operateDialog #operateDiv .straight div:hover {
+	border: 1px solid #000;
+    -webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	transform: scale(1.2);
+}
+#operateDialog #operateDiv .straight .straightLine {
+    background: url("../image/link/1.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+#operateDialog #operateDiv .straight .straightLineArrow {
+    background: url("../image/link/2.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+#operateDialog #operateDiv .straight .virtualStraightLine {
+    background: url("../image/link/3.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+#operateDialog #operateDiv .straight .virtualStraightLineArrow {
+    background: url("../image/link/4.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+#operateDialog #operateDiv .broken {
+    border: 0 none;
+    height: 60px;
+    margin-left: 0;
+    margin-top: 0;
+    width: 100%;
+}
+#operateDialog #operateDiv .broken div{
+    -webkit-transition: all ease .5s;
+	-moz-transition: all ease .5s;
+	-ms-transition: all ease .5s;
+	-o-transition: all ease .5s;
+	transition: all ease .5s;
+}
+#operateDialog #operateDiv .broken div:hover {
+	border: 1px solid #000;
+    -webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	transform: scale(1.2);
+}
+#operateDialog #operateDiv .broken .brokenLine {
+    background: url("../image/link/5.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+#operateDialog #operateDiv .broken .brokenLineArrow {
+    background: url("../image/link/7.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+#operateDialog #operateDiv .broken .virtualBrokenLine {
+    background: url("../image/link/6.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+#operateDialog #operateDiv .broken .virtualBrokenLineArrow {
+    background: url("../image/link/8.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+#operateDialog #operateDiv .twoBroken {
+    border: 0 none;
+    height: 60px;
+    margin-left: 0;
+    margin-top: 0;
+    width: 100%;
+}
+#operateDialog #operateDiv .twoBroken div{
+    -webkit-transition: all ease .5s;
+	-moz-transition: all ease .5s;
+	-ms-transition: all ease .5s;
+	-o-transition: all ease .5s;
+	transition: all ease .5s;
+}
+#operateDialog #operateDiv .twoBroken div:hover {
+	border: 1px solid #000;
+   -webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	transform: scale(1.2);
+}
+#operateDialog #operateDiv .twoBroken .twoBrokenLine {
+    background: url("../image/link/9.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+#operateDialog #operateDiv .twoBroken .twoBrokenLineArrow {
+    background: url("../image/link/10.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+#operateDialog #operateDiv .twoBroken .virtualTwoBrokenLine {
+    background: url("../image/link/11.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+#operateDialog #operateDiv .twoBroken .virtualTwoBrokenLineArrow {
+    background: url("../image/link/12.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+#operateDialog #operateDiv #stopLink {
+    margin-left: 188px;
+}
+#operateDialog #operateDiv .stopLink:hover {
+    background: url("../image/link/iconfont-zhizhenm.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+#operateDialog #operateDiv .stopLink {
+    background: url("../image/link/iconfont-zhizhen.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+#operateDialog #operateDiv .opmsStop {
+    background: url("../image/link/iconfont-jihuo.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+#operateDialog #operateDiv .opmsStop:hover {
+    background: url("../image/link/iconfont-jihuom.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+#operateDialog #operateDiv #clear {
+    background: url("../image/link/iconfont-qingchu.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+    margin-left: 10%;
+}
+#operateDialog #operateDiv #clear:hover {
+    background: url("../image/link/iconfont-qingchum.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+#operateDialog #operateDiv #savaDragTopo {
+    background: url("../image/link/iconfont-baocun.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+    margin-left: 10%;
+}
+#operateDialog #operateDiv #savaDragTopo:hover {
+    background: url("../image/link/iconfont-baocunm.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+#operateDialog #operateDiv #goIndex {
+    background: url("../image/link/iconfont-home.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+    margin-left: 10%;
+}
+#operateDialog #operateDiv #goIndex:hover {
+    background: url("../image/link/iconfont-homem.png") repeat scroll 0 0 / 100% 100% rgba(0, 0, 0, 0);
+}
+#operateDialog #operateDiv .opms {
+	border: 1px solid #000;
+    -webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	transform: scale(1.2);
+}
+#fullTwo {
+    background-color: Gray;
+    height: 100%;
+    left: 0;
+    opacity: 0.4;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1001;
+}
+#dialogTwo {
+    background-color: #fff;
+    color: #000;
+    height: 60%;
+    left: 35%;
+    min-height: 500px;
+    min-width: 400px;
+    position: absolute;
+    top: 20%;
+    width: 30%;
+    z-index: 1002;
+}
+#dialogTwo .dialog_top_title {
+    background-color: #00a5d5;
+    cursor: move;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    width: 90%;
+}
+#dialogTwo #closeDialogTwo {
+    background-color: #00a5d5;
+    cursor: pointer;
+    float: right;
+    font-size: 20px;
+    font-weight: 600;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    width: 10%;
+}
+#dialogTwo label {
+    padding-left: 10px;
+}
+#dialogTwo input {
+    height: 30px;
+    margin-left: 10px;
+    margin-top: 5px;
+    padding-left: 5px;
+    width: 300px;
+}
+#dialogTwo #nodeName {
+    margin-left: 13px;
+}
+#dialogTwo #nodeIp {
+    height: 30px;
+    margin-left: 13px;
+    margin-top: 5px;
+    width: 310px;
+}
+#dialogTwo #nodeFirm {
+    margin-left: 9px;
+}
+#dialogTwo input[type="text"] {
+    font-size: 16px;
+}
+#dialogTwo .radioTitle {
+    background-color: #fff;
+    border: 0 none;
+    font-size: 16px;
+    width: 120px;
+}
+#dialogTwo input[name="nodeAgent"] {
+    height: 1px;
+    margin-top: 10px;
+    width: 50px;
+}
+#dialogTwo #confirmTwo {
+    font-size: 18px;
+    margin-left: 100px;
+    margin-top: 20px;
+    width: 100px;
+}
+#dialogTwo #cancelTwo {
+    font-size: 18px;
+    margin-left: 50px;
+    margin-top: 20px;
+    width: 100px;
+}
+#fullThree {
+    background-color: Gray;
+    height: 100%;
+    left: 0;
+    opacity: 0.4;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1001;
+}
+#dialogThree {
+    background-color: #fff;
+    color: #000;
+    height: 40%;
+    left: 40%;
+    min-height: 400px;
+    min-width: 300px;
+    position: absolute;
+    top: 30%;
+    width: 20%;
+    z-index: 1002;
+}
+#dialogThree .dialog_top_title {
+    background-color: #00a5d5;
+    cursor: move;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    width: 90%;
+}
+#dialogThree #closeDialogThree {
+    background-color: #00a5d5;
+    cursor: pointer;
+    float: right;
+    font-size: 20px;
+    font-weight: 600;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    width: 10%;
+}
+#dialogThree #nodeTextPs {
+    font-family: "微软雅黑";
+    font-size: 18px;
+    height: 30px;
+    margin-top: 10px;
+    padding-left: 2px;
+    width: 50%;
+}
+#dialogThree #nodeTextPs option {
+    font-family: "微软雅黑";
+    padding-left: 2px;
+}
+#dialogThree #textPosition {
+    height: 25px;
+    margin-top: 10px;
+    padding-left: 5px;
+    width: 48%;
+}
+#dialogThree #textColor {
+    height: 25px;
+    margin-top: 10px;
+    padding-left: 5px;
+    width: 50%;
+}
+#dialogThree #fontSizeSlc {
+    height: 25px;
+    margin-top: 10px;
+    padding-left: 5px;
+    width: 50%;
+}
+#dialogThree .textLabel {
+    -moz-user-select: auto;
+}
+#dialogThree #fontOffset {
+    -moz-user-select: auto;
+    height: 25px;
+    margin-top: 10px;
+    width: 50%;
+}
+#dialogThree #fontColor {
+    font-size: 18px;
+    margin-top: 10px;
+    padding-left: 5px;
+    width: 50%;
+}
+#dialogThree #backColor {
+    font-size: 18px;
+    margin-top: 10px;
+    padding-left: 5px;
+    width: 50%;
+}
+#dialogThree #borderColor {
+    font-size: 18px;
+    margin-top: 10px;
+    padding-left: 5px;
+    width: 50%;
+}
+#dialogThree #bdSizeSlc {
+    font-size: 18px;
+    margin-top: 10px;
+    padding-left: 5px;
+    width: 50%;
+}
+#confirmThree {
+    font-size: 18px;
+    margin-left: 5%;
+    margin-top: 10px;
+    width: 40%;
+}
+#cancelThree {
+    font-size: 18px;
+    margin-left: 5%;
+    margin-top: 10px;
+    width: 40%;
+}
