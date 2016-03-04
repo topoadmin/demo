@@ -1,16 +1,17 @@
 var app = angular.module("admin", ["ui.router", "nav-module"]);
+
 app.config(function($stateProvider, $urlRouterProvider) {
-	$urlRouterProvider.otherwise("/input-magnify");
-	$stateProvider.state('input-magnify', {
-		url: "/input-magnify",
-		templateUrl: "tpls/input-magnify.html",
+	$urlRouterProvider.otherwise("/magnify");
+	$stateProvider.state('magnify', {
+		url: "/magnify",
+		templateUrl: "tpls/magnify.html",
 		views: {
 			"nav": {
 				templateUrl: "tpls/nav.html",
 				controller: "my-nav"
 			},
 			"page": {
-				templateUrl: "tpls/input-magnify.html"
+				templateUrl: "tpls/magnify.html"
 			}
 		}
 	}).state('page2', {
