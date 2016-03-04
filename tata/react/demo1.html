@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="zh-cn">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>TATA旅游 React</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<meta name="apple-mobile-web-app-title" content="AMUI React" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.5.0/css/amazeui.min.css" />
+		<script src="http://cdn.amazeui.org/react/0.14.3/react.min.js"></script>
+		<script src="http://cdn.amazeui.org/react/0.14.3/react-dom.min.js"></script>
+		<script src="dist/amazeui.react.min.js"></script>
+	</head>
+
+	<body>
+		<div id="box"></div>
+		<script type="text/babel">
+			var gridInstance = (
+			<Grid className="doc-g">
+				<Col sm={4}>4</Col>
+				<Col sm={8}>8</Col>
+			</Grid>
+			); 
+			ReactDOM.render(gridInstance, document.getElementById("box"));
+		</script>
+	</body>
+
+</html>
