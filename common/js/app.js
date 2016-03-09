@@ -1,4 +1,8 @@
 define(["angular", "angularUiRouter"], function(angular) {
+	require(["gsJsPlugs"], function(gs) {
+		console.log(gs);
+	});
+
 	var app = angular.module("admin", ["ui.router", "nav-module"]);
 	app.config(function($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise("/index");

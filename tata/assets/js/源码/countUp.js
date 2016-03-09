@@ -188,7 +188,6 @@
 		self.printValue(self.startVal);
 	};
 
-
 	return CountUp;
 
 }));
