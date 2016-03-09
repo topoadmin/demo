@@ -1,9 +1,8 @@
 define(["angular", "angularUiRouter"], function(angular) {
 	require(["gsJsPlugs"], function(gs) {
-		console.log(gs);
 	});
 
-	var app = angular.module("admin", ["ui.router", "nav-module"]);
+	var app = angular.module("admin", ["ui.router", "nav-module", "main-module"]);
 	app.config(function($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise("/index");
 		$stateProvider
@@ -18,7 +17,8 @@ define(["angular", "angularUiRouter"], function(angular) {
 						controller: "my-nav"
 					},
 					'main@index': {
-						templateUrl: 'tpls/commonFn.html'
+						templateUrl: 'tpls/commonFn.html',
+						controller: "my-main"
 					}
 				}
 			})
@@ -43,4 +43,29 @@ define(["angular", "angularUiRouter"], function(angular) {
 			url: "index.demo"
 		}];
 	});
+
+	var mainModule = angular.module("main-module", []);
+	mainModule.controller('my-main', ["$scope", "getUsersService", function($scope, $getUsersService) {
+		$getUsersService.userList("data/commonFn.json").success(function(data) {
+			console.log(data);
+			$scope.items = data
+		});
+	}]);
+
+	app.factory("getUsersService", ["$http", function($http) {
+		if ($http) {
+			var request = function(url) {
+				return $http({
+					method: "GET",
+					url: url
+				})
+			}
+			return {
+				userList: function(url) {
+					return request(url);
+				}
+			}
+		}
+	}]);
+
 });
