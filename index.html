@@ -39,34 +39,30 @@
 					</li>
 				</ul>
 				<h2 class="text-center"><a href="http://www.guogongdian.com">博客</a></h2>
-				<div class="text-right">
-					<!--<samp>{{samp}}</samp>-->
-				</div>
 			</div>
 		</div>
 
-		<script src="src/js/vue.min.js" charset="utf-8"></script>
+		<script src="build/js/vue.min.js"></script>
 		<script type="text/javascript">
 			new Vue({
 				el: '#app',
 				data: {
 					title: "案例演示",
-					samp: "本页面采用bootstrap+vue生成",
 					items: [{
 						name: "TATA旅游",
-						imgSrc: "src/image/tata.jpg",
+						imgSrc: "build/img/tata.jpg",
 						url: "tata/Home/home.html",
 						samp: "require + amazeui + jq"
-					},{
+					}, {
+						name: "javascript 常用函数",
+						imgSrc: "build/img/javascript.jpg",
+						url: "common/index.html",
+						samp: "amazeui + AngularJs"
+					}, {
 						name: "vue.js-学习",
-						imgSrc: "http://vuejs.org/images/logo.png",
+						imgSrc: "build/img/vue.png",
 						url: "vuejs/入门.html",
 						samp: "bootstrap + vue"
-					}, {
-						name: "AngularJs-学习",
-						imgSrc: "http://www.runoob.com/wp-content/uploads/2014/06/angular.jpg",
-						url: "AngularJs/index.html",
-						samp: "AngularJs"
 					}]
 				}
 			})
