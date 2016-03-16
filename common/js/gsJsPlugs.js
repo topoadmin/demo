@@ -136,7 +136,7 @@
 }));
 
 /************************************ -- 基本类型拓展 ---**********************************************************/
-Array.prototype.strip = function() { // --数组去重
+Array.prototype.unique = function() { // --数组去重
 	// arr.strip() 
 	if (this.length < 2) return [this[0]] || [];
 	var retArr = [];
@@ -149,6 +149,61 @@ Array.prototype.strip = function() { // --数组去重
 		}
 	}
 	return retArr;
+};
+(function() {
+	function strip(arr) {
+		var newArr = [arr[0]]; // 获取第一个
+		for (var i = 0, j = arr.length; i < j; i++) {
+			var ifRedo = true;
+			for (var x = 0; x < newArr.length; x++) {
+				if (newArr[x] == arr[i]) { // 循环新数组是否已经含有重复的值了
+					ifRedo = false;
+					break;
+				}
+			}
+			if (ifRedo) { // 如果不含有就push
+				newArr.push(arr[i])
+			}
+		}
+		return newArr;
+	}
+	console.log(strip([1, 2, 1, 3]));
+}());
+
+Array.prototype.unique1 = function() {
+	var n = []; //一个新的临时数组
+	for (var i = 0; i < this.length; i++) //遍历当前数组
+	{
+		//如果当前数组的第i已经保存进了临时数组，那么跳过，
+		//否则把当前项push到临时数组里面
+		if (n.indexOf(this[i]) == -1) n.push(this[i]);
+	}
+	return n;
+}
+
+Array.prototype.unique2 = function() {
+	var n = {},
+		r = []; //n为hash表，r为临时数组
+	for (var i = 0; i < this.length; i++) //遍历当前数组
+	{
+		if (!n[this[i]]) //如果hash表中没有当前项
+		{
+			n[this[i]] = true; //存入hash表
+			r.push(this[i]); //把当前数组的当前项push到临时数组里面
+		}
+	}
+	return r;
+}
+
+Array.prototype.unique3 = function() {
+	var n = [this[0]]; //结果数组
+	for (var i = 1; i < this.length; i++) //从第二项开始遍历
+	{
+		//如果当前数组的第i项在当前数组中第一次出现的位置不是i，
+		//那么表示第i项是重复的，忽略掉。否则存入结果数组
+		if (this.indexOf(this[i]) == i) n.push(this[i]);
+	}
+	return n;
 }
 
 Array.prototype.limit = function(i, n) { // --得到数组中 i-n 下标中的值 
@@ -225,7 +280,7 @@ String.prototype.codeLength = function() { // --获取字符串真实长度
 	var len = 0;
 	if (this == null || this.length == 0)
 		return 0;
-	var str = this.replace(/(^\s*)|(\s*$)/g, ""); //去掉空格
+	var str = this.replace(/(^\s*)|(\s*$)/g, ""); //去掉前后空格
 	for (i = 0; i < str.length; i++)
 		if (str.charCodeAt(i) > 0 && str.charCodeAt(i) < 128)
 			len++;
