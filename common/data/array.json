@@ -1,0 +1,9 @@
+[
+	{
+		"title":"数组去重",
+		"info": [
+			"Array.prototype.unique = function() {if (this.length < 2) return [this[0]] || [];var retArr = [];for (var i = 0; i < this.length; i++) {retArr.push(this.splice(i--, 1));for (var j = 0; j < this.length; j++) {if (this[j] == retArr[retArr.length - 1]) {this.splice(j--, 1);}}}return retArr;};"
+			,"Array.prototype.unique1 = function() {var n = [];for (var i = 0; i < this.length; i++) {if (n.indexOf(this[i]) == -1) n.push(this[i]);}return n;}"
+		]
+	}
+]

@@ -130,14 +130,18 @@
 				e.initEvent('click', false, false);
 				elm.dispatchEvent(e);
 			}
+		},
+		getRandomColor:function(color) {// 生成随机颜色
+			return '#' + (function(color) {
+				return (color += '0123456789abcdef' [Math.floor(Math.random() * 16)]) && (color.length == 6) ? color : arguments.callee(color);
+			})('');
 		}
 	}　
 	return gsJsPlugs;　　
 }));
 
 /************************************ -- 基本类型拓展 ---**********************************************************/
-Array.prototype.unique = function() { // --数组去重
-	// arr.strip() 
+Array.prototype.unique = function() {
 	if (this.length < 2) return [this[0]] || [];
 	var retArr = [];
 	for (var i = 0; i < this.length; i++) {
@@ -150,25 +154,6 @@ Array.prototype.unique = function() { // --数组去重
 	}
 	return retArr;
 };
-(function() {
-	function strip(arr) {
-		var newArr = [arr[0]]; // 获取第一个
-		for (var i = 0, j = arr.length; i < j; i++) {
-			var ifRedo = true;
-			for (var x = 0; x < newArr.length; x++) {
-				if (newArr[x] == arr[i]) { // 循环新数组是否已经含有重复的值了
-					ifRedo = false;
-					break;
-				}
-			}
-			if (ifRedo) { // 如果不含有就push
-				newArr.push(arr[i])
-			}
-		}
-		return newArr;
-	}
-	console.log(strip([1, 2, 1, 3]));
-}());
 
 Array.prototype.unique1 = function() {
 	var n = []; //一个新的临时数组
@@ -204,6 +189,23 @@ Array.prototype.unique3 = function() {
 		if (this.indexOf(this[i]) == i) n.push(this[i]);
 	}
 	return n;
+}
+
+Array.prototype.unique4 = function() {
+	var newArr = [arr[0]]; // 获取第一个
+	for (var i = 0, j = arr.length; i < j; i++) {
+		var ifRedo = true;
+		for (var x = 0; x < newArr.length; x++) {
+			if (newArr[x] == arr[i]) { // 循环新数组是否已经含有重复的值了
+				ifRedo = false;
+				break;
+			}
+		}
+		if (ifRedo) { // 如果不含有就push
+			newArr.push(arr[i])
+		}
+	}
+	return newArr;
 }
 
 Array.prototype.limit = function(i, n) { // --得到数组中 i-n 下标中的值 

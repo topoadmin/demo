@@ -1,8 +1,8 @@
 define(["angular", "angularUiRouter"], function(angular) {
-	require(["gsJsPlugs"], function(gs) {
-	});
+	var gs = require(["gsJsPlugs"], function(gs) {});
 
-	var app = angular.module("admin", ["ui.router", "nav-module", "main-module"]);
+	var app = angular.module("admin", ["ui.router", "nav-module", "array-module"]);
+
 	app.config(function($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise("/index");
 		$stateProvider
@@ -17,16 +17,16 @@ define(["angular", "angularUiRouter"], function(angular) {
 						controller: "my-nav"
 					},
 					'main@index': {
-						templateUrl: 'tpls/commonFn.html',
-						controller: "my-main"
+						templateUrl: 'tpls/array.html',
+						controller: "my-array"
 					}
 				}
 			})
-			.state('index.demo', {
-				url: '/demo',
+			.state('index.string', {
+				url: '/string',
 				views: {
 					'main@index': {
-						templateUrl: 'tpls/demo.html'
+						templateUrl: 'tpls/string.html'
 					}
 				}
 			})
@@ -34,24 +34,23 @@ define(["angular", "angularUiRouter"], function(angular) {
 
 	// --生成导航
 	var navModule = angular.module("nav-module", []);
-	navModule.controller('my-nav', function($scope) {
-		$scope.items = [{
-			title: "常用函数",
-			url: "index"
-		}, {
-			title: "测试多层次路由",
-			url: "index.demo"
-		}];
-	});
-
-	var mainModule = angular.module("main-module", []);
-	mainModule.controller('my-main', ["$scope", "getUsersService", function($scope, $getUsersService) {
-		$getUsersService.userList("data/commonFn.json").success(function(data) {
-			console.log(data);
+	navModule.controller('my-nav', ["$scope", "getUsersService", function($scope, $getUsersService) {
+		$getUsersService.userList("data/nav.json").success(function(data) {
 			$scope.items = data
 		});
 	}]);
 
+	// 数组操作
+	var mainModule = angular.module("array-module", []);
+	mainModule.controller('my-array', ["$scope", "getUsersService", function($scope, $getUsersService) {
+		$getUsersService.userList("data/array.json").success(function(data) {
+//			console.log(data[0].info.replace(/\r/gi, "<br/>"));
+			$scope.items = data
+		});
+
+	}]);
+
+	// GET ajax 接口
 	app.factory("getUsersService", ["$http", function($http) {
 		if ($http) {
 			var request = function(url) {
