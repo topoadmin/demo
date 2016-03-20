@@ -1,9 +1,8 @@
 require.config({
 	paths: {
-		"jquery": "../../build/js/jquery/jquery.min" // v2.1.4
-			,
-		"touchSwiper": "../../build/js/jquery/jquery.touchSwipe" // 滑屏事件
-			,
+		"jquery": "../../build/js/jquery/jquery.min", // v2.1.4
+		"amazeui":"../../build/js/amazeui.min",
+		"touchSwiper": "../../build/js/jquery/jquery.touchSwipe", // 滑屏事件
 		"gsPage": "jquery.gsPage"
 	}
 });

@@ -38,20 +38,26 @@
 		<!--宽窄屏-->
 		<article id="warp">
 			<div class="am-g home show am-padding-xl">
-				<h1>API</h1>
-				<p>初始化 : $("#warp").gsPage();</p>
-				<p>上一页 : $.fn.gsPage.prev();</p>
-				<p>下一页 : $.fn.gsPage.next();</p>
-				<p>绑定方向键 : $.fn.gsPage.keyDownFn(); 也可以初始化时 $("#warp").gsPage({"keydown":true}); ---依赖组件jquery.touchSwipe</p>
-				<p>绑定滑动事件 : $.fn.gsPage.swipeFn(); 也可以初始化时 $("#warp").gsPage({"swipe":true});</p>
-				<button type="button" class="am-btn am-btn-primary am-round" id="prev">上一页</button>
-				<button type="button" class="am-btn am-btn-primary am-round" id="next">下一页</button>
-				<button type="button" class="am-btn am-btn-primary am-round" id="keydown">绑定方向键</button>
-				<button type="button" class="am-btn am-btn-primary am-round" id="touch">绑定滑动事件</button>
-				<p>传入自定义隐藏动画 : $.fn.gsPage.defaults.outAnimate = "xxx";</p>
-				<p>传入自定义隐藏动画 : $.fn.gsPage.defaults.comeAnimate = "xxx";</p>
-				<p>传入动画速度 : $.fn.gsPage.defaults.animateSpeed = 555;</p>
-				<p>动画效果参数参考 Animate.css,取消自定义设置为false即可</p>
+				<div>
+					<h1>API</h1>
+					<p>初始化 : $("#warp").gsPage();</p>
+					<p>上一页 : $.fn.gsPage.prev();</p>
+					<p>下一页 : $.fn.gsPage.next();</p>
+					<p>绑定方向键 : $.fn.gsPage.keyDownFn(); 也可以初始化时设置$("#warp").gsPage({"keydown":true});</p>
+					<p>绑定滑动事件 : $.fn.gsPage.swipeFn(); 也可以初始化时设置$("#warp").gsPage({"swipe":true}); ---依赖组件jquery.touchSwipe</p>
+				</div>
+				<div>
+					<button type="button" class="am-btn am-btn-primary am-round" id="prev">上一页</button>
+					<button type="button" class="am-btn am-btn-primary am-round" id="next">下一页</button>
+					<button type="button" class="am-btn am-btn-primary am-round" id="keydown">绑定方向键</button>
+					<button type="button" class="am-btn am-btn-primary am-round" id="touch">绑定滑动事件</button>
+				</div>	
+				<div>
+					<p>传入自定义隐藏动画 : $.fn.gsPage.defaults.outAnimate = "xxx";</p>
+					<p>传入自定义隐藏动画 : $.fn.gsPage.defaults.comeAnimate = "xxx";</p>
+					<p>传入动画速度 : $.fn.gsPage.defaults.animateSpeed = 555;</p>
+					<p>动画效果参数参考 Animate.css,取消自定义设置为false即可</p>
+				</div>	
 			</div>
 			<div class="am-g info hide">
 				<div class="am-u-sm-12 height-100 no-padding one">

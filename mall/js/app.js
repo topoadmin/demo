@@ -1,7 +1,7 @@
 define(["angular", "angularUiRouter"], function(angular) {
 	var gs = require(["gsJsPlugs"], function(gs) {});
 
-	var app = angular.module("admin", ["ui.router", "nav-module", "array-module"]);
+	var app = angular.module("admin", ["ui.router", "nav-module", "home-module"]);
 
 	app.config(function($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise("/index");
@@ -17,16 +17,16 @@ define(["angular", "angularUiRouter"], function(angular) {
 						controller: "my-nav"
 					},
 					'main@index': {
-						templateUrl: 'tpls/array.html',
-						controller: "my-array"
+						templateUrl: 'tpls/home.html',
+						controller: "my-home"
 					}
 				}
 			})
-			.state('index.string', {
-				url: '/string',
+			.state('index.user', {
+				url: '/user',
 				views: {
 					'main@index': {
-						templateUrl: 'tpls/string.html'
+						templateUrl: 'tpls/user.html'
 					}
 				}
 			})
@@ -41,13 +41,11 @@ define(["angular", "angularUiRouter"], function(angular) {
 	}]);
 
 	// 数组操作
-	var mainModule = angular.module("array-module", []);
-	mainModule.controller('my-array', ["$scope", "getUsersService", function($scope, $getUsersService) {
+	var mainModule = angular.module("home-module", []);
+	mainModule.controller('my-home', ["$scope","$filter", "getUsersService", function($scope,$filter, $getUsersService) {
 		$getUsersService.userList("data/array.json").success(function(data) {
-//			console.log(data[0].info.replace(/\r/gi, "<br/>"));
-			$scope.items = data
+			$scope.items = data;
 		});
-
 	}]);
 
 	// GET ajax 接口
@@ -66,5 +64,15 @@ define(["angular", "angularUiRouter"], function(angular) {
 			}
 		}
 	}]);
-
+	
+	// \r 转换 <br/> 过滤器
+	app.filter('bejson', function() {
+		return function(str) {
+			var beArr = str.split("\r"),beElement = "";
+			for (i=0,j=beArr.length;i<j;i++ ) {
+				beElement += '<span>'+beArr[i]+'</span><br/>';
+			} 
+			return beElement;
+		}
+	});
 });

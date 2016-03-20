@@ -1,0 +1,7 @@
+[
+	{
+		"title":"数组去重",
+		"info": ["Array.prototype.unique = function() {\rif (this.length < 2) return [this[0]] || [];\rvar retArr = [];\rfor (var i = 0; i < this.length; i++) {\rretArr.push(this.splice(i--, 1));\rfor (var j = 0; j < this.length; j++) {\rif (this[j] == retArr[retArr.length - 1]) {\rthis.splice(j--, 1);\r}\r}\r}\rreturn retArr;\r}"]
+	}
+]
+
