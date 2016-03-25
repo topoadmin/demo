@@ -32,8 +32,8 @@
 					<li v-for="item in items" class="col-sm-6">
 						<a href="{{item.url}}">
 							<img :src="item.imgSrc" />
-							<h2>{{item.name}}</h2>
-							<samp>{{item.samp}}</samp>
+							<h3 v-text="item.name | checkText"></h3>
+							<samp v-text="item.samp | checkText"></samp>
 						</a>
 						<hr />
 					</li>
@@ -44,6 +44,9 @@
 		
 		<script src="build/js/vue.min.js"></script>
 		<script type="text/javascript">
+			Vue.filter('checkText', function (value) {
+				return value ? value : "null";
+			})
 			new Vue({
 				el: '#app',
 				data: {
@@ -54,10 +57,10 @@
 						url: "tata/Home/home.html",
 						samp: "require + amazeui + jq"
 					}, {
-						name: "Angular-商城(未完)",
-						imgSrc: "build/img/angular.jpg",
-						url: "#",
-						samp: "amazeui + AngularJs"
+						name: "js常用函数",
+						imgSrc: "build/img/javascript.jpg",
+						url: "commonJs/index.html",
+						samp: "require"
 					}, {
 						name: "vue.js-学习",
 						imgSrc: "build/img/vue.png",
