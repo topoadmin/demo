@@ -7,27 +7,65 @@
 		<meta name="renderer" content="webkit">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<title>js - 常用函数大全</title>
-		<link rel="stylesheet" type="text/css" href="../build/css/amazeui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../build/css/amazeui.min.css" />
+		<style type="text/css">
+			.am-text-code-title {
+				color: #c7254e;
+				display: block;
+			}
+			pre{line-height: 1.1rem;}
+			code {
+				margin-left: 1rem;display: block;
+			}
+		</style>
 	</head>
 
-	<body>
+	<body class="am-container">
 		<h1 class="am-text-center">所有信息使用控制台输出</h1>
 		<div class="am-g">
 			<div class="am-u-sm-12">
 				<h3>HTML5 本地存储</h3>
 				<input type="text" id="storage" value="" />
 				<div class="am-show-sm-only" style="height: 5px;"></div>
-				<button type="button" class="am-btn am-btn-primary am-radius" id="saveStorage">保存到本地</button>
+				<button type="button" class="am-btn am-btn-primary am-radius" id="saveStorage">保存</button>
 				<hr />
 			</div>
 			<div class="am-u-sm-12">
 				<h3>HTML5 桌面通知 <button class="am-btn am-btn-primary am-radius" id="openAlert">打开</button></h3>
 				<hr />
 				<h3>HTML5 网络状况 <button class="am-btn am-btn-primary am-radius" id="checkLine">检测</button></h3>
+				<hr />
+			</div>
+			<div class="am-u-sm-12">
+				<h1 class="am-text-warning">以下功能需要导入gsJsPlugs文件</h1>
+				<!-- API文档 -->
+				<div id="date-box"></div>
+				<div id="number-box"></div>
+				<div id="string-box"></div>
 			</div>
 		</div>
-		
-		<script src="http://apps.bdimg.com/libs/require.js/2.1.11/require.min.js" data-main="js/main"></script>
+		<div style="height: 500px;"></div>
+
+		<!-- api生成HTML模板 -->
+		<script id="api-tpl" type="text/html">
+			<h2>{{ d.title }}</h2>
+			<pre>
+				{{# for(var i = 0, len = d.items.length; i < len; i++){ }}
+					<span class="am-text-code-title">{{ d.items[i].title }}</span>
+					{{# if(d.items[i].code instanceof Array){ }}
+						{{# for(var j = 0, codeLen = d.items[i].code.length; j < codeLen; j++){ }}
+							<code>{{ d.items[i].code[j] }}</code> 
+						{{# } }}
+					{{# } else{ }}
+						<code>{{ d.items[i].code }}</code> 
+					{{# } }}
+				{{# } }}
+			</pre>
+		</ul>
+		</script>
+		<!--<script src="js/gsJsPlugs.js" type="text/javascript" charset="utf-8"></script>-->
+		<!--<script src="http://apps.bdimg.com/libs/require.js/2.1.11/require.min.js" data-main="js/main"></script>-->
+		<script src="../build/js/require/require.min.js" data-main="js/main" ></script>
 	</body>
 
 </html>
