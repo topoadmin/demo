@@ -13,9 +13,14 @@
 				color: #c7254e;
 				display: block;
 			}
-			pre{line-height: 1.1rem;}
+			
+			pre {
+				line-height: 1.1rem;
+			}
+			
 			code {
-				margin-left: 1rem;display: block;
+				margin-left: 1rem;
+				display: block;
 			}
 		</style>
 	</head>
@@ -24,6 +29,15 @@
 		<h1 class="am-text-center">所有信息使用控制台输出</h1>
 		<div class="am-g">
 			<div class="am-u-sm-12">
+				<h1 class="am-text-warning">以下功能需要导入gsJsPlugs文件</h1>
+				<!-- API文档 -->
+				<div id="date-box"></div>
+				<div id="number-box"></div>
+				<div id="string-box"></div>
+				<div id="window-box"></div>
+			</div>
+			
+			<!--<div class="am-u-sm-12">
 				<h3>HTML5 本地存储</h3>
 				<input type="text" id="storage" value="" />
 				<div class="am-show-sm-only" style="height: 5px;"></div>
@@ -35,16 +49,8 @@
 				<hr />
 				<h3>HTML5 网络状况 <button class="am-btn am-btn-primary am-radius" id="checkLine">检测</button></h3>
 				<hr />
-			</div>
-			<div class="am-u-sm-12">
-				<h1 class="am-text-warning">以下功能需要导入gsJsPlugs文件</h1>
-				<!-- API文档 -->
-				<div id="date-box"></div>
-				<div id="number-box"></div>
-				<div id="string-box"></div>
-			</div>
+			</div>-->
 		</div>
-		<div style="height: 500px;"></div>
 
 		<!-- api生成HTML模板 -->
 		<script id="api-tpl" type="text/html">
@@ -61,11 +67,11 @@
 					{{# } }}
 				{{# } }}
 			</pre>
-		</ul>
+			</ul>
 		</script>
-		<!--<script src="js/gsJsPlugs.js" type="text/javascript" charset="utf-8"></script>-->
+		
 		<!--<script src="http://apps.bdimg.com/libs/require.js/2.1.11/require.min.js" data-main="js/main"></script>-->
-		<script src="../build/js/require/require.min.js" data-main="js/main" ></script>
+		<script src="../build/js/require/require.min.js" data-main="js/main"></script>
 	</body>
 
 </html>

@@ -30,19 +30,37 @@
 		title:"数字操作集",
 		items:[{
 			title: '数字格式化',
-			code:['gs.number(123.125,".000"); // 输出  .125 ','gs.number(1234.567,"#,###.###"); // 输出  1,234.567','// 更多使用方式见源码解释']
+			code:['gs(123.125).number(".000"); // 输出  .125 ','gs(1234.567).number("#,###.###"); // 输出  1,234.567','// 更多使用方式见源码解释']
 		}]
 	};
 	var stringData = {
 		title:"字符串操作集",
 		items:[{
-			title: '字符串格式化',
-			code:''
+			title: '替换字符串',
+			code:'gs("替换掉我").replaceAll("我","你")'
+		},{
+			title: '去除指定空格',
+			code:['gs(" 去掉空格 ").trim()','gs(" 去掉左边空格 ").trim("left")','gs(" 去掉右边空格 ").trim("right")']
+		},{
+			title: '获取字符串真实长度',
+			code:'gs("我的长度?").strLength()'
 		}]
+	};
+	var windowData = {
+		title:"其他操作集",
+		items:[{
+				title: '获取域名',
+				code:['gs.getDomainName("https://www.baidu.com/sadas")','gs.getDomainName()']
+			},{
+				title:'获取范围内的随机数',
+				code:'gs.getRandom(3,5)'
+			}
+		]
 	};
 	return {
 		dateData:dateData,
 		numberData:numberData,
-		stringData:stringData
+		stringData:stringData,
+		windowData:windowData
 	};
 }));
