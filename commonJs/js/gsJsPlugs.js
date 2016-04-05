@@ -29,7 +29,6 @@
 	}
 	gs.fn.init.prototype = gs.fn;
 	
-	
 	/* 拷贝函数复制 jq 源码   -。-   */
 	gs.extend = gs.fn.extend = function() {
 		var options, name, src, copy, copyIsArray, clone,
@@ -221,9 +220,28 @@
 			 * @return string
 			 * @demo gs.getDomainName("https://www.baidu.com/sadas")
 			 */
-			var newUrl = url || document.location + ""; // 转为字符串
+			var newUrl = url || window.location + ""; // 转为字符串
 			var index = newUrl.indexOf('://') + 3;
 			return newUrl.substring(index, newUrl.indexOf('/', index));
+		},
+		getUrlParam: function(key){
+			/**
+			 * 获取url参数值
+			 * @param key 需要获取的参数
+			 * @return string
+			 * @demo gs.getUrlParam("key")
+			 */
+			if(!key){
+				return;
+			}
+			var parameters = unescape(window.location.search.substr(1)).split("&");
+			for (var i = 0; i < parameters.length; i++) {
+				var paramCell = parameters[i].split("=");
+				if (paramCell.length == 2 && paramCell[0].toUpperCase() == key.toUpperCase()) {
+					return paramCell[1];
+				}
+			}
+			return new String();
 		},
 		getRandom:function(min,max){
 			/**
@@ -236,7 +254,7 @@
 			return parseInt(Math.random() * (max - min + 1) + min);  
 		}
 	});
-
+	
 	gs.fn.extend({
 		number: function(format) {
 			/** 
@@ -315,7 +333,7 @@
 	return gs;
 }));
 
-/* 图方便直接在对象上拓展了原型，别冲突了哦  */
+/* 基本类型拓展，别冲突了哦  */
 Date.prototype.gsJsPlugsFormat = function(format) {
 	// --格式化时间
 	// 抽离时间的各个单位
@@ -339,10 +357,10 @@ Date.prototype.gsJsPlugsFormat = function(format) {
 	}
 	return format;
 }
+
 Number.prototype.gsJsPlugsFormat = function(format) {
 	// -- 格式化数字
 	var _this = this;
-
 	function trim(data, format, purePattern) {
 		if (format) {
 			if (pureFormat) {

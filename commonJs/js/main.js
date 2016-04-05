@@ -33,6 +33,7 @@ require(["gsJsPlugs"], function(gs) {
 	console.log("【获取真实长度】---"+gs("我的长度?").strLength());
 	console.log("【获取路径域名】---"+gs.getDomainName("https://www.baidu.com/sadas"));
 	console.log("【获取当前域名】---"+gs.getDomainName());
+	console.log("【获取url参数值】---"+gs.getUrlParam());
 	console.log("【范围内随机数】---"+gs.getRandom(3,5));
 	
 
