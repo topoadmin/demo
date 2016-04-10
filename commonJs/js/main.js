@@ -53,7 +53,7 @@ require(["gsJsPlugs"], function(gs) {
 		});
 	})
 
-	/*require(["storage", "notification", "online"], function(storage, notification, online) {
+	require(["storage", "notification", "online"], function(storage, notification, online) {
 		document.getElementById("openAlert").addEventListener("click", function() {
 			notification({
 				title: '提醒',
@@ -67,10 +67,9 @@ require(["gsJsPlugs"], function(gs) {
 		document.getElementById("saveStorage").addEventListener("click", function() {
 			var text = document.getElementById("storage");
 			storage.set("test", text.value);
-			storage.set("testTime", new Date().format("yyyy-MM-dd hh:mm:ss"));
+			storage.set("testTime", new Date().getYear());
 			console.dir("保存成功");
 			console.log(storage.get("test"));
-			console.log(storage.get("testTime"));
 		}, false);
 
 		document.getElementById("checkLine").addEventListener("click", function() {
@@ -95,5 +94,5 @@ require(["gsJsPlugs"], function(gs) {
 			console.log("目前连线状态:" + status.lineStatus);
 			console.log("现在你可以断开网络和重连进行检测了。");
 		}, false);
-	});*/
+	});
 });
