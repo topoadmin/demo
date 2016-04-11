@@ -113,6 +113,38 @@
 	});
 
 	gs.extend({
+		getRandomColor: function() {
+			/**
+			 * 获取随机RGB颜色
+			 */
+			return "rgba("+Math.floor(255 * Math.random()) + "," + Math.floor(255 * Math.random()) + "," + Math.floor(255 * Math.random())+",1)";
+		},
+	 	getBrowserInfo: function() {
+	 		/**
+			 * 获取浏览器信息
+			 * return [浏览器 , 版本]
+			 */
+			var agent = navigator.userAgent.toLowerCase(),
+			regStr_ie = /msie [\d.]+;/gi,
+			regStr_ff = /firefox\/[\d.]+/gi,
+			regStr_chrome = /chrome\/[\d.]+/gi,
+			regStr_saf = /safari\/[\d.]+/gi,
+			browse = "";
+			if (agent.indexOf("msie") > 0) {
+				console.log(agent.match(regStr_ie));
+				browse = (agent.match(regStr_ie))[0].split(" ");
+			}
+			if (agent.indexOf("firefox") > 0) {
+				browse = (agent.match(regStr_ff))[0].split("/");
+			}
+			if (agent.indexOf("chrome") > 0) {
+				browse = (agent.match(regStr_chrome))[0].split("/");
+			}
+			if (agent.indexOf("safari") > 0 && agent.indexOf("chrome") < 0) {
+				browse = (agent.match(regStr_ie))[0].split("/");
+			}
+			return browse;
+		},
 		typeOf: function(obj) {
 			/**
 			 * 获取对象的格式
@@ -328,7 +360,6 @@
 			return len;
 		}
 	})
-	
 	
 	return gs;
 }));
