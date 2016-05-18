@@ -10,8 +10,8 @@ window.onload = function() {
 	var page2 = document.getElementById("page2");
 	var getSource = function() {
 		/* 注意这里路径,否则会报错 */
-		var imgPath = "http://127.0.0.1:8020/gaoshi-github.github.com/imoocOne/img/";
-//		var imgPath = "http://gaoshi-github.github.io/imoocOne/img/";
+//		var imgPath = "http://127.0.0.1:8020/gaoshi-github.github.com/imoocOne/img/";
+		var imgPath = "http://gaoshi-github.github.io/imoocOne/img/";
 		var sourceArr = [
 			"loading_bg.jpg",
 			"music_disc.png",

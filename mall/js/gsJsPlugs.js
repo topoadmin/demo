@@ -1,94 +1,271 @@
+/*
+ * gaoshi-github 
+ * QQ:465040621
+ * version: "0.0.1",
+ * 开始时间：2016年3月25日 15:21:24
+ * 最后时间：2016年3月29日 02:20:34
+ * 常用函数集合
+ * */
 ;
 (function(root, factory) {
 	if (typeof define === 'function' && define.amd) {
-		define(factory);
+		define([], factory); // amd
 	} else if (typeof exports === 'object') {
-		module.exports = factory(require, exports, module);
+		module.exports = factory(); // node.js
 	} else {
-		root.countUp = factory();
+		root.gs = factory(); //	root == window
 	}
-}(this, function(require, exports, module) {
-	var gsJsPlugs = {
-		getRandom: function(x, y) { // --生成随机数 {X上限,Y下限}
-			return parseInt(Math.random() * (y - x + 1) + x);
-		},
-		addLoadEvent: function(func) { // --dom加载完成再执行代码	
-			/* gsJsPlugs.addLoadEvent(a);
-			 * gsJsPlugs.addLoadEvent(b);
-			 * */
-			var oldonload = window.onload;
-			if (typeof window.onload != 'function') {
-				window.onload = func;
-			} else {
-				window.onload = function() {
-					oldonload();
-					func();
-				}
-			}
-		},
-		$id: function(id) { // 获取id
-			return document.getElementById(id);
-		},
-		getClassName: function(className, parentElement) { // --获取class集合 
-			var cn = className,
-				pe = parentElement;
-			// 先判断浏览器是否支持getElementsByClassName直接获取
-			if (document.getElementsByClassName) {
-				if (!pe) {
-					return document.getElementsByClassName(cn);
-				} else {
-					return pe.getElementsByClassName(cn);
-				}
-			} else {
-				var allTagName, classElm = [],
-					arr = [];
-				// 判断是否有提供父节点,没有则从document上获取所有节点
-				if (!pe) {
-					allTagName = document.getElementsByTagName("*");
-				} else {
-					allTagName = pe.getElementsByTagName("*");
-				}
-				for (var i = 0; i < allTagName.length; i++) {
-					// 去除空格
-					arr = allTagName[i].className.split(' ');
-					for (var j = 0; j < arr.length; j++) {
-						// 判断是否具有需要获取的class类
-						if (arr[j] == cn) {
-							// 获取符合的
-							classElm.push(allTagName[i]);
+}(this, function(root, undefined) {
+	'use strict';
+	var gs = function(param) {
+		return new gs.fn.init(param);
+	};
+
+	gs.fn = gs.prototype = {
+		init: function(param) {
+			this.recordValue = param; // 记录传值
+			return this;
+		}
+	}
+	gs.fn.init.prototype = gs.fn;
+
+	/* 拷贝函数复制 jq 源码   -。-   */
+	gs.extend = gs.fn.extend = function() {
+		var options, name, src, copy, copyIsArray, clone,
+			target = arguments[0] || {},
+			deep = false,
+			i = 1,
+			length = arguments.length;
+		if (typeof target === "boolean") {
+			deep = target;
+			target = arguments[1] || {};
+			i = 2;
+		}
+		if (typeof target !== "object" && !gs.isFunction(target)) {
+			target = {};
+		}
+		if (length === i) {
+			target = this;
+			--i;
+		}
+		for (; i < length; i++) {
+			if ((options = arguments[i]) != null) {
+				for (name in options) {
+					src = target[name];
+					copy = options[name];
+					if (target === copy) {
+						continue;
+					}
+					if (deep && copy && (gs.isPlainObject(copy) || (copyIsArray = gs.isArray(copy)))) {
+						if (copyIsArray) {
+							copyIsArray = false;
+							clone = src && gs.isArray(src) ? src : [];
+
+						} else {
+							clone = src && gs.isPlainObject(src) ? src : {};
 						}
+
+						target[name] = gs.extend(deep, clone, copy);
+
+					} else if (copy !== undefined) {
+						target[name] = copy;
 					}
 				}
-				return classElm;
 			}
+		}
+		return target;
+	};
+	/* 拷贝函数复制 jq 源码   -。- */
+	gs.extend({
+		version: "0.1",
+		isFunction: function(obj) {
+			return gs.type(obj) === "function";
 		},
-		getStyle: function(nodeelement, name) { // --解决 style外嵌样式用js获取不到的问题。
-			// gsJsPlugs.getStyle(dom,"color")
-			if (nodeelement.style[name]) {
-				return nodeelement.style[name];
-			} else if (nodeelement.currentStyle) { // --ie
-				return nodeelement.currentStyle[name];
-			} else if (document.defaultView && document.defaultView.getComputedStyle) { //w3c
-				name = name.replace(/([A-Z])/g, "-$1");
-				name = name.toLowerCase();
-				var s = document.defaultView.getComputedStyle(nodeelement, "");
-				return s && s.getPropertyValue(name);
+		isArray: Array.isArray,
+		isWindow: function(obj) {
+			return obj != null && obj === obj.window;
+		},
+		type: function(obj) {
+			if (obj == null) {
+				return String(obj);
+			}
+			return typeof obj === "object" || typeof obj === "function" ?
+				class2type[core_toString.call(obj)] || "object" :
+				typeof obj;
+		},
+		isPlainObject: function(obj) {
+			if (gs.type(obj) !== "object" || obj.nodeType || gs.isWindow(obj)) {
+				return false;
+			}
+			try {
+				if (obj.constructor &&
+					!core_hasOwn.call(obj.constructor.prototype, "isPrototypeOf")) {
+					return false;
+				}
+			} catch (e) {
+				return false;
+			}
+			return true;
+		},
+		isString: function(obj) {
+			return gs.typeOf(obj) === "String";
+		}
+	});
+
+	gs.extend({
+		getRandomColor: function() {
+			/**
+			 * 获取随机RGB颜色
+			 */
+			return "rgba(" + Math.floor(255 * Math.random()) + "," + Math.floor(255 * Math.random()) + "," + Math.floor(255 * Math.random()) + ",1)";
+		},
+		getBrowserInfo: function() {
+			/**
+			 * 获取浏览器信息
+			 * return [浏览器 , 版本]
+			 */
+			var agent = navigator.userAgent.toLowerCase(),
+				regStr_ie = /msie [\d.]+;/gi,
+				regStr_ff = /firefox\/[\d.]+/gi,
+				regStr_chrome = /chrome\/[\d.]+/gi,
+				regStr_saf = /safari\/[\d.]+/gi,
+				browse = "";
+			if (agent.indexOf("msie") > 0) {
+				console.log(agent.match(regStr_ie));
+				browse = (agent.match(regStr_ie))[0].split(" ");
+			}
+			if (agent.indexOf("firefox") > 0) {
+				browse = (agent.match(regStr_ff))[0].split("/");
+			}
+			if (agent.indexOf("chrome") > 0) {
+				browse = (agent.match(regStr_chrome))[0].split("/");
+			}
+			if (agent.indexOf("safari") > 0 && agent.indexOf("chrome") < 0) {
+				browse = (agent.match(regStr_ie))[0].split("/");
+			}
+			return browse;
+		},
+		typeOf: function(obj) {
+			/**
+			 * 获取对象的格式
+			 * @param 任意对象
+			 * @return string
+			 * @demo gs.typeOf([1,2,3]);   //返回array
+			 */
+			return obj !== undefined && obj !== null && Object.prototype.toString.call(obj).slice(8, -1);
+		},
+		date: function(obj) {
+			/**
+			 * 时间格式工具
+			 * @param param 
+			 * 	true 返回格式化后时间的string对象
+			 * 	{"timestamp":"时间戳","timestamp":"处理格式"} 返回格式化后时间的string对象
+			 * 	false 返回当前时间的object对象		
+			 * @return string
+			 * @demo 
+			 * 		gs.date()
+			 * 		gs.date(true)
+			 * 		gs.date({timeFormat:"yyyy-MM-dd hh:mm:ss"})
+			 * 		gs.date({timestamp:1458977810777})
+			 * 		gs.date({timeFormat:"yyyy-MM-dd hh:mm:ss",timestamp:1458977810777})
+			 */
+			var _param = obj,
+				rreturn = "";
+			if (_param) {
+				if (_param.hasOwnProperty("timestamp")) { // 参数包含时间戳参数时
+					rreturn = new Date(parseInt(_param.timestamp)).gsJsPlugsFormat(_param.timeFormat || "yyyy-MM-dd hh:mm:ss");
+				} else if (_param.hasOwnProperty("timeFormat")) { // 参数只具备时间格式参数时
+					rreturn = new Date().gsJsPlugsFormat(_param.timeFormat);
+				} else {
+					// 默认返回格式
+					rreturn = new Date().gsJsPlugsFormat("yyyy-MM-dd hh:mm:ss");
+				}
 			} else {
-				return null
+				// 无参时返回object,以便自定义组装
+				var _date = new Date();
+				var rreturn = {
+					"y": _date.getFullYear(),
+					"M": _date.getMonth() + 1,
+					"d": _date.getDate(),
+					"h": _date.getHours(),
+					"m": _date.getMinutes(),
+					"s": _date.getSeconds(),
+					"ms": _date.getMilliseconds()
+				};
 			}
+			return rreturn;
 		},
-		addClass: function(element, value) { // --追加样式
-			// gsJsPlugs.addClass(_id,"red")
-			if (!element.className) {
-				element.className = value;
+		getWeekOfYear: function(year, month, day) {
+			/**
+			 * 获取当前日期为全年第几周
+			 * @param year  年
+			 * @param month	月
+			 * @param day	日
+			 * @return string
+			 * @wrning 参数未填项自动以当前时间替补
+			 * @demo gs.getWeekOfYear(2016,3,27)
+			 */
+			var date = new Date(),
+				newYear = year || date.getFullYear(),
+				newMonth = month || date.getMonth() + 1,
+				newDay = date.getDate();
+			var date1 = new Date(newYear, 0, 1);
+			var date2 = new Date(newYear, newMonth - 1, newDay, 1);
+			var dayMS = 24 * 60 * 60 * 1000;
+			var firstDay = (7 - date1.getDay()) * dayMS;
+			var weekMS = 7 * dayMS;
+			date1 = date1.getTime();
+			date2 = date2.getTime();
+			return Math.ceil((date2 - date1 - firstDay) / weekMS) + 1;
+		},
+		getLastDay: function(year, month) {
+			/**
+			 * 根据年和月取当月的最后一天
+			 * @param year  年
+			 * @param month	月
+			 * @return string
+			 * @wrning 参数未填项自动以当前时间替补
+			 * @demo gs.getLastDay(2016,2)
+			 */
+			var newYear = "",
+				newMonth = "";
+			if (year && month) {
+				newYear = year; // 获取年
+				newMonth = month++;
+				if (month > 12) {
+					//如果当前是12月，则转至下一年
+					newMonth -= 12;
+					newYear++;
+				}
 			} else {
-				element.className += " " + value;
+				var newDate = new Date();
+				newYear = newDate.getFullYear();
+				newMonth = newDate.getMonth() + 1;
 			}
+			var newDate = new Date(newYear, newMonth, 1);
+			return (new Date(newDate.getTime() - 1000 * 60 * 60 * 24)).getDate();
 		},
-		getParameter: function(key) { // -- 得到url参数值
-			/* var url = 'http:www.cssrain.cn/article.asp?id=100'
-			 * var id = gsJsPlugs.getParameter("id");
-			 * */
+		getDomainName: function(url) {
+			/**
+			 * 截取域名
+			 * @param url 链接,不传值则获取当前域
+			 * @return string
+			 * @demo gs.getDomainName("https://www.baidu.com/sadas")
+			 */
+			var newUrl = url || window.location + ""; // 转为字符串
+			var index = newUrl.indexOf('://') + 3;
+			return newUrl.substring(index, newUrl.indexOf('/', index));
+		},
+		getUrlParam: function(key) {
+			/**
+			 * 获取url参数值
+			 * @param key 需要获取的参数
+			 * @return string
+			 * @demo gs.getUrlParam("key")
+			 */
+			if (!key) {
+				return;
+			}
 			var parameters = unescape(window.location.search.substr(1)).split("&");
 			for (var i = 0; i < parameters.length; i++) {
 				var paramCell = parameters[i].split("=");
@@ -98,159 +275,100 @@
 			}
 			return new String();
 		},
-		getRadioValue: function(radioName) { // --得到单选框选中的值
-			// gsJsPlugs.getRadioValue('name')
-			var obj = document.getElementsByName(radioName);
-			for (var i = 0; i < obj.length; i++) {
-				if (obj[i].checked) {
-					return obj[i].value;
-				}
-			}
-		},
-		checkAll: function(form, sel) { // --复选框全选/不选/反选
-			/* gsJsPlugs.checkAll(document.getElementById('form_a'),'all')"
-			 * gsJsPlugs.checkAll(document.getElementById('form_a'),'none')"
-			 * gsJsPlugs.checkAll(document.getElementById('form_a'),'')"
-			 * */
-			for (i = 0, n = form.elements.length; i < n; i++) {
-				if (form.elements[i].type == "checkbox") {
-					if (form.elements[i].checked == true) {
-						form.elements[i].checked = (sel == "all" ? true : false);
-					} else {
-						form.elements[i].checked = (sel == "none" ? false : true);
-					}
-				}
-			}
-		},
-		toClick: function(elm) { // --模拟点击
-			if (document.all) {
-				elm.fireEvent("onclick");
-			} else {
-				var e = document.createEvent('MouseEvent');
-				e.initEvent('click', false, false);
-				elm.dispatchEvent(e);
-			}
-		},
-		getRandomColor:function(color) {// 生成随机颜色
-			return '#' + (function(color) {
-				return (color += '0123456789abcdef' [Math.floor(Math.random() * 16)]) && (color.length == 6) ? color : arguments.callee(color);
-			})('');
+		getRandom: function(min, max) {
+			/**
+			 * 生成随机数
+			 * @param min 最小值
+			 * @param max 最大值
+			 * @return string
+			 * @demo gs.getRandom(3,5);
+			 */
+			return parseInt(Math.random() * (max - min + 1) + min);
 		}
-	}　
-	return gsJsPlugs;　　
+	});
+
+	gs.fn.extend({
+		number: function(format) {
+			/** 
+			 * 数字格式工具
+			 * @param value  需格式的数字 
+			/* @param format 格式条件
+			 * @demo
+			 * 	value                  format     结果
+			 * 	1234.567     		  #,###.###   1,234.567
+			 * 	123.125                ##,#.#,#    1,2,3.1,3
+			 * 	123.125                00000       00123
+			 * 	123.125                .000        .125
+			 * 	0.125                  0.0000      0.1250
+			 * 		gs(1234.15).number("####.#")
+			 * 		gs(123.125).number(".000")
+			 * */
+			return this.recordValue.gsJsPlugsFormat(format);
+		},
+		replaceAll: function(repStrA, repStrB) {
+			/**
+			 * 字符串替换
+			 * @param repStrA  需替换的值
+			 * @param repStrB  替换后的值
+			 * @return string
+			 * @demo gs("替换掉我").replaceAll("我","你")
+			 */
+			return this.recordValue.replace(new RegExp(repStrA, "gm"), repStrB)
+		},
+		trim: function(position) {
+			/**
+			 * 去除指定空格
+			 * @param string left:right:不传则去除两侧空格
+			 * @return string
+			 * @demo
+			 * 		gs(" 去掉空格 ").trim();
+			 * 		gs(" 去掉左边空格 ").trim("left")
+			 * 		gs(" 去掉右边空格 ").trim("right")
+			 */
+			var _value = this.recordValue;
+			switch (position) {
+				case "left":
+					return _value.replace(/^(\s*|　*)/, "");
+					break;
+				case "right":
+					return _value.replace(/(\s*|　*)$/, "");
+					break;
+				default:
+					//将字符串前后空格,用空字符串替代。;
+					return _value.replace(/(^\s*)|(\s*$)/g, "");
+			}
+		},
+		strLength: function() {
+			/**
+			 * 获取字符串真实长度
+			 * @return string
+			 * @demo gs("我的长度?").strLength()
+			 */
+			this.recordValue += ""; // 强制转换成string类
+			var newStr = this.trim(); // 去空格
+			var len = 0;
+			if (newStr == null || newStr.length == 0) {
+				return 0;
+			}
+			for (var i = 0, j = newStr.length; i < j; i++) {
+				if (newStr.charCodeAt(i) > 0 && newStr.charCodeAt(i) < 128) {
+					len++;
+				} else {
+					len += 2;
+				}
+			}
+			return len;
+		}
+	})
+
+	return gs;
 }));
 
-/************************************ -- 基本类型拓展 ---**********************************************************/
-Array.prototype.unique = function() {
-	if (this.length < 2) return [this[0]] || [];
-	var retArr = [];
-	for (var i = 0; i < this.length; i++) {
-		retArr.push(this.splice(i--, 1));
-		for (var j = 0; j < this.length; j++) {
-			if (this[j] == retArr[retArr.length - 1]) {
-				this.splice(j--, 1);
-			}
-		}
-	}
-	return retArr;
-};
-
-Array.prototype.unique1 = function() {
-	var n = []; //一个新的临时数组
-	for (var i = 0; i < this.length; i++) //遍历当前数组
-	{
-		//如果当前数组的第i已经保存进了临时数组，那么跳过，
-		//否则把当前项push到临时数组里面
-		if (n.indexOf(this[i]) == -1) n.push(this[i]);
-	}
-	return n;
-}
-
-Array.prototype.unique2 = function() {
-	var n = {},
-		r = []; //n为hash表，r为临时数组
-	for (var i = 0; i < this.length; i++) //遍历当前数组
-	{
-		if (!n[this[i]]) //如果hash表中没有当前项
-		{
-			n[this[i]] = true; //存入hash表
-			r.push(this[i]); //把当前数组的当前项push到临时数组里面
-		}
-	}
-	return r;
-}
-
-Array.prototype.unique3 = function() {
-	var n = [this[0]]; //结果数组
-	for (var i = 1; i < this.length; i++) //从第二项开始遍历
-	{
-		//如果当前数组的第i项在当前数组中第一次出现的位置不是i，
-		//那么表示第i项是重复的，忽略掉。否则存入结果数组
-		if (this.indexOf(this[i]) == i) n.push(this[i]);
-	}
-	return n;
-}
-
-Array.prototype.unique4 = function() {
-	var newArr = [arr[0]]; // 获取第一个
-	for (var i = 0, j = arr.length; i < j; i++) {
-		var ifRedo = true;
-		for (var x = 0; x < newArr.length; x++) {
-			if (newArr[x] == arr[i]) { // 循环新数组是否已经含有重复的值了
-				ifRedo = false;
-				break;
-			}
-		}
-		if (ifRedo) { // 如果不含有就push
-			newArr.push(arr[i])
-		}
-	}
-	return newArr;
-}
-
-Array.prototype.limit = function(i, n) { // --得到数组中 i-n 下标中的值 
-	// arr.limit(2,4) 
-	var arr = this;
-	var retArr = [];
-	i = i < 0 ? 0 : i;
-	n = n > arr.length ? arr.length : n;
-	for (var j = 0; j < arr.length; j++) {
-		if (j >= i && j <= n) retArr[retArr.length] = arr[j];
-		if (j > n) break;
-	};
-	return retArr;
-}
-
-Array.prototype.exists = function(item) { // --检测数组中是否含有某值
-	// array.exists(5) 
-	for (var i = 0; i < this.length; i++) {
-		if (item == this[i]) {
-			return true;
-		}
-	}
-	return false;
-}
-
-Array.prototype.remove = function(item) { // --删除指定item
-	// array1.remove("2") 
-	for (var i = 0; i < this.length; i++) {
-		if (item == this[i]) {
-			break;
-		}
-	}
-	if (i == this.length) {
-		return;
-	}
-	for (var j = i; j < this.length - 1; j++) {
-		this[j] = this[j + 1];
-	}
-	this.length--;
-}
-
-Date.prototype.format = function(format) { // --格式化时间
-	// new Date().format("yyyy-MM-dd hh:mm:ss");
-	// new Date().format("MM-dd-yyyy hh:mm:ss");
-	var o = {
+/* 基本类型拓展，别冲突了哦  */
+Date.prototype.gsJsPlugsFormat = function(format) {
+	// --格式化时间
+	// 抽离时间的各个单位
+	var obj = {
 		"M+": this.getMonth() + 1,
 		"d+": this.getDate(),
 		"h+": this.getHours(),
@@ -258,46 +376,52 @@ Date.prototype.format = function(format) { // --格式化时间
 		"s+": this.getSeconds(),
 		"q+": Math.floor((this.getMonth() + 3) / 3),
 		"S": this.getMilliseconds()
+	};
+	// --替换表达式
+	if (/(y+)/.test(format)) { // 由于年份是四位，所以单独抽离
+		format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
 	}
-	if (/(y+)/.test(format)) format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-	for (var k in o)
-		if (new RegExp("(" + k + ")").test(format))
-			format = format.replace(RegExp.$1,
-				RegExp.$1.length == 1 ? o[k] :
-				("00" + o[k]).substr(("" + o[k]).length));
+	for (var key in obj) { // 提取时间的其他单位，并组装
+		if (new RegExp("(" + key + ")").test(format)) {
+			format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? obj[key] : ("00" + obj[key]).substr(("" + obj[key]).length));
+		}
+	}
 	return format;
 }
 
-String.prototype.replaceAll = function(AFindText, ARepText) { // --替换字符串中的字符。
-	// "javascript".replaceAll("t", "aaaaa");
-	raRegExp = new RegExp(AFindText, "g");
-	return this.replace(raRegExp, ARepText);
-}
+Number.prototype.gsJsPlugsFormat = function(format) {
+	// -- 格式化数字
+	var _this = this;
 
-String.prototype.codeLength = function() { // --获取字符串真实长度
-	/* str.codeLength();
-	 * String有个属性length，但是它不能区分英文字符
-	 * 计算中文字符和全角字符。但是在数据存储的时候中文和全角都是用两个字节来存储的
-	 * */
-	var len = 0;
-	if (this == null || this.length == 0)
-		return 0;
-	var str = this.replace(/(^\s*)|(\s*$)/g, ""); //去掉前后空格
-	for (i = 0; i < str.length; i++)
-		if (str.charCodeAt(i) > 0 && str.charCodeAt(i) < 128)
-			len++;
-		else
-			len += 2;
-	return len;
-}
-
-Number.prototype.format = function(digit) { // --截取小数(四舍五入)
-	if (isNaN(this)) {
-		alert("您传入的值不是数字！");
-		return 0;
-	} else if (Math.round(digit) != digit) {
-		alert("您输入的小数位数不是整数！");
-		return 0;
-	} else
-		return Math.round(parseFloat(this) * Math.pow(10, digit)) / Math.pow(10, digit);
+	function trim(data, format, purePattern) {
+		if (format) {
+			if (pureFormat) {
+				if (pureFormat.charAt() == '0') {
+					data = data + pureFormat.substr(data.length);
+				}
+				if (pureFormat != format) {
+					var format = new RegExp("(\\d{" + format.search(/[^\d#]/) + "})(\\d)");
+					while (data.length < (data = data.replace(format, '$1,$2')).length);
+				}
+				data = '.' + data
+			} else {
+				var pureFormat = format.replace(/[^\d#]/g, '');
+				if (pureFormat.charAt() == '0') {
+					data = pureFormat.substr(data.length) + data;
+				}
+				if (pureFormat != format) {
+					var format = new RegExp("(\\d)(\\d{" + (format.length - format.search(/[^\d#]/) - 1) + "})\\b");
+					while (data.length < (data = data.replace(format, '$1,$2')).length);
+				}
+			}
+			return data;
+		} else {
+			return '';
+		}
+	}
+	return format.replace(/([#0,]*)?(?:\.([#0,]+))?/, function(param, intPattern, floatPattern) {
+		var floatPurePattern = floatPattern.replace(/[^\d#]/g, '');
+		_this = _this.toFixed(floatPurePattern.length).split('.');
+		return trim(_this[0], intPattern) + trim(_this[1] || '', floatPattern, floatPurePattern);
+	})
 }

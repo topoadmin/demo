@@ -1,7 +1,7 @@
 require.config({
 	paths: {
-		"angular": "../../build/js/angular.min",
-		"angularUiRouter": "../../build/js/angular-ui-router.min",
+		"angular": "../../build/js/angular/angular.min",
+		"angularUiRouter": "../../build/js/angular/angular-ui-router.min",
 		"gsJsPlugs": "gsJsPlugs",
 		"app": "app"
 	},
