@@ -67,7 +67,7 @@
 			thisDom.addClass(outA + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
 				$(this).removeClass(outA + ' animated show').addClass("hide");
 			});
-
+			
 			// 下一页打开动画
 			setTimeout(function() {
 				nextPage.removeClass("hide").addClass(comeA + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
