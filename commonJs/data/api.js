@@ -54,9 +54,6 @@
 			},{
 				title:'获取范围内的随机数',
 				code:'gs.getRandom(3,5)'
-			},{
-				title:'获取url参数值',
-				code:'gs.getUrlParam("id")'
 			}
 		]
 	};
