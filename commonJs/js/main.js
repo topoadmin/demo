@@ -5,14 +5,9 @@ require.config({
 		"online": "online",
 		"laytpl": "laytpl",
 		"api": "../data/api",
-		"gsJsPlugs": "gsJsPlugs",
-		"getIp":"http://pv.sohu.com/cityjson?ie=utf-8"
+		"gsJsPlugs": "gsJsPlugs"
 	}
 });
-/* 获取IP */
-//	require(["getIp"],function(ip){
-//		console.log(returnCitySN);
-//	})
 
 require(["gsJsPlugs"], function(gs) {
 	console.log("【获取时间集合】---"+gs.date());
