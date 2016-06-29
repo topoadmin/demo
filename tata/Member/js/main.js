@@ -2,7 +2,7 @@
 require.config({
 	paths: { // -- 配置别名
 		//  	"amazeui":"../../assets/js/amazeui.min",	// 妹子Ui
-		"jquery": "http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js",
+		"jquery": "http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min",
 		"amazeui": "http://cdn.amazeui.org/amazeui/2.5.0/js/amazeui.min",
 		"countUp": "../../assets/js/countUp.min", // 数字动态效果
 		"chosen": "../../assets/js/amazeui.chosen", // 下拉组件
