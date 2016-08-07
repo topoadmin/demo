@@ -256,24 +256,28 @@
 			var index = newUrl.indexOf('://') + 3;
 			return newUrl.substring(index, newUrl.indexOf('/', index));
 		},
-		getUrlParam: function(key){
+		getUrlParam: function(url,key){
 			/**
 			 * 获取url参数值
+			 * @param url 传递域名
 			 * @param key 需要获取的参数
 			 * @return string
-			 * @demo gs.getUrlParam("key")
+			 * @demo gs.getUrlParam(null,"key")
+			 * @demo gs.getUrlParam(xx.com?id=1&name=22,"id")
 			 */
-			if(!key){
-				return;
+			var newUrl = url || window.location;
+			newUrl = decodeURI(newUrl);
+			var params = {};
+			var arr = newUrl.split("?");
+			if (arr.length <= 1) {
+				return params;
 			}
-			var parameters = unescape(window.location.search.substr(1)).split("&");
-			for (var i = 0; i < parameters.length; i++) {
-				var paramCell = parameters[i].split("=");
-				if (paramCell.length == 2 && paramCell[0].toUpperCase() == key.toUpperCase()) {
-					return paramCell[1];
-				}
+			arr = arr[1].split("&");
+			for (var i = 0, l = arr.length; i < l; i++) {
+				var a = arr[i].split("=");
+				params[a[0]] = a[1];
 			}
-			return new String();
+			return key ? params[key] : params;
 		},
 		getRandom:function(min,max){
 			/**
@@ -351,7 +355,7 @@
 				return 0;
 			}
 			for (var i = 0,j=newStr.length; i < j; i++) {
-				if (newStr.charCodeAt(i) > 0 && newStr.charCodeAt(i) < 128) {
+				if (newStr.charCodeAt(i) > 0 && newStr.charCodeAt(i) < 255) {
 					len++;
 				} else {
 					len += 2;
