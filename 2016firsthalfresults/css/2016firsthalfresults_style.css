@@ -29,8 +29,10 @@ select{-webkit-appearance: none;}
 .logo.logo-hide{opacity: 0;}
 .logo.logo-show{-webkit-animation: logo_show 1s .7s 1;}
 .logo>img{width: 100%;}
-@-webkit-keyframes logo_show{0%{opacity: 0;}
-100%{opacity: 1;}}
+@-webkit-keyframes logo_show{0%{opacity: 0;}100%{opacity: 1;}}
+.tip{ z-index: 100; background-color: #000; display: none; }
+.tip .tip_txt { font-size: 1rem; color: #fff; text-align: center; width: 100%; }
+@media screen and (orientation: landscape) {.tip { display: block; }}
 #bottom{position: absolute;bottom: 1.2rem;left: 0;width: 100%;text-align: center;z-index: 20;pointer-events: none;opacity: 0;-webkit-transition: opacity 1s 0s;}
 #bottom.show{opacity: 1;}
 #bottom .arr-down{display: block;width: .8rem;margin: 0 auto;-webkit-animation: arr_down 1.3s infinite;}
