@@ -65,6 +65,16 @@ var imgArr = [
 	_path + "load_border.png", 
 	_path + "load_img.png", 
 	_path + "footer_logo.png", 
+	_path + "leader_fhy_1.jpg",
+	_path + "leader_sds_1.jpg",
+	_path + "leader_wk_1.jpg",
+	_path + "leader_zq_1.jpg",
+	_path + "qa_0.jpg",
+	_path + "qa_1.jpg",
+	_path + "qa_2.jpg",
+	_path + "qa_3.jpg",
+	_path + "qa_4.jpg",
+	_path + "qa_5.jpg",
 	_path + "footer_title.png", 
 	_path + "footer_0.png", 
 	_path + "logo.png",
@@ -76,8 +86,8 @@ var imgArr = [
 	_path + "tzzdw_zq_title_0.png",
 	_path + "tzzdw_fhy_title_0.png",
 	_path + "tzzdw_fhy_title_0.png",
-	_path + "tzzdw_wk_title_0.png",
-	_path + "tzzdw_wk_title_0.png",
+	_path + "tzzdw_xwmt_title.png",
+	_path + "tzzfxs_title.png",
 	_path + "s0_bg.png", _path + "s0_logo.png", _path + "s0_right.png", _path + "s0_title.png", _path + "s1_0.png", _path + "s1_1.png", _path + "s1_2.png", _path + "s1_3.png", _path + "s1_4.png", _path + "s1_5.png", _path + "s1_6.png", _path + "s1_7.png", _path + "s1_title.png", _path + "s1_title_1.png", _path + "s2_0.png", _path + "s2_1.png", _path + "s2_2.png", _path + "s2_3.png", _path + "s2_title_1.png", _path + "s3_title_1.png", _path + "s3_title.png", _path + "s3_0.png", _path + "s3_1.png", _path + "s3_2.png", _path + "s4_0.png", _path + "s4_1.png", _path + "s4_2.png", _path + "s4_3.png", _path + "s4_4.png", _path + "s4_5.png", _path + "s4_title_1.png", _path + "s5_0.png", _path + "s5_1.png", _path + "s5_2.png", _path + "s5_3.png", _path + "s5_4.png", _path + "s5_5.png", _path + "s5_title_1.png", _path + "s6_0.png", _path + "s6_1.png", _path + "s6_2.png", _path + "s6_3.png", _path + "s6_title_1.png", _path + "s7_0.png", _path + "s7_1.png", _path + "s7_2.png", _path + "s7_3.png", _path + "s7_title_1.png", _path + "s8_0.png", _path + "s8_1.png", _path + "s8_2.png", _path + "s8_3.png", _path + "s8_4.png", _path + "s8_title.png", _path + "s8_title_1.png", _path + "s9_0.png", _path + "s9_1.png", _path + "s9_2.png", _path + "s9_3.png", _path + "s9_4.png", _path + "s9_5.png", _path + "s9_6.png", _path + "s9_7.png", _path + "s9_title_1.png", _path + "s10_0.png", _path + "s10_1.png", _path + "s10_2.png", _path + "s10_3.png", _path + "s10_4.png", _path + "s10_5.png", _path + "s10_6.png", _path + "s10_7.png", _path + "s10_8.png", _path + "s10_9.png", _path + "s10_title_1.png", _path + "s11_0.png", _path + "s11_1.png", _path + "s11_2.png", _path + "s11_3.png", _path + "s11_4.png", _path + "s11_5.png", _path + "s11_title_1.png", _path + "s12_0.png", _path + "s12_1.png", _path + "s12_2.png", _path + "s12_3.png", _path + "s12_4.png", _path + "s12_5.png", _path + "s10_title_1.png", _path + "s13_0.png", _path + "s13_1.png", _path + "s13_2.png", _path + "s13_title_1.png"];
 
 $(function() {
