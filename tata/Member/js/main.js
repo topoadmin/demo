@@ -8,8 +8,8 @@ require.config({
 		"chosen": "../../assets/js/amazeui.chosen", // 下拉组件
 		"datetime": "../../assets/js/amazeui.datetimepicker", // 日历组件
 		"citySelect": "../../assets/js/jquery.cityselect.min", // 城市选择
-//		"photoClip": "../../assets/js/jquery.photoClip.min", // 头像截取
-		"photoClip": "../../assets/js/源码/jquery.photoClip", // 头像截取
+		"photoClip": "../../assets/js/jquery.photoClip.min", // 头像截取
+//		"photoClip": "../../assets/js/源码/jquery.photoClip", // 头像截取
 		"hammer": "../../assets/js/hammer.min", // 图片裁剪pc滚轮事件
 		"iscroll": "../../assets/js/iscroll-zoom.min", // 图片裁剪移动端滑动事件
 		"webuploader": "../../assets/js/webuploader.html5only.min", // 图片批量上传
