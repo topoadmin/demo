@@ -8,10 +8,11 @@
 		factory(root.jQuery);
 	}
 }(this, function($, laytpl) {
-	// -- 开启轮播
 	setTimeout(function() {
 		$("#load-h-c-img").remove();
 	}, 120);
+	
+	// -- 开启轮播
 	var $homeCarousel = $("#home-carousel");
 	if ($homeCarousel.length > 0) {
 		$homeCarousel.flexslider({

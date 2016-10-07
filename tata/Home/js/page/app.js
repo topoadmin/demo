@@ -13,7 +13,8 @@
 		$loading.hide();
 	}, 333);
 
-
+	$('#user-list').dropdown();
+	
 	/* 缓存发送短信倒计时 */
 	(function(cookie) {
 		var sendCode = $(".send-code");
