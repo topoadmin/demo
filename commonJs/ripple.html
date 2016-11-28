@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>波纹</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="//cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css" />
+		<style type="text/css">
+			.ta-ripple {
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.ta-ripple> .ta-ripple-span {
+				width: 0;
+				height: 0;
+				border-radius: 50%;
+				background: rgba(0, 0, 0, 0.4);
+				pointer-events: none;
+				transform: scale(0);
+				position: absolute;
+				opacity: 1;
+				animation: taRipple .5s ease-in;
+			}
+			
+			@keyframes taRipple {
+				100% {
+					transform: scale(2);
+					opacity: 0;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<button type="button" class="am-btn am-btn-default ta-ripple">默认样式</button>
+		<button type="button" class="am-btn am-btn-primary ta-ripple">主色按钮</button>
+		<button type="button" class="am-btn am-btn-secondary ta-ripple">次色按钮</button>
+		<button type="button" class="am-btn am-btn-success ta-ripple">绿色按钮</button>
+		<button type="button" class="am-btn am-btn-warning ta-ripple">橙色按钮</button>
+		<button type="button" class="am-btn am-btn-danger ta-ripple">红色按钮</button>
+
+		<ul class="am-list am-list-static ">
+			<li class="ta-ripple">每个人都有一个死角， 自己走不出来，别人也闯不进去。</li>
+			<li class="ta-ripple">我把最深沉的秘密放在那里。</li>
+			<li class="ta-ripple">你不懂我，我不怪你。</li>
+			<li class="ta-ripple">每个人都有一道伤口， 或深或浅，盖上布，以为不存在。</li>
+		</ul>
+
+		<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$.fn.ripple = function(event) {
+					var $elm = this;
+					var elmLeft = $elm.offset().left;
+					var elmTop = $elm.offset().top;
+					var elmWidth = $elm.width();
+					var elmHeight = $elm.height();
+					if(elmWidth >= elmHeight) {
+						elmHeight = elmWidth;
+					} else {
+						elmWidth = elmHeight;
+					}
+					var x = event.pageX - elmLeft - elmWidth / 2;
+					var y = event.pageY - elmTop - elmHeight / 2;
+
+					var _style = 'width:' + elmWidth + 'px;height:' + elmHeight + 'px;top:' + y + 'px;left:' + x + 'px;';
+					var $rippleSpan = $('<span class="ta-ripple-span" style="' + _style + '"></span>').appendTo($elm)
+						.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oAnimationEnd animationend', function() {
+							$rippleSpan.remove();
+						});
+
+					return $elm;
+				}
+
+				$('body').on('click', '.ta-ripple', function(event) {
+					$(this).ripple(event);
+				});
+
+			});
+		</script>
+	</body>
+
+</html>

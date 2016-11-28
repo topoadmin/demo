@@ -75,7 +75,8 @@
 		}
 		return target;
 	};
-	/* 拷贝函数复制 jq 源码   -。- */
+	/* end 拷贝函数复制 jq 源码   -。- */
+	
 	gs.extend({
 		version: "0.1",
 		isFunction: function(obj) {
