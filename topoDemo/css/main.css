@@ -1,0 +1,10 @@
+body {
+  background-color: #000000;
+}
+[v-cloak] {
+  display: none!important;
+}
+.am-show {
+  display: block !important;
+  visibility: visible !important;
+}

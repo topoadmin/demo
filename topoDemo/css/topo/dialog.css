@@ -1,0 +1,88 @@
+#model-dialog {
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  position: absolute;
+  top: 100px;
+  left: 10px;
+  height: 550px;
+  width: 260px;
+  z-index: 1001;
+  overflow: hidden;
+  border-radius: 5px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+}
+#model-dialog .am-panel-hd {
+  cursor: move;
+}
+#model-dialog .am-panel-bd {
+  padding-right: 0;
+}
+#model-dialog a.am-close {
+  color: #FFFFFF;
+  opacity: 1;
+  position: absolute;
+  right: 20px;
+}
+#model-dialog .t-model-box {
+  overflow-y: auto;
+  max-height: 480px;
+}
+#model-dialog .t-model-box > .t-model-icon {
+  width: 45px;
+  height: 45px;
+  margin: 0 5px 15px;
+  cursor: move;
+}
+.t-model-icon-clone {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1002;
+}
+#link-dialog {
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  position: absolute;
+  top: 100px;
+  right: 10px;
+  height: 550px;
+  width: 260px;
+  z-index: 1001;
+  overflow: hidden;
+  border-radius: 5px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+}
+#link-dialog .am-panel-hd {
+  cursor: move;
+}
+#link-dialog a.am-close {
+  color: #FFFFFF;
+  opacity: 1;
+  position: absolute;
+  right: 20px;
+}
+#link-dialog .t-link-box {
+  margin-bottom: -15px;
+}
+#link-dialog .t-link-box img.t-link-icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0 8px 15px;
+}
+#link-dialog .t-link-box img.t-link-icon:hover {
+  border: 1px solid #c3c2c2;
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+#link-dialog .t-link-box img.t-link-icon.active {
+  border: 1px solid #c3c2c2;
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}

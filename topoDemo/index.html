@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title>拓扑演示</title>
+		<link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
+		<link rel="stylesheet" type="text/css" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/topo.css" />
+		<link rel="stylesheet" type="text/css" href="assets/layer/skin/layer.css" />
+		<script src="js/jtopo.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<!-- topo绘制器上方暂时不允许有其他占位元素，定位元素可以 -->
+		<div id="topo-main" class="topo-main">
+			<div class="jtopo-toolbar" id="jtopo-toolbar">
+				<div v-for="toolbar in toolbars" class="mode-radio toolbar-{{toolbar.type}}" v-bind:class="{ 'am-hide': toolbar.status}" data-am-popover="{content: '{{toolbar.title}}', trigger: 'hover'}" data-type="{{toolbar.type}}" v-on:click="toolbarClick"></div>
+			</div>
+
+			<div id="jtopo-search" class="jtopo-search am-cf">
+				<div class="open-search am-fr">
+					<i class="am-icon-search"></i>
+				</div>
+				<input type="text" class="am-fl search-input" placeholder="搜索节点..">
+			</div>
+
+			<div id="model-dialog" class="am-panel am-panel-primary am-hide">
+				<div class="am-panel-hd">
+					<span>模型库 </span>
+					<a href="javascript: void(0)" class="am-close am-close-spin">
+						×
+					</a>
+				</div>
+				<div class="am-panel-bd">
+					<div class="am-g t-model-box">
+						<img v-for="model in modelData" class="am-img-responsive am-fl t-model-icon" :src="model.PATH | model-icon-src" data-name="{{model.TITLE}}" />
+					</div>
+				</div>
+				<!--<section data-am-widget="accordion" class="am-accordion am-accordion-gapped t-model-section" data-am-accordion>
+					<dl class="am-accordion-item" v-for="model in modelData" v-bind:class="{ 'am-active': $index==0}">
+						<dt class="am-accordion-title" v-cloak>
+							{{ model.title }}
+							<span v-if="model.icon">({{ model.icon.length }})</span>
+				        </dt>
+						<dd class="am-accordion-bd am-collapse t-model-box" v-bind:class="{ 'am-in': $index==0}">
+							<div class="am-accordion-content am-cf">
+								<img v-for="modelIcon in model.icon" class="am-img-responsive am-fl t-model-icon" :src="modelIcon.modelImg | model-icon-src" data-name="{{modelIcon.title}}" />
+							</div>
+						</dd>
+					</dl>
+				</section>-->
+			</div>
+
+			<div id="link-dialog" class="am-panel am-panel-primary am-hide">
+				<div class="am-panel-hd">
+					<span>拓扑操作</span>
+					<a href="javascript: void(0)" class="am-close am-close-spin">
+						×
+					</a>
+				</div>
+				<div class="am-panel-bd">
+					<span class="am-text-lg">选择连线</span>
+					<hr class="am-margin-xs" />
+					<div class="am-g t-link-box">
+						<img v-for="linkIcon in linkData" class="am-img-responsive am-fl t-link-icon" :src="linkIcon.src | link-icon-src" data-type="{{linkIcon.type}}" data-class="{{linkIcon.class}}" />
+					</div>
+				</div>
+				<div class="am-panel-fd am-padding-sm">
+					<button type="button" class="am-btn am-btn-secondary am-btn-block" id="stop-link">
+						<i class="am-icon-terminal"></i> 结束连线
+					</button>
+					<button type="button" class="am-btn am-btn-warning am-btn-block" id="clear-all">
+						<i class="am-icon-refresh"></i> 清除全部
+					</button>
+					<button type="button" class="am-btn am-btn-primary am-btn-block" id="save-topo">
+						<i class="am-icon-save"></i> 保存
+					</button>
+				</div>
+			</div>
+
+			<div id="topo-right" class="topo-right">
+				<ul class="am-list am-list-static am-margin-0">
+					<li data-type="style">节点设置</li>
+					<li data-type="remove">删除节点</li>
+					<!--<li>设备关联</li>-->
+					<li id="device-relate" data-type="device-relate" data-url="relevanceDevice.html">设备关联</li>
+					<li class="topo-right-node topo-right-alige" data-type="alige" data-alige="x">左右对齐</li>
+					<li class="topo-right-node topo-right-alige" data-type="alige" data-alige="y">上下对齐</li>
+					<li class="topo-right-node topo-right-dragable" data-type="dragable" data-dragable-true="锚定" data-dragable-false="解除锚定" data-am-popover="{content: '锚定后节点无法拖拽', trigger: 'hover'}">锚定</li>
+					<li class="topo-right-node topo-right-hole" data-type="hole">下钻</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- 样式配置 -->
+		<div id="topo-style-config-box" class="am-hide">
+			<div id="topo-style-config" class="topo-style-config am-padding-vertical-sm">
+				<form class="am-form am-form-horizontal" onsubmit="return false;">
+					<div class="am-form-group am-margin-bottom-xs">
+						<span class="am-u-sm-4 am-form-label am-padding-horizontal-0">节点名称：</span>
+						<div class="am-u-sm-8">
+							<input id="topo-node-name" class="am-form-field am-input-sm" type="text" maxlength="10">
+						</div>
+					</div>
+					<div class="am-form-group am-margin-bottom-xs topo-style-node">
+						<span class="am-u-sm-4 am-form-label am-padding-horizontal-0">文本位置：</span>
+						<div class="am-u-sm-8 am-form-select">
+							<select id="topo-text-position" class="am-input-sm" v-model="topoRightConfig.textPosition.selected">
+								<option v-for="option in topoRightConfig.textPosition.options" v-bind:value="option.value">
+									{{ option.text }}
+								</option>
+							</select>
+						</div>
+					</div>
+					<div class="am-form-group am-margin-bottom-xs topo-style-link">
+						<span class="am-u-sm-4 am-form-label am-padding-horizontal-0">文本 Y 轴偏移：</span>
+						<div class="am-u-sm-8">
+							<input placeholder="范围可输入 -20 至 20" class="am-form-field am-input-sm" id="topo-link-textOffsetY" data-coord="textOffsetY" type="text" maxlength="3" />
+						</div>
+					</div>
+					<div class="am-form-group am-margin-bottom-xs topo-style-link">
+						<span class="am-u-sm-4 am-form-label am-padding-horizontal-0">文本 X 轴偏移：</span>
+						<div class="am-u-sm-8">
+							<input placeholder="范围可输入 -20 至 20" class="am-form-field am-input-sm" id="topo-link-textOffsetX" data-coord="textOffsetX" type="text" maxlength="3" />
+						</div>
+					</div>
+					<div class="am-form-group am-margin-bottom-xs topo-style-link">
+						<span class="am-u-sm-4 am-form-label am-padding-horizontal-0">线条颜色选择：</span>
+						<div class="am-u-sm-8">
+							<input type="text" id="topo-link-strokeColor" class="am-form-field am-input-sm" />
+						</div>
+					</div>
+					<div class="am-form-group am-margin-bottom-xs">
+						<span class="am-u-sm-4 am-form-label am-padding-horizontal-0">文本大小：</span>
+						<div class="am-u-sm-8 am-form-select">
+							<select id="topo-font-size" class="am-input-sm" v-model="topoRightConfig.font.selected">
+								<option v-for="option in topoRightConfig.font.options" v-bind:value="option | topo-node-font">
+									{{ option }}
+								</option>
+							</select>
+						</div>
+					</div>
+					<div class="am-form-group am-margin-bottom-xs">
+						<span class="am-u-sm-4 am-form-label am-padding-horizontal-0">透明度：</span>
+						<div class="am-u-sm-8 am-form-select">
+							<select id="topo-node-alpha" class="am-input-sm" v-model="topoRightConfig.alpha.selected">
+								<option v-for="option in topoRightConfig.alpha.options" v-bind:value="option">
+									{{ option }}
+								</option>
+							</select>
+						</div>
+					</div>
+					<div class="am-margin-horizontal-sm am-margin-top-sm">
+						<!--<p id="topo-style-submit" class="am-btn am-btn-block am-radius am-btn-primary">确认</p>-->
+						<button id="topo-style-submit" type="button" class="am-btn am-btn-block am-radius am-btn-primary">确认</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<script src="assets/js/require.min.js" data-main="js/main" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

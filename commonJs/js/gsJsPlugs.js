@@ -184,7 +184,7 @@
 			} else {
 				// 无参时返回object,以便自定义组装
 				var _date = new Date();
-				var rreturn = {
+				rreturn = {
 					"y": _date.getFullYear(),
 					"M": _date.getMonth() + 1,
 					"d": _date.getDate(),
