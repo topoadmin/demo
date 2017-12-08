@@ -190,7 +190,8 @@
 			</div>
 			<img class="box-play box-play-bg" src="img/play-bg.png" />
 			<img class="box-play box-play-btn" src="img/play.png" />
-			<video class="hide" id="video" playsinline x-webkit-airplay webkit-playsinline x5-video-player-type="h5" x5-video-player-fullscreen="true" preload="auto" src="flash.mp4">
+			<video class="hide" id="video" playsinline x-webkit-airplay webkit-playsinline x5-video-player-type="h5" 
+				x5-video-player-fullscreen="true" preload="auto" src="http://entworks-1251799849.file.myqcloud.com/hua/flash2.mp4">
 			</video>
 
 			<div class="box-end hide">
@@ -230,7 +231,7 @@
 					loadTxt.innerHTML = parseInt(progress / totalnum * 100) + '%'
 				}, function() {
 					document.querySelector('#load').remove()
-					document.querySelector('.box').classList.add('show')
+					document.querySelector('.box').classList.remove('hide')
 				}, false)
 			})()
 
@@ -248,12 +249,22 @@
 			$(function() {
 				var time = shexian()
 				// 视频地址配置
-				var videoUrl = 'flash.mp4'
 				var $video = $('#video')
 				var _video = $video[0]
+
+				_video.load();
+
 				$('.box-play-btn').on('click', function() {
 					$video.removeClass('hide')
-					_video.play()
+					var playPromise = _video.play()
+
+					if(playPromise !== undefined) {
+						playPromise.catch(function(error) {
+							alert('暂不支持该视频源')
+							console.log(error)
+						});
+					}
+
 					$('.box-play').addClass('hide')
 					clearInterval(time)
 				})
@@ -269,11 +280,6 @@
 
 				$('#reload').on('click', function() {
 					window.location = window.location + '?time' + new Date().getTime()
-					// 重新观看
-					//					time = shexian()
-					//					$video.remove()
-					//					$('.box-play').removeClass('hide')
-					//					$('.box-end').addClass('hide')
 				})
 				$('#buy').on('click', function() {
 					// 购买门票按钮
