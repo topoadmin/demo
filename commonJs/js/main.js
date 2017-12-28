@@ -30,6 +30,7 @@ require(["gsJsPlugs"], function(gs) {
 	console.log("【获取当前域名】---"+gs.getDomainName());
 	console.log("【范围内随机数】---"+gs.getRandom(3,5));
 	
+	console.log(gs(1234.567).number("#,###.###"))
 
 	require(["laytpl", "api"], function(laytpl, api) {
 		var apiTpl = document.getElementById('api-tpl').innerHTML;

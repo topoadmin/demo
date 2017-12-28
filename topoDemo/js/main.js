@@ -216,11 +216,13 @@ require(["topo", "vue", "jquery", "amazeui", "layer", "gsPlugs", "jscolor"], fun
 
 		// 根据参数，改变 jtopo 
 		var topoParam = $.gsPlugs.getUrlParam();
-		if(!topoParam || topoParam.type == "save") {
-			VUEMODEL.toolbars[5].status = true;
-			loadModelData();
-			loadLinkDialog();
-		} else if(topoParam.type == "edit") {
+//		console.log(topoParam)
+//		if(!topoParam || topoParam.type == "save") {
+//			VUEMODEL.toolbars[5].status = true;
+//			loadModelData();
+//			loadLinkDialog();
+//		} else 
+		if(topoParam.type == "edit") {
 			loadTopoData(topoParam.topoId);
 			loadModelData();
 			loadLinkDialog();
@@ -232,6 +234,10 @@ require(["topo", "vue", "jquery", "amazeui", "layer", "gsPlugs", "jscolor"], fun
 			VUEMODEL.toolbars[8].status = true;
 			$("#topo-right").addClass("am-hide");
 			loadTopoData(topoParam.topoId);
+		}else {
+			VUEMODEL.toolbars[5].status = true;
+			loadModelData();
+			loadLinkDialog();
 		}
 
 		// 按钮栏操作方法
@@ -517,6 +523,7 @@ require(["topo", "vue", "jquery", "amazeui", "layer", "gsPlugs", "jscolor"], fun
 	//	pictures/getListData.do
 	// 加载拓扑操作弹窗,并对内部事件进行绑定
 	function loadModelData() {
+		console.log(1111111111)
 		$.ajax({
 			type: "get",
 			url: "js/data/model.json",
