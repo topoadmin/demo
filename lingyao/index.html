@@ -151,7 +151,7 @@
 					url: window.location.href
 				}, function(data) {
 					if(data.resultCode != 10000) {
-						alert(data.showMessage || '拉取微信 JS SDK 权限验证配置 失败')
+						console.log(data.showMessage || '拉取微信 JS SDK 权限验证配置 失败')
 						return false;
 					}
 					wx.config({
@@ -163,7 +163,7 @@
 						jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareQZone']
 					});
 					wx.error(function(res) {
-						alert('拉取 JS SDK 报错：' + JSON.stringify(res))
+						console.log('拉取 JS SDK 报错：' + JSON.stringify(res))
 					});
 
 					wx.ready(function() {
@@ -185,7 +185,7 @@
 
 				_video.load()
 
-				$('.box-play').on('touchend', function() {
+				$('.box-play').one('touchend', function() {
 					$('.box-play, .banner-down').addClass('hide')
 					$video.removeClass('hide')
 					var playPromise = _video.play()
@@ -196,8 +196,7 @@
 						});
 					}
 				})
-				$('.box-end').on('touchend', function() {
-					console.log(1111111)
+				$('.box-end').one('touchend', function() {
 					window.location = 'https://item.jd.com/6224492.html'
 				})
 
