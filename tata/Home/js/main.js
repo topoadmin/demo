@@ -1,8 +1,8 @@
 require.config({
 	paths: {
 		//  	"amazeui":"../../assets/js/amazeui.min",	// 妹子Ui
-		"jquery": "http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min",
-		"amazeui": "http://cdn.amazeui.org/amazeui/2.5.0/js/amazeui.min",
+		"jquery": "//cdn.bootcss.com/jquery/3.4.1/jquery.min",
+		"amazeui": "//cdn.bootcss.com/amazeui/2.7.2/js/amazeui.min",
 		"countUp": "../../assets/js/countUp.min", // 数字动态效果
 		"lazyload": "../../assets/js/jquery.lazyload.min",	// 图片赖加载
 		"easing": "../../assets/js/jquery.easing.min",		// jquery 动画

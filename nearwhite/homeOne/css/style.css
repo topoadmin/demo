@@ -1,0 +1,81 @@
+*{font-family: "microsoft yahei";text-align: justify;text-justify: inter-ideograph;}
+html,
+body{height: 100%;margin: 0 auto;background-color: #fff;}
+img{box-sizing: border-box;vertical-align: middle;border: 0;}
+.warp{min-width: 1000px;}
+/* 头部*/.top{position: relative;height: 500px;background-color: #000000;}
+.top > .top_logo{position: absolute;top: 50px;left: 50%;margin-left: -75px;z-index: 102;text-align: center;background-color: #000;width: 150px;height: 115px;}
+.top > .top_logo > img{display: block;max-width: 100%;height: auto;margin: auto;}
+.top > .top_title{position: absolute;top: 160px;left: 50%;margin-left: -225px;z-index: 101;text-align: center;border: 2px solid #cfba7a;width: 450px;height: 50px;}
+.top > .top_title .border_hei{width: 180px;height: 2px;background-color: #000;position: absolute;top: 50px;right: 0;}
+.top > .top_title .top_title_1{padding-right: 30px;color: #a9a7a3;font-size: 32px;line-height: 50px;}
+.top > .top_title .top_title_2{position: absolute;top: 52px;left: 50%;margin-left: -275px;z-index: 101;text-align: center;border: 2px solid #cfba7a;border-top: none;border-left: none;width: 500px;height: 65px;}
+.top > .top_title .top_title_2_left{float: left;color: #fff;text-align: right;font-size: 43px;line-height: 60px;height: 60px;width: 350px;}
+.top > .top_title .top_title_2_right{float: right;width: 150px;text-align: center;padding-top: 10px;}
+.top > .top_title .top_title_2_right > p{margin: 0;padding: 0;color: #fff;font-size: 20px;height: 20px;}
+.centent{position: relative;}
+/* 第一栏*/.banner_1{text-align: center;width: 100%;position: absolute;top: -125px;left: 0;margin: auto;}
+.banner_1 .banner_1_img{display: inline-block;position: relative;width: 997px;height: 637px;}
+.banner_1 .banner_1_books{position: absolute;top: 228px;left: 205px;margin: auto;width: 764px;}
+.banner_1 .banner_1_books img{width: 100%;}
+.banner_1 .banner_1_books .b_1_b_txt{position: absolute;top: 148px;left: 65px;width: 290px;height: 350px;}
+.banner_1 .banner_1_books .b_1_b_txt p{width: 46%;font-size: 14px;line-height: 26px;}
+.b_1_b_txt .bbt_left{float: left;}
+.b_1_b_txt .bbt_right{float: right;}
+/* 第二栏*/.banner_2{height: 990px;position: relative;}
+.banner_2 .banner_2_left{float: left;width: 60%;height: 100%;position: relative;}
+.banner_2 .banner_2_right{float: left;width: 40%;height: 100%;position: relative;}
+.banner_2_left .banner_2_left_img{height: 315px;text-align: right;}
+.banner_2_left .banner_2_left_img > img{width: 600px;height: 100%;}
+.banner_2_left .banner_2_left_info{height: 385px;background-color: #000000;}
+.banner_2_left .banner_2_left_info .b2li_box{float: right;margin: 80px 50px 0;height: 150px;width: 400px;}
+.banner_2_left .banner_2_left_info .b2li_box p{color: #fff;line-height: 26px;}
+.banner_2_right .banner_2_right_info{margin-left: 50px;height: 315px;}
+.banner_2_right .banner_2_right_info h1.banner_2_linian{margin: 0 0 24px 0;color: #000000;}
+.banner_2_right .banner_2_right_info h1.banner_2_number{margin: 0;color: #000000;}
+.banner_2_right .banner_2_right_info h1.banner_2_idea{margin: 0 0 45px 0;font-size: 16px;color: #484848;}
+.banner_2_right .banner_2_right_info span.banner_2_info{margin: 0 auto;font-size: 12px;color: #C2C2C2;display: inline-block;width: 200px;line-height: 20px;}
+.banner_2_right .banner_2_right_img{width: 100%;}
+.banner_2_right .banner_2_right_img img{width: 100%;height: 308px;}
+.banner_2 .banner_2_left .banner_2_position_img{position: absolute;top: 620px;right: -23px;}
+/* 第三栏*/.banner_3{position: relative;width: 1000px;margin: auto;height: 783px;}
+.banner_3 .banner_3_left{float: left;width: 50%;}
+.banner_3 .banner_3_left .banner_3_info_1{width: 300px;margin: auto;height: 175px;}
+.banner_3_left .banner_3_info_1 h1.banner_3_linian{margin: 0 0 24px 0;}
+.banner_3_left .banner_3_info_1 h1.banner_3_number{margin: 0;}
+.banner_3_left .banner_3_info_1 h1.banner_3_idea{margin: 0 0 45px 0;font-size: 16px;color: #484848;}
+.banner_3_left .banner_3_info_2{height: 500px;height: 500px;background-color: #F3F3F3;}
+.banner_3_left .banner_3_info_2 .b3i2_centen{width: 299px;height: 300px;margin: auto;padding-top: 100px;}
+.banner_3_left .banner_3_info_2 .b3i2_centen p{font-size: 20px;line-height: 30px;}
+.banner_3 .banner_3_right{float: left;width: 50%;}
+.banner_3_right p{width: 300px;margin: auto;color: #e0e0e0;font-size: 20px;height: 175px;line-height: 35px;}
+.banner_3 .banner_3_right_img{position: relative;width: 500px;height: 500px;}
+.banner_3 .banner_3_right_img .banner_3_right_mark{position: absolute;width: 180px;height: 180px;border: 1px solid #dde0df;padding: 25px;top: 0;bottom: 0;left: 0;right: 0;margin: auto;}
+.banner_3 .banner_3_right_img .banner_3_right_mark h1{color: #a5a8a8;font-size: 22px;line-height: 38px;font-weight: lighter;}
+/* 第四栏*/.banner_4{background: url(../img/banner_4.png) no-repeat center center;background-size: 100% 100%;position: relative;margin: auto;width: 100%;height: 290px;}
+.banner_4 p{margin: 0;padding: 0;padding-top: 125px;text-align: center;color: #d2dada;font-size: 22px;}
+/* 第五栏*/.banner_5{margin: auto;position: relative;height: 475px;padding-top: 75px;}
+.banner_5 .banner_5_centen{width: 1000px;margin: auto;height: 400px;position: relative;}
+.banner_5 .banner_5_img{position: absolute;height: 550px;width: 366px;top: -75px;left: 331px;margin: auto;}
+.banner_5 .banner_5_img img{height: 100%;}
+.banner_5 .banner_5_centen .banner_5_info_1{position: relative;width: 230px;margin-left: 120px;float: left;border-bottom: 1px solid #7e7e7e;height: 278px;}
+.banner_5 .banner_5_centen .banner_5_info_1:after{content: '';display: table;clear: both;position: absolute;bottom: -5px;right: -5px;width: 10px;height: 10px;background-color: #7e7e7e;border-radius:50% ;}
+.banner_5 .banner_5_centen .banner_5_info_1 h1.banner_5_linian{margin: 0 0 24px 0;}
+.banner_5 .banner_5_centen .banner_5_info_1 h1.banner_5_number{margin: 0;}
+.banner_5 .banner_5_centen .banner_5_info_1 h1.banner_5_idea{margin: 0 0 36px 0;font-size: 18px;color: #484848;}
+.banner_5 .banner_5_centen .banner_5_info_1 span.banner_5_info{font-size: 18px;line-height: 28px;font-weight: lighter;}
+.banner_5 .banner_5_centen .banner_5_info_2{float: left;width: 270px;height: 250px;margin-top: 50px;margin-left: 30px;background-color: #696868;}
+.banner_5 .banner_5_centen .banner_5_info_3{float: left;width: 350px;/*height: 200px;*/margin-top: 175px;}
+.banner_5 .banner_5_centen .banner_5_info_3 ul{list-style: none;padding-left: 26px;margin: auto;}
+.banner_5 .banner_5_centen .banner_5_info_3 ul li{font-size: 16px;line-height: 28px;}
+.banner_5 .banner_5_centen .banner_5_info_3 ul li span{width: 10px;height: 10px;display: inline-block;background-color: #FFAE00;margin-right: 10px;}
+/* 第六栏*/.banner_6{margin: auto;position: relative;width: 100%;}
+.banner_6 img{width: 100%;}
+/* 第七栏*/.banner_7{background: url(../img/bottom.jpg) no-repeat center center;height: 280px;}
+.banner_7_cente{text-align: center;width: 1000px;height: 100%;margin: auto;}
+.banner_7_cente h1.title{color: #696969;}
+.banner_7_cente h1,
+.banner_7_cente p{text-align: center;}
+.banner_7_cente p{font-size: 18px;font-weight: 900;}
+.banner_7_cente p a{text-decoration: none;background-color: transparent;color: #000;font-size: 18px;}
+

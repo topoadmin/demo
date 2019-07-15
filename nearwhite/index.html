@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>白衬衫</title>
+		<link rel="stylesheet" type="text/css" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
+		<style type="text/css">
+			[v-cloak] {
+				display: none
+			}
+			
+			#demowall>li>a>img {
+				height: 150px;
+				max-width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="row" id="app" v-cloak>
+				<div class="text-center">
+					<h1>{{title}}</h1>
+				</div>
+				<hr />
+				<ul class="list-unstyled text-center clearfix" id="demowall">
+					<li v-for="item in items" class="col-xs-6 col-sm-4 col-md-3">
+						<a href="{{item.url}}">
+							<img :src="item.imgSrc" />
+							<h3 v-text="item.name | checkText"></h3>
+						</a>
+						<hr />
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<script src="http://apps.bdimg.com/libs/vue/1.0.14/vue.js"></script>
+		<script type="text/javascript">
+			Vue.filter('checkText', function(value) {
+				return value ? value : "null";
+			})
+			new Vue({
+				el: '#app',
+				data: {
+					title: "白衬衫DEMO",
+					items: [{
+						/* name: "NEAR WHITE 欢迎页",
+						imgSrc: "build/img/logo/logo-null-min.png",
+						url: "welcome/hd1.html"
+					},{
+						name: "白衬衫商城",
+						imgSrc: "build/img/logo/logo-null-min.png",
+						url: "weixin/www/index.html"
+					}, {*/
+						name: "首页排版一",
+						imgSrc: "build/img/logo/logo-min.png",
+						url: "homeOne/index.html"
+					}, {
+						name: "首页排版二",
+						imgSrc: "build/img/logo/logo-min.png",
+						url: "homeTwo/index.html"
+					}, {
+						name: "首页排版三",
+						imgSrc: "build/img/logo/logo-min.png",
+						url: "homeThree/index.html"
+					}, {
+						name: "首页排版三[动画版]",
+						imgSrc: "build/img/logo/logo-min.png",
+						url: "homeThree/index_animate.html"
+					}]
+				}
+			})
+		</script>
+
+	</body>
+
+</html>

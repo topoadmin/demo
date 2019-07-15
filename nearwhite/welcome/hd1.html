@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>[NEAR WHITE] 白衬衫全球设计师品牌</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="Description" content="加入[NEAR WHITE]">
+		<meta name="Keywords" content="加入[NEAR WHITE]">
+		<meta name="title" content="加入[NEAR WHITE]">
+		<meta name="description" content="加入[NEAR WHITE]">
+		<meta name="keywords" content="加入[NEAR WHITE]">
+		<meta name="robots" content="all">
+		<meta name="author" content="Gaoshi">
+		<link rel="shortcut icon" href="http://www.swiper.com.cn/templets/default/images/favicon.png">
+		<link rel="stylesheet" type="text/css" href="swiper.min.css">
+		<style type="text/css">
+			html {
+				font-size: 16px;
+				height: 100%;
+				-webkit-text-size-adjust: none
+			}
+			
+			body,
+			h1,
+			h2,
+			h3,
+			ul,
+			li,
+			p {
+				margin: 0;
+				padding: 0;
+				font-size: 16px;
+				font-weight: 400
+			}
+			
+			a {
+				-webkit-tap-highlight-color: transparent;
+				color: #000;
+				text-decoration: none
+			}
+			
+			img {
+				vertical-align: top
+			}
+			
+			ul,
+			li {
+				list-style: none
+			}
+			
+			body {
+				font-family: Helvetica;
+				height: 100%;
+				color: #000;
+				background: #F5F5F5
+			}
+			
+			table,
+			tr,
+			td {
+				border-collapse: collapse;
+				border-spacing: 0
+			}
+			
+			html,
+			body {
+				width: 100%
+			}
+			
+			img {
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+				vertical-align: middle;
+				border: 0
+			}
+			
+			section.top {
+				text-align: center;
+				padding: 25px 0
+			}
+			
+			section.bottom {
+				text-align: center;
+				padding-bottom: 12.5px
+			}
+			
+			section.bottom img.qcode {
+				padding: 20px 0 0;
+				width: 52px
+			}
+			
+			section.bottom img.qcode_text {
+				padding: 4px 0 10px;
+				width: 80px
+			}
+			
+			.swiper-wrapper {
+				width: 80px;
+				margin: auto
+			}
+			
+			.swiper-slide {
+				text-align: center;
+				margin: auto
+			}
+			
+			.swiper-wrapper img {
+				width: 100%
+			}
+			
+			.visibility {
+				visibility: hidden
+			}
+			
+			.index_title {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 0;
+				height: 0;
+				text-indent: -9999px
+			}
+		</style>
+	</head>
+
+	<body>
+		<div style="overflow:hidden;width:0;height:0;margin:0 auto;position:absolute;top:-800px"><img src="img/logo.png">
+			<h1>6月，coming soom</h1></div>
+		<section class="top"><img src="img/top.png" width="71px"></section>
+		<section>
+			<div id="swiper" class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide"><img src="img/img1.png"></div>
+					<div class="swiper-slide"><img class="visibility" src="img/img2.png"></div>
+					<div class="swiper-slide"><img class="visibility" src="img/img1.png"></div>
+					<div class="swiper-slide"><img class="visibility" src="img/img2.png"></div>
+				</div>
+			</div>
+		</section>
+		<section class="bottom">
+			<img class="qcode" src="img/qcode.png"><br>
+		<img class="qcode_text" src="img/qcode_text.png"><br>
+		<img src="img/bottom.png" width="300px"></section>
+		<script src="swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<audio preload loop><source src="music.mp3" type="audio/mp3"></source></audio>
+		<script>
+			function initHtml() {
+				var audio = document.getElementsByTagName("audio")[0];
+				var iosAgent = getUserAgent().ios;
+				audio.play();
+				if (iosAgent) {	// ios
+					audio.addEventListener("ended", function() {
+						audio.play();
+					}, false)
+				}
+				new Swiper("#swiper", {
+					effect: "cube",
+					loop: !0,
+					width: 80,
+					onlyExternal: !0,
+					height: 142,
+					speed: 1e3,
+					cube: {
+						shadow: !1,
+						slideShadows: !1,
+						shadowOffset: 40,
+						shadowScale: .94
+					},
+					autoplay: 3250,
+					onInit: function() {
+						for (var t = document.querySelectorAll("img"), i = 0, n = t.length; n > i; i++) t[i].classList.remove("visibility");
+					}
+				})
+			}
+			window.onload = function() {
+				initHtml()
+			};
+			/* 获取设备系统  */
+			function getUserAgent() {
+				var u = navigator.userAgent;
+				var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+				return {
+					"ios": isiOS
+				}
+			}
+		</script>
+	</body>
+
+</html>

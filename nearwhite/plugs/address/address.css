@@ -1,0 +1,108 @@
+body.am-dimmer-active {
+	position: fixed;
+	top: 0 !important;
+	right: 0 !important;
+	bottom: 0 !important;
+	left: 0 !important;
+	width: 100% !important;
+	height: 100% !important;
+	overflow: hidden !important;
+}
+
+.address-popup {
+	transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1);
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+}
+
+.address-popup.am-popup.am-modal-active {
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+}
+
+.address-popup.am-popup.am-modal-out {
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+}
+
+.address-popup.am-popup.am-modal-active,
+.address-popup.am-popup.am-modal-out {
+	-webkit-transition-duration: .5s;
+	transition-duration: .5s;
+}
+
+.address-popup .am-popup-inner {
+	padding-top: 43px;
+}
+
+.address-popup .am-popup-bd {
+	background-color: transparent;
+	padding: 0;
+}
+
+.address-popup .close-address {
+	opacity: 1;
+	left: 10px;
+	transition: all 0s;
+}
+
+.address-popup .am-popup-hd .am-popup-title {
+	font-size: 1.6rem;
+	font-weight: 500;
+}
+
+.address-popup .address-list {
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	padding-top: 43px;
+}
+
+.address-popup .address-list>div {
+	height: 100%;
+	padding: 0;
+}
+
+.address-popup .address-list>div>ul>li:first-child {
+	border-top: 0;
+}
+
+.address-popup .address-list>div>ul>li {
+	padding: .8rem .5rem;
+	font-size: 1.4rem;
+	text-align: center;
+	color: #848484;
+	word-wrap: normal;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.address-popup .address-list>div>ul>li.active {
+	background-color: #efefef;
+	transition: all .5s ease;
+}
+
+.address-popup .address-list>div.address-prov>ul>li {
+	background-color: #efefef;
+}
+
+.address-popup .address-list>div.address-prov>ul>li.active {
+	background-color: #fff;
+}
+
+.address-popup .address-list>div {
+	border-left: 1px solid #e5e5e5;
+}
+
+.address-popup .address-list>div:first-child {
+	border-left: 0;
+}

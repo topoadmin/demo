@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>支付中心</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" type="text/css" href="css/amazeui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+
+	<body id="app">
+		<!-- 页面内容 -->
+		<div id="main">
+			<div class="am-g">
+				<div class="am-u-sm-12">
+					<div class="pay-check">
+						<span class="am-icon-remove"></span> <span>已撤销!</span>
+					</div>
+					<form id="pay-form" class="pay-form am-form">
+						<ul class="am-list">
+							<li>
+								<span class="pay-input-laber"><strong>寄送地址</strong></span>
+								<!--<div class="pay-input-absolute">请选择地址</div>-->
+								<span class="pay-input-right-icon"><i class="am-icon-chevron-right"></i></span>
+								<div class="pay-input">
+									<p class="pay-user-info">
+										<span class="am-padding-right-sm">李白</span>
+										<span>13701378834</span>
+									</p>
+									<p class="pay-site-info">北京市朝阳区三里屯SOHO公寓17座2203</p>
+								</div>
+							</li>
+							<li>
+								<span class="pay-input-laber"><strong>优惠卷</strong></span>
+								<div class="pay-input-absolute">已经优惠100元</div>
+								<span class="pay-input-right-icon"><i class="am-icon-chevron-right"></i></span>
+							</li>
+							<li>
+								<span class="pay-input-laber"><strong>留言</strong></span>
+								<div class="pay-input">
+									<p class="pay-site-info">需要发票</p>
+								</div>
+							</li>
+						</ul>
+					</form>
+					<div class="am-g total-price">
+						<div class="am-u-sm-12 am-padding-sm">
+							<div class="am-padding-sm total-clearing">
+								<div class="am-cf">
+									<span class="am-fl">
+										<i class="tip-img tip-yifu"></i>
+										<span>1 件商品</span>
+									</span>
+									<span class="am-fr">￥100.00</span>
+								</div>
+								<div class="am-cf">
+									<span class="am-fl">
+										<i class="tip-img tip-jisong"></i>
+										<span>寄送费</span>
+									</span>
+									<span class="am-fr">￥0.00</span>
+								</div>
+								<div class="am-cf">
+									<span class="am-fl">
+										<i class="tip-img tip-youhui"></i>
+										<span>优惠金额</span>
+									</span>
+									<span class="am-fr">￥0.00</span>
+								</div>
+								<div class="am-cf">
+									<span class="am-fl">
+										<i class="tip-img tip-qian"></i>
+										<span>总金额</span>
+									</span>
+									<span class="am-fr">￥100.00</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- 购买的商品 -->
+			<div class="am-g">
+				<p class="am-margin-top-sm am-margin-bottom-xs am-margin-left-sm">购买的商品</p>
+				<ul class="am-list am-margin-0">
+					<li class="am-list-item-desced am-list-item-thumbed am-list-item-thumb-left am-cf">
+						<div class="am-u-sm-3">
+							<a class="am-text-center" href="##">
+								<img class="am-img-responsive" src="img/img1.jpg">
+							</a>
+						</div>
+						<div class="am-u-sm-9 am-padding-0">
+							<div class="am-text-truncate">
+								<p class="am-margin-0">白衬衫限量版</p>
+								<p class="am-margin-0">XS(160/80A)</p>
+								<div class="am-u-sm-12 am-padding-horizontal-0 am-padding-vertical-sm">
+									<p class="am-u-sm-4 am-padding-0 am-text-truncate">
+										<span>￥</span><span>200.00</span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+		<script src="js/plugs/require.min.js" data-main="js/main"></script>
+	</body>
+
+</html>

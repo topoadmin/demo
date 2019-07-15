@@ -1,0 +1,80 @@
+*{font-family: "microsoft yahei";text-align: justify;text-justify: inter-ideograph;}
+html,
+body{height: 100%;margin: 0 auto;background-color: #fff;}
+img{box-sizing: border-box;vertical-align: middle;border: 0;}
+.clearfloat:after,
+.clearfloat:before{content: " ";display: table}
+.clearfloat:after{clear: both}
+.warp{min-width: 1400px;position: relative;}
+.banner_1{height: 517px;text-align: center;background-color: #7abebc;}
+.banner_1 img{height: 517px;width: 100%;}
+.banner_2{height: 585px;background-color: #c8a6a7;}
+.banner_2_main{position: relative;width: 1400px;margin: 0 auto;height: 100%;}
+.banner_2_main .main_bj{position: absolute;top: 75px;right: 120px;height: 510px;width: 500px;background: url(../img/banner_2_2.png) no-repeat top center;}
+.banner_2_main .main_title{position: absolute;top: 103px;right: 1000px;}
+.banner_2_main .main_title h1{font-size: 45px;color: #fff;margin-bottom: 15px;margin-top: 0px;}
+.banner_2_main .main_title p{font-size: 24px;color: #E2E1E1;margin: 0;}
+.banner_2_main .main_info{position: absolute;top: 229px;right: 500px;z-index: 1;width: 769px;height: 380px;background-color: #fff;}
+.banner_2_main .main_info .lv-bolang{position: absolute;top: 30px;left: 30px;}
+.banner_2 .origin_info{margin: 70px 30px;height: 240px;}
+.banner_2 .origin_info_1{float: left;width: 315px;height: 100%;}
+.banner_2 .origin_info_1 img{margin-top: 6px;}
+.banner_2 .origin_info_2{float: left;width: 50px;height: 100%;}
+.banner_2 .origin_info_2 div{height: 100%;width: 2px;margin: auto;background: #808080;}
+.banner_2 .origin_info_3{float: left;width: 344px;height: 100%;}
+.banner_2 .origin_info_3 p{color: #6b6c69;margin: 0 0 10px 0;padding: 0;font-size: 22px;line-height: 30px;}
+.banner_2 .origin_info_3 span{color: #dbc8c5;margin: 0;padding: 0;font-size: 20px;line-height: 28px;}
+
+.banner_3{background-color: #4b6090;height: 585px;}
+.banner_3_main{position: relative;width: 1400px;margin: 0 auto;height: 100%;}
+.banner_3_main .main_bj{position: absolute;top: 75px;left: 0;height: 510px;width: 500px;z-index: 2;}
+.banner_3_main .main_bj img{width: 100%;height: 100%;}
+.banner_3_main .main_title{position: absolute;top: 100px;left: 1000px;}
+.banner_3_main .main_title h1{font-size: 45px;color: #fafffd;margin-bottom: 15px;margin-top: 0px;}
+.banner_3_main .main_title p{font-size: 24px;color: #cacee4;margin: 0;text-align: right;}
+.banner_3_main .main_info{position: absolute;top: 232px;left: 430px;z-index: 1;width: 850px;height: 353px;background-color: #fff;}
+.banner_3_main .main_info .zi_bolang{position: absolute;top: 30px;left: 90px;}
+.team_info_right{float: right;width: 425px;height: 353px;}
+.team_info_right img{width: 100%;height: 100%;}
+.team_info_left{float: left;width: 365px;height: 100%;margin: 50px 30px 0 30px;}
+.team_info_left p{font-size: 25px;color: #676865;margin: 20px 0 15px 0;}
+.team_info_left p>span{float: left;height: 60px;width: 60px;display: block;}
+.team_info_left span{font-size: 18px;color: #4c6495;line-height: 28px;}
+
+.banner_4{height: 585px;background-color: #90af9b;}
+.banner_4_main{position: relative;width: 1400px;margin: 0 auto;height: 100%;}
+.banner_4_main .main_bj{position: absolute;top: 75px;right: 120px;height: 510px;width: 400px;z-index: 2;}
+.banner_4_main .main_bj img{height: 100%;}
+.banner_4_main .main_title{position: absolute;top: 103px;right: 980px;}
+.banner_4_main .main_title h1{font-size: 45px;color: #fff;margin-bottom: 15px;margin-top: 0px;}
+.banner_4_main .main_title p{font-size: 24px;color: #E2E1E1;margin: 0;}
+.banner_4_main .main_info{position: absolute;top: 229px;right: 485px;z-index: 1;width: 768px;height: 380px;background-color: #fff;}
+.banner_4_main .main_info .lan-bolang{position: absolute;top: 20px;left: -32px;}
+.spirit_info{width: 568px;height: 280px;padding: 50px 100px;background-color:#f8f8f8 ;}
+.spirit_info_1 p{font-size: 18px;font-weight: bold;line-height: 30px;margin: 0 0 20px 0;}
+.spirit_info_2{float: left;width: 201px;border-right: 2px solid#000000;height: 201px;}
+.spirit_info_3{float: right;width: 345px;height: 170px;padding: 20px 0 0 20px;font-size: 18px;color: #b7b7b7;}
+
+.banner_5{height: 585px;background-color: #fff;}
+.banner_5_main{position: relative;width: 1280px;margin: 0 auto;height: 100%;}
+.banner_5_main .main_bj{height: 100%;}
+.banner_5_main .main_info{position: absolute;top: 205px;left: 750px;z-index: 1;width: 500px;height: 280px;padding: 50px 35px;background-color: #f8f8f8;}
+.banner_5_main .main_info h1{font-size: 36px;color: #000000;margin: 10px 0;}
+.banner_5_main .main_info p{font-size: 18px;color: #A09B9B;margin: 0;}
+.main_info .box{padding-left: 10px;border-left: 20px solid #000;margin-top: 10px;}
+.main_info .box span{line-height: 28px;color: #c6c7c2;font-size: 20px;}
+
+.footer{position: relative;margin: 0 auto;height: 500px;background-color: #000000;}
+.footer .footer_email{position: absolute;bottom: 150px;left: 100px;width: 300px;}
+.footer .footer_email P{margin: 0;padding: 0;color: #fcfcfc;font-size: 16px;text-align: center;}
+.footer .footer_site{padding: 0 547px 0 400px;width: auto;height: 100%;}
+.footer .footer_main{width: 330px;margin: 0 auto;padding-top: 69px;}
+.footer .footer_site h1{color: #fff;font-size: 40px;letter-spacing: 20px;position: relative;margin: 0 0 18px 0;}
+.footer .footer_site h1 p{letter-spacing: 0px;position: absolute;top: 0;left: 180px;margin: 0;padding: 0;}
+.footer .footer_site span{color: #e1e1e1;font-size: 16px;}
+.footer .footer_img{position: absolute;top: 0;right: 0;width: 547px;}
+.footer .footer_tel,
+.footer .footer_url{padding-left: 200px;}
+.footer .footer_tel,
+.footer .footer_url,
+.footer .footer_url a{color: #fff;font-size: 16px;}

@@ -1,7 +1,7 @@
 require.config({
 	paths: {
-		"jquery": "http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min", 
-		"amazeui":"../../build/js/amazeui.min",
+		"jquery": "//cdn.bootcss.com/jquery/3.4.1/jquery.min",
+		"amazeui": "//cdn.bootcss.com/amazeui/2.7.2/js/amazeui.min",
 		"touchSwiper": "../../build/js/jquery/jquery.touchSwipe", // 滑屏事件
 		"gsPage": "jquery.gsPage"
 	}

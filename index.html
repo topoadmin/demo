@@ -12,10 +12,10 @@
 			[v-cloak] {
 				display: none
 			}
-			
 			#demowall>li>a>img {
 				height: 150px;
 				max-width: 100%;
+				border-radius: 15px;
 			}
 		</style>
 	</head>
@@ -23,13 +23,13 @@
 	<body>
 		<div class="container">
 			<div class="row" id="app" v-cloak>
-				<hr />
 				<div class="text-center">
+					<img src="build/img/azil-orange.png" height="100px" />
 					<h1>{{title}}</h1>
 				</div>
 				<hr />
 				<ul class="list-unstyled text-center clearfix" id="demowall">
-					<li v-for="item in items" class="col-sm-6">
+					<li v-for="item in items" class="col-sm-6 col-md-4 col-lg-3">
 						<a href="{{item.url}}">
 							<img :src="item.imgSrc" />
 							<h3 v-text="item.name | checkText"></h3>
@@ -38,7 +38,6 @@
 						<hr />
 					</li>
 				</ul>
-				<!--<h2 class="text-center"><a href="http://www.guogongdian.com">博客</a></h2>-->
 			</div>
 		</div>
 
@@ -52,40 +51,45 @@
 				data: {
 					title: "案例演示",
 					items: [{
+						name: "NearWhite",
+						imgSrc: "build/img/nearwhite.png",
+						url: "nearwhite/index.html",
+						samp: ""
+					}, {
+						name: "Jtopo",
+						imgSrc: "build/img/jtopo.jpg",
+						url: "topo/index.html",
+						samp: ""
+					}, {
 						name: "游戏嘉年华",
 						imgSrc: "yxjnh/favicon.png",
 						url: "yxjnh/index.html",
-						samp: "H5 + CSS3"
+						samp: ""
 					}, {
 						name: "2016年中信银行半年度业绩发布",
-						imgSrc: "2016zqhb/images/2016firsthalfresults_fx_logo.png",
+						imgSrc: "build/img/zxyh.png",
 						url: "2016zqhb/2016zqhb_index.html",
-						samp: "H5 + CSS3"
+						samp: ""
 					}, {
-						name: "TATA旅游(项目下线，图片资源失效)",
+						name: "TATA旅游",
 						imgSrc: "build/img/tata.jpg",
 						url: "tata/Home/home.html",
-						samp: "require + amazeui + jQuery"
+						samp: "项目下线，资源无法加载"
 					}, {
-//						name: "js常用函数",
-//						imgSrc: "build/img/javascript.jpg",
-//						url: "commonJs/index.html",
-//						samp: "require + amazeui + laytpl"
-//					}, {
-//						name: "vue.js-学习",
-//						imgSrc: "build/img/vue.png",
-//						url: "vuejs/入门.html",
-//						samp: "bootstrap + vue"
-//					}, {
 						name: "自定义翻页动画",
 						imgSrc: "build/img/css3.png",
 						url: "gsPage/index.html",
-						samp: "require + amazeui  + gsPage"
-					}, {
-						name: "模仿慕课网H5新年特献并加特效",
-						imgSrc: "build/img/imoocOne.png",
-						url: "imoocOne/index.html",
-						samp: "H5 + CSS3 + zepto"
+						samp: "自制"
+					// }, {
+					// 	name: "js常用函数",
+					// 	imgSrc: "build/img/javascript.jpg",
+					// 	url: "commonJs/index.html",
+					// 	samp: "require + amazeui + laytpl"
+					// }, {
+					// 	name: "模仿慕课网H5新年特献并加特效",
+					// 	imgSrc: "build/img/imoocOne.png",
+					// 	url: "imoocOne/index.html",
+					// 	samp: ""
 					}]
 				}
 			})

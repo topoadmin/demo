@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Language" content="zh-CN" />
+		<meta charset="utf-8">
+		<title>地址选择</title>
+		<meta name="Author" content="Gaoshi" />
+		<meta name="keywords" content="address" />
+		<meta name="description" content="address" />
+		<link rel="Shortcut Icon" href="favicon.ico" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" type="text/css" href="http://cdn.amazeui.org/amazeui/2.7.0/css/amazeui.min.css" />
+		<link rel="stylesheet" type="text/css" href="address.css" />
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="http://cdn.amazeui.org/amazeui/2.7.0/js/amazeui.min.js"></script>
+		<script src="http://s.amazeui.org/assets/2.x/js/handlebars.min.js"></script>
+		<script src="address.js" charset="utf-8"></script>
+	</head>
+
+	<body>
+
+		<img class="am-img-responsive" src="bg.JPG" />
+
+		<div class="am-form-group am-form-icon am-form-feedback" id="select" data-prov="湖南省" data-city="益阳市" data-district="桃江县">
+			<div class="am-form-field">
+				湖南省 益阳市 桃江县 430400
+			</div>
+			<span class="am-icon-chevron-right"></span>
+		</div>
+
+		<p class="am-text-danger am-text-xs am-text-right">当前版本只做演示</p>
+
+		<div class="am-popup address-popup" id="address-popup">
+			<div class="am-popup-inner">
+				<div class="am-popup-hd">
+					<span data-am-modal-close class="am-close am-icon-chevron-left close-address"></span>
+					<h4 class="am-popup-title">请选择城市</h4>
+				</div>
+				<div class="am-popup-bd">
+					<div class="address-list">
+						<div class="am-u-sm-4 address-prov"></div>
+						<div class="am-u-sm-4 address-city"></div>
+						<div class="am-u-sm-4 address-district"></div>
+					</div>
+				</div>
+			</div>
+			<script type="text/x-handlebars-template" id="address-popup-list">
+				<ul class="am-list am-list-static">
+					{{#each this}} {{#if active}}
+					<li class="active">{{name}}</li>
+					{{else}}
+					<li>{{name}}</li>
+					{{/if}} {{/each}}
+				</ul>
+			</script>
+		</div>
+
+		<a class="am-btn am-btn-success" href="address.zip" download="">下载</a>
+	</body>
+
+	<script type="text/javascript">
+		$(function() {
+			var $select = $("#select");
+			var $popup = $("#address-popup");
+			$select.address({
+				prov: $select.data("prov"),
+				city: $select.data("city"),
+				district: $select.data("district"),
+				popup: $popup,
+				initEnd: function(site) {
+					console.log("初始化完成");
+				},
+				selectEnd: function(site) {
+					$select.children("div").text(site.prov + " " + site.city + " " + site.district + " " + site.zip)
+				}
+			});
+		});
+	</script>
+
+</html>

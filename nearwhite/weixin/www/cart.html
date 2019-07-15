@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>购物篮</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" type="text/css" href="css/amazeui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+
+	<body id="app" v-cloak>
+		<!-- 页面内容 -->
+		<div id="main">
+			<div id="commodity-clearing" class="commodity-clearing">
+				<ul class="am-list am-margin-0 commodity-list" id="cart-list">
+					<template v-for="(index , item) in $data.items | jsonss">
+						<li v-for="(sizeIndex,size) in item.sizes" v-if="size.number > 0" class="am-list-item-desced am-list-item-thumbed am-list-item-thumb-left am-cf">
+							<div class="am-u-sm-3">
+								<a class="am-text-center" href="details.html?id={{item.id}}">
+									<img class="am-img-responsive" v-bind:src="item.imgs[0]">
+								</a>
+							</div>
+							<div class="am-u-sm-9 am-padding-0">
+								<div class="am-text-truncate">
+									<strong>{{item.title}}</strong>
+									<p class="am-margin-0">{{size.sizeName}}</p>
+									<div class="am-u-sm-12 am-padding-horizontal-0 am-padding-vertical-sm">
+										<p class="am-u-sm-4 am-padding-0 am-text-truncate">
+											<span>￥</span>
+											<span>{{size.totalPrice}}</span>
+										</p>
+										<div class="am-u-sm-8 am-cf">
+											<div class="am-fr cart-plus" v-on:click="add(index,sizeIndex,$event)">
+												<span class="tip-img tip-plus"></span>
+											</div>
+											<div class="am-fr cart-number">
+												<input readonly class="clothes-number" type="text" v-model="size.number" data-am-popover="{content: '库存不足'}" />
+											</div>
+											<div class="am-fr cart-minus" v-on:click="minus(index,sizeIndex)">
+												<span class="tip-img tip-minus"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</template>
+				</ul>
+				<h2 class="am-text-center am-margin-vertical-lg" v-if="cartNumber == 0">购物袋是空的</h2>
+				<div class="am-g total-price" v-else>
+					<div class="am-u-sm-12 am-padding-sm">
+						<div class="am-padding-sm total-clearing" v-bind:class="{ 'am-hide': nullCart}">
+							<div class="am-cf">
+								<span class="am-fl">
+									<i class="tip-img tip-yifu"></i>
+									<span>{{cartNumber}} 件商品</span>
+								</span>
+								<span class="am-fr">￥{{cartPrice}}</span>
+							</div>
+							<div class="am-cf">
+								<span class="am-fl">
+									<i class="tip-img tip-jisong"></i>
+									<span>寄送费</span>
+								</span>
+								<span class="am-fr">￥0.00</span>
+							</div>
+							<div class="am-cf">
+								<span class="am-fl">
+									<i class="tip-img tip-qian"></i>
+									<span>总金额</span>
+								</span>
+								<span class="am-fr">￥{{cartPrice}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="am-u-sm-12 am-margin-bottom-sm">
+					<template v-if="cartNumber == 0">
+						<a href="index.html" class="am-text-white">
+							<button type="button" class="am-btn am-btn-black am-btn-block">
+						 		<i class="am-icon-home"></i> 返回首页
+							</button>
+						</a>
+					</template>
+					<template v-else>
+						<button type="button" class="am-btn am-btn-black am-btn-block am-text-white" v-on:click="cart()">
+					 		结算
+						</button>
+					</template>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			var requireJs = ["cart"];
+		</script>
+		<script src="js/plugs/require.min.js" data-main="js/main"></script>
+	</body>
+
+</html>

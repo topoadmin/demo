@@ -1,0 +1,39 @@
+{
+    "id": "1",
+    "sizes": [
+        {
+        	"id" : 1,
+            "sizeInventoryNum": 0,
+            "sizeName": "XS(160/80A)"
+        },
+        {
+        	"id" : 2,
+            "sizeInventoryNum": 2,
+            "sizeName": "S (165/84A)"
+        },
+        {
+        	"id" : 3,
+            "sizeInventoryNum": 3,
+            "sizeName": "M (170/88A)"
+        },
+        {
+        	"id" : 4,
+            "sizeInventoryNum": 4,
+            "sizeName": "L (175/96A)"
+        },
+        {
+        	"id" : 5,
+            "sizeInventoryNum": 0,
+            "sizeName": "XL (180/100A)"
+        }
+    ],
+    "imgs": [
+        "img/img1.jpg",
+        "img/img2.jpg",
+        "img/img3.jpg",
+        "img/img4.jpg",
+        "img/img5.jpg"
+    ],
+    "price": "100.00",
+    "title": "白衬衫限量版"
+}

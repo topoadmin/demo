@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="vue-spa">
+
+	<head>
+		<meta charset="utf-8">
+		<!-- title需要放商品名 -->
+		<title>马卡龙之恋</title>	
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" type="text/css" href="css/amazeui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper-3.3.1.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script type="text/javascript">
+			var detailsDataPostUrl = "";	// 数据请求路径
+		</script>
+	</head>
+
+	<body class="bg spa" id="app" v-cloak>
+		<!-- 页面内容 -->
+		<div id="main" class="padding-footer">
+			<div id="details-content" class="details-content">
+				<div id="details-swiper" class="swiper-container swiper-container-vertical">
+					<div class="swiper-wrapper">
+						<!-- 图片放置处 -->
+						<div class="swiper-slide" v-for="(index, img) in imgs">
+							<img class="am-img-responsive" :src="img" />
+						</div>
+						<div class="swiper-slide">
+							<ul class="am-list details-info-list" id="details-info-list">
+								<li>
+									<p>设计师寄语</p>
+									<template>
+										<h2>设计师寄语</h2>
+										<p>此处应该限制字数</p>
+									</template>
+								</li>
+								<li>
+									<p>成分和保养</p>
+									<template>
+										<h2>成分和保养</h2>
+										<p>哈哈哈哈哈哈哈</p>
+									</template>
+								</li>
+								<li>
+									<p>码数指南</p>
+									<template>
+										<h2>码数指南</h2>
+										<p><img class="am-img-responsive" src="img/banner_1.jpg"/></p>
+									</template>
+								</li>
+								<li>
+									<p>官方购买渠道</p>
+									<template>
+										<h2>官方购买渠道</h2>
+										<p class="am-text-center"><strong>NEAR WHITE</strong> 微商城</p>
+										<p class="am-text-center">天猫 <strong>NEAR WHITE旗舰店</strong></p>
+									</template>
+								</li>
+								<li>
+									<p>寄送</p>
+									<template>
+										<h2>寄送</h2>
+										<p><strong>顺丰（免运费）</strong></p>
+										<p>送达时间（天）:</p>
+										<p><span class="am-text-xs">【中东2-3】【西南、东北3-5】【西北5-7】</span></p>
+										<p>预售商品按约定时间发货</p>
+										<p>发票可在购买时留言备注抬头及税号</p>
+									</template>
+								</li>
+								<li>
+									<p>退货</p>
+									<template>
+										<h2>退货</h2>
+										<p>如非质量问题自您实际收到商品之日起7日内，在保持商品出售时原状且配件齐全的情况下，可享受无理由退换货，回寄运费由买家承担</p>
+										<br />
+										<p>如因质量问题造成退换货，运费由NEAR WHITE承担</p>
+									</template>
+								</li>
+								<li>
+									<p>联系我们</p>
+									<template>
+										<h2>联系我们</h2>
+										<p>客服邮箱：service@nearwhite.com</p>
+										<p>客服电话：400-010-8888</p>
+										<p style="text-indent: 5rem;">工作日09：00-20：00在线</p>
+										<p>微信客服：请关注微信服务号</p>
+									</template>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="swiper-pagination">
+					</div>
+				</div>
+
+				<!-- 设计师寄语等弹窗 -->
+				<div class="d-model am-hide">
+					<div class="am-vertical-align d-model-content">
+						<div class="am-vertical-align-middle"></div>
+					</div>
+					<a href="javascript:void(0)" class="am-icon-btn am-icon-remove d-model-remove"></a>
+				</div>
+
+				<div class="details-money"><strong>￥{{price | trunc}}</strong></div>
+			</div>
+
+			<div id="details-footer" class="details-footer">
+				<div id="commodity-change" class="am-dropdown am-dropdown-up commodity-change" data-am-dropdown>
+					<button class="am-btn am-dropdown-toggle commodity-box" data-am-dropdown-toggle>
+						<!-- 判断是否商品件数是否大于0 -->
+						<span v-if="totalNumber == 0">{{sizes[0].sizeName}}</span>
+						<span v-else>￥{{totalPrice}}</span>
+						<span class="tip-img tip-up-down"></span>
+						<span class="clothes-change-ok am-hide" v-on:click="confirmPrice()">OK</span>
+					</button>
+					<ul class="am-dropdown-content">
+						<li class="am-dropdown-dimmer"></li>
+						<li v-for="(index, size) in sizes">
+							<a href="javascript:;">{{size.sizeName}}</a>
+							<div class="clothes-change-box am-cf">
+								<!-- 判断是否有库存 -->
+								<template v-if="size.sizeInventoryNum == 0">
+									<div class="am-fr am-text-xs" style="margin-top: 8px;">
+										<span>等待上新</span>
+									</div>
+								</template>
+								<template v-else>
+									<div class="am-fr details-plus" data-index="{{index}}" v-on:click="add(index,$event)">
+										<span class="tip-img tip-plus"></span>
+									</div>
+									<div class="am-fr details-number" v-bind:class="{'am-hide': !size.sizeProvisionalNumber}">
+										<input readonly class="clothes-number" type="text" v-model="size.sizeProvisionalNumber" data-am-popover="{content: '库存不足'}" />
+									</div>
+									<div class="am-fr details-minus" data-index="{{index}}" v-on:click="minus(index)" v-bind:class="{'am-hide': !size.sizeProvisionalNumber}">
+										<span class="tip-img tip-minus"></span>
+									</div>
+								</template>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- 底部 -->
+		<footer id="nw-footer">
+			<div class="footer-return-home">
+				<a href="index.html">
+					<i class="tip-img tip-yijia"></i>
+				</a>
+			</div>
+			<div class="footer-shopping-basket" v-bind:class="{'have': cartNumber}" style="top: -66px;">
+				<a href="cart.html">
+					<i class="tip-img tip-gouwudai"></i>
+				</a>
+				<span class="basket-icon">{{cartNumber}}</span>
+			</div>
+		</footer>
+
+		<!-- 选购商品时的幕布 -->
+		<div class="am-dimmer dropdown-bg" id="dropdown-bg" data-am-dimmer></div>
+		
+		<div class="am-modal am-modal-alert" tabindex="-1" id="sizes_store_lack">
+			<div class="am-modal-dialog">
+				<div class="am-modal-hd"><span class="am-text-danger">sorry</span></div>
+				<div class="am-modal-bd">
+					<ul class="am-list">
+						<li class="am-text-xs am-text-left">下列商品因库存不足已自动调整为最大库存</li>
+					</ul>
+				</div>
+				<div class="am-modal-footer">
+					<span class="am-modal-btn am-text-black">OK</span>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var requireJs = ["details"];
+		</script>
+		
+		<script src="js/plugs/require.min.js" data-main="js/main"></script>
+	</body>
+
+</html>
