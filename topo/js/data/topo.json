@@ -5,7 +5,6 @@
 	"childs": [
 		{
 			"elementType": "scene",
-			"background": "http://topoadmin.github.io/demo/topoDemo/images/bg.png",
 			"backgroundColor": "255,255,255",
 			"mode": "normal",
 			"paintAll": false,
