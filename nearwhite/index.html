@@ -23,15 +23,13 @@
 	<body>
 		<div class="container">
 			<div class="row" id="app" v-cloak>
-				<div class="text-center">
-					<h1>{{title}}</h1>
-				</div>
 				<hr />
 				<ul class="list-unstyled text-center clearfix" id="demowall">
 					<li v-for="item in items" class="col-xs-6 col-sm-4 col-md-3">
 						<a href="{{item.url}}">
 							<img :src="item.imgSrc" />
 							<h3 v-text="item.name | checkText"></h3>
+							<samp v-text="item.samp | checkText"></samp>
 						</a>
 						<hr />
 					</li>
@@ -47,30 +45,22 @@
 			new Vue({
 				el: '#app',
 				data: {
-					title: "白衬衫DEMO",
 					items: [{
-						/* name: "NEAR WHITE 欢迎页",
-						imgSrc: "build/img/logo/logo-null-min.png",
-						url: "welcome/hd1.html"
-					},{
 						name: "白衬衫商城",
-						imgSrc: "build/img/logo/logo-null-min.png",
-						url: "weixin/www/index.html"
-					}, {*/
+						imgSrc: "build/img/1.jpg",
+						url: "weixin/www/index.html",
+						samp: '使用移动设备打开'
+					}, {
 						name: "首页排版一",
-						imgSrc: "build/img/logo/logo-min.png",
+						imgSrc: "homeOne/img/banner_1.png",
 						url: "homeOne/index.html"
 					}, {
 						name: "首页排版二",
-						imgSrc: "build/img/logo/logo-min.png",
+						imgSrc: "build/img/2.jpg",
 						url: "homeTwo/index.html"
 					}, {
 						name: "首页排版三",
-						imgSrc: "build/img/logo/logo-min.png",
-						url: "homeThree/index.html"
-					}, {
-						name: "首页排版三[动画版]",
-						imgSrc: "build/img/logo/logo-min.png",
+						imgSrc: "build/img/3.jpg",
 						url: "homeThree/index_animate.html"
 					}]
 				}

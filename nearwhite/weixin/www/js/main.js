@@ -1,11 +1,11 @@
 /*入口脚本*/
 require.config({
 	paths: { // -- 配置别名
-		"amazeui" : "http://cdn.amazeui.org/amazeui/2.6.2/js/amazeui.min",
-		"jquery" : "http://libs.cdnjs.net/jquery/2.1.4/jquery.min",
-		"vue" : "http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.24/vue.min",
-		"lazyload" : "http://libs.cdnjs.net/jquery.lazyload/1.9.1/jquery.lazyload.min",
-		"fastclick" : "http://apps.bdimg.com/libs/fastclick/1.0.0/fastclick.min",
+		"amazeui" : "//cdn.bootcss.com/amazeui/2.7.2/js/amazeui.min",
+		"jquery" : "//libs.cdnjs.net/jquery/2.1.4/jquery.min",
+		"vue" : "//cdnjs.cloudflare.com/ajax/libs/vue/1.0.24/vue.min",
+		"lazyload" : "//libs.cdnjs.net/jquery.lazyload/1.9.1/jquery.lazyload.min",
+		"fastclick" : "//apps.bdimg.com/libs/fastclick/1.0.0/fastclick.min",
 //		"jquery": "plugs/jquery.min",
 //		"amazeui": "plugs/amazeui.min",
 //		"vue": "plugs/vue.min",

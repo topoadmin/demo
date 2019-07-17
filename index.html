@@ -21,16 +21,33 @@
 	</head>
 
 	<body>
-		<div class="container">
-			<div class="row" id="app" v-cloak>
+		<div class="container" id="app" v-cloak>
+			<div class="row">
 				<div class="text-center">
-					<img src="build/img/azil-orange.png" height="100px" />
-					<h1>{{title}}</h1>
+					<img src="build/img/azil-blue.png" height="100px" />
+					<h1>移动端案例</h1>
 				</div>
 				<hr />
 				<ul class="list-unstyled text-center clearfix" id="demowall">
-					<li v-for="item in items" class="col-sm-6 col-md-4 col-lg-3">
-						<a href="{{item.url}}">
+					<li v-for="item in mobile" class="col-sm-6 col-md-4 col-lg-3">
+						<a target="_blank" href="{{item.url}}">
+							<img :src="item.imgSrc" />
+							<h3 v-text="item.name | checkText"></h3>
+							<samp v-text="item.samp | checkText"></samp>
+						</a>
+						<hr />
+					</li>
+				</ul>
+			</div>
+			<div class="row">
+				<div class="text-center">
+					<img src="build/img/azil-orange.png" height="100px" />
+					<h1>PC 案例</h1>
+				</div>
+				<hr />
+				<ul class="list-unstyled text-center clearfix" id="demowall">
+					<li v-for="item in pc" class="col-sm-6 col-md-4 col-lg-3">
+						<a target="_blank" href="{{item.url}}">
 							<img :src="item.imgSrc" />
 							<h3 v-text="item.name | checkText"></h3>
 							<samp v-text="item.samp | checkText"></samp>
@@ -46,50 +63,51 @@
 			Vue.filter('checkText', function(value) {
 				return value ? value : "null";
 			})
+			var officeLive = 'https://view.officeapps.live.com/op/view.aspx?src=' + window.location.href + 'build/office/'
 			new Vue({
-				el: '#app',
+				el: "#app",
 				data: {
-					title: "案例演示",
-					items: [{
+					mobile: [{
+						name: "小鹿寻城|寻城味道",
+						imgSrc: "http://m.xunchengweidao.com/xuncheng/images/index/banner1.jpg",
+						url: "http://m.xunchengweidao.com/xuncheng",
+						samp: "2016年"
+					}, {
+						name: "2016年中信银行半年度业绩发布",
+						imgSrc: "build/img/zxyh.png",
+						url: "2016zqhb/2016zqhb_index.html",
+						samp: "2016年"
+					}],
+					pc: [{
+						name: "关于我",
+						imgSrc: "build/img/azil-orange-ico.png",
+						url: "resume/index.html",
+						samp: "2019年"
+					},{
+						name: "中科院XXX业务系统",
+						imgSrc: "build/img/中科院竖.png",
+						url: officeLive + "中科院XXX业务系统.docx",
+						samp: "2019年"
+					},{
 						name: "NearWhite",
 						imgSrc: "build/img/nearwhite.png",
 						url: "nearwhite/index.html",
-						samp: "2017年"
+						samp: "2017年（未开发完）"
+					}, {
+						name: "美游人生",
+						imgSrc: "build/img/tata.jpg",
+						url: "tata/Home/home.html",
+						samp: "2016年(项目下线，部分图片无法加载)"
 					}, {
 						name: "Jtopo",
 						imgSrc: "build/img/jtopo.jpg",
 						url: "topo/index.html",
 						samp: "2015年"
 					}, {
-						name: "TATA旅游",
-						imgSrc: "build/img/tata.jpg",
-						url: "tata/Home/home.html",
-						samp: "2016年(项目下线，资源无法加载)"
-					}, {
 						name: "自定义翻页动画",
 						imgSrc: "build/img/css3.png",
 						url: "gsPage/index.html",
-						samp: "2015年自制",
-					}, {
-						name: "2016年中信银行半年度业绩发布",
-						imgSrc: "build/img/zxyh.png",
-						url: "2016zqhb/2016zqhb_index.html",
-						samp: "2016年"
-					// 	name: "游戏嘉年华",
-					// 	imgSrc: "yxjnh/favicon.png",
-					// 	url: "yxjnh/index.html",
-					// 	samp: ""
-					// }, {
-					// // }, {
-					// 	name: "js常用函数",
-					// 	imgSrc: "build/img/javascript.jpg",
-					// 	url: "commonJs/index.html",
-					// 	samp: "require + amazeui + laytpl"
-					// }, {
-					// 	name: "模仿慕课网H5新年特献并加特效",
-					// 	imgSrc: "build/img/imoocOne.png",
-					// 	url: "imoocOne/index.html",
-					// 	samp: ""
+						samp: "2015年"
 					}]
 				}
 			})
