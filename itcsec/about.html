@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>北京英孚信安科技有限公司</title>
+		<meta name="description" content="北京英孚信安一家专注于军民融合和信息安全业务的高科技创新型公司科技有限公司">
+		<meta name="keywords" content="信息安全集成与产品|信息安全咨询规划|信息安全运营保障|军民融合">
+		<link href="favicon.ico?v=1" rel="shortcut icon" type="image/x-icon">
+		
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="https://cdn.bootcss.com/Swiper/3.4.0/css/swiper.min.css" rel="stylesheet">
+		
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+	</head>
+
+	<body class="active">
+
+		<div id="app" v-cloak>
+
+			<header role="heading" class="current">
+				<div class="head-box">
+					<div class="head-top">
+						<div class="logo-box">
+							<a href="index.html" :title="companyName">
+								<img src="images/logo.png" :title="companyName" :alt="companyName">
+							</a>
+						</div>
+	
+						<div class="jodo-box">
+							<p>
+								<img src="images/qrcode.jpg" alt="扫一扫微信二维码">
+							</p>
+						</div>
+	
+					</div>
+					<div class="nav-cut">
+						<ul>
+							<li class="nav1 active">
+								<a href="index.html" title="首页">首页</a>
+							</li>
+							<li class="nav1">
+								<a href="javascript:;" title="产品" data-alert="全部">产品</a>
+								<ul>
+									<li class="nav2" v-for="item in productList" :key="item.id+item.name" @click="goProduct(item.id)">
+										<a :href="'product.html?id='+item.id" :title="item.name">
+											{{ item.name }}
+										</a>
+									</li>
+								</ul>
+							</li>
+	
+							<li class="nav1">
+								<a href="about.html" title="关于我们" data-alert="全部">关于我们</a>
+							</li>
+	
+							<li class="background"></li>
+						</ul>
+					</div>
+				</div>
+			</header>
+			
+			<section role="main" class="subpage">
+				<div class="main-box">
+
+					<div class="sidebar-header ">
+						<div class="head-left">
+							<a href="index.html">
+								<img src="images/logo.png" />
+							</a>
+						</div>
+						<div class="sidebar-icon">
+							<i class="fa fa-arrow-left"></i>
+							<i class="fa fa-th-list"></i>
+						</div>
+						<div class="sidebar-nav">
+							<ul>
+								<li>
+									<a href="index.html" title="首页">首页</a>
+								</li>
+								
+								<li>
+									<a href="javascript:;" title="产品">产品 <span class="caret"></span></a>
+									<ul>
+										<li  v-for="item in productList" :key="item.id+item.name">
+											<a :href="'product.html?id='+item.id" :title="item.name">
+												{{ item.name }}
+											</a>
+										</li>
+									</ul>
+								</li>
+	
+								<li>
+									<a href="about.html" title="关于我们">关于我们</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="about-page-banner fullscreen">
+						<div class="about-page-banner-inner fullscreen-inner">
+							<div class="itc-logo-2">
+								<a href="http://www.itcchina.com/">
+									<img src="images/itc_logo.png"/>
+								</a>
+							</div>
+							<h2>关于英孚信安</h2>
+							<p>
+								“北京英孚信安科技有限公司”是
+								<a href="http://www.itcchina.com">北京英孚泰克信息技术股份公司</a>
+								控股子公司，是一家专注于军民融合和信息安全业务的高科技创新型公司。公司核心业务是围绕军民融合科技创新，发展军民两用技术，促进军民两个领域的双向技术交流，同时，延续团队在网络安全市场的传统优势，跟随国家网络安全发展的方向与机遇，大力发展信息安全业务。
+							</p>
+						</div>
+						<div class="arrow-down">
+							<img src="images/icon/down.png" />
+						</div>
+					</div>
+
+					<div class="about-page-box" style="background: #FFFFFF;">
+						<img src="images/about/1.png" />
+					</div>
+
+					<div class="about-page-box fullscreen">
+						<div class="fullscreen-inner">
+							<div class="show-title">主要资质</div>
+							<div class="show-info">
+								<p>※&nbsp;&nbsp;涉密信息系统集成甲级（系统集成、软件开发、运行维护）</p>
+								<p>※&nbsp;&nbsp;信息系统集成及服务资质壹级</p>
+								<p>※&nbsp;&nbsp;高新技术企业认证</p>
+								<p>※&nbsp;&nbsp;软件企业认证</p>
+								<p>※&nbsp;&nbsp;ISO 9001 质量管理体系认证</p>
+								<p>※&nbsp;&nbsp;CMMI 3级认证</p>
+							</div>
+						</div>
+					</div>
+
+					<div style="color:#888; padding: 0 20px;">
+						<h1>我们能做什么？</h1>
+						<h2>我们提供 &gt;&gt;</h2>
+					</div>
+					<div class="about-page-box fullscreen" style="background: #FFFFFF;">
+						<div class="fullscreen-inner">
+							<div class="show-title">规划与咨询</div>
+							<div class="show-info">
+								<p>※&nbsp;&nbsp;信息安全保障体系规划</p>
+								<p>※&nbsp;&nbsp;数据安全咨询规划</p>
+								<p>※&nbsp;&nbsp;风险评估服务</p>
+								<p>※&nbsp;&nbsp;渗透测试服务</p>
+								<p>※&nbsp;&nbsp;代码审计服务</p>
+							</div>
+						</div>
+					</div>
+					<div class="about-page-box fullscreen">
+						<div class="fullscreen-inner">
+							<div class="show-title">安全运维</div>
+							<div class="show-info">
+								<p>※&nbsp;&nbsp;驻场服务</p>
+								<p>※&nbsp;&nbsp;远程监控</p>
+								<p>※&nbsp;&nbsp;优化完善</p>
+								<p>※&nbsp;&nbsp;应急响应</p>
+								<p>※&nbsp;&nbsp;运维管理</p>
+							</div>
+						</div>
+					</div>
+					<div class="about-page-box fullscreen" style="background: #FFFFFF;">
+						<div class="fullscreen-inner">
+							<div class="show-title">安全集成</div>
+							<div class="show-info">
+								<p>※&nbsp;&nbsp;集成方案编制</p>
+								<p>※&nbsp;&nbsp;安全产品实施</p>
+								<p>※&nbsp;&nbsp;安全策略部署</p>
+								<p>※&nbsp;&nbsp;集成过程管理</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="about-page-box">
+						<img src="images/about/2.jpg" />
+					</div>
+
+					<div class="about-page-box fullscreen" style="background: #FFFFFF;">
+						<div class="fullscreen-inner">
+							<div class="show-title">联系我们</div>
+							<div class="show-info">
+								<p><i class="fa fa-phone" aria-hidden="true"></i>电话：{{ companyPhone }}</p>
+								<p><i class="fa fa-tag" aria-hidden="true"></i>邮编：{{ companyCode }}</p>
+								<p><i class="fa fa-map-marker" aria-hidden="true"></i>地址：{{ companyAddress }}</p>
+							</div>
+							<div class="about-qrcode">
+								<img src="images/qrcode.jpg" />
+							</div>
+						</div>
+					</div>
+
+					<footer>
+						<p>{{ companyName }}<span class="footer-span">{{ companyRecord }}</span></p>
+					</footer>
+				</div>
+			</section>
+
+		</div>
+		
+		<script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/Swiper/3.4.0/js/swiper.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="https://cdn.bootcss.com/vue/2.0.8/vue.min.js"></script>
+		
+		<script src="js/index.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				vueModel.$nextTick(function() {
+					var $win = $(window)
+
+					function wResize() {
+						$('.about-page-banner').css('min-height', $win.height())
+					}
+					$win.on('resize', function() {
+						wResize()
+					})
+					wResize()
+				})
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>北京英孚信安科技有限公司</title>
+		<meta name="description" content="北京英孚信安一家专注于军民融合和信息安全业务的高科技创新型公司科技有限公司">
+		<meta name="keywords" content="信息安全集成与产品|信息安全咨询规划|信息安全运营保障|军民融合">
+		<link href="favicon.ico?v=1" rel="shortcut icon" type="image/x-icon">
+		
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="https://cdn.bootcss.com/Swiper/3.4.0/css/swiper.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+
+	<body>
+		
+		<div id="app" v-cloak>
+		
+			<header role="heading" class="current">
+				<div class="head-box">
+					<div class="head-top">
+						<div class="logo-box">
+							<a href="index.html" :title="companyName">
+								<img src="images/logo.png" :title="companyName" :alt="companyName">
+							</a>
+						</div>
+	
+						<div class="jodo-box">
+							<p>
+								<img src="images/qrcode.jpg" alt="扫一扫微信二维码">
+							</p>
+						</div>
+	
+					</div>
+					<div class="nav-cut">
+						<ul>
+							<li class="nav1 active">
+								<a href="index.html" title="首页">首页</a>
+							</li>
+							<li class="nav1">
+								<a href="javascript:;" title="产品" data-alert="全部">产品</a>
+								<ul>
+									<li class="nav2" v-for="item in productList" :key="item.id+item.name" @click="goProduct(item.id)">
+										<a :href="'product.html?id='+item.id" :title="item.name">
+											{{ item.name }}
+										</a>
+									</li>
+								</ul>
+							</li>
+	
+							<!--<li class="nav1">
+								<a href="javascript:;" title="案例" data-alert="全部">案例</a>
+								<ul>
+									<li class="nav2" v-for="item in caseList" :key="item.id+item.name" @click="goProduct(item.id)">
+										<a :href="'product.html?id='+item.id" :title="item.name">
+											{{ item.name }}
+										</a>
+									</li>
+								</ul>
+							</li>-->
+	
+							<li class="nav1">
+								<a href="about.html" title="关于我们" data-alert="全部">关于我们</a>
+							</li>
+	
+							<li class="background"></li>
+						</ul>
+					</div>
+				</div>
+			</header>
+	
+			<section role="main" class=" current">
+				<div class="main-box">
+	
+					<div class="window-box">
+	
+						<div class="window-head swiper-no-swiping">
+							<div class="head-left">
+								<a href="index.html">
+									<img src="images/logo.png" />
+								</a>
+							</div>
+							
+							<div class="no-fixed itc-logo">
+								<a href="http://www.itcchina.com/">
+									<img src="images/itc_logo.png"/>
+								</a>
+							</div>
+	
+							<hr>
+							<div class="visible-lg-block">
+								<ul>
+								</ul>
+							</div>
+	
+							<div class="head-right">
+								<a :href="'tel:'+companyPhone" :title="companyPhone">
+									<i class="fa fa-phone"></i>
+									<b>{{ companyPhone }}</b>
+								</a>
+							</div>
+	
+							<div id="head-rights-icon" class="head-rights">
+								<ol>
+									<li></li>
+									<li></li>
+									<li></li>
+									<li></li>
+								</ol>
+							</div>
+	
+						</div>
+	
+						<div class="window-cut">
+	
+							<div class="window-bin" data-hash="banner">
+								<div class="window-back banner" data-title="首页">
+									<div class="bg-canvas">
+										<canvas id="bg-canvas">你的浏览器不支持canvas</canvas>
+									</div>
+									<div class="banner-box">
+										<div class="banner-cut">
+	
+											<div class="banner-bin">
+	
+												<div class="table-box">
+													<div class="table-cell">
+														<div class="banner-write ">
+															<span class="w1">13</span>
+															<span class="w2">
+															  <span class="w21">年专注 · 信息安全</span>
+															<span class="w22">SECURITY</span>
+															<span class="w23">始于 2005 - 2018 展望未来<br/>专注于系统集成，专业于解决方案</span>
+															</span>
+														</div>
+													</div>
+												</div>
+	
+												<div class="banner-absolute">
+													<div class="banner-full visible-lg-block">
+														<ol class="list-paddingleft-2">
+															<li>
+																<p><br/></p>
+															</li>
+															<li>
+																<p><br/></p>
+															</li>
+															<li>
+																<p><br/></p>
+															</li>
+															<li>
+																<p><br/></p>
+															</li>
+														</ol>
+														<ul class="list-paddingleft-2">
+															<li>
+																<p><br/></p>
+															</li>
+															<li>
+																<p><br/></p>
+															</li>
+															<li>
+																<p><br/></p>
+															</li>
+															<li>
+																<p><br/></p>
+															</li>
+														</ul>
+													</div>
+													<div class="banner-border visible-lg-block"></div>
+												</div>
+	
+											</div>
+											
+											<div class="banner-bin swiper-lazy" data-background="images/banner/2.jpg">
+												<div class="table-box">
+													<div class="table-cell">
+														<div class="banner-write">
+															<span class="w2 cc">
+															  <span class="w21">技术派，论研发</span>
+															<span class="w22">DEVELOPER</span>
+															<span class="w23"> — 新一代业务与数据安全专家 —</span>
+															</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											
+										</div>
+										<div class="banner-ctrl">
+											<div class="ctrl-box ctrl-left"><i class="fa fa-angle-left"></i></div>
+											<div class="ctrl-box ctrl-right"><i class="fa fa-angle-right"></i></div>
+										</div>
+	
+										<!--<div class="banner-news">
+											<b>NEWS：</b>
+											<span class="banner-span">
+											  <ol class="banner-ol">
+											    <li class="banner-li">
+											    	<a href="javascript:;" title="涉密信息系统集成甲级（系统集成、软件开发、运行维护）">
+											    		涉密信息系统集成甲级（系统集成、软件开发、运行维护）
+											    	</a>
+											    </li>
+											    <li class="banner-li">
+											    	<a href="javascript:;" title="信息系统集成及服务资质壹级">
+											    		信息系统集成及服务资质壹级
+											    	</a>
+											    </li>
+											    <li class="banner-li">
+											    	<a href="javascript:;" title="高新技术企业认证">
+											    		高新技术企业认证
+											    	</a>
+											    </li>
+											    <li class="banner-li">
+											    	<a href="javascript:;" title="软件企业认证">
+											    		软件企业认证
+											    	</a>
+											    </li>
+											    <li class="banner-li">
+											    	<a href="javascript:;" title="ISO 9001 质量管理体系认证">
+											    		ISO 9001 质量管理体系认证
+											    	</a>
+											    </li>
+											    <li class="banner-li">
+											    	<a href="javascript:;" title="CMMI 3级认证">
+											    		CMMI 3级认证
+											    	</a>
+											    </li>
+											  </ol>
+											</span>
+										</div>-->
+	
+										<div class="banner-pager"></div>
+										<div class="banner-down"><i class="fa fa-angle-down"></i></div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="window-bin" data-hash="business">
+								<div class="window-back business swiper-lazy" data-title="业务" data-background="images/banner/8.jpg">
+									<div class="table-box">
+										<div class="table-cell">
+	
+											<div class="title-box">
+												<h1>业务方向</h1>
+											</div>
+	
+											<div class="height-10"></div>
+											<div class="icon-box icon-type-0">
+												<ul>
+	
+													<li>
+														<a href="javascript:;">
+															<i class="fa fa-sitemap"></i>
+															<h3>信息安全集成与产品</h3>
+															<p>落实国家法律<br>降低社会影响<br>免责</p>
+														</a>
+													</li>
+													<li>
+														<a href="javascript:;">
+															<i class="fa fa-dropbox"></i>
+															<h3>信息安全咨询规划</h3>
+															<p>全面合规<br>提升考核<br>保障绩效</p>
+														</a>
+													</li>
+												</ul>
+												<ul>
+													<li>
+														<a href="javascript:;">
+															<i class="fa fa-joomla"></i>
+															<h3>信息安全运营保障</h3>
+															<p>提升战斗力<br>提升防御力</p>
+														</a>
+													</li>
+	
+													<li>
+														<a href="javascript:;">
+															<i class="fa fa-shield"></i>
+															<h3>军民融合</h3>
+															<p>加强执法监督</p>
+														</a>
+													</li>
+	
+												</ul>
+											</div>
+	
+											<div class="icon-text">
+												<p>以信息安全风险为向导，运用大数据技术，构建“适度安全防护体系”，保护客户“数据资产”安全，保障业务运营。</p>
+												<p>同时，延续团队在网络安全市场的传统优势，跟随国家网络安全发展的方向与机遇，大力发展信息安全业务</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="window-bin" data-hash="product">
+								<div class="window-back product swiper-lazy" id="product" data-title="产品" data-background="images/banner/6.jpg">
+									<div class="case-ctrl">
+										<div class="ctrl-box ctrl-left"><i class="fa fa-angle-left"></i></div>
+										<div class="ctrl-box ctrl-right"><i class="fa fa-angle-right"></i></div>
+									</div>
+									<div class="table-box">
+										<div class="table-cell">
+											
+											<div class="title-box">
+												<h1>产品示意</h1>
+											</div>
+	
+											<div class="case-box">
+												<ul class="case-cut">
+													<li class="case-bin" v-for="item in productList" :key="item.id+item.name" @click="goProduct(item.id)">
+														<a :href="'product.html?id='+item.id" :title="item.name">
+															<div class="img-box">
+																<img class="swiper-lazy" :data-src="item.imgUrl" :alt="item.name" />
+															</div>
+															<span>
+															  <h3>{{ item.name }}</h3>
+															  <p>{{ item.description }}</p>
+															</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+	
+										</div>
+									</div>
+									
+								</div>
+							</div>
+							
+							<div class="window-bin" data-hash="case">
+								<div class="window-back case swiper-lazy" id="case" data-title="案例" data-background="images/banner/9.jpg">
+									<div class="case-ctrl">
+										<div class="ctrl-box ctrl-left"><i class="fa fa-angle-left"></i></div>
+										<div class="ctrl-box ctrl-right"><i class="fa fa-angle-right"></i></div>
+									</div>
+									<div class="table-box">
+										<div class="table-cell">
+	
+											<div class="title-box">
+												<h1>部分案例</h1>
+											</div>
+	
+											<div class="case-box">
+												<ul class="case-cut">
+													<li class="case-bin" v-for="item in caseList" :key="item.id+item.imgUrl">
+														<a href="javascript:;" :title="item.name">
+															<div class="img-box">
+																<img class="swiper-lazy" :data-src="item.imgUrl" :alt="item.name" />
+															</div>
+															<span>
+															  <h3>{{ item.name }}</h3>
+															</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="window-bin" data-hash="joint">
+								<div class="window-back swiper-lazy" data-title="合作" data-background="images/banner/1.jpg">
+									<div class="joint-ctrl">
+										<div class="ctrl-box ctrl-left"><i class="fa fa-angle-left"></i></div>
+										<div class="ctrl-box ctrl-right"><i class="fa fa-angle-right"></i></div>
+									</div>
+									<div class="table-box">
+										<div class="table-cell">
+	
+											<div class="title-box">
+												<h1>合作伙伴</h1>
+											</div>
+	
+											<div class="joint-box joint-type" id="joint-box" v-cloak>
+												<ul class="joint-cut">
+													<li class="joint-bin" v-for="item in jointList" :key="item.url">
+														<a href="javascript:;" :title="item.name">
+															<img class="swiper-lazy" :data-src="'images/joint/'+item.imgUrl" :alt="item.name" />
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="window-bin" data-hash="about">
+								<div class="window-back swiper-lazy" data-title="关于" data-background="images/banner/7.jpg">
+									<div class="table-box">
+										<div class="table-cell">
+	
+											<div class="about-nav">
+												<ul></ul>
+											</div>
+	
+											<div class="about-box swiper-no-swiping">
+												<div class="about-cut">
+	
+													<!--<div class="about-bin" title="规划咨询">
+														<p class="about-sxtitle">规划咨询</p>
+														<div class="about-time">
+															<p>信息安全保障体系规划</p>
+															<p>数据安全咨询规划</p>
+															<p>风险评估服务</p>
+															<p>渗透测试服务</p>
+															<p>代码审计服务</p>
+														</div>
+													</div>
+	
+													<div class="about-bin" title="安全集成">
+														<p class="about-sxtitle">安全集成</p>
+														<div class="about-time">
+															<p>以信息安全战略与目标为依据</p>
+															<p>从技术和管理两个方面</p>
+															<p>结合安全标准、安全产品、基础设施</p>
+															<p>利用集成技术、方法、过程、工具</p>
+															<p>交付符合整体安全要求的项目成果、产品、服务</p>
+														</div>
+													</div>-->
+	
+													<div class="about-bin" title="公司概况">
+														<p class="about-sxtitle">控股公司概况</p>
+														<div class="about-time">
+															<p>专业从事IT系统集成及服务十六年，数以千计成功案例</p>
+															<p>具有系统集成、软件开发、智能化弱点工程等综合服务能力</p>
+															<p>健全的项目管理、客户管理和质量保障体系</p>
+															<p>丰富的细分行业应用市场及解决方案的开发经验</p>
+															<p>业界资深的技术带头人，稳定的业务和服务核心团队</p>
+														</div>
+													</div>
+	
+													<div class="about-bin" title="企业资质">
+														<p class="about-sxtitle">企业资质</p>
+														<div class="about-time">
+															<p>涉密信息系统集成甲级（系统集成、软件开发、运行维护）</p>
+															<p>信息系统集成及服务资质壹级</p>
+															<p>高新技术企业认证</p>
+															<p>软件企业认证</p>
+															<p>ISO 9001 质量管理体系认证</p>
+															<p>CMMI 3级认证</p>
+														</div>
+													</div>
+												</div>
+											</div>
+	
+										</div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="window-bin" data-hash="contact">
+								<div class="window-back swiper-lazy" data-title="联系" data-background="images/banner/13.jpg">
+									<div class="table-box">
+										<div class="table-cell">
+	
+											<div class="visible-sm-block visible-md-block visible-lg-block swiper-no-swiping">
+												<div class="contact-box">
+													<div class="contact-left"><img src="images/qrcode.jpg"></div>
+													<div class="contact-center">
+														<p class="t">(010)82561608</p>
+														<p>扫描关注ITCSec微信公众账号</p>
+														<p>中国·北京市海淀区</p>
+														<p>地址：小南庄路怡秀园甲1号7层</p>
+													</div>
+													<div class="contact-right">
+														<p style="height: 17px;"></p>
+														<p>电话：(010)82561608</p>
+														<p>传真：(010)82561609</p>
+														<p>邮箱：service@ITCSEC.com.cn</p>
+														<!--<p>Copyright 2018-2019<span style="line-height: 1.42857;"> ITCSEC</span><span style="line-height: 1.42857;">&nbsp;版权所有</span></p>-->
+														<p>{{ companyRecord }}</p>
+														<!--<p>京公网安备 1010011000101 号</p>-->
+													</div>
+												</div>
+												<div class="contact-text">
+													<p>{{ companyName }}</p>
+													<div></div>
+													<div>
+														<h1>ITCSec</h1>
+													</div>
+												</div>
+											</div>
+											<div class="visible-xs-block">
+												<div class="contact-box">
+													<div class="contact-left"><img src="images/qrcode.jpg"></div>
+													<div class="contact-center">
+														<p class="t">(010)82561608</p>
+														<p>扫描关注ITCSEC微信公众账号</p>
+														<p>中国·北京市海淀区</p>
+														<p>地址：小南庄路怡秀园甲1号7层</p>
+														<p>电话：(010)82561608</p>
+														<p>传真：(010)82561609</p>
+														<p>邮箱：service@ITCSEC.com.cn</p>
+														<p>{{ companyRecord }}</p>
+														<p><img class="c" src="images/qrcode.jpg"></p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="window-bin foot none1">
+								<p>{{ companyName }}<span class="footer-span">{{ companyRecord }}</span></p>
+							</div>
+						</div>
+					</div>
+	
+					<button type="button" class="btn btn-icon btn-primary btn-squared met-scroll-top hide">
+					  <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
+					</button>
+				</div>
+			</section>
+		
+		</div>
+		
+		<script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/Swiper/3.4.0/js/swiper.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="https://cdn.bootcss.com/vue/2.0.8/vue.min.js"></script>
+		
+		<script src="js/bgCanvas.js"></script>
+		<script src="js/index.js"></script>
+	</body>
+
+</html>

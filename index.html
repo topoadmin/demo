@@ -7,112 +7,165 @@
 		<meta name="renderer" content="webkit">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<title>案例展示中心</title>
-		<link rel="stylesheet" type="text/css" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
 		<style type="text/css">
 			[v-cloak] {
 				display: none
 			}
-			#demowall>li>a>img {
+			.my-header {
+				position: fixed;
+				width: 100%;
+				top: 0;
+				left: 0;
+				z-index: 1;
+			}
+			.case-box>a {
+				color: #337ab7;
+			}
+			.case-box>a>img {
 				height: 150px;
 				max-width: 100%;
 				border-radius: 15px;
+			}
+			.case-box>a>h3 {
+				font-size: 24px;
+				margin-top: 20px;
+				margin-bottom: 10px;
+			}
+			.applet {
+				background-color: #2F4254;
+			}
+			.applet h1 {
+				color: #fff;
 			}
 		</style>
 	</head>
 
 	<body>
-		<div class="container" id="app" v-cloak>
-			<div class="row">
-				<div class="text-center">
-					<img src="build/img/azil-blue.png" height="100px" />
-					<h1>移动端案例</h1>
-				</div>
-				<hr />
-				<ul class="list-unstyled text-center clearfix" id="demowall">
-					<li v-for="item in mobile" class="col-sm-6 col-md-4 col-lg-3">
-						<a target="_blank" href="{{item.url}}">
-							<img :src="item.imgSrc" />
-							<h3 v-text="item.name | checkText"></h3>
-							<samp v-text="item.samp | checkText"></samp>
-						</a>
-						<hr />
-					</li>
-				</ul>
-			</div>
-			<div class="row">
-				<div class="text-center">
-					<img src="build/img/azil-orange.png" height="100px" />
-					<h1>PC 案例</h1>
-				</div>
-				<hr />
-				<ul class="list-unstyled text-center clearfix" id="demowall">
-					<li v-for="item in pc" class="col-sm-6 col-md-4 col-lg-3">
-						<a target="_blank" href="{{item.url}}">
-							<img :src="item.imgSrc" />
-							<h3 v-text="item.name | checkText"></h3>
-							<samp v-text="item.samp | checkText"></samp>
-						</a>
-						<hr />
-					</li>
-				</ul>
-			</div>
-		</div>
+		<main id="app" v-cloak>
+			<header class="my-header">
+				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+					<!-- <a class="navbar-brand" href="#">不要叫我宅男，请叫我闭家锁</a> -->
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
 
-		<script src="build/js/vue.min.js"></script>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-auto">
+							<li v-for="item in caseList" :key="'nav-item-' + item.type">
+								<a class="nav-link" :href="'#' + item.type">{{ item.name }}</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</header>
+			
+			<section class="container-fluid">
+				<template v-for="item in caseList">
+					<div style="padding-top: 56px;" :id="item.type">
+						<hr />
+						<div :class="['text-center p-1', item.type]">
+							<img style="height: 80px;" :src="item.img" >
+							<h1>{{ item.name }}</h1>
+						</div>
+						<hr />
+						<div class="row">
+							<template v-for="citem in item.list">
+								<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 text-center case-box">
+									<a target="_blank" :href="citem.url">
+										<img :src="citem.imgSrc" />
+										<h3>{{ citem.name | checkText }}</h3>
+										<samp>{{ citem.samp | checkText }}</samp>
+									</a>
+								</div>
+							</template>
+						</div>
+					</div>
+				</template>
+			</section>
+		</main>
+		
+		<script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+		<script src="//cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script src="//cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
 		<script type="text/javascript">
-			Vue.filter('checkText', function(value) {
-				return value ? value : "null";
-			})
 			var officeLive = 'https://view.officeapps.live.com/op/view.aspx?src=' + window.location.href + 'build/office/'
 			new Vue({
 				el: "#app",
-				data: {
-					mobile: [{
-						name: "小鹿寻城|寻城味道",
-						imgSrc: "http://m.xunchengweidao.com/xuncheng/images/index/banner1.jpg",
-						url: "http://m.xunchengweidao.com/xuncheng",
-						samp: "2016年"
-					}, {
-						name: "2016年中信银行半年度业绩发布",
-						imgSrc: "build/img/zxyh.png",
-						url: "2016zqhb/2016zqhb_index.html",
-						samp: "2016年"
-					}],
-					pc: [{
-						name: "关于我",
-						imgSrc: "build/img/azil-orange-ico.png",
-						url: "resume/index.html",
-						samp: "2019年"
-					},{
-						name: "中科院XXX业务系统",
-						imgSrc: "build/img/中科院竖.png",
-						url: officeLive + "中科院XXX业务系统.docx",
-						samp: "2019年"
-					},{
-						name: "NearWhite",
-						imgSrc: "build/img/nearwhite.png",
-						url: "nearwhite/index.html",
-						samp: "2017年（未开发完）"
-					}, {
-						name: "美游人生",
-						imgSrc: "build/img/tata.jpg",
-						url: "tata/Home/home.html",
-						samp: "2016年(项目下线，部分图片无法加载)"
-					}, {
-						name: "Jtopo",
-						imgSrc: "build/img/jtopo.jpg",
-						url: "topo/index.html",
-						samp: "2015年"
-					}, {
-						name: "自定义翻页动画",
-						imgSrc: "build/img/css3.png",
-						url: "gsPage/index.html",
-						samp: "2015年"
-					}]
+				filters: {
+					checkText: function(value) {
+						return value ? value : ""
+					}
+				},
+				data: function() {
+					return {
+						caseList: [{
+							name: "移动端案例",
+							type: "mobile",
+							img: "build/img/azil-orange.png",
+							list: [{
+								name: "小鹿寻城|寻城味道",
+								imgSrc: "http://m.xunchengweidao.com/xuncheng/images/index/banner1.jpg",
+								url: "http://m.xunchengweidao.com/xuncheng",
+								samp: "2017年"
+							}, {
+								name: "2016年中信银行半年度业绩发布",
+								imgSrc: "build/img/zxyh.png",
+								url: "2016zqhb/2016zqhb_index.html",
+								samp: "2016年"
+							}]
+						}, {
+							name: "PC案例",
+							type: "pc",
+							img: "build/img/azil-blue.png",
+							list: [{
+								name: "关于我",
+								imgSrc: "build/img/azil-orange-ico.png",
+								url: "resume/index.html",
+								samp: "2019年"
+							}, {
+								name: "中科院XXX业务系统",
+								imgSrc: "build/img/中科院竖.jpg",
+								url: officeLive + "中科院XXX业务系统.docx",
+								samp: "2019年"
+							}, {
+								name: "ITCsec",
+								imgSrc: "build/img/itcsec.jpg",
+								url: "http://www.itcsec.com.cn/",
+								samp: "2018年"
+							}, {
+								name: "ITCsec（2）",
+								imgSrc: "build/img/itcsec1.jpg",
+								url: "itcsec/index.html",
+								samp: "2018年"
+							}, {
+								name: "NearWhite",
+								imgSrc: "build/img/nearwhite.png",
+								url: "nearwhite/index.html",
+								samp: "2017年（未开发完）"
+							}, {
+								name: "美游人生",
+								imgSrc: "build/img/tata.jpg",
+								url: "tata/Home/home.html",
+								samp: "2016年(项目下线，部分图片无法加载)"
+							}, {
+								name: "Jtopo",
+								imgSrc: "build/img/jtopo.jpg",
+								url: "topo/index.html",
+								samp: "2015年"
+							}]
+						}, {
+							name: "小程序案例",
+							type: "applet",
+							img: "build/img/azil-white.png",
+							list: []
+						}]
+					}
 				}
 			})
 		</script>
-
 	</body>
+
 
 </html>

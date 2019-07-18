@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>北京英孚信安科技有限公司</title>
+		<meta name="description" content="北京英孚信安一家专注于军民融合和信息安全业务的高科技创新型公司科技有限公司">
+		<meta name="keywords" content="信息安全集成与产品|信息安全咨询规划|信息安全运营保障|军民融合">
+		<link href="favicon.ico?v=1" rel="shortcut icon" type="image/x-icon">
+
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="https://cdn.bootcss.com/Swiper/3.4.0/css/swiper.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+
+	<body class="active">
+
+		<div id="app" v-cloak>
+			
+			<header role="heading" class="current">
+				<div class="head-box">
+					<div class="head-top">
+						<div class="logo-box">
+							<a href="index.html" :title="companyName">
+								<img src="images/logo.png" :title="companyName" :alt="companyName">
+							</a>
+						</div>
+	
+						<div class="jodo-box">
+							<p>
+								<img src="images/qrcode.jpg" alt="扫一扫微信二维码">
+							</p>
+						</div>
+	
+					</div>
+					<div class="nav-cut">
+						<ul>
+							<li class="nav1 active">
+								<a href="index.html" title="首页">首页</a>
+							</li>
+							<li class="nav1">
+								<a href="javascript:;" title="产品" data-alert="全部">产品</a>
+								<ul>
+									<li class="nav2" v-for="item in productList" :key="item.id+item.name" @click="goProduct(item.id)">
+										<a :href="'product.html?id='+item.id" :title="item.name">
+											{{ item.name }}
+										</a>
+									</li>
+								</ul>
+							</li>
+	
+							<li class="nav1">
+								<a href="about.html" title="关于我们" data-alert="全部">关于我们</a>
+							</li>
+	
+							<li class="background"></li>
+						</ul>
+					</div>
+				</div>
+			</header>
+
+			<section role="main" class="subpage">
+				<div class="main-box">
+
+					<div class="sidebar-header ">
+						<div class="head-left">
+							<a href="index.html">
+								<img src="images/logo.png" />
+							</a>
+						</div>
+						<div class="sidebar-icon">
+							<i class="fa fa-arrow-left"></i>
+							<i class="fa fa-th-list"></i>
+						</div>
+						<div class="sidebar-nav">
+							<ul>
+								<li>
+									<a href="index.html" title="首页">首页</a>
+								</li>
+								
+								<li>
+									<a href="javascript:;" title="产品">产品 <span class="caret"></span></a>
+									<ul>
+										<li v-for="item in productList" :key="item.id+item.name">
+											<a :href="'product.html?id='+item.id" :title="item.name">
+												{{ item.name }}
+											</a>
+										</li>
+									</ul>
+								</li>
+
+								<li>
+									<a href="about.html" title="关于我们">关于我们</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="product-content-box">
+						<div class="itc-logo-2">
+							<a href="http://www.itcchina.com/">
+								<img src="images/itc_logo1.png"/>
+							</a>
+						</div>
+						
+						<h1 class="product-name">{{ product.name }}</h1>
+
+						<div class="product-title">应用场景</div>
+						<div class="product-descript" v-if="product.scene">
+							<template v-for="item in product.scene">
+								<h3>{{ item.name }}</h3>
+								<div>
+									<ul>
+										<li v-for="itemValue in item.value">
+											{{ itemValue }}
+										</li>
+									</ul>
+								</div>
+							</template>
+						</div>
+						<div class="product-descript" v-if="product.descript">
+							<template v-for="item in product.descript">
+								<h3>{{ item.name }}</h3>
+								<div>
+									<span class="txt-2-index">{{ item.value }}</span>
+								</div>
+							</template>
+						</div>
+
+						<div class="product-title">产品功能</div>
+						<div class="product-content" v-if="product.fnImg || product.fn">
+							<dl class="dl-horizontal dl-list" v-if="product.fn">
+								<template v-for="item in product.fn">
+									<dt>{{ item.name }}</dt>
+									<dd v-for="(itemValue, index) in item.value" :key="randomKey">{{ (index+1)+'.&nbsp;&nbsp;'+itemValue }}</dd>
+									<br />
+								</template>
+							</dl>
+							<img v-if="product.fnImg && product.fnImg.length" class="lazy" v-for="item in product.fnImg" :data-original="item" :key="randomKey" />
+						</div>
+
+						<div class="product-title">产品部署图</div>
+						<div class="product-content" v-if="product.decorate">
+							<img class="lazy" v-for="item in product.decorate" :data-original="item" :key="randomKey" />
+						</div>
+						
+						<template v-if="product.earnings && product.earnings.length">
+							<div class="product-title">用户收益</div>
+							<div class="product-content">
+								<dl v-if="typeof product.earnings[0] != 'string'" class="dl-horizontal dl-list">
+									<template v-for="item in product.earnings">
+										<dt>{{ item.name }}</dt>
+										<dd v-for="itemValue in item.value" :key="randomKey">{{ itemValue }}</dd>
+										<br />
+									</template>
+								</dl>
+								<p class="padding-left-20" v-else v-for="item in product.earnings" :key="randomKey">{{ item }}</p>
+							</div>
+						</template>
+
+						<div class="product-title" v-if="product.case && product.case.length || product.caseList && product.caseList.length">产品案例</div>
+						<div class="product-content">
+							<img class="lazy" v-for="item in product.case" :data-original="item" :key="randomKey" />
+						</div>
+						
+						<div class="product-descript" v-if="product.caseList && product.caseList.length">
+							<h3>更多案例</h3>
+							<div>
+								<ul>
+									<li v-for="item in product.caseList">
+										{{ item }}
+									</li>
+								</ul>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+
+				<footer>
+					<p>{{ companyName }}<span class="footer-span">{{ companyRecord }}</span></p>
+				</footer>
+
+				<button type="button" class="btn btn-icon btn-primary btn-squared met-scroll-top">
+				  <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
+				</button>
+
+			</section>
+
+		</div>
+
+		<script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/Swiper/3.4.0/js/swiper.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="https://cdn.bootcss.com/vue/2.0.8/vue.min.js"></script>
+		<script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+
+		<script src="js/index.js"></script>
+	</body>
+
+</html>
