@@ -7,13 +7,13 @@
 		<meta name="renderer" content="webkit">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<title>白衬衫</title>
-		<link rel="stylesheet" type="text/css" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
 		<style type="text/css">
 			[v-cloak] {
 				display: none
 			}
-			
-			#demowall>li>a>img {
+
+			.case-box>a>img {
 				height: 150px;
 				max-width: 100%;
 			}
@@ -21,48 +21,51 @@
 	</head>
 
 	<body>
-		<div class="container">
-			<div class="row" id="app" v-cloak>
-				<hr />
-				<ul class="list-unstyled text-center clearfix" id="demowall">
-					<li v-for="item in items" class="col-xs-6 col-sm-4 col-md-3">
-						<a href="{{item.url}}">
-							<img :src="item.imgSrc" />
-							<h3 v-text="item.name | checkText"></h3>
-							<samp v-text="item.samp | checkText"></samp>
+		<div class="container-fluid" id="app" v-cloak>
+			<div class="row mt-5">
+				<template v-for="citem in items">
+					<div class="col-sm-6 col-md-4 col-lg-3 text-center case-box">
+						<a target="_blank" :href="citem.url">
+							<img :src="citem.imgSrc" />
+							<h3>{{ citem.name | checkText }}</h3>
+							<samp>{{ citem.samp | checkText }}</samp>
 						</a>
-						<hr />
-					</li>
-				</ul>
+					</div>
+				</template>
 			</div>
 		</div>
 
 		<script src="http://apps.bdimg.com/libs/vue/1.0.14/vue.js"></script>
+		<script src="//cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
 		<script type="text/javascript">
-			Vue.filter('checkText', function(value) {
-				return value ? value : "null";
-			})
 			new Vue({
-				el: '#app',
-				data: {
-					items: [{
-						name: "白衬衫商城",
-						imgSrc: "build/img/1.jpg",
-						url: "weixin/www/index.html",
-						samp: '使用移动设备打开'
-					}, {
-						name: "首页排版一",
-						imgSrc: "homeOne/img/banner_1.png",
-						url: "homeOne/index.html"
-					}, {
-						name: "首页排版二",
-						imgSrc: "build/img/2.jpg",
-						url: "homeTwo/index.html"
-					}, {
-						name: "首页排版三",
-						imgSrc: "build/img/3.jpg",
-						url: "homeThree/index_animate.html"
-					}]
+				el: "#app",
+				filters: {
+					checkText: function(value) {
+						return value ? value : ""
+					}
+				},
+				data: function() {
+					return {
+						items: [{
+							name: "白衬衫商城",
+							imgSrc: "build/img/1.jpg",
+							url: "weixin/www/index.html",
+							samp: '使用移动设备打开'
+						}, {
+							name: "首页排版一",
+							imgSrc: "homeOne/img/banner_1.png",
+							url: "homeOne/index.html"
+						}, {
+							name: "首页排版二",
+							imgSrc: "build/img/2.jpg",
+							url: "homeTwo/index.html"
+						}, {
+							name: "首页排版三",
+							imgSrc: "build/img/3.jpg",
+							url: "homeThree/index_animate.html"
+						}]
+					}
 				}
 			})
 		</script>
