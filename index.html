@@ -45,7 +45,9 @@
 		<main id="app" v-cloak>
 			<header class="my-header">
 				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-					<!-- <a class="navbar-brand" href="#">不要叫我宅男，请叫我闭家锁</a> -->
+					<a class="navbar-brand" href="#">
+						<img height="50px" src="build/img/azil-white.png" >
+					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -84,6 +86,8 @@
 					</div>
 				</template>
 			</section>
+			
+			<footer style="height: 300px;"></footer>
 		</main>
 		
 		<script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
@@ -114,17 +118,17 @@
 								imgSrc: "build/img/zxyh.png",
 								url: "2016zqhb/2016zqhb_index.html",
 								samp: "2016年"
+							}, {
+								name: "2015年招商银行年度业绩发布",
+								imgSrc: "build/img/zsyh2015.jpg",
+								url: "http://cmbchina2016.allyes.com/2015nb/index.html",
+								samp: "2015年"
 							}]
 						}, {
 							name: "PC案例",
 							type: "pc",
 							img: "build/img/azil-blue.png",
 							list: [{
-								name: "关于我",
-								imgSrc: "build/img/azil-orange-ico.png",
-								url: "resume/index.html",
-								samp: "2019年"
-							}, {
 								name: "中科院XXX业务系统",
 								imgSrc: "build/img/中科院竖.jpg",
 								url: officeLive + "中科院XXX业务系统.docx",
@@ -160,8 +164,23 @@
 							type: "applet",
 							img: "build/img/azil-white.png",
 							list: []
-						}]
-					}
+						}, {
+							name: "我的简历",
+							type: "resume",
+							img: "build/img/azil-orange.png",
+							list: [{
+								name: "蓝色",
+								imgSrc: "build/img/resume2.jpg",
+								url: "resume2/index.html",
+								samp: "2019年"
+							}, {
+								name: "黑色",
+								imgSrc: "build/img/resume.jpg",
+								url: "resume/index.html",
+								samp: "2018年"
+							}]
+						}
+					]}
 				}
 			})
 		</script>
