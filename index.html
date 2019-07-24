@@ -23,20 +23,24 @@
 				color: #337ab7;
 			}
 			.case-box>a>img {
-				height: 150px;
+				height: 9.375rem;
+				min-height: 150px;
 				max-width: 100%;
-				border-radius: 15px;
+				border-radius: 0.9375rem;
 			}
 			.case-box>a>h3 {
-				font-size: 24px;
-				margin-top: 20px;
-				margin-bottom: 10px;
+				font-size: 1.5rem;
+				margin-top: 1.25rem;
+				margin-bottom: 0.625rem;
 			}
 			.applet {
 				background-color: #2F4254;
 			}
 			.applet h1 {
 				color: #fff;
+			}
+			.case-item {
+				padding-top: 3.5rem;
 			}
 		</style>
 	</head>
@@ -65,11 +69,10 @@
 			
 			<section class="container-fluid">
 				<template v-for="item in caseList">
-					<div style="padding-top: 56px;" :id="item.type">
+					<div :id="item.type" class="case-item">
 						<hr />
 						<div :class="['text-center p-1', item.type]">
-							<img style="height: 80px;" :src="item.img" >
-							<h1>{{ item.name }}</h1>
+							<h1><a :href="'#' + item.type"># {{ item.name }}</a></h1>
 						</div>
 						<hr />
 						<div class="row">
@@ -107,7 +110,6 @@
 						caseList: [{
 							name: "移动端案例",
 							type: "mobile",
-							img: "build/img/azil-orange.png",
 							list: [{
 								name: "小鹿寻城|寻城味道",
 								imgSrc: "http://m.xunchengweidao.com/xuncheng/images/index/banner1.jpg",
@@ -127,7 +129,6 @@
 						}, {
 							name: "PC案例",
 							type: "pc",
-							img: "build/img/azil-blue.png",
 							list: [{
 								name: "ITCsec",
 								imgSrc: "build/img/itcsec.jpg",
@@ -157,12 +158,10 @@
 						}, {
 							name: "小程序案例",
 							type: "applet",
-							img: "build/img/azil-white.png",
 							list: []
 						}, {
 							name: "我的简历",
 							type: "resume",
-							img: "build/img/azil-orange.png",
 							list: [{
 								name: "蓝色",
 								imgSrc: "build/img/resume2.jpg",
