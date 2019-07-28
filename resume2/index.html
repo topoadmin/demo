@@ -15,6 +15,22 @@
 		<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 		<link href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css" rel="stylesheet">
 		<link href="//cdn.bootcss.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet">
+		
+		<style type="text/css">
+			.fixed-home {
+				position: relative;
+				height: 100vh;
+			}
+			.fixed-home .intro {
+				position: fixed;
+				height: 100vh;
+				width: 100vw;
+			}
+			.body {
+				position: relative;
+				background: #fff;
+			}
+		</style>
 
 		<!-- 主题选择 -->
 		<!-- <link href="css/style.css" rel="stylesheet"> -->
@@ -64,230 +80,234 @@
 			</div>
 		</nav>
 		<!--/ 导航 End /-->
-
+		
 		<!--/ 简单介绍 Star /-->
-		<div id="home" class="intro route bg-image" style="background-image: url(img/bg.jpg)">
-			<div class="overlay-itro"></div>
-			<div class="intro-content display-table">
-				<div class="table-cell">
-					<div class="container">
-						<img src="img/azil-white.png" alt="">
-						<h1 class="intro-title mb-4"></h1>
-						<p class="intro-subtitle"><span class="text-slider-items">网页开发,小程序开发,App开发,公众号开发</span><strong class="text-slider"></strong></p>
-						<p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">了解更多</a></p>
+		<div class="fixed-home">
+			<div id="home" class="intro route bg-image" style="background-image: url(img/bg.jpg)">
+				<div class="overlay-itro"></div>
+				<div class="intro-content display-table">
+					<div class="table-cell">
+						<div class="container">
+							<img src="img/azil-white.png" alt="">
+							<h1 class="intro-title mb-4"></h1>
+							<p class="intro-subtitle"><span class="text-slider-items">网页开发,小程序开发,App开发,公众号开发</span><strong class="text-slider"></strong></p>
+							<p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">了解更多</a></p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!--/ 简单介绍 End /-->
-
-		<!--/ 关于我 Star /-->
-		<section id="about" class="about-mf sect-pt4 route">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="box-shadow-full">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="row">
-										<div class="col-sm-6 col-md-5">
-											<div class="about-img">
-												<img src="img/azil-blue-ico.png" class="img-fluid rounded b-shadow-a" alt="">
+		
+		<div class="body">
+			<!--/ 关于我 Star /-->
+			<section id="about" class="about-mf sect-pt4 route">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="box-shadow-full">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="row">
+											<div class="col-sm-6 col-md-5">
+												<div class="about-img">
+													<img src="img/azil-blue-ico.png" class="img-fluid rounded b-shadow-a" alt="">
+												</div>
+											</div>
+											<div class="col-sm-6 col-md-7">
+												<div class="about-info">
+													<p><span class="title-s">名字: </span> <span>高XX</span></p>
+													<p><span class="title-s">职业: </span> <span>Web前端开发人员</span></p>
+													<p><span class="title-s">邮箱: </span> <span>13701378834@163.com</span></p>
+													<p><span class="title-s">手机: </span> <span>13701378834</span></p>
+												</div>
 											</div>
 										</div>
-										<div class="col-sm-6 col-md-7">
-											<div class="about-info">
-												<p><span class="title-s">名字: </span> <span>高XX</span></p>
-												<p><span class="title-s">职业: </span> <span>Web前端开发人员</span></p>
-												<p><span class="title-s">邮箱: </span> <span>13701378834@163.com</span></p>
-												<p><span class="title-s">手机: </span> <span>13701378834</span></p>
+										<div class="skill-mf">
+											<p class="title-s">技能</p>
+											<span>HTML</span> <span class="pull-right">85%</span>
+											<div class="progress">
+												<div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
+												 aria-valuemax="100"></div>
+											</div>
+											<span>CSS3</span> <span class="pull-right">75%</span>
+											<div class="progress">
+												<div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+												 aria-valuemax="100"></div>
+											</div>
+											<span>JAVASCRIPT</span> <span class="pull-right">60%</span>
+											<div class="progress">
+												<div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+												 aria-valuemax="100"></div>
+											</div>
+											<span>uni-app</span> <span class="pull-right">20%</span>
+											<div class="progress">
+												<div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0"
+												 aria-valuemax="100"></div>
 											</div>
 										</div>
 									</div>
-									<div class="skill-mf">
-										<p class="title-s">技能</p>
-										<span>HTML</span> <span class="pull-right">85%</span>
-										<div class="progress">
-											<div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-											 aria-valuemax="100"></div>
-										</div>
-										<span>CSS3</span> <span class="pull-right">75%</span>
-										<div class="progress">
-											<div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
-											 aria-valuemax="100"></div>
-										</div>
-										<span>JAVASCRIPT</span> <span class="pull-right">60%</span>
-										<div class="progress">
-											<div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-											 aria-valuemax="100"></div>
-										</div>
-										<span>uni-app</span> <span class="pull-right">20%</span>
-										<div class="progress">
-											<div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0"
-											 aria-valuemax="100"></div>
+									<div class="col-md-6">
+										<div class="about-me pt-4 pt-md-0">
+											<div class="title-box-2">
+												<h5 class="title-left">
+													关于我
+												</h5>
+											</div>
+											<p class="lead">
+												我性格开朗，亦静亦动，本着一颗诚心与人交往，有较强的表达能力，同时也很乐意倾听，懂得自我反省。
+											</p>
+											<p class="lead">
+												我品尝过失败，经历过迷惘，但最终在集体生活中慢慢成长起来，形成了良好的性格品质。 
+											</p>
+											<p class="lead">
+												无论在生活还是工作中，都会细心地做好每一件事。在今后的职业生涯规划中，希望成为一名优秀、称职的工作人员，在工作中充分发挥进取精神及创造力。 
+											</p>
 										</div>
 									</div>
 								</div>
-								<div class="col-md-6">
-									<div class="about-me pt-4 pt-md-0">
-										<div class="title-box-2">
-											<h5 class="title-left">
-												关于我
-											</h5>
-										</div>
-										<p class="lead">
-											我性格开朗，亦静亦动，本着一颗诚心与人交往，有较强的表达能力，同时也很乐意倾听，懂得自我反省。
-										</p>
-										<p class="lead">
-											我品尝过失败，经历过迷惘，但最终在集体生活中慢慢成长起来，形成了良好的性格品质。 
-										</p>
-										<p class="lead">
-											无论在生活还是工作中，都会细心地做好每一件事。在今后的职业生涯规划中，希望成为一名优秀、称职的工作人员，在工作中充分发挥进取精神及创造力。 
-										</p>
-									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--/ 关于我 End /-->
+			
+			<!--/ 服务 Star /-->
+			<section id="service" class="services-mf route">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="title-box text-center">
+								<h3 class="title-a">
+									服务
+								</h3>
+								<div class="line-mf"></div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="service-box">
+								<div class="service-ico">
+									<span class="ico-circle"><i class="ion-monitor"></i></span>
+								</div>
+								<div class="service-content">
+									<h2 class="s-title">Web 开发</h2>
+									<p class="s-description text-center">
+										Web 开发
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="service-box">
+								<div class="service-ico">
+									<span class="ico-circle"><i class="ion-android-phone-portrait"></i></span>
+								</div>
+								<div class="service-content">
+									<h2 class="s-title">H5 开发</h2>
+									<p class="s-description text-center">
+										H5 开发
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="service-box">
+								<div class="service-ico">
+									<span class="ico-circle"><i class="ion-code-working"></i></span>
+								</div>
+								<div class="service-content">
+									<h2 class="s-title">App 开发</h2>
+									<p class="s-description text-center">
+										App 开发
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="service-box">
+								<div class="service-ico">
+									<span class="ico-circle"><i class="ion-android-phone-portrait"></i></span>
+								</div>
+								<div class="service-content">
+									<h2 class="s-title">小程序开发</h2>
+									<p class="s-description text-center">
+										小程序开发
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--/ 服务 End /-->
+			
+			<!--/ 经验 Star /-->
+			<div id="experience" class="section-counter paralax-mf bg-image" style="background-image: url(img/work-5.jpg)">
+				<div class="overlay-mf"></div>
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-4 col-lg-4">
+							<div class="counter-box counter-box pt-4 pt-md-0">
+								<div class="counter-ico">
+									<span class="ico-circle"><i class="ion-checkmark-round"></i></span>
+								</div>
+								<div class="counter-num">
+									<p class="counter">40</p>
+									<span class="counter-text">完成总项目</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4 col-lg-4">
+							<div class="counter-box pt-4 pt-md-0">
+								<div class="counter-ico">
+									<span class="ico-circle"><i class="ion-ios-calendar-outline"></i></span>
+								</div>
+								<div class="counter-num">
+									<p class="counter">5</p>
+									<span class="counter-text">年工作经验</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4 col-lg-4">
+							<div class="counter-box pt-4 pt-md-0">
+								<div class="counter-ico">
+									<span class="ico-circle"><i class="ion-ios-people"></i></span>
+								</div>
+								<div class="counter-num">
+									<p class="counter">15</p>
+									<span class="counter-text">总客户</span>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-		<!--/ 关于我 End /-->
-		
-		<!--/ 服务 Star /-->
-		<section id="service" class="services-mf route">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="title-box text-center">
-							<h3 class="title-a">
-								服务
-							</h3>
-							<div class="line-mf"></div>
+			<!--/ 经验 End /-->
+			
+			<!--/ 案例 Star /-->
+			<section id="work" class="portfolio-mf sect-pt4 route">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="title-box text-center mb-5">
+								<h3 class="title-a">案例</h3>
+								<div class="line-mf"></div>
+							</div>
 						</div>
+					</div>
+					<div class="row">
+						<iframe src="../index.html" width="100%" height="500" frameborder="0" framespacing="0"></iframe>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<div class="service-box">
-							<div class="service-ico">
-								<span class="ico-circle"><i class="ion-monitor"></i></span>
-							</div>
-							<div class="service-content">
-								<h2 class="s-title">Web 开发</h2>
-								<p class="s-description text-center">
-									Web 开发
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="service-box">
-							<div class="service-ico">
-								<span class="ico-circle"><i class="ion-android-phone-portrait"></i></span>
-							</div>
-							<div class="service-content">
-								<h2 class="s-title">H5 开发</h2>
-								<p class="s-description text-center">
-									H5 开发
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="service-box">
-							<div class="service-ico">
-								<span class="ico-circle"><i class="ion-code-working"></i></span>
-							</div>
-							<div class="service-content">
-								<h2 class="s-title">App 开发</h2>
-								<p class="s-description text-center">
-									App 开发
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="service-box">
-							<div class="service-ico">
-								<span class="ico-circle"><i class="ion-android-phone-portrait"></i></span>
-							</div>
-							<div class="service-content">
-								<h2 class="s-title">小程序开发</h2>
-								<p class="s-description text-center">
-									小程序开发
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!--/ 服务 End /-->
-		
-		<!--/ 经验 Star /-->
-		<div id="experience" class="section-counter paralax-mf bg-image" style="background-image: url(img/work-5.jpg)">
-			<div class="overlay-mf"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-4 col-lg-4">
-						<div class="counter-box counter-box pt-4 pt-md-0">
-							<div class="counter-ico">
-								<span class="ico-circle"><i class="ion-checkmark-round"></i></span>
-							</div>
-							<div class="counter-num">
-								<p class="counter">40</p>
-								<span class="counter-text">完成总项目</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4 col-lg-4">
-						<div class="counter-box pt-4 pt-md-0">
-							<div class="counter-ico">
-								<span class="ico-circle"><i class="ion-ios-calendar-outline"></i></span>
-							</div>
-							<div class="counter-num">
-								<p class="counter">5</p>
-								<span class="counter-text">年工作经验</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4 col-lg-4">
-						<div class="counter-box pt-4 pt-md-0">
-							<div class="counter-ico">
-								<span class="ico-circle"><i class="ion-ios-people"></i></span>
-							</div>
-							<div class="counter-num">
-								<p class="counter">15</p>
-								<span class="counter-text">总客户</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			</section>
+			<!--/ 案例 End /-->
+			
+			<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+			<div id="preloader"></div>
 		</div>
-		<!--/ 经验 End /-->
-		
-		<!--/ 案例 Star /-->
-		<section id="work" class="portfolio-mf sect-pt4 route">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="title-box text-center mb-5">
-							<h3 class="title-a">案例</h3>
-							<div class="line-mf"></div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<iframe src="../index.html" width="100%" height="500" frameborder="0" framespacing="0"></iframe>
-				</div>
-			</div>
-		</section>
-		<!--/ 案例 End /-->
-
-		<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-		<div id="preloader"></div>
 
 		<!-- JavaScript Libraries -->
 		<script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
