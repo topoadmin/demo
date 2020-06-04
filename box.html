@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+		<style>
+			.tab-x {
+				display: flex;
+				flex-direction: row-reverse;
+				justify-content: flex-end;
+				padding-left: 20px;
+				border-bottom: 1px solid rgba(0, 0, 0, .1);
+			}
+
+			.tab-a {
+				--backgroundColor: #fff;
+				background-color: var(--backgroundColor);
+				line-height: 20px;
+				padding: 10px 20px;
+				border-radius: 16px 16px 0 0;
+				filter: drop-shadow(0 -1px 1px rgba(0, 0, 0, .1));
+				position: relative;
+			}
+
+			/* 创建外侧圆弧 */
+			.tab-a::before,
+			.tab-a::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				width: 16px;
+				height: 16px;
+			}
+
+			.tab-a::before {
+				background: radial-gradient(circle at 0 0, transparent, transparent 16px, var(--backgroundColor) 17px);
+				right: 100%;
+			}
+
+			.tab-a::after {
+				background: radial-gradient(circle at 100% 0, transparent, transparent 16px, var(--backgroundColor) 17px);
+				left: 100%;
+			}
+
+			.tab-a.active {
+				--backgroundColor: teal;
+				color: #fff;
+				z-index: 1;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="tab-x">
+			<a href="javascript:" class="tab-a">选项卡3</a>
+			<a href="javascript:" class="tab-a">选项卡2</a>
+			<a href="javascript:" class="tab-a active">选项卡1</a>
+		</div>
+	</body>
+
+</html>
