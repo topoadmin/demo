@@ -152,7 +152,7 @@
 		}
 		time () { // 计时器
 			if (this.$timeEl) {
-				this.__clearTIme = setTimeout(() => {
+				this.__clearTime = setTimeout(() => {
 					this.__ms = this.__ms + 60
 					Object.prototype.toString.call(this.opt.timeCallback) === '[object Function]' && this.opt.timeCallback(this.__ms)
 					this.time()
