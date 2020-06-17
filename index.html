@@ -72,7 +72,7 @@
 					<div :id="item.type" class="case-item">
 						<hr />
 						<div :class="['text-center p-1', item.type]">
-							<h1><a :href="'#' + item.type"># {{ item.name }}</a></h1>
+							<h1><a :disabled="item.disabled" :href="'#' + item.type"># {{ item.name }}</a></h1>
 						</div>
 						<hr />
 						<div class="row">
@@ -82,6 +82,7 @@
 										<img :src="citem.imgSrc" />
 										<h3>{{ citem.name | checkText }}</h3>
 										<samp>{{ citem.samp | checkText }}</samp>
+										<p v-if="citem.desc" style="color: red;">{{ citem.desc | checkText }}</p>
 									</a>
 								</div>
 							</template>
@@ -93,7 +94,6 @@
 			<footer style="height: 300px;"></footer>
 		</main>
 		
-		<script src="//cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 		<script src="//cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<script src="//cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
 		<script type="text/javascript">
@@ -112,9 +112,10 @@
 							type: "mobile",
 							list: [{
 								name: "小鹿寻城|寻城味道",
-								imgSrc: "http://m.xunchengweidao.com/xuncheng/images/index/banner1.jpg",
+								imgSrc: "//pic.downk.cc/item/5ee9e9d9a240b370e31081e5.jpg",
 								url: "http://m.xunchengweidao.com/xuncheng",
-								samp: "2017年"
+								samp: "2017年",
+								desc: "已下线"
 							}, {
 								name: "2016年中信银行半年度业绩发布",
 								imgSrc: "build/img/zxyh.png",
@@ -131,11 +132,6 @@
 							type: "pc",
 							list: [{
 								name: "ITCsec",
-								imgSrc: "build/img/itcsec.jpg",
-								url: "http://www.itcsec.com.cn/",
-								samp: "2018年"
-							}, {
-								name: "ITCsec（2）",
 								imgSrc: "build/img/itcsec1.jpg",
 								url: "itcsec/index.html",
 								samp: "2018年"
@@ -148,7 +144,8 @@
 								name: "美游人生",
 								imgSrc: "build/img/tata.jpg",
 								url: "tata/Home/home.html",
-								samp: "2016年(项目下线，部分图片无法加载)"
+								samp: "2016年",
+								desc: "已下线"
 							}, {
 								name: "Jtopo",
 								imgSrc: "build/img/jtopo.jpg",
@@ -179,6 +176,5 @@
 			})
 		</script>
 	</body>
-
 
 </html>
